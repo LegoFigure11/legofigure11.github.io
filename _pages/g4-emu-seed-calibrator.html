@@ -1,0 +1,113 @@
+---
+layout: page
+title: G4 Emu Seed Calibrator
+permalink: /tools/g4-emu-seed-calibrator/
+---
+<style>
+	td {
+    border-bottom: 0px solid !important;
+  }
+</style>
+<h1>Emu Delay Calibrator</h1>
+<table class="inputs">
+	<tr>
+		<td>Enter your target: </td>
+		<td>0x<input id="target" type="text" pattern="[a-fA-F\d]+"></input></td>
+	</tr>
+	<tr>
+		<td>Enter what you hit: </td>
+		<td>0x<input id="actual" type="text" pattern="[a-fA-F\d]+"></input></td>
+	</tr>
+	<tr class="hidden" id="hidden" style="visibility: hidden;">
+		<td colspan="2"><button type="button" id="calculate" style="width:100%;">Calculate!</button></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<tr id="resRow" style="visibility: hidden;">
+		<td>Result: </td>
+		<td><input id="result" type="text" disabled="disabled"></input></td>
+	</tr>
+</table>
+
+<script>
+	const copyToClipboard = str => {
+		const el = document.createElement('textarea');
+		el.value = str;
+		el.setAttribute('readonly', '');
+		el.style.position = 'absolute';
+		el.style.left = '-9999px';
+		document.body.appendChild(el);
+		const selected = document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+		if (selected) {
+			document.getSelection().removeAllRanges();
+			document.getSelection().addRange(selected);
+		}
+	};
+
+	function toPaddedHexString(num, len) {
+		var str = num.toString(16);
+		return str + "0".repeat(len - str.length);
+	};
+	var t = "t";
+	var a = "a";
+	$("#target").bind("change keyup keydown", function() {
+		t = "Set!";
+		if (t === a) {
+			$("#hidden").css("visibility", "visible");
+		}
+		var testArr = $("#target").val().split("");
+		var resultArr = [];
+		var isHex = new RegExp("[a-fA-F0-9]+")
+		for (var i in testArr) {
+			if (isHex.test(testArr[i]) && i < 8) {
+				resultArr.push(testArr[i]);
+			}
+		}
+		$("#target").val(resultArr.join(""));
+	});
+	$("#actual").bind("change keyup keydown", function() {
+		a = "Set!";
+		if (t === a) {
+			$("#hidden").css("visibility", "visible");
+		}
+		var testArr = $("#actual").val().split("");
+		var resultArr = [];
+		var isHex = new RegExp("[a-fA-F0-9]+")
+		for (var i in testArr) {
+			if (isHex.test(testArr[i]) && i < 8) {
+				resultArr.push(testArr[i]);
+			}
+		}
+		$("#actual").val(resultArr.join(""));
+	});
+	$("#calculate").click(function() {
+		$("#resRow").css("visibility", "visible");
+		var inArr = toPaddedHexString($("#target").val(), 8).split("");
+		var inVal = [];
+		var retain = [];
+		for (var k in inArr) {
+			if (k < 4) {
+				inVal.push(inArr[k])
+			} else {
+				retain.push(inArr[k]);
+			}
+		}
+		var afArr = toPaddedHexString($("#actual").val(), 8).split("");
+		var afVal = [];
+		for (var j in afArr) {
+			if (j < 4) {
+				afVal.push(afArr[j])
+			}
+		}
+		var initialVal = parseInt(inVal.join(""), 16);
+		var afterVal = parseInt(afVal.join(""), 16);
+		var difference = afterVal - initialVal;
+		var finalResult = ((initialVal - difference).toString(16) + retain.join("")).toUpperCase()
+		$("#result").val((parseInt(finalResult, 16) < 0 || finalResult.length > 8) ? "Please try a different Seed" : finalResult);
+		copyToClipboard($("#result").val());
+	})
+</script>
