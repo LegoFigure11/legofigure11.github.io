@@ -1,0 +1,116 @@
+---
+layout: page
+title: SID For Shiny
+permalink: /tools/sid-for-shiny/
+---
+<style>
+	td {
+    border-bottom: 0px solid !important;
+  }
+</style>
+<h1>SID for Shiny</h1>
+<table class="inputs">
+	<tr>
+		<td>Enter the PID you want to make Shiny: </td>
+		<td>0x<input id="target" type="text" pattern="[a-fA-F\d]+"></input></td>
+	</tr>
+	<tr>
+		<td>TID: </td>
+		<td>0x<input id="actual" type="text" pattern="[a-fA-F\d]+"></input></td>
+	</tr>
+	<tr class="hidden" id="hidden" style="visibility: hidden;">
+		<td colspan="2"><button type="button" id="calculate" style="width:100%;">Calculate!</button></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<tr id="resRow" style="visibility: hidden;">
+		<td>SID Range for Shiny: </td>
+		<td><input id="result" type="text" disabled="disabled"></input></td>
+	</tr>
+</table>
+
+<script>
+	const copyToClipboard = str => {
+		const el = document.createElement('textarea');
+		el.value = str;
+		el.setAttribute('readonly', '');
+		el.style.position = 'absolute';
+		el.style.left = '-9999px';
+		document.body.appendChild(el);
+		const selected = document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+		if (selected) {
+			document.getSelection().removeAllRanges();
+			document.getSelection().addRange(selected);
+		}
+	};
+
+	function toPaddedHexString(num, len) {
+		var str = num.toString(16);
+		return "0".repeat(len - str.length) + str;
+	};
+
+	function toPaddedString(num, len) {
+		var str = num.toString(10)
+		return "0".repeat(len - str.length) + str;
+	};
+	var t = "t";
+	var a = "a";
+	$("#target").bind("change keyup keydown", function() {
+		t = "Set!";
+		if (t === a) {
+			$("#hidden").css("visibility", "visible");
+		}
+		var testArr = $("#target").val().split("");
+		var resultArr = [];
+		var isHex = new RegExp("[a-fA-F0-9]+")
+		for (var i in testArr) {
+			if (isHex.test(testArr[i]) && i < 8) {
+				resultArr.push(testArr[i]);
+			}
+		}
+		$("#target").val(resultArr.join(""));
+	});
+	$("#actual").bind("change keyup keydown", function() {
+		a = "Set!";
+		if (t === a) {
+			$("#hidden").css("visibility", "visible");
+		}
+		var testArr = $("#actual").val().split("");
+		var resultArr = [];
+		var isHex = new RegExp("[0-9]+")
+		for (var i in testArr) {
+			if (isHex.test(testArr[i]) && i < 5) {
+				resultArr.push(testArr[i]);
+			}
+		}
+		$("#actual").val(resultArr.join(""));
+	});
+	$("#calculate").click(function() {
+		$("#resRow").css("visibility", "visible");
+		var decpid = parseInt("0x" + $("#target").val(), 16);
+		var dectid = parseInt($("#actual").val() + "", 10)
+		var hexpid = toPaddedHexString($("#target").val(), 8);
+		var lpid = hexpid.substr(-4);
+		var hpid = hexpid.substr(0, 4);
+		var htid = toPaddedHexString(dectid.toString(16));
+		var binpidh = toPaddedString(parseInt(hpid, 16).toString(2), 16).substr(0, 13).split("")
+		var binpidl = toPaddedString(parseInt(lpid, 16).toString(2), 16).substr(0, 13).split("")
+		var bintid = toPaddedString(parseInt(htid, 16).toString(2), 16).substr(0, 13).split("")
+		// console.log("PID High: " + binpidh)
+		// console.log("PID Low : " + binpidl)
+		// console.log("TID     : " + bintid)
+		var outarray = [];
+		for (var i = 0; i <= 12; i++) {
+			var total = (parseInt(binpidh[i]) + parseInt(binpidl[i]) + parseInt(bintid[i])) % 2;
+			outarray.push(total)
+		}
+		var binresult = outarray.toString().split(",").join("") + "000"
+		var result = parseInt(binresult, 2)
+		$("#result").val(toPaddedString(result, 5) + " - " + toPaddedString(result + 7, 5));
+		copyToClipboard($("#result").val());
+	})
+</script>
