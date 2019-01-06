@@ -5,8 +5,6 @@ permalink: /tools/
 ---
 <p style="text-align: center;">This page contains a list of all of the tools that I have programmed or contributed to.</p>
 
-# Major Contributions
-
 ## cantsaycalc
 #### <a href="https://spo.ink/bsscalc" target="\_blank">Link</a> | <a href="https://git.io/fhsmK" target="\_blank">Github</a>
 The Damage Calculator for the Battle Spot Community on Smogon. Originally owned by cant say, I've more or less adopted the project now. I added the Inverse, Factory, and LGPE modes, and frequently update and maintain the project.
@@ -24,12 +22,12 @@ A little program written in javascript to calculate the range of SIDs required t
 A calculator to use to calibrate seed offsets for Gen 4 and Gen 5 (Entralink) RNG on emulators when not using RunAsDate.
 Guide <a href="https://www.smogon.com/forums/threads/52180/page-1645#post-7137598" target="\_blank">here</a> (replace the spreadsheet linked with this calculator).
 
-# Minor Contributions
-
 ## ko-chance-calculator
 #### <a href="https://git.io/fhsYC" target="\_blank">Link</a> | <a href="https://git.io/fhsY8" target="\_blank">Github</a>
 A web implementation of DaWoblefet's Java Applet of the same name. Read more about it <a href="https://www.smogon.com/forums/threads/3597699/page-2#post-7999983" target="\_blank">here</a>.
 
+{% comment %}
 ## pokemon-showdown
 #### Numerous contributions
 Notable contributions to this project include the addition of <a href="https://git.io/vHnaS" target="\_blank">BSS Factory</a> and <a href="https://git.io/vAMID" target="\_blank">Gen 7 Battle Factory</a>. A full list of all contributions can be found <a href="https://git.io/fhsY1" target="\_blank">here</a>.
+{% endcomment %}
