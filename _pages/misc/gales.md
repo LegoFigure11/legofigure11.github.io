@@ -8,7 +8,7 @@ permalink: /misc/gales
 ### Preface
 Many users have come to me confused as to why they are unable to hit their RNG targets in Gales.
 While this can be for many reasons (noise, etc.), it can also simply be due to how the RNG works - sometimes you may even need to advance beyond your target to hit it!
-This is explained in brief in amab's XD RNG imgur album (go read it if you haven't already), but understanding how Pokémon are generated properly is vitally important to succeeding at this RNG.
+This is explained in brief in [amab's XD RNG imgur album](https://imgur.com/a/73aCC) (go read it if you haven't already), but understanding how Pokémon are generated properly is vitally important to succeeding at this RNG.
 
 It is assumed that you are familiar with basic RNG terms such as "Frame" and how to use and interpret some kind of searching program such as RNGReporter or PokéFinder.
 
@@ -23,7 +23,7 @@ Example Nature lock (NL): ``Hardy Male -> Hardy Female -> Target (Natu)``
 Target Frame: ``824003    0F2449D3    Timid   1   31  30  30  31  31  30  Electric    70``
 
 ### Explanation
-From amab's guide, we know that it takes 7 frames to generate a Pokemon. Thus, we can rewrite our nature lock as so:
+From amab's guide, we know that it takes 7 frames to generate a Pokémon. Thus, we can rewrite our nature lock as so:
 
 ``Hardy Male -> Hardy Female (823996) -> Target (824003)``
 
@@ -35,9 +35,9 @@ From here, we can work backwards from NL2 in reporter to find frames that satisf
 
 ``823991, 823985, 823916, 823878, 823808, 823762, 823733``
 
-Frame ``823991`` is odd, but because it takes 7 frames for the game to generate a Pokemon, hitting that would cause us to roll past our target NL2 (``823991 + 7 = 823998``, which would take our NL2 to ``824016`` and throw everything completely off). ``823985`` is both odd and is more than 7 frames before our NL2, so this is the upper limit of our NL1. Any frames further than this and we will miss our target NL3.
+Frame ``823991`` is odd, but because it takes 7 frames for the game to generate a Pokémon, hitting that would cause us to roll past our target NL2 (``823991 + 7 = 823998``, which would take our NL2 to ``824016`` and throw everything completely off). ``823985`` is both odd and is more than 7 frames before our NL2, so this is the upper limit of our NL1. Any frames further than this and we will miss our target NL3.
 
-``823916````823878````823808`` and ``823762`` are all even, so also cannot be used in NL1. This leaves ``823733`` as the lower limit for our NL1. Due to the way that Gales treats Odd and Even frames, landing on any ODD frame greater than ``823733`` and less than or equal to 823985 will cause the NLs to line up in a way that NL is on our target frame (if we hit a frame before the upper limit of our NL1 but after the lower limit, the game will automatically roll forward until it hits the upper limit and generate the Pokemon there).
+``823916````823878````823808`` and ``823762`` are all even, so also cannot be used in NL1. This leaves ``823733`` as the lower limit for our NL1. Due to the way that Gales treats Odd and Even frames, landing on any ODD frame greater than ``823733`` and less than or equal to 823985 will cause the NLs to line up in a way that NL is on our target frame (if we hit a frame before the upper limit of our NL1 but after the lower limit, the game will automatically roll forward until it hits the upper limit and generate the Pokémon there).
 
 <br />
 But Lego, you still haven't explained why I can advance past my target frame and then hit it later!
