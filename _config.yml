@@ -9,7 +9,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://legofigure11.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  LegoFigure11
-smogon_username:  legofigure11.188833
+smogon_username:  lego.188833
 show_links: true
 
 music_url: /tunes
