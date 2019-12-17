@@ -1,0 +1,377 @@
+---
+layout: page
+title: SID For Shiny
+permalink: /tools/g6-seed-ips/
+---
+<style>
+	td {
+    border-bottom: 0px solid !important;
+  }
+</style>
+<h1>G6 Seed IPS Generator</h1>
+<table class="inputs">
+	<tr>
+		<td>Enter the seed you would like to force: </td>
+		<td><input id="target" type="text" pattern="[a-fA-F\d]+"></input></td>
+	</tr>
+	<tr class="hidden" id="hidden" style="visibility: hidden;">
+		<td colspan="2"><button type="button" id="calculate" style="width:100%;">Download Patch</button></td>
+	</tr>
+</table>
+
+<script>
+	function toPaddedHexString(num, len) {
+		var str = num.toString(16);
+		return "0".repeat(len - str.length) + str;
+	};
+
+	function toPaddedString(num, len) {
+		var str = num.toString(10)
+		return "0".repeat(len - str.length) + str;
+	};
+	$("#target").bind("change keyup keydown", function() {
+		$("#hidden").css("visibility", "visible");
+		var testArr = $("#target").val().split("");
+		var resultArr = [];
+		var isHex = new RegExp("[a-fA-F0-9]+")
+		for (var i in testArr) {
+			if (isHex.test(testArr[i]) && i < 8) {
+				resultArr.push(testArr[i]);
+			}
+		}
+		$("#target").val(resultArr.join(""));
+	});
+	function base64ToArrayBuffer(base64) {
+		var binaryString = window.atob(base64);
+		var binaryLen = binaryString.length;
+		var bytes = new Uint8Array(binaryLen);
+		for (var i = 0; i < binaryLen; i++) {
+		var ascii = binaryString.charCodeAt(i);
+			bytes[i] = ascii;
+		}
+		return bytes;
+	}
+	function saveByteArray(reportName, byte) {
+		var blob = new Blob([byte], {type: "application/pdf"});
+		var link = document.createElement('a');
+		link.href = window.URL.createObjectURL(blob);
+		var fileName = reportName;
+		link.download = fileName;
+		link.click();
+	};
+	$("#calculate").click(function() {
+		var seed = toPaddedHexString($("#target").val(), 8);
+		var seedParts = [];
+		for (var i = 0; i < seed.length; i++) {
+			if (i % 2 === 1) {
+				seedParts.push(seed[i-1] + seed[i])
+			}
+		}
+		
+		let bytes = Buffer.from(`504154434800d9b0000414109fe500d9cc0004${seedParts[3]}${seedParts[2]}${seedParts[1]}${seedParts[0]}454f46`. 'hex');
+		
+		//var buf = base64ToArrayBuffer(bytes);
+		saveByteArray("code.ips", bytes);
+		
+	})
+</script>
+<script>
+/* FileSaver.js
+ *  A saveAs() & saveTextAs() FileSaver implementation.
+ *  2014-06-24
+ *
+ *  Modify by Brian Chen
+ *  Author: Eli Grey, http://eligrey.com
+ *  License: X11/MIT
+ *    See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
+ */
+
+/*global self */
+/*jslint bitwise: true, indent: 4, laxbreak: true, laxcomma: true, smarttabs: true, plusplus: true */
+
+/*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
+
+var saveAs = saveAs
+  // IE 10+ (native saveAs)
+  || (typeof navigator !== "undefined" &&
+      navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
+  // Everyone else
+  || (function (view) {
+      "use strict";
+      // IE <10 is explicitly unsupported
+      if (typeof navigator !== "undefined" &&
+          /MSIE [1-9]\./.test(navigator.userAgent)) {
+          return;
+      }
+      var
+            doc = view.document
+            // only get URL when necessary in case Blob.js hasn't overridden it yet
+          , get_URL = function () {
+              return view.URL || view.webkitURL || view;
+          }
+          , save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
+          , can_use_save_link = !view.externalHost && "download" in save_link
+          , click = function (node) {
+              var event = doc.createEvent("MouseEvents");
+              event.initMouseEvent(
+                  "click", true, false, view, 0, 0, 0, 0, 0
+                  , false, false, false, false, 0, null
+              );
+              node.dispatchEvent(event);
+          }
+          , webkit_req_fs = view.webkitRequestFileSystem
+          , req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem
+          , throw_outside = function (ex) {
+              (view.setImmediate || view.setTimeout)(function () {
+                  throw ex;
+              }, 0);
+          }
+          , force_saveable_type = "application/octet-stream"
+          , fs_min_size = 0
+          , deletion_queue = []
+          , process_deletion_queue = function () {
+              var i = deletion_queue.length;
+              while (i--) {
+                  var file = deletion_queue[i];
+                  if (typeof file === "string") { // file is an object URL
+                      get_URL().revokeObjectURL(file);
+                  } else { // file is a File
+                      file.remove();
+                  }
+              }
+              deletion_queue.length = 0; // clear queue
+          }
+          , dispatch = function (filesaver, event_types, event) {
+              event_types = [].concat(event_types);
+              var i = event_types.length;
+              while (i--) {
+                  var listener = filesaver["on" + event_types[i]];
+                  if (typeof listener === "function") {
+                      try {
+                          listener.call(filesaver, event || filesaver);
+                      } catch (ex) {
+                          throw_outside(ex);
+                      }
+                  }
+              }
+          }
+          , FileSaver = function (blob, name) {
+              // First try a.download, then web filesystem, then object URLs
+              var
+                    filesaver = this
+                  , type = blob.type
+                  , blob_changed = false
+                  , object_url
+                  , target_view
+                  , get_object_url = function () {
+                      var object_url = get_URL().createObjectURL(blob);
+                      deletion_queue.push(object_url);
+                      return object_url;
+                  }
+                  , dispatch_all = function () {
+                      dispatch(filesaver, "writestart progress write writeend".split(" "));
+                  }
+                  // on any filesys errors revert to saving with object URLs
+                  , fs_error = function () {
+                      // don't create more object URLs than needed
+                      if (blob_changed || !object_url) {
+                          object_url = get_object_url(blob);
+                      }
+                      if (target_view) {
+                          target_view.location.href = object_url;
+                      } else {
+                          window.open(object_url, "_blank");
+                      }
+                      filesaver.readyState = filesaver.DONE;
+                      dispatch_all();
+                  }
+                  , abortable = function (func) {
+                      return function () {
+                          if (filesaver.readyState !== filesaver.DONE) {
+                              return func.apply(this, arguments);
+                          }
+                      };
+                  }
+                  , create_if_not_found = { create: true, exclusive: false }
+                  , slice
+              ;
+              filesaver.readyState = filesaver.INIT;
+              if (!name) {
+                  name = "download";
+              }
+              if (can_use_save_link) {
+                  object_url = get_object_url(blob);
+                  save_link.href = object_url;
+                  save_link.download = name;
+                  click(save_link);
+                  filesaver.readyState = filesaver.DONE;
+                  dispatch_all();
+                  return;
+              }
+              // Object and web filesystem URLs have a problem saving in Google Chrome when
+              // viewed in a tab, so I force save with application/octet-stream
+              // http://code.google.com/p/chromium/issues/detail?id=91158
+              if (view.chrome && type && type !== force_saveable_type) {
+                  slice = blob.slice || blob.webkitSlice;
+                  blob = slice.call(blob, 0, blob.size, force_saveable_type);
+                  blob_changed = true;
+              }
+              // Since I can't be sure that the guessed media type will trigger a download
+              // in WebKit, I append .download to the filename.
+              // https://bugs.webkit.org/show_bug.cgi?id=65440
+              if (webkit_req_fs && name !== "download") {
+                  name += ".download";
+              }
+              if (type === force_saveable_type || webkit_req_fs) {
+                  target_view = view;
+              }
+              if (!req_fs) {
+                  fs_error();
+                  return;
+              }
+              fs_min_size += blob.size;
+              req_fs(view.TEMPORARY, fs_min_size, abortable(function (fs) {
+                  fs.root.getDirectory("saved", create_if_not_found, abortable(function (dir) {
+                      var save = function () {
+                          dir.getFile(name, create_if_not_found, abortable(function (file) {
+                              file.createWriter(abortable(function (writer) {
+                                  writer.onwriteend = function (event) {
+                                      target_view.location.href = file.toURL();
+                                      deletion_queue.push(file);
+                                      filesaver.readyState = filesaver.DONE;
+                                      dispatch(filesaver, "writeend", event);
+                                  };
+                                  writer.onerror = function () {
+                                      var error = writer.error;
+                                      if (error.code !== error.ABORT_ERR) {
+                                          fs_error();
+                                      }
+                                  };
+                                  "writestart progress write abort".split(" ").forEach(function (event) {
+                                      writer["on" + event] = filesaver["on" + event];
+                                  });
+                                  writer.write(blob);
+                                  filesaver.abort = function () {
+                                      writer.abort();
+                                      filesaver.readyState = filesaver.DONE;
+                                  };
+                                  filesaver.readyState = filesaver.WRITING;
+                              }), fs_error);
+                          }), fs_error);
+                      };
+                      dir.getFile(name, { create: false }, abortable(function (file) {
+                          // delete file if it already exists
+                          file.remove();
+                          save();
+                      }), abortable(function (ex) {
+                          if (ex.code === ex.NOT_FOUND_ERR) {
+                              save();
+                          } else {
+                              fs_error();
+                          }
+                      }));
+                  }), fs_error);
+              }), fs_error);
+          }
+          , FS_proto = FileSaver.prototype
+          , saveAs = function (blob, name) {
+              return new FileSaver(blob, name);
+          }
+      ;
+      FS_proto.abort = function () {
+          var filesaver = this;
+          filesaver.readyState = filesaver.DONE;
+          dispatch(filesaver, "abort");
+      };
+      FS_proto.readyState = FS_proto.INIT = 0;
+      FS_proto.WRITING = 1;
+      FS_proto.DONE = 2;
+
+      FS_proto.error =
+      FS_proto.onwritestart =
+      FS_proto.onprogress =
+      FS_proto.onwrite =
+      FS_proto.onabort =
+      FS_proto.onerror =
+      FS_proto.onwriteend =
+          null;
+
+      view.addEventListener("unload", process_deletion_queue, false);
+      saveAs.unload = function () {
+          process_deletion_queue();
+          view.removeEventListener("unload", process_deletion_queue, false);
+      };
+      return saveAs;
+  }(
+	   typeof self !== "undefined" && self
+	|| typeof window !== "undefined" && window
+	|| this.content
+));
+// `self` is undefined in Firefox for Android content script context
+// while `this` is nsIContentFrameMessageManager
+// with an attribute `content` that corresponds to the window
+
+if (typeof module !== "undefined" && module !== null) {
+    module.exports = saveAs;
+} else if ((typeof define !== "undefined" && define !== null) && (define.amd != null)) {
+    define([], function () {
+        return saveAs;
+    });
+}
+
+String.prototype.endsWithAny = function () {
+    var strArray = Array.prototype.slice.call(arguments),
+        $this = this.toLowerCase().toString();
+    for (var i = 0; i < strArray.length; i++) {
+        if ($this.indexOf(strArray[i], $this.length - strArray[i].length) !== -1) return true;
+    }
+    return false;
+};
+
+var saveTextAs = saveTextAs
+|| (function (textContent, fileName, charset) {
+    fileName = fileName || 'download.txt';
+    charset = charset || 'utf-8';
+    textContent = (textContent || '').replace(/\r?\n/g, "\r\n");
+    if (saveAs && Blob) {
+        var blob = new Blob([textContent], { type: "text/plain;charset=" + charset });
+        saveAs(blob, fileName);
+        return true;
+    } else {//IE9-
+        var saveTxtWindow = window.frames.saveTxtWindow;
+        if (!saveTxtWindow) {
+            saveTxtWindow = document.createElement('iframe');
+            saveTxtWindow.id = 'saveTxtWindow';
+            saveTxtWindow.style.display = 'none';
+            document.body.insertBefore(saveTxtWindow, null);
+            saveTxtWindow = window.frames.saveTxtWindow;
+            if (!saveTxtWindow) {
+                saveTxtWindow = window.open('', '_temp', 'width=100,height=100');
+                if (!saveTxtWindow) {
+                    window.alert('Sorry, download file could not be created.');
+                    return false;
+                }
+            }
+        }
+
+        var doc = saveTxtWindow.document;
+        doc.open('text/html', 'replace');
+        doc.charset = charset;
+        if (fileName.endsWithAny('.htm', '.html')) {
+            doc.close();
+            doc.body.innerHTML = '\r\n' + textContent + '\r\n';
+        } else {
+            if (!fileName.endsWithAny('.txt')) fileName += '.txt';
+            doc.write(textContent);
+            doc.close();
+        }
+
+        var retValue = doc.execCommand('SaveAs', null, fileName);
+        saveTxtWindow.close();
+        return retValue;
+    }
+})</script>
+<script>
+// Based off of buffer.js in the Node project(copyright Joyent, Inc. and other Node contributors.)
+(function(){"use strict";function n(n){return M.isBuffer(n)||n&&"object"==typeof n&&"number"==typeof n.length}function t(n){return n=~~Math.ceil(+n),0>n?0:n}function i(n,t){if(!n)throw Error(t)}function e(n){return 16>n?"0"+n.toString(16):n.toString(16)}function r(n,t,e,r){var o=0;return r||(i("boolean"==typeof e,"missing or invalid endian"),i(void 0!==t&&null!==t,"missing offset"),i(n.length>t+1,"Trying to read beyond buffer length")),e?(o=n[t]<<8,o|=n[t+1]):(o=n[t],o|=n[t+1]<<8),o}function o(n,t,e,r){var o=0;return r||(i("boolean"==typeof e,"missing or invalid endian"),i(void 0!==t&&null!==t,"missing offset"),i(n.length>t+3,"Trying to read beyond buffer length")),e?(o=n[t+1]<<16,o|=n[t+2]<<8,o|=n[t+3],o+=n[t]<<24>>>0):(o=n[t+2]<<16,o|=n[t+1]<<8,o|=n[t],o+=n[t+3]<<24>>>0),o}function u(n,t,e,o){var u,s;return o||(i("boolean"==typeof e,"missing or invalid endian"),i(void 0!==t&&null!==t,"missing offset"),i(n.length>t+1,"Trying to read beyond buffer length")),s=r(n,t,e,o),u=32768&s,u?-1*(65535-s+1):s}function s(n,t,e,r){var u,s;return r||(i("boolean"==typeof e,"missing or invalid endian"),i(void 0!==t&&null!==t,"missing offset"),i(n.length>t+3,"Trying to read beyond buffer length")),s=o(n,t,e,r),u=2147483648&s,u?-1*(4294967295-s+1):s}function a(n,t,i,e,r){var o,u,s=8*r-e-1,a=(1<<s)-1,f=a>>1,l=-7,h=i?0:r-1,c=i?1:-1,d=n[t+h];for(h+=c,o=d&(1<<-l)-1,d>>=-l,l+=s;l>0;o=256*o+n[t+h],h+=c,l-=8);for(u=o&(1<<-l)-1,o>>=-l,l+=e;l>0;u=256*u+n[t+h],h+=c,l-=8);if(0===o)o=1-f;else{if(o===a)return u?0/0:1/0*(d?-1:1);u+=Math.pow(2,e),o-=f}return(d?-1:1)*u*Math.pow(2,o-e)}function f(n,t,e,r){return r||(i("boolean"==typeof e,"missing or invalid endian"),i(n.length>t+3,"Trying to read beyond buffer length")),a(n,t,e,23,4)}function l(n,t,e,r){return r||(i("boolean"==typeof e,"missing or invalid endian"),i(n.length>t+7,"Trying to read beyond buffer length")),a(n,t,e,52,8)}function h(n,t){i("number"==typeof n,"cannot write a non-number as a number"),i(n>=0,"specified a negative value for writing an unsigned value"),i(t>=n,"value is larger than maximum value for type"),i(Math.floor(n)===n,"value has a fractional component")}function c(n,t,e,r,o){o||(i(void 0!==t&&null!==t,"missing value"),i("boolean"==typeof r,"missing or invalid endian"),i(void 0!==e&&null!==e,"missing offset"),i(n.length>e+1,"trying to write beyond buffer length"),h(t,65535)),r?(n[e]=(65280&t)>>>8,n[e+1]=255&t):(n[e+1]=(65280&t)>>>8,n[e]=255&t)}function d(n,t,e,r,o){o||(i(void 0!==t&&null!==t,"missing value"),i("boolean"==typeof r,"missing or invalid endian"),i(void 0!==e&&null!==e,"missing offset"),i(n.length>e+3,"trying to write beyond buffer length"),h(t,4294967295)),r?(n[e]=255&t>>>24,n[e+1]=255&t>>>16,n[e+2]=255&t>>>8,n[e+3]=255&t):(n[e+3]=255&t>>>24,n[e+2]=255&t>>>16,n[e+1]=255&t>>>8,n[e]=255&t)}function g(n,t,e){i("number"==typeof n,"cannot write a non-number as a number"),i(t>=n,"value larger than maximum allowed value"),i(n>=e,"value smaller than minimum allowed value"),i(Math.floor(n)===n,"value has a fractional component")}function b(n,t,e){i("number"==typeof n,"cannot write a non-number as a number"),i(t>=n,"value larger than maximum allowed value"),i(n>=e,"value smaller than minimum allowed value")}function v(n,t,e,r,o){o||(i(void 0!==t&&null!==t,"missing value"),i("boolean"==typeof r,"missing or invalid endian"),i(void 0!==e&&null!==e,"missing offset"),i(n.length>e+1,"Trying to write beyond buffer length"),g(t,32767,-32768)),t>=0?c(n,t,e,r,o):c(n,65535+t+1,e,r,o)}function w(n,t,e,r,o){o||(i(void 0!==t&&null!==t,"missing value"),i("boolean"==typeof r,"missing or invalid endian"),i(void 0!==e&&null!==e,"missing offset"),i(n.length>e+3,"Trying to write beyond buffer length"),g(t,2147483647,-2147483648)),t>=0?d(n,t,e,r,o):d(n,4294967295+t+1,e,r,o)}function m(n,t,i,e,r,o){var u,s,a,f=8*o-r-1,l=(1<<f)-1,h=l>>1,c=23===r?Math.pow(2,-24)-Math.pow(2,-77):0,d=e?o-1:0,g=e?-1:1,b=0>t||0===t&&0>1/t?1:0;for(t=Math.abs(t),isNaN(t)||1/0===t?(s=isNaN(t)?1:0,u=l):(u=Math.floor(Math.log(t)/Math.LN2),1>t*(a=Math.pow(2,-u))&&(u--,a*=2),t+=u+h>=1?c/a:c*Math.pow(2,1-h),t*a>=2&&(u++,a/=2),u+h>=l?(s=0,u=l):u+h>=1?(s=(t*a-1)*Math.pow(2,r),u+=h):(s=t*Math.pow(2,h-1)*Math.pow(2,r),u=0));r>=8;n[i+d]=255&s,d+=g,s/=256,r-=8);for(u=u<<r|s,f+=r;f>0;n[i+d]=255&u,d+=g,u/=256,f-=8);n[i+d-g]|=128*b}function y(n,t,e,r,o){o||(i(void 0!==t&&null!==t,"missing value"),i("boolean"==typeof r,"missing or invalid endian"),i(void 0!==e&&null!==e,"missing offset"),i(n.length>e+3,"Trying to write beyond buffer length"),b(t,3.4028234663852886e38,-3.4028234663852886e38)),m(n,t,e,r,23,4)}function p(n,t,e,r,o){o||(i(void 0!==t&&null!==t,"missing value"),i("boolean"==typeof r,"missing or invalid endian"),i(void 0!==e&&null!==e,"missing offset"),i(n.length>e+7,"Trying to write beyond buffer length"),b(t,1.7976931348623157e308,-1.7976931348623157e308)),m(n,t,e,r,52,8)}function E(){T=new B(M.poolSize),T.used=0}var B=window.ArrayBuffer||function(n){for(this.length=n;n--;)this[n]=0},I=window.Uint8Array||function(n,t,i){this.buffer=n,this.offset=t,this.length=i};"Uint8Array"in window&&I.prototype.set,window.Uint8Array||(I.prototype={get:function(n){return this.buffer[n+this.offset]},set:function(n,t){this.buffer[n+this.offset]=t}});var L=function(n,t,i){var e=new I(n,t,i);return e.parent=n,e.offset=t,e},M=function(i,e,r){var o,u,s,a;if("number"==typeof r)u=t(e),s=i;else{switch(o=typeof i){case"number":u=t(i);break;case"string":u=M.byteLength(i,e);break;case"object":u=t(i.length);break;default:throw Error("First argument needs to be a number, array or string.")}if(this.length>M.poolSize?(s=new B(u),r=0):((!T||u>T.byteLength-T.used)&&E(),s=T,r=T.used,T.used+=u),n(i)){a=L(s,r,u);for(var f=u;f--;)a[f]=i[f]}else"string"==o&&(a=L(s,r,u),u=a.write(i,0,e))}return a||L(s,r,u)},U=M.prototype=I.prototype;U.toString=function(n,t,i){if(n=((n||"utf8")+"").toLowerCase(),t=+t||0,i===void 0&&(i=this.length),+i==t)return"";switch(n){case"hex":return this.hexSlice(t,i);case"utf8":case"utf-8":return this.utf8Slice(t,i);case"ascii":return this.asciiSlice(t,i);case"base64":return this.base64Slice(t,i);default:throw Error("Unknown encoding")}},U.write=function(n,t,i,e){if(isFinite(t))isFinite(i)||(e=i,i=void 0);else{var r=e;e=t,t=i,i=r}t=+t||0;var o=this.length-t;switch(i?(i=+i,i>o&&(i=o)):i=o,e=((e||"utf8")+"").toLowerCase()){case"utf8":case"utf-8":return this.utf8Write(n,t,i);case"ascii":return this.asciiWrite(n,t,i);case"base64":return this.base64Write(n,t,i);default:throw Error("Unknown encoding")}};var S=String.fromCharCode;U.utf8Write=function(n,t,i){for(var e=0,r=t,o=n.length,u=i-t;u>e&&o>e;e++){var s=n.charCodeAt(e);128>s?this[r++]=s:s>127&&2048>s?(this[r++]=192|s>>6,this[r++]=128|63&s):(this[r++]=224|s>>12,this[r++]=128|63&s>>6,this[r++]=128|63&s)}return this._charsWritten=r,o},U.utf8Slice=function(n,t){for(var i,e,r,o="",u=n,s=0;t>s&&(i=this[u]);u++)s++,128>i?o+=S(i):i>191&&224>i?(e=this[u+1],o+=S((31&i)<<6|63&e),u++):(e=this[u+1],r=this[u+2],o+=S((15&i)<<12|(63&e)<<6|63&r),u+=2);return o},U.asciiWrite=function(n,t,i){for(var e=0,r=n.length;i>e&&r>e;e++)this[e+t]=n.charCodeAt(e);return this._charsWritten=e,r},U.asciiSlice=function(n,t){for(var i="",e=n;t>e;e++)i+=S(this[e]);return i},U.hexSlice=function(n,t){var i=this.length;(!n||0>n)&&(n=0),(!t||0>t||t>i)&&(t=i);for(var r="",o=n;t>o;o++)r+=e(this[o]);return r},U.copy=function(n,t,i,e){for(var r=0,o=e-i;o>r;r++)n[r+t]=this[r+i]},U.base64Slice=function(n,t){var i=this.length;(!n||0>n)&&(n=0),(!t||0>t||t>i)&&(t=i);for(var e="",r=n;t>r;r++)e+=window.btoa(this[r]);return e},U.base64Write=function(n,t,i){for(var e=0,r=n.length;i>e&&r>e;e++)this[e+t]=window.atob(n.charCodeAt(e));return this._charsWritten=e,r},U.slice=function(n,t){if(void 0===t&&(t=this.length),t>this.length)throw Error("oob");if(n>t)throw Error("oob");return L(this.buffer,+n,t-n)},U.toBlob=function(){var n=new(window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder);return this.offset?n.append(this.toString("utf8")):n.append(this.buffer),n.getBlob()},U.readUInt8=function(n,t){var e=this;return t||(i(void 0!==n&&null!==n,"missing offset"),i(e.length>n,"Trying to read beyond buffer length")),e[n]},U.readUInt16LE=function(n,t){return r(this,n,!1,t)},U.readUInt16BE=function(n,t){return r(this,n,!0,t)},U.readUInt32LE=function(n,t){return o(this,n,!1,t)},U.readUInt32BE=function(n,t){return o(this,n,!0,t)},U.readInt8=function(n,t){var e,r=this;return t||(i(void 0!==n&&null!==n,"missing offset"),i(r.length>n,"Trying to read beyond buffer length")),e=128&r[n],e?-1*(255-r[n]+1):r[n]},U.readInt16LE=function(n,t){return u(this,n,!1,t)},U.readInt16BE=function(n,t){return u(this,n,!0,t)},U.readInt32LE=function(n,t){return s(this,n,!1,t)},U.readInt32BE=function(n,t){return s(this,n,!0,t)},U.readFloatLE=function(n,t){return f(this,n,!1,t)},U.readFloatBE=function(n,t){return f(this,n,!0,t)},U.readDoubleLE=function(n,t){return l(this,n,!1,t)},U.readDoubleBE=function(n,t){return l(this,n,!0,t)},U.writeUInt8=function(n,t,e){var r=this;e||(i(void 0!==n&&null!==n,"missing value"),i(void 0!==t&&null!==t,"missing offset"),i(r.length>t,"trying to write beyond buffer length"),h(n,255)),r[t]=n},U.writeUInt16LE=function(n,t,i){c(this,n,t,!1,i)},U.writeUInt16BE=function(n,t,i){c(this,n,t,!0,i)},U.writeUInt32LE=function(n,t,i){d(this,n,t,!1,i)},U.writeUInt32BE=function(n,t,i){d(this,n,t,!0,i)},U.writeInt8=function(n,t,e){var r=this;e||(i(void 0!==n&&null!==n,"missing value"),i(void 0!==t&&null!==t,"missing offset"),i(r.length>t,"Trying to write beyond buffer length"),g(n,127,-128)),n>=0?r.writeUInt8(n,t,e):r.writeUInt8(255+n+1,t,e)},U.writeInt16LE=function(n,t,i){v(this,n,t,!1,i)},U.writeInt16BE=function(n,t,i){v(this,n,t,!0,i)},U.writeInt32LE=function(n,t,i){w(this,n,t,!1,i)},U.writeInt32BE=function(n,t,i){w(this,n,t,!0,i)},U.writeFloatLE=function(n,t,i){y(this,n,t,!1,i)},U.writeFloatBE=function(n,t,i){y(this,n,t,!0,i)},U.writeDoubleLE=function(n,t,i){p(this,n,t,!1,i)},U.writeDoubleBE=function(n,t,i){p(this,n,t,!0,i)};var T;M.poolSize=8192,M.isBuffer=function(n){return n instanceof M||n instanceof B},M.byteLength=function(n,t){switch(t){case"ascii":return n.length}for(var i,e=0,r=0,o=n.length;o>e;e++)i=n.charCodeAt(e),128>i?r++:r+=i>127&&2048>i?2:3;return r},window.Buffer=M})();
+</script>
