@@ -16,7 +16,7 @@ permalink: /tools/sid-for-shiny/
 	</tr>
 	<tr>
 		<td>TID: </td>
-		<td>0x<input id="actual" type="text" pattern="[a-fA-F\d]+"></input></td>
+		<td><span style="color: #252525">0x<span><input id="actual" type="text" pattern="[a-fA-F\d]+"></input></td>
 	</tr>
 	<tr class="hidden" id="hidden" style="visibility: hidden;">
 		<td colspan="2"><button type="button" id="calculate" style="width:100%;">Calculate!</button></td>
@@ -28,6 +28,7 @@ permalink: /tools/sid-for-shiny/
 		<td>SID Range for Shiny: </td>
 		<td><input id="result" type="text" disabled="disabled"></input></td>
 	</tr>
+	<tr id="detailed"></tr>
 </table>
 
 <script>
@@ -92,14 +93,14 @@ permalink: /tools/sid-for-shiny/
 	$("#calculate").click(function() {
 		$("#resRow").css("visibility", "visible");
 		var decpid = parseInt("0x" + $("#target").val(), 16);
-		var dectid = parseInt($("#actual").val() + "", 10)
+		var dectid = parseInt($("#actual").val() + "", 10);
 		var hexpid = toPaddedHexString($("#target").val(), 8);
 		var lpid = hexpid.substr(-4);
 		var hpid = hexpid.substr(0, 4);
 		var htid = toPaddedHexString(dectid.toString(16));
-		var binpidh = toPaddedString(parseInt(hpid, 16).toString(2), 16).substr(0, 13).split("")
-		var binpidl = toPaddedString(parseInt(lpid, 16).toString(2), 16).substr(0, 13).split("")
-		var bintid = toPaddedString(parseInt(htid, 16).toString(2), 16).substr(0, 13).split("")
+		var binpidh = toPaddedString(parseInt(hpid, 16).toString(2), 16).substr(0, 13).split("");
+		var binpidl = toPaddedString(parseInt(lpid, 16).toString(2), 16).substr(0, 13).split("");
+		var bintid = toPaddedString(parseInt(htid, 16).toString(2), 16).substr(0, 13).split("");
 		// console.log("PID High: " + binpidh)
 		// console.log("PID Low : " + binpidl)
 		// console.log("TID     : " + bintid)
@@ -109,8 +110,24 @@ permalink: /tools/sid-for-shiny/
 			outarray.push(total)
 		}
 		var binresult = outarray.toString().split(",").join("") + "000"
-		var result = parseInt(binresult, 2)
+		var result = parseInt(binresult, 2);
+		let results = ["<br />"];
+		for (let i = 0; i < 8; i++) {	
+			let sid = toPaddedString((result + i).toString(2), 16).split("");
+			let tid = toPaddedString(parseInt(dectid).toString(2), 16).split("");
+			let pid_h = toPaddedString(parseInt(hpid, 16).toString(2), 16).split("");
+			let pid_l = toPaddedString(parseInt(lpid, 16).toString(2), 16).split("");
+			let mod = [];
+			for (let j = 0; j < 16; j++) {
+				mod.push((parseInt(sid[j]) + parseInt(tid[j]) + parseInt(pid_h[j]) + parseInt(pid_l[j])) % 2);
+			}
+			if (parseInt(mod.join(""), 2) === 0) {
+				results.push(`${result + i}: Square Shiny!`);
+			}
+		}
+		console.log(results);
 		$("#result").val(toPaddedString(result, 5) + " - " + toPaddedString(result + 7, 5));
+		$("#detailed").html(results.join("<br />"));
 		copyToClipboard($("#result").val());
 	})
 </script>
