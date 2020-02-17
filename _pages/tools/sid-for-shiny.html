@@ -122,7 +122,7 @@ permalink: /tools/sid-for-shiny/
 				mod.push((parseInt(sid[j]) + parseInt(tid[j]) + parseInt(pid_h[j]) + parseInt(pid_l[j])) % 2);
 			}
 			if (parseInt(mod.join(""), 2) === 0) {
-				results.push(`${result + i}: Square Shiny!`);
+				results.push(`${toPaddedString((result + i), 5)}: Square Shiny!`);
 			}
 		}
 		console.log(results);
