@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/LegoFigure11/legofigure11.github.io#readme",
   "dependencies": {
-    "eslint": "^5.12.0"
+    "eslint": "^5.16.0"
   },
   "devDependencies": {
-    "eslint-plugin-html": "^5.0.0"
+    "eslint-plugin-html": "^5.0.5"
   }
 }
