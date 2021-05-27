@@ -1,41 +1,18 @@
-include: ['_pages', '_css', '_scripts', '_images', '_posts']
-
 title: Lego's Stuff
 lang: en-AU
-email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A dumping ground for various projects and (typically Pokemon-related)
-  information I've accumulated over the years.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://legofigure11.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  LegoFigure11
-smogon_username:  lego.188833
-show_links: true
+  Tools and other stuff
+baseurl: ""
+url: "https://legofigure11.github.io"
+twitter_username: LegoFigure11
+github_username:  legofigure11
 
-music_url: /tunes
-info_url: /info
-other_url: /stuff
-tools_url: /tools
+host: 0.0.0.0
 
 github:
   repository_url: https://github.com/LegoFigure11/legofigure11.github.io/
   owner_name: LegoFigure11
   owner_url: https://github.com/LegoFigure11/
 
-# Build settings
-markdown: kramdown
-theme: jekyll-theme-midnight
 plugins:
-  - jekyll-feed
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  - jekyll-seo-tag
