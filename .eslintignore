@@ -1,6 +1,0 @@
-node_modules/
-*.bat
-*.json
-Gemfile
-*.lock
-_site/

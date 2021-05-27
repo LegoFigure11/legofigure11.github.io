@@ -1,0 +1,137 @@
+---
+layout: default
+title: SID For Shiny
+permalink: /tools/sid-for-shiny/
+---
+
+<h1>SID-For-Shiny</h1>
+
+<label for="pid">PID to make Shiny:</label>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text edited-border text-light" id="hexadecimal">0x</span>
+  </div>
+  <input type="text" class="form-control bg-dark text-light" id="pid" aria-describedby="hexadecimal">
+</div>
+
+<label for="tid">TID:</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control bg-dark text-light" id="tid">
+</div>
+
+<hr />
+<br />
+
+<div class="alert alert-warning d-flex align-items-center d-none" role="alert" id="invalid-entry">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+    <use xlink:href="#exclamation-triangle-fill" />
+  </svg>
+  <div id="warning-content"></div>
+</div>
+
+<div class="d-grid gap-2">
+  <button type="button" class="btn btn-outline-warning" onclick="calculate()">Calculate!</button>
+</div>
+
+<div class="modal fade" id="resultsModal" tabindex="-1" aria-labelledby="resultsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resultsModalLabel"></h5>
+        <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="results"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .edited-border {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    background-color: #000;
+  }
+</style>
+
+<script type="text/javascript">
+  var pids = [
+    "BEEFCAFE", "1337", "B00B1E5", "69696969", "DEADC0DE", "DEC0DE", "FEA51B1E", "1501A7ED",
+    "0B5E55ED", "5EED1E55", "50C1AB1E", "AAAAAAAA", "BADD1E", "BA11AD", "BA5EBA11", "BEE",
+  ];
+  $("#pid").attr("placeholder", pids[~~(pids.length * Math.random())].padStart(8, "0"));
+  $("#tid").attr("placeholder", (~~(65536 * Math.random()) + "").padStart(5, "0"));
+
+  function calculate() {
+    var pid = $("#pid").val();
+    var tid = $("#tid").val();
+    var decPid = parseInt(pid, 16);
+    var decTid = parseInt(tid);
+
+    if (isNaN(decPid)) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid PID: Unable to coerce \"" + pid + "\" as a Hex string!");
+      return;
+    }
+    if (isNaN(decTid)) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid TID: Unable to coerce \"" + tid + "\" as a decimal!");
+      return;
+    }
+    if (decPid < 0 || decPid > 0xFFFFFFFF) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid PID: \"" + pid + "\" is not between 0 and 0xFFFFFFFF!");
+      return;
+    }
+    if (decTid < 0 || decTid > 65535) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid TID: \"" + tid + "\" is not between 0 and 65535!");
+      return;
+    }
+
+    var pid16High = decPid >>> 16;
+    var pid16Low = decPid & 0xFFFF;
+
+    var square = pid16High ^ pid16Low ^ decTid;
+    var rangeLow = 8 * Math.floor(square / 8);
+
+    $("#resultsModalLabel").html(
+      "PID: 0x" + (pid + "").toUpperCase().padStart(8, "0") + " | TID: " + (tid + "").padStart(5, "0")
+    );
+    $("#results").html(
+      "<div>SID range for shiny: " + (rangeLow + "").padStart(5, "0") + " - " +
+      (rangeLow + 7 + "").padStart(5, "0") + "</div><div>SID to force square shiny: " +
+      (square + "").padStart(5, "0") + "</div>"
+    );
+    $('#resultsModal').modal("show");
+  }
+
+  $("#pid").bind("keyup keydown", function() {
+    var testArr = $("#pid").val().split("");
+    var resultArr = [];
+    var isHex = new RegExp("[a-fA-F0-9]+")
+    for (var i in testArr) {
+      if (isHex.test(testArr[i]) && i < 8) {
+        resultArr.push(testArr[i]);
+      }
+    }
+    $("#pid").val(resultArr.join(""));
+  });
+
+  $("#tid").bind("keyup keydown", function() {
+    var testArr = $("#tid").val().split("");
+    var resultArr = [];
+    var isNum = new RegExp("[0-9]+")
+    for (var i in testArr) {
+      if (isNum.test(testArr[i]) && i < 5) {
+        resultArr.push(testArr[i]);
+      }
+    }
+    $("#tid").val(resultArr.join(""));
+  });
+</script>
