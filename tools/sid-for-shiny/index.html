@@ -94,6 +94,8 @@ permalink: /tools/sid-for-shiny/
       return;
     }
 
+    $("#invalid-entry").addClass("d-none");
+
     var pid16High = decPid >>> 16;
     var pid16Low = decPid & 0xFFFF;
 
