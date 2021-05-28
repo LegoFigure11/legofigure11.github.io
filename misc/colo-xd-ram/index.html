@@ -1,0 +1,112 @@
+---
+layout: default
+title: Extracting Pok&eacute;mon from RAM in Colo/XD
+permalink: /misc/colo-xd-ram/
+---
+
+<h1>Extracting Pok&eacute;mon from RAM in Colo/XD</h1>
+<hr />
+<h2>Preface</h2>
+<div>
+  <span class="fw-bold">You should never need this guide!</span> But here you are anyway... You most
+  likely accidentally mismatched your savestate with the state of your memory card. You can prevent
+  this from happening in a couple of ways &mdash; preferably, every time you save in game, you
+  should &quot;update&quot; all of your save states &ndash; that is to say, overwrite
+  <span class="fst-italic">all</span> of your save states to match wherever you just saved.
+  Alternatively, if you need to be able to use a save state again, just back up the memory card
+  and the save state file before saving the game again, and restore them whenever you need to re-use
+  that specific save state.
+</div>
+<br />
+<div>
+  <h2>The Guide</h2>
+  <span class="fw-bold">
+    Here&apos;s what you&apos;ll need:
+  </span>
+  <br />
+  <ul class="list-group list-unstyled">
+    <li class="list-group-item bg-dark text-light">
+      <input id="hex-editor" class="form-check-input me-1" type="checkbox">
+      <label for="hex-editor">A Hex Editor</label> (such as
+      <a href="https://mh-nexus.de/en/hxd/" class="text-info" target="_blank">HxD</a>)
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="dolphin" class="form-check-input me-1" type="checkbox">
+      <label for="dolphin">Dolphin (Dev - whichever version loads your savestate!)</label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="pid" class="form-check-input me-1" type="checkbox">
+      <label for="pid">The PID of the Pok&eacute;mon you want to extract</label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="file" class="form-check-input me-1" type="checkbox">
+      <label for="file">A starter .*k3 file for <a class="text-info" href="./blank.ck3" download>Colo</a> or <a class="text-info" href="./blank.xk3" download>XD</a></label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="pkhex" class="form-check-input me-1" type="checkbox">
+      <label for="pkhex"><a class="text-info" href="https://projectpokemon.org/home/files/file/1-pkhex/" target="_blank">PKHeX</a></label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="patience" class="form-check-input me-1" type="checkbox">
+      <label for="patience">A good amount of patience</label>
+    </li>
+  </ul>
+  <br />
+  <div>
+    The first step is to load up your save state in Dolphin, and navigate to the Memory window. I'll
+    be using Pok&eacute;mon XD for this and Dolphin 5.0-266, but the process is the same on every
+    version that I&apos;ve encountered. You&apos;ll also want to right-click and <code>View as > ASCII</code>,
+    so that it looks something like this:
+
+    <img class="img-fluid" src="./memory-tab-open.png" />
+  </div>
+  <br />
+  <div>
+    Next, you need to put the PID of the Pok&eacute;mon that you want to dump into the box labelled
+    <code>1</code> below, then hit the Search button labelled <code>2</code>, ensuring that Hex is
+    checked below it and not ASCII. It should pop up with a message saying that a match was found,
+    if it doesn't then try putting <code>80000000</code> into the box labelled <code>3</code> and
+    searching again.
+
+    <img class="img-fluid" src="./match-found.png" />
+  </div>
+  <br />
+  <div>
+    You might have to search a couple of times before you actually find your Pok&eacute;mon and not
+    just random data in the RAM &mdash; you know you have the right thing when you can see your
+    Pok&eacute;mon&apos;s nickname (in this case, &quot;Hunter&quot;) and OT name (in this case,
+    &quot;Henry&quot;) in the data surrounding the PID, like so:
+
+    <img class="img-fluid" src="./nickname-and-trainer-data.png" />
+  </div>
+  <br />
+  <div>
+    If it looks something like that, congrats! You&apos;ve found your Pok&eacute;mon. Now, it&apos;s
+    time to fire up your Hex Editor, and load up the <code>blank.*k3</code> file you downloaded
+    earlier. Navigate to the offset <code>0x28</code> (or, <code>0x04</code> if you&apos;re editing
+    the Colo file). An easy way to tell the current offset in HxD is to look in the bottom left corner!
+
+    <img class="img-fluid" src="./hxd.png" />
+  </div>
+  <br />
+  <div>
+    Ensuring you&apos;re in overwrite mode and not insert mode, enter your Pok&eacute;mon&apos;s PID
+    at this offset as it appears in the Memory tab.
+
+    <img class="img-fluid" src="./pid.png" />
+  </div>
+  <br />
+  <div>
+    Now, scrolling up and down in the Memory tab as necessary, enter the rest of the data into the
+    hex editor, relative to the PID offset (everything before the PID goes before it, everything
+    after goes after), until you have reached both the start and the end of the file in your hex
+    editor. <span class="fw-bold">
+      If at any point you edit the file size, you&apos;ve made a mistake!
+    </span> Once finished, save the file. Load up your (working) save in PKHeX, and inject the .*k3
+    file you just created in the hex editor into your save! Assuming you didn&apos;t make any
+    mistakes, Congrats! You managed to rescue your Pok&eacute;mon from the save state. If you made
+    any typos at all, however, your Pok&eacute;mon is unfortunately now edited, so make sure you
+    double and triple check you copied the data from the Memory tab into the hex editor correctly!
+  </div>
+</div>
+<br />
