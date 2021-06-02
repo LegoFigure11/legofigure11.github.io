@@ -1,11 +1,15 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
+<html lang="{{ site.lang }}" class="h-100">
 
 {% include head.html %}
 
-<body class="text-light" style="background-color:#282C34; padding-top:2rem;">
+<body class="text-light d-flex flex-column h-100" style="background-color:#282C34; padding-top:3.5rem;">
 
   {% include header.html %}
+
+  <div id="top">
+
+  </div>
 
   <div class="container" style="max-width: 700px;">
 
@@ -15,7 +19,10 @@
 
   </div>
 
+  {% include footer.html %}
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
+
 
 </html>
