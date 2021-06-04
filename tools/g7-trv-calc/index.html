@@ -1,0 +1,136 @@
+---
+layout: default
+title: G7 TRV Calculator
+permalink: /tools/g7-trv-calc/
+---
+
+<h1>G7-TRV-Calculator</h1>
+<hr />
+
+<label for="pid">Enter your G7ID:</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control bg-dark text-light" id="id">
+</div>
+
+<label for="tid">Enter your TSV:</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control bg-dark text-light" id="tsv">
+</div>
+
+<hr />
+<br />
+
+<div class="alert alert-warning d-flex align-items-center d-none" role="alert" id="invalid-entry">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+    <use xlink:href="#exclamation-triangle-fill" />
+  </svg>
+  <div id="warning-content"></div>
+</div>
+
+<div class="d-grid gap-2">
+  <button type="button" class="btn btn-outline-warning" onclick="calculate()">Calculate!</button>
+</div>
+
+<div class="modal fade" id="resultsModal" tabindex="-1" aria-labelledby="resultsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resultsModalLabel"></h5>
+        <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="results"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $("#id").attr("placeholder", (~~(1000000 * Math.random()) + "").padStart(6, "0"));
+  $("#tsv").attr("placeholder", (~~(4096 * Math.random()) + "").padStart(4, "0"));
+
+  function calculate() {
+    var id = $("#id").val();
+    var tsv = $("#tsv").val();
+    var decId = parseInt(id);
+    var decTsv = parseInt(tsv);
+
+    if (isNaN(decId)) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid ID: Unable to coerce \"" + id + "\" as a decimal!");
+      return;
+    }
+    if (isNaN(decTsv)) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid TSV: Unable to coerce \"" + tsv + "\" as a decimal!");
+      return;
+    }
+    if (decId < 0 || decId > 1000000) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid ID: \"" + id + "\" is not between 0 and 999999!");
+      return;
+    }
+    if (decTsv < 0 || decTsv > 4095) {
+      $("#invalid-entry").removeClass("d-none");
+      $("#warning-content").html("Invalid TSV: \"" + tsv + "\" is not between 0 and 4095!");
+      return;
+    }
+
+    $("#invalid-entry").addClass("d-none");
+
+    var results = [];
+
+    for (var fullId = decId, max = Math.pow(2, 32) - 1; fullId < max; fullId += 1000000) {
+      var xor = (fullId >>> 16) ^ (fullId & 0xffff);
+      if (xor >>> 4 === decTsv) {
+        results.push(
+          `TRV: <code>${(xor & 0xf).toString(16).toUpperCase()}</code><br />` +
+          `TID: ${(fullId & 0xffff).toString().padStart(5, "0")}<br />` +
+          `SID: ${(fullId >>> 16).toString().padStart(5, "0")}<br />`
+        );
+      }
+    }
+
+    $("#resultsModalLabel").html(
+      "G7ID: " + (id + "").padStart(6, "0") + " | TSV: " + (tsv + "").padStart(4, "0")
+    );
+
+    $("#results").html(
+      (results.length ? "<p>Possibilities (" + results.length + "):</p>" + "<div>" + results.join("<br />") + "</div>" :
+        "<div>Oops! It doesn&apos;t look like there are any results for that combo.</div>")
+    );
+    $('#resultsModal').modal("show");
+  }
+
+  $("#id").bind("keyup keydown", function() {
+    var testArr = $("#id").val().split("");
+    var resultArr = [];
+    var isId = new RegExp("[0-9]+")
+    for (var i in testArr) {
+      if (isId.test(testArr[i]) && i < 6) {
+        resultArr.push(testArr[i]);
+      }
+    }
+    $("#id").val(resultArr.join(""));
+  });
+
+  $("#tsv").bind("keyup keydown", function() {
+    var testArr = $("#tsv").val().split("");
+    var resultArr = [];
+    var isNum = new RegExp("[0-9]+")
+    for (var i in testArr) {
+      if (isNum.test(testArr[i]) && i < 4) {
+        resultArr.push(testArr[i]);
+      }
+    }
+    if (parseInt(resultArr.join("")) > 4095) {
+      $("#tsv").val("4095");
+    } else {
+      $("#tsv").val(resultArr.join(""));
+    }
+  });
+</script>
