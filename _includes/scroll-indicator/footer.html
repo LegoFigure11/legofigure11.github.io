@@ -4,8 +4,20 @@
 
 <footer class="footer mt-auto pb-4 pt-3 bg-dark">
   <div class="container">
-    <span class="text-muted">
-      Maintained by @LegoFigure11 // LegoFigure11#1390
-    </span>
+    <ul class="list-inline mb-0">
+      <li class="list-inline-item text-muted">
+        Maintained by @LegoFigure11 // LegoFigure11#1390
+      </li>
+      <li class="list-inline-item text-muted">
+        |
+      </li>
+      <li class="list-inline-item text-muted">
+        <a id="source" class="text-muted text-decoration-none" href="https://github.com/LegoFigure11/legofigure11.github.io" target="_blank">Source code for this page</a>
+      </li>
+    </ul>
   </div>
 </footer>
+
+<script>
+  $("#source").prop("href", "https://github.com/LegoFigure11/legofigure11.github.io/tree/master" + window.location.pathname + "index.html");
+</script>
