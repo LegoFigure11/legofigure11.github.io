@@ -1,0 +1,27 @@
+<style>
+  :target::before {
+    content: "";
+    display: block;
+    margin-top: -72px;
+    height: 72px;
+    width: 1px;
+  }
+
+  .anchorjs-link {
+    color: #6c757d;
+  }
+
+  .anchorjs-link:hover {
+    color: #fd7e14;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.options = {
+    icon: "#",
+    placement: "right",
+    visible: "always",
+  };
+  anchors.add(".anchored");
+</script>
