@@ -3,6 +3,16 @@
 
 {% include head.html %}
 
+<style>
+  :target::before {
+    content: "";
+    display: block;
+    margin-top: -72px;
+    height: 72px;
+    width: 1px;
+  }
+</style>
+
 <body class="text-light d-flex flex-column h-100" style="background-color:#282C34; padding-top:3.5rem;">
 
   {% include header.html %}
@@ -22,6 +32,15 @@
   {% include footer.html %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      icon: "#",
+      placement: "right",
+      class: "text-warning",
+    };
+    anchors.add(".anchored");
+  </script>
 </body>
 
 
