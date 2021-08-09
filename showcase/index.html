@@ -1,0 +1,66 @@
+---
+layout: default
+title: Showcase
+permalink: /showcase/
+---
+
+<h1>Showcase &amp; Trophy Cabinet</h1>
+
+<hr />
+
+<div>
+  This page houses the Pok&eacute;mon in my collection that I treasure the most and hold closest to my heart.
+  <span class="fw-bold text-danger">N</span>othing here is <span class="fw-bold text-danger">F</span>or <span class="fw-bold text-danger">T</span>rade, this
+  page exists purely so that I can show them off.
+</div>
+<br />
+<br />
+<div class="d-grid gap3 text-center">
+
+  {% include_relative pokemon/moode.html %}
+
+  {% include_relative pokemon/aaaa.html %}
+
+  {% include_relative pokemon/kylie.html %}
+
+  {% include_relative pokemon/betelgeuse.html %}
+
+  more soon...
+</div>
+
+<style>
+  .img-container {
+    height: 72px;
+  }
+
+  .ball-container {
+    height: 32px;
+  }
+
+  .male {
+    color: #0d6efd;
+  }
+
+  .female {
+    color: #dc3545;
+  }
+
+  .emerald {
+    color: #66cc66;
+  }
+
+  .sapphire {
+    color: #0066cc;
+  }
+</style>
+
+<script>
+  $("document").ready(function() {
+    $(".adjust-height").each(function() {
+      var t = $(this);
+      var h = t.height();
+      var p = t.parent().height();
+      t.css("padding-top", ((p - h) / 2) + "px");
+    });
+  });
+</script>

@@ -18,6 +18,9 @@
           <li class="nav-item">
             <a href="/misc/" class="nav-link px-2 text-white" id="nav-misc">Misc</a>
           </li>
+          <li class="showcase">
+            <a href="/showcase/" class="nav-link px-2 text-white" id="nav-showcase">Showcase</a>
+          </li>
         </ul>
         <div class="d-flex">
           <a type="button" class="btn btn-warning" href="/#">
@@ -45,6 +48,10 @@
 
       case "misc":
         $("#nav-misc").addClass("text-secondary").removeClass("text-white");
+        break;
+
+      case "showcase":
+        $("#nav-showcase").addClass("text-secondary").removeClass("text-white");
         break;
 
       default:
