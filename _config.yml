@@ -16,3 +16,4 @@ github:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll_version_plugin
