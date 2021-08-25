@@ -9,14 +9,6 @@ github_username:  legofigure11
 
 host: 0.0.0.0
 
-github:
-  repository_url: https://github.com/LegoFigure11/legofigure11.github.io/
-  owner_name: LegoFigure11
-  owner_url: https://github.com/LegoFigure11/
-
 plugins:
   - jekyll-seo-tag
-  - jekyll_version_plugin
-
-whitelist:
-  - jekyll_version_plugin
+  - jekyll-github-metadata
