@@ -1,0 +1,20 @@
+<script type="text/javascript">
+  var url = window.location.pathname;
+  var pathname = url.slice(1, url.indexOf("/", 1)).toLowerCase();
+  switch (pathname) {
+    case "tools":
+      $("#nav-tools").addClass("text-secondary").removeClass("text-white");
+      break;
+
+    case "misc":
+      $("#nav-misc").addClass("text-secondary").removeClass("text-white");
+      break;
+
+    case "showcase":
+      $("#nav-showcase").addClass("text-secondary").removeClass("text-white");
+      break;
+
+    default:
+      $("#nav-home").addClass("text-secondary").removeClass("text-white");
+  }
+</script>

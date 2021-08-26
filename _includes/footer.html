@@ -1,29 +1,7 @@
-<div class="container mt-auto pb-3" style="max-width: 700px;">
-  {% include back.html %}
-</div>
+{% include shared/footer/back.html %}
 
 <footer class="footer mt-auto py-3 bg-dark">
-  <div class="container">
-    <ul class="list-inline mb-0">
-      <li class="list-inline-item text-muted">
-        Maintained by <i class="bi bi-github"></i> LegoFigure11 // <i class="bi bi-discord"></i> LegoFigure11#1390
-      </li>
-      <li class="list-inline-item text-muted">
-        |
-      </li>
-      <li class="list-inline-item text-muted">
-        <a id="source" class="text-muted text-decoration-none" href="https://github.com/LegoFigure11/legofigure11.github.io" target="_blank">Source code for this page</a>
-      </li>
-      <li class="list-inline-item text-muted">
-        |
-      </li>
-      <li class="list-inline-item text-muted">
-        Current Version: {{ site.github.build_revision }}
-      </li>
-    </ul>
-  </div>
+  {% include shared/footer/content.html %}
 </footer>
 
-<script>
-  $("#source").prop("href", "https://github.com/LegoFigure11/legofigure11.github.io/tree/master" + window.location.pathname + "index.html");
-</script>
+{% include shared/footer/script.html %}
