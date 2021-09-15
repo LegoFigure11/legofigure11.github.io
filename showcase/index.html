@@ -39,37 +39,5 @@ permalink: /showcase/
   {% include_relative pokemon/ot/onion.html %}
 </div>
 
-<style>
-  .img-container {
-    height: 72px;
-  }
-
-  .img-container-80 {
-    height: 80px;
-  }
-
-  .ball-container {
-    height: 32px;
-  }
-
-  .male {
-    color: #0d6efd;
-  }
-
-  .female {
-    color: #dc3545;
-  }
-</style>
-
-
-
-<script>
-  $("document").ready(function() {
-    $(".adjust-height").each(function() {
-      var t = $(this);
-      var h = t.height();
-      var p = t.parent().height();
-      t.css("padding-top", ((p - h) / 2) + "px");
-    });
-  });
-</script>
+{% include_relative resources/css/index.css.html %}
+<!-- {% include_relative resources/js/adjust-height.js.html %} -->
