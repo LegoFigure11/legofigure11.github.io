@@ -2,10 +2,15 @@
   $("#source").prop("href", "https://github.com/LegoFigure11/legofigure11.github.io/tree/master" + window.location.pathname + "index.html");
   $("#version").prop("href", "https://github.com/LegoFigure11/legofigure11.github.io/commit/" + $("#version").html());
   $("#version").html($("#version").html().substring(0, 7));
+  $(".form-control").keypress(function(e) {
+    if (e.keyCode === 13) { // Enter
+      if (typeof calculate === typeof Function) calculate();
+    }
+  });
   $("document").ready(function() {
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-  })
+    });
+  });
 </script>
