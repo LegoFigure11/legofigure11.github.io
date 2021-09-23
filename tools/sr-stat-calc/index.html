@@ -112,6 +112,9 @@ permalink: /tools/sr-stat-calc/
       var pokemon = window.dex.species.get(speciesList[i].id);
       if (pokemon.num <= 0) continue;
       $("#species-select").append("<option value=\"" + pokemon.name + "\">" + pokemon.name + "</option>");
+      if (pokemon.name === "Eternatus") {
+        $("#species-select").append("<option value=\"Eternatus-Eternamax\">Eternatus-Eternamax</option>");
+      }
     }
     $("#gen-select").change();
   });
@@ -124,11 +127,27 @@ permalink: /tools/sr-stat-calc/
       var pokemon = window.dex.species.get(speciesList[i].id);
       if (pokemon.num <= 0) continue;
       $("#species-select").append("<option value=\"" + pokemon.name + "\">" + pokemon.name + "</option>");
+      if (pokemon.name === "Eternatus") {
+        $("#species-select").append("<option value=\"Eternatus-Eternamax\">Eternatus-Eternamax</option>");
+      }
     }
   });
 
   $("#gen-select, #species-select, #nature-select, #level-select").change(function() {
-    var bs = window.dex.species.get($("#species-select").val()).baseStats;
+    var species = $("#species-select").val();
+    var bs;
+    if (species === "Eternatus-Eternamax") {
+      bs = {
+        hp: 255,
+        atk: 115,
+        def: 250,
+        spa: 125,
+        spd: 250,
+        spe: 130
+      };
+    } else {
+      bs = window.dex.species.get(species).baseStats;
+    }
     var l = $("#level-select").val();
     var n = window.dex.natures.get($("#nature-select").val());
     var minStats = calcStats(bs, 0, l, n);
