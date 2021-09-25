@@ -59,27 +59,27 @@ permalink: /tools/sr-stat-calc/
 </h5>
 <div class="row g-3">
   <div class="col-md-2">
-    <label for="stat0">HP</label>
+    <label for="stat0">HP <span id="basestat0"></span></label>
     <input id="stat0" type="text" class="form-control" placeholder="HP" aria-label="HP" disabled>
   </div>
   <div class="col-md-2">
-    <label for="stat1">Atk</label>
+    <label for="stat1">Atk <span id="basestat1"></span></label>
     <input id="stat1" type="text" class="form-control" placeholder="Atk" aria-label="Atk" disabled>
   </div>
   <div class="col-md-2">
-    <label for="stat2">Def</label>
+    <label for="stat2">Def <span id="basestat2"></span></label>
     <input id="stat2" type="text" class="form-control" placeholder="Def" aria-label="Def" disabled>
   </div>
   <div class="col-md-2">
-    <label for="stat3">Sp. Atk</label>
+    <label for="stat3">Sp. Atk <span id="basestat3"></span></label>
     <input id="stat3" type="text" class="form-control" placeholder="Sp. Atk" aria-label="Sp. Atk" disabled>
   </div>
   <div class="col-md-2">
-    <label for="stat4">Sp. Def</label>
+    <label for="stat4">Sp. Def <span id="basestat4"></span></label>
     <input id="stat4" type="text" class="form-control" placeholder="Sp. Def" aria-label="Sp. Def" disabled>
   </div>
   <div class="col-md-2">
-    <label for="stat5">Spe</label>
+    <label for="stat5">Spe <span id="basestat5"></span></label>
     <input id="stat5" type="text" class="form-control" placeholder="Spe" aria-label="Spe" disabled>
   </div>
 </div>
@@ -105,16 +105,6 @@ permalink: /tools/sr-stat-calc/
       $("#nature-select").append(
         "<option value=\"" + naturesList[i].name + "\">" + naturesList[i].name + "</option>"
       );
-    }
-    var speciesList = Array.from(window.dex.species).sort();
-    $("#species-select").html(""); // Clear loading
-    for (var i = 0; i < speciesList.length; i++) {
-      var pokemon = window.dex.species.get(speciesList[i].id);
-      if (pokemon.num <= 0) continue;
-      $("#species-select").append("<option value=\"" + pokemon.name + "\">" + pokemon.name + "</option>");
-      if (pokemon.name === "Eternatus") {
-        $("#species-select").append("<option value=\"Eternatus-Eternamax\">Eternatus-Eternamax</option>");
-      }
     }
     $("#gen-select").change();
   });
@@ -150,21 +140,22 @@ permalink: /tools/sr-stat-calc/
     }
     var l = $("#level-select").val();
     var n = window.dex.natures.get($("#nature-select").val());
-    var minStats = calcStats(bs, 0, l, n);
-    var maxStats = calcStats(bs, 31, l, n);
+    var base = Object.values(bs);
+    var minStats = calcStats(base, 0, l, n);
+    var maxStats = calcStats(base, 31, l, n);
     for (var i = 0; i < 6; i++) {
       $("#stat" + i).val(minStats[i] + " - " + maxStats[i]);
+      $("#basestat" + i).html(" (" + base[i] + ")");
     }
   });
 
   function calcStats(baseStats, iv, level, nature) {
     var natureMult = [statToNum(nature.plus), statToNum(nature.minus)];
-    var stats = [calcHP(baseStats.hp, iv, level)];
-    var bs = Object.values(baseStats);
+    var stats = [calcHP(baseStats[0], iv, level)];
     for (var i = 0; i < 5; i++) {
       var boost = natureMult[0] === i;
       var hinder = natureMult[1] === i;
-      stats.push(calcStat(bs[i + 1], iv, level, boost, hinder));
+      stats.push(calcStat(baseStats[i + 1], iv, level, boost, hinder));
     }
     return stats;
   }
