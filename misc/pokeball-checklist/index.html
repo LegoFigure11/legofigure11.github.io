@@ -266,3 +266,43 @@ permalink: /misc/ball-checklist/
   <div class="col">
   </div>
 </div>
+
+<hr />
+
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-outline-success w-100" id="save">Save</button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-info w-100" id="load">Load</button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-warning w-100" id="clear">Clear</button>
+  </div>
+</div>
+
+<hr />
+
+<script>
+  $("#clear").click(function() {
+    $(".form-check-input").prop("checked", false);
+  });
+
+  $("#save").click(function() {
+    var toSave = [];
+    $(".form-check-input").each(function() {
+      var e = $(this);
+      if (e.prop("checked")) {
+        toSave.push(e.attr("id"));
+      }
+    });
+    localStorage.setItem("checked", toSave.join(","));
+  });
+
+  $("#load").click(function() {
+    var toSet = localStorage.getItem("checked").split(",");
+    for (var i = 0; i < toSet.length; i++) {
+      $("#" + toSet[i]).prop("checked", true);
+    }
+  });
+</script>
