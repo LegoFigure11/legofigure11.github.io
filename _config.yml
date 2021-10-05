@@ -7,7 +7,7 @@ url: "https://legofigure11.github.io"
 twitter_username: LegoFigure11
 github_username:  legofigure11
 
-host: 0.0.0.0
+# host: 0.0.0.0
 
 plugins:
   - jekyll-seo-tag
