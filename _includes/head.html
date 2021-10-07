@@ -1,4 +1,11 @@
 <head>
   {% include shared/head/content.html %}
+
+  {% assign is_local = "true" %}
+  {% if site.url contains ".github.io" %}
+  {% assign is_local = "false" %}
+  {% endif %}
+  {% if is_local == "false" %}
   {% include adsense.html %}
+  {% endif %}
 </head>

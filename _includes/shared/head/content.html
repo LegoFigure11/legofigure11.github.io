@@ -6,4 +6,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link rel="stylesheet" href="{{ site.url }}/css/main.css">
 {% seo %}
+
+{% assign is_local = "true" %}
+{% if site.url contains ".github.io" %}
+{% assign is_local = "false" %}
+{% endif %}
+{% if is_local == "false" %}
 {% include analytics.html %}
+{% endif %}
