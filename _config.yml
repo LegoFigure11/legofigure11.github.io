@@ -10,5 +10,6 @@ github_username:  legofigure11
 # host: 0.0.0.0
 
 plugins:
-  - jekyll-seo-tag
+  - jekyll-avatar
   - jekyll-github-metadata
+  - jekyll-seo-tag
