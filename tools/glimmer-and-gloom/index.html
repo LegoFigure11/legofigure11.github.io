@@ -184,10 +184,20 @@ permalink: /tools/glimmer-and-gloom/
   </div>
   <div>
     Once the whole board has been cleared except for the bottom- and bottom-right sides, use the check-boxes on the site to check the tiles that need changing. Once you
-    have selected them all, click <span class="fw-bold">one time</span> on each of the tiles that turn red on this site.
+    have selected them all, click <span class="fw-bold">one time</span> on each of the tiles that turn red on this site in any order.
   </div>
   <div>
     Now, simply clear the board on FR again by clicking the tile below and to the right of the tiles of the wrong color again. And that's it!
+  </div>
+  <br />
+  <div>
+    Full credit goes to <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/186567">@sQld</a> as this is based on their <a class="text-decoration-none text-info"
+      href="https://docs.google.com/spreadsheets/d/16pqDJcZfQE9UAkSdVWlcmR5zDUQdWFoFFkLTJGg3-p0/edit#gid=1444119290">spreadsheet</a>. Thanks also to <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/11257">@Sevi</a>, <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/575482">@KnightOfChance</a>, and <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/462423">@sikora</a> for their contributions to that sheet, and to <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/362345">@Catradora</a> and <a
+      class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/354302">@JumboDS64</a> for the <a class="text-decoration-none text-info" href="http://www1.flightrising.com/forums/gde/2486926">original G&G Very Hard
+      guide</a> and the <a class="text-decoration-none text-info" href="http://www1.flightrising.com/forums/gde/2753640">G&G Very Hard: Even simpler</a> guide. Web-ified by <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/549799">@LegoFigure11</a>.
   </div>
 </div>
 
@@ -255,12 +265,7 @@ permalink: /tools/glimmer-and-gloom/
 
   $("input:checkbox").change(function() {
     calculate();
-    let color = $("#faction-select").val();
-    c = color === "purple" ? "#f1c232" : "#674ea7";
-    d = color === "yellow" ? "#f1c232" : "#674ea7";
-    $(".form-check-input").css("background-color", d);
-    $(".form-check-input:checked").css("background-color", c);
-    $(".form-check-input:checked").css("border-color", c);
+    setColor();
   });
 
   function setColor() {
@@ -271,6 +276,7 @@ permalink: /tools/glimmer-and-gloom/
     c = color === "purple" ? "#f1c232" : "#674ea7";
     d = color === "yellow" ? "#f1c232" : "#674ea7";
     $(".form-check-input").css("background-color", d);
+    $(".form-check-input").css("border-color", d);
     $(".form-check-input:checked").css("background-color", c);
     $(".form-check-input:checked").css("border-color", c);
   }
