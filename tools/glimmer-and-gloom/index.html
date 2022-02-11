@@ -176,6 +176,13 @@ permalink: /tools/glimmer-and-gloom/
 </div>
 
 <br />
+<div class="w-100 d-flex row justify-content-center">
+  <div class="col-md">
+    <button type="button" class="btn btn-outline-success" onclick="reset()">Reset board</button>
+  </div>
+</div>
+
+<br />
 
 <div>
   <h2>How to use:</h2>
@@ -279,5 +286,13 @@ permalink: /tools/glimmer-and-gloom/
     $(".form-check-input").css("border-color", d);
     $(".form-check-input:checked").css("background-color", c);
     $(".form-check-input:checked").css("border-color", c);
+  }
+
+  function reset() {
+    for (let i = 0; i < 9; i++) {
+      $("#input" + i).prop("checked", false);
+    }
+    calculate();
+    setColor();
   }
 </script>
