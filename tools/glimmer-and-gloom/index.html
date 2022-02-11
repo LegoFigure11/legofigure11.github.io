@@ -1,0 +1,277 @@
+---
+layout: default
+title: Glimmer &amp; Gloom Very Hard Solver
+permalink: /tools/glimmer-and-gloom/
+---
+<style>
+  .yellow {
+    color: #f1c232;
+  }
+
+  .purple {
+    color: #674ea7;
+  }
+
+  .click {
+    color: #F00 !important;
+  }
+</style>
+
+<h1>Glimmer-and-Gloom</h1>
+<hr />
+
+<div class="col-md">
+  <div class="form-floating">
+    <select class="form-select bg-dark text-light" id="faction-select" aria-label="Faction Select">
+      <option value="purple">Shadow</option>
+      <option value="yellow" selected>Light</option>
+    </select>
+    <label for="faction-select">Select who you want to win...</label>
+  </div>
+</div>
+
+<br />
+<div class="w-100 d-flex row justify-content-center">
+  <div class="col table-responsive" style="max-width: 470px">
+    <table class="table table-borderless table-sm">
+      <tbody class="text-center h3">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="result4">&#x2B22;</td>
+          <td id="result5">&#x2B22;</td>
+          <td id="result6">&#x2B22;</td>
+          <td id="result7">&#x2B22;</td>
+          <td id="result8">&#x2B22;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="result3">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td id="result2">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="result1">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td id="result0">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><input id="input8" class="form-check-input calc-trigger" type="checkbox" value="" checked></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><input id="input7" class="form-check-input calc-trigger" type="checkbox" value=""></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><input id="input6" class="form-check-input calc-trigger" type="checkbox" value="" checked></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><input id="input5" class="form-check-input calc-trigger" type="checkbox" value=""></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><input id="input0" class="form-check-input calc-trigger" type="checkbox" value=""></td>
+          <td><input id="input1" class="form-check-input calc-trigger" type="checkbox" value="" checked></td>
+          <td><input id="input2" class="form-check-input calc-trigger" type="checkbox" value=""></td>
+          <td><input id="input3" class="form-check-input calc-trigger" type="checkbox" value=""></td>
+          <td><input id="input4" class="form-check-input calc-trigger" type="checkbox" value=""></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br />
+
+<div>
+  <h2>How to use:</h2>
+  <div>
+    Select the color that you want to win in the drop-down menu at the top of the page, then clear the board on FR by clicking the tile below and to the right of the tiles of the wrong color.
+  </div>
+  <div>
+    Once the whole board has been cleared except for the bottom- and bottom-right sides, use the check-boxes on the site to check the tiles that need changing. Once you
+    have selected them all, click <span class="fw-bold">one time</span> on each of the tiles that turn red on this site.
+  </div>
+  <div>
+    Now, simply clear the board on FR again by clicking the tile below and to the right of the tiles of the wrong color again. And that's it!
+  </div>
+</div>
+
+<br />
+<br />
+
+
+
+<script type="text/javascript">
+  function calculate() {
+    // From https://docs.google.com/spreadsheets/d/16pqDJcZfQE9UAkSdVWlcmR5zDUQdWFoFFkLTJGg3-p0/edit#gid=0
+    // By Catradora, JumboDS64, and sQld
+    const patterns = [
+      [0, 0, 0, 1, 0, 1, 0, 0, 1],
+      [0, 0, 0, 0, 1, 1, 1, 1, 0],
+      [0, 0, 1, 1, 0, 1, 0, 1, 0],
+      [1, 0, 1, 1, 0, 1, 1, 1, 1],
+      [0, 1, 0, 0, 1, 0, 0, 1, 0],
+      [1, 1, 1, 1, 0, 1, 1, 0, 1],
+      [0, 1, 0, 1, 0, 1, 1, 0, 0],
+      [0, 1, 1, 1, 1, 0, 0, 0, 0],
+      [1, 0, 0, 1, 0, 1, 0, 0, 0],
+    ];
+
+    const inputs = [];
+    for (let i = 0; i < 9; i++) {
+      inputs.push($("#input" + i).prop("checked") ? 1 : 0);
+    }
+
+    const solutions = [];
+    for (let i = 0; i < 9; i++) {
+      let solution = [];
+      for (let j = 0; j < 9; j++) {
+        let v = 0;
+        if (inputs[i] === 1) v = patterns[j][i];
+        solution.push(v);
+      }
+      solutions.push(solution);
+    }
+
+    const final = [
+      0, 0, 0, 0, 0, 0, 0, 0, 0,
+    ];
+
+    for (let r = 0; r < 9; r++) {
+      $("#result" + r).removeClass("click");
+      for (let c = 0; c < 9; c++) {
+        final[r] += solutions[c][r];
+      }
+      final[r] &= 1;
+      if (final[r] === 1) {
+        $("#result" + r).addClass("click");
+      }
+    }
+  }
+
+  $(document).ready(function() {
+    setColor();
+    calculate();
+  });
+
+  $("#faction-select").change(function() {
+    setColor();
+  });
+
+  $("input:checkbox").change(function() {
+    calculate();
+    let color = $("#faction-select").val();
+    c = color === "purple" ? "#f1c232" : "#674ea7";
+    d = color === "yellow" ? "#f1c232" : "#674ea7";
+    $(".form-check-input").css("background-color", d);
+    $(".form-check-input:checked").css("background-color", c);
+    $(".form-check-input:checked").css("border-color", c);
+  });
+
+  function setColor() {
+    $("tr").removeClass("yellow");
+    $("tr").removeClass("purple");
+    let color = $("#faction-select").val();
+    $("tr").addClass(color);
+    c = color === "purple" ? "#f1c232" : "#674ea7";
+    d = color === "yellow" ? "#f1c232" : "#674ea7";
+    $(".form-check-input").css("background-color", d);
+    $(".form-check-input:checked").css("background-color", c);
+    $(".form-check-input:checked").css("border-color", c);
+  }
+</script>
