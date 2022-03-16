@@ -203,7 +203,7 @@ permalink: /tools/characteristic-calc/
     console.log(index);
 
     $("#resultsModalLabel").html(
-      (window.gen < 6 ? "PID" : "EC") + ": 0x" + (pid + "").toUpperCase().padStart(8, "0") + " | IVS: " + orderedIvs.join("/"));
+      (window.gen < 6 ? "PID" : "EC") + ": 0x" + (~~(pid)).toString(16).toUpperCase().padStart(8, "0") + " | IVS: " + orderedIvs.join("/"));
     $("#results").html(
       "<div>In Generation " + window.gen + ", this Pok&eacute;mon &quot;" + characteristics[index] + "&quot;.</div>"
     );
