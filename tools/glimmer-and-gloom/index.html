@@ -266,7 +266,7 @@ permalink: /tools/glimmer-and-gloom/
   </div>
   <div>
     Once the whole board has been cleared except for the bottom- and bottom-right sides, use the check-boxes on this page to check the tiles that need changing. Once you
-    have selected them all, click <span class="fw-bold">one time</span> on each of the tiles that turn red on this site in any order.
+    have selected them all, click <span class="fw-bold">one time</span> on each of the tiles that turn <span id="color-text">red</span> on this site in any order.
   </div>
   <div>
     Now, simply clear the board on FR again by clicking the tile below and to the right of the tiles of the wrong color again. And that's it!
@@ -343,7 +343,6 @@ permalink: /tools/glimmer-and-gloom/
       }
       final[r] &= 1;
       if (final[r] === 1) {
-        //$("#result" + r).addClass("click");
         $("#result" + r).css("color", window.color);
         $("#result" + r).html(window.symbol);
       }
@@ -400,6 +399,9 @@ permalink: /tools/glimmer-and-gloom/
     $(".form-check-input").css("border-color", d);
     $(".form-check-input:checked").css("background-color", c);
     $(".form-check-input:checked").css("border-color", c);
+
+    $("#color-text").css("color", window.color);
+    $("#color-text").html(window.color === "#ff0000" ? "red" : "blue");
   }
 
   function reset() {
