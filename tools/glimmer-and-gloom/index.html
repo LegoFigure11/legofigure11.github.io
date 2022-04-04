@@ -12,8 +12,65 @@ permalink: /tools/glimmer-and-gloom/
     color: #674ea7;
   }
 
-  .click {
-    color: #F00 !important;
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 49.85px;
+    height: 21.6px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FF0000;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15.6px;
+    width: 15.6px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked+.slider {
+    background-color: #0dcaf0;
+  }
+
+  input:focus+.slider {
+    box-shadow: 0 0 1px #0dcaf0;
+  }
+
+  input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
   }
 </style>
 
@@ -32,7 +89,7 @@ permalink: /tools/glimmer-and-gloom/
 
 <br />
 <div class="w-100 d-flex row justify-content-center">
-  <div class="col table-responsive" style="max-width: 470px">
+  <div class="col table-responsive" style="max-width: 480px">
     <table class="table table-borderless table-sm">
       <tbody class="text-center h3">
         <tr>
@@ -180,6 +237,19 @@ permalink: /tools/glimmer-and-gloom/
   <div class="col-md">
     <button type="button" class="btn btn-outline-success" onclick="reset()">Reset board</button>
   </div>
+  <div class="col-md">
+    <span><label style="padding: .375rem 0.75rem" label for="color-check">Color:</label></span>
+    <span>
+      <label class="switch">
+        <input id="color-check" type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </span>
+  </div>
+  <div class="col-md">
+    <span><label style="padding: .375rem 0.75rem" label for="symbol-check">Symbol:</label></span>
+    <span tabindex="0" style="cursor: pointer;" id="symbol-check">&#x2B22;</span>
+  </div>
 </div>
 
 <br />
@@ -209,7 +279,7 @@ permalink: /tools/glimmer-and-gloom/
       href="http://www1.flightrising.com/clan-profile/462423">@sikora</a> for their contributions to that sheet, and to <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/362345">@Catradora</a> and <a
       class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/354302">@JumboDS64</a> for the <a class="text-decoration-none text-info" href="http://www1.flightrising.com/forums/gde/2486926">original G&G Very Hard
       guide</a> and the <a class="text-decoration-none text-info" href="http://www1.flightrising.com/forums/gde/2753640">G&G Very Hard: Even simpler</a> guide. Website-ified by <a class="text-decoration-none text-info"
-      href="http://www1.flightrising.com/clan-profile/549799">@LegoFigure11</a>.
+      href="http://www1.flightrising.com/clan-profile/549799">@LegoFigure11</a> (that's me!).
   </div>
   <br />
   <div>
@@ -223,6 +293,11 @@ permalink: /tools/glimmer-and-gloom/
 
 
 <script type="text/javascript">
+  window = {
+    symbol: "&#x2B22;", // Hex by default
+    color: "#ff0000", // Red by default
+  };
+
   function calculate() {
     // From https://docs.google.com/spreadsheets/d/16pqDJcZfQE9UAkSdVWlcmR5zDUQdWFoFFkLTJGg3-p0/edit#gid=0
     // By Catradora, JumboDS64, and sQld
@@ -258,22 +333,40 @@ permalink: /tools/glimmer-and-gloom/
       0, 0, 0, 0, 0, 0, 0, 0, 0,
     ];
 
+    let color = $("#faction-select").val();
+    let d = color === "yellow" ? "#f1c232" : "#674ea7";
     for (let r = 0; r < 9; r++) {
-      $("#result" + r).removeClass("click");
+      $("#result" + r).css("color", d);
+      $("#result" + r).html("&#x2B22;");
       for (let c = 0; c < 9; c++) {
         final[r] += solutions[c][r];
       }
       final[r] &= 1;
       if (final[r] === 1) {
-        $("#result" + r).addClass("click");
+        //$("#result" + r).addClass("click");
+        $("#result" + r).css("color", window.color);
+        $("#result" + r).html(window.symbol);
       }
     }
   }
 
   $(document).ready(function() {
+    if (window.localStorage.getItem("color") === "#0dcaf0") {
+      $("#color-check").prop("checked", true);
+    }
+    if (window.localStorage.getItem("symbol")) {
+      $("#symbol-check").html(window.localStorage.getItem("symbol"));
+    }
+    window.color = $("#color-check").prop("checked") ? "#0dcaf0" : "#ff0000";
+    window.symbol = $("#symbol-check").html();
     setColor();
     calculate();
   });
+
+  $("#color-check").change(function() {
+    window.color = $("#color-check").prop("checked") ? "#0dcaf0" : "#ff0000";
+    window.localStorage.setItem("color", window.color);
+  })
 
   $("#faction-select").change(function() {
     reset();
@@ -284,13 +377,25 @@ permalink: /tools/glimmer-and-gloom/
     setColor();
   });
 
+  $("#symbol-check").click(function() {
+    if ($("#symbol-check").html() === "\u{2605}") {
+      window.symbol = "&#x2B22;";
+    } else {
+      window.symbol = "&#9733;";
+    }
+    $("#symbol-check").html(window.symbol);
+    window.localStorage.setItem("symbol", window.symbol);
+    calculate();
+    setColor();
+  });
+
   function setColor() {
     $("tr").removeClass("yellow");
     $("tr").removeClass("purple");
     let color = $("#faction-select").val();
     $("tr").addClass(color);
-    c = color === "purple" ? "#f1c232" : "#674ea7";
-    d = color === "yellow" ? "#f1c232" : "#674ea7";
+    let c = color === "purple" ? "#f1c232" : "#674ea7";
+    let d = color === "yellow" ? "#f1c232" : "#674ea7";
     $(".form-check-input").css("background-color", d);
     $(".form-check-input").css("border-color", d);
     $(".form-check-input:checked").css("background-color", c);
