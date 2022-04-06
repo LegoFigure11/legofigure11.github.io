@@ -12,11 +12,6 @@ permalink: /tools/glimmer-and-gloom/
     color: #674ea7;
   }
 
-  td {
-    min-width: 33px;
-    min-height: 39px;
-  }
-
   /* The switch - the box around the slider */
   .switch {
     position: relative;
@@ -360,6 +355,13 @@ permalink: /tools/glimmer-and-gloom/
     }
     if (window.localStorage.getItem("symbol")) {
       $("#symbol-check").html(window.localStorage.getItem("symbol"));
+      if (window.localStorage.getItem("symbol") === "&#9733;") {
+        $("td").css("min-width", "33px");
+        $("td").css("min-height", "39px");
+      } else {
+        $("td").css("min-width", "1px");
+        $("td").css("min-height", "1px");
+      }
     }
     window.color = $("#color-check").prop("checked") ? "#0dcaf0" : "#ff0000";
     window.symbol = $("#symbol-check").html();
@@ -389,6 +391,13 @@ permalink: /tools/glimmer-and-gloom/
     }
     $("#symbol-check").html(window.symbol);
     window.localStorage.setItem("symbol", window.symbol);
+    if (window.symbol === "&#9733;") {
+      $("td").css("min-width", "33px");
+      $("td").css("min-height", "39px");
+    } else {
+      $("td").css("min-width", "0px");
+      $("td").css("min-height", "0px");
+    }
     calculate();
     setColor();
   });
