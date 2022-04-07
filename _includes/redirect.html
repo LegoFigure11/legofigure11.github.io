@@ -1,0 +1,58 @@
+<div class="container d-none fixed-bottom text-center alert alert-warning text-dark" id="redirect-notice" style="max-width: 900px">
+  <p>
+    Whoops! This site is being restructured, and it looks like you were redirected here from <code id="redirect-pathname"></code>. If you came here via a bookmark, you might want to update it. If you came here from a link on this site, please
+    <a target="_blank" href="https://github.com/LegoFigure11/legofigure11.github.io/issues/new/choose">open an issue on GitHub</a> so it can be updated.
+  </p>
+  <p>
+    <a href="#" id="redirect-dismiss">Dismiss</a> | <a href="#" id="redirect-dont-show-again">Don't show again</a>
+  </p>
+</div>
+
+<script>
+  var redirects = {
+    // stored as
+    // path to redirect from: path to redirect to
+    "/tools/glimmer-and-gloom/": "/fr/glimmer-and-gloom/",
+    "/misc/fr-afd-scroll/": "/fr/afd-scroll/"
+  }
+  $("document").ready(function() {
+    var path = window.location.pathname;
+
+    // sanitize path
+    if (path.slice(path.length - 1) !== "/") path += "/";
+
+    var to = redirects[path];
+    if (to) {
+      window.location.replace(window.location.origin + to + "?redir=true&from=" + path);
+    };
+
+    var queryString = window.location.search;
+    var params = new URLSearchParams(queryString);
+    var n = path.split("?")[0];
+
+    if (params.get("redir") === "true") {
+      var s = window.localStorage.getItem("no-redirect-notice");
+      if (!s) s = "";
+      var ignore = s.split(";");
+      if (!ignore.includes(n)) {
+        var from = params.get("from");
+        $("#redirect-pathname").html(from);
+        $("#redirect-notice").removeClass("d-none");
+      }
+      window.history.replaceState({}, document.title, n);
+    }
+  });
+
+  $("#redirect-dismiss").click(function() {
+    $("#redirect-notice").addClass("d-none");
+  })
+
+  $("#redirect-dont-show-again").click(function() {
+    var path = window.location.pathname.split("?")[0];
+    var s = window.localStorage.getItem("no-redirect-notice");
+    if (!s) s = "";
+    s += path + ";";
+    window.localStorage.setItem("no-redirect-notice", s);
+    $("#redirect-notice").addClass("d-none");
+  })
+</script>
