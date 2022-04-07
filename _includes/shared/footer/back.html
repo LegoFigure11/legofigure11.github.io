@@ -12,9 +12,10 @@
   <script>
     var url = window.location.pathname;
     var pathname = url.slice(1, url.indexOf("/", 1)).toLowerCase();
-    var pages = ["tools", "misc"];
+    var pages = ["tools", "misc", "fr"];
+
     if (pages.includes(pathname) && url !== ("/" + pathname + "/")) {
-      $("#back-link-address").html(pathname.charAt(0).toUpperCase() + pathname.slice(1) + "...");
+      $("#back-link-address").html(pathname.replace("fr", "index").charAt(0).toUpperCase() + pathname.replace("fr", "index").slice(1) + "...");
       $("#back-link").prop("href", window.location.origin + "/" + pathname);
       $("#back-container").removeClass("d-none");
     }
