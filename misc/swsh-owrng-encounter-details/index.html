@@ -1,0 +1,47 @@
+---
+layout: default
+title: SwSh Overworld Encounter Details
+permalink: /misc/swsh-owrng-encounter-details/
+---
+<h1>SwSh-Overworld-Encounter-Details</h1>
+<hr />
+
+<div class="col-md">
+  <div class="form-floating">
+    <select class="form-select bg-dark text-light" id="species-select" aria-label="Species Select">
+      <option>Loading...</option>
+    </select>
+    <label for="species-select">Select Species...</label>
+  </div>
+</div>
+
+<br />
+
+<div class="row g-3">
+  <div class="col-md">
+    <label for="item">Held Item?</label>
+    <input id="item" type="text" class="form-control" placeholder="No" aria-label="item" value="Loading..." disabled>
+  </div>
+  <div class="col-md">
+    <label for="ems">Egg Moves:</label>
+    <input id="ems" type="text" class="form-control" placeholder="0" aria-label="ems" value="Loading..." disabled>
+  </div>
+</div>
+
+<script src="./details.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#species-select").html(""); // Clear species select
+    for (const species of Object.keys(details).sort()) {
+      $("#species-select").append("<option value=\"" + species + "\">" + species + "</option>");
+    }
+    $("#species-select").change();
+  });
+
+  $("#species-select").change(function() {
+    var species = $("#species-select").val();
+    var info = details[species];
+    $("#item").val(!!info.item ? "Yes" : "No");
+    $("#ems").val(info.ems ? info.ems.length : 0);
+  });
+</script>
