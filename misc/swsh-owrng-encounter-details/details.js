@@ -1,6 +1,7 @@
 var details = {
   "Abomasnow": {
-    "item": true
+    "item": true,
+    "ems": ["Leech Seed", "Growth", "Double-Edge", "Stomp", "Skull Bash"]
   },
   "Abra": {
     "item": true,
@@ -9,39 +10,55 @@ var details = {
   "Absol": {
     "ems": ["Curse", "Double-Edge", "Magic Coat", "Mean Look", "Bite", "Feint"]
   },
-  "Accelgor": {},
-  "Aegislash": {},
+  "Accelgor": {
+    "ems": ["Double-Edge", "Guard Split", "Mind Reader", "Feint"]
+  },
+  "Aegislash": {
+    "ems": ["Destiny Bond", "Wide Guard", "Block"]
+  },
   "Aerodactyl": {
     "ems": ["Curse", "Dragon Breath", "Roost", "Tailwind", "Whirlwind", "Wide Guard"]
   },
   "Aggron": {
-    "item": true
+    "item": true,
+    "ems": ["Curse", "Dragon Rush", "Endeavor", "Head Smash", "Stomp", "Mud-Slap"]
   },
   "Alakazam": {
-    "item": true
+    "item": true,
+    "ems": ["Confusion", "Guard Split", "Magic Coat"]
   },
-  "Altaria": {},
+  "Altaria": {
+    "ems": ["Dragon Rush", "Feather Dance", "Haze", "Defog", "Tailwind", "Astonish", "Roost"]
+  },
   "Amaura": {
     "ems": ["Take Down", "Rock Throw", "Discharge", "Haze", "Mirror Coat", "Aurora Veil"]
   },
   "Amoonguss": {
-    "item": true
+    "item": true,
+    "ems": ["Defense Curl", "Poison Powder", "Rollout", "Worry Seed"]
   },
   "Anorith": {
     "ems": ["Knock Off", "Curse", "Rapid Spin", "Sand Attack", "Water Pulse", "Aqua Jet"]
   },
-  "Appletun": {},
+  "Appletun": {
+    "ems": ["Sucker Punch", "Rollout", "Defense Curl", "Recycle"]
+  },
   "Applin": {
     "ems": ["Sucker Punch", "Rollout", "Defense Curl", "Recycle"]
   },
   "Araquanid": {
-    "item": true
+    "item": true,
+    "ems": ["Power Split", "Stockpile", "Spit Up", "Sticky Web"]
   },
-  "Arcanine": {},
+  "Arcanine": {
+    "ems": ["Thrash", "Double-Edge", "Morning Sun", "Covet", "Double Kick"]
+  },
   "Archen": {
     "ems": ["Bite", "Defog", "Knock Off", "Double Team", "Head Smash", "Switcheroo"]
   },
-  "Armaldo": {},
+  "Armaldo": {
+    "ems": ["Knock Off", "Curse", "Rapid Spin", "Sand Attack", "Water Pulse", "Aqua Jet"]
+  },
   "Aron": {
     "item": true,
     "ems": ["Curse", "Dragon Rush", "Endeavor", "Head Smash", "Stomp", "Mud-Slap"]
@@ -54,12 +71,18 @@ var details = {
     "item": true,
     "ems": ["Healing Wish", "Wish", "Yawn", "Sweet Kiss"]
   },
-  "Aurorus": {},
-  "Avalugg": {},
+  "Aurorus": {
+    "ems": ["Take Down", "Rock Throw", "Discharge", "Haze", "Mirror Coat", "Aurora Veil"]
+  },
+  "Avalugg": {
+    "ems": ["Mist", "Mirror Coat", "Aurora Veil"]
+  },
   "Axew": {
     "ems": ["Counter", "Night Slash", "Endeavor", "Harden", "First Impression", "Counter"]
   },
-  "Azumarill": {},
+  "Azumarill": {
+    "ems": ["Aqua Jet", "Belly Drum", "Copycat", "Perish Song", "Present", "Sing", "Soak", "Supersonic", "Tickle"]
+  },
   "Azurill": {
     "ems": ["Aqua Jet", "Belly Drum", "Copycat", "Perish Song", "Present", "Sing", "Soak", "Supersonic", "Tickle"]
   },
@@ -70,40 +93,57 @@ var details = {
   "Baltoy": {
     "item": true
   },
-  "Barbaracle": {},
+  "Barbaracle": {
+    "ems": ["Switcheroo", "Night Slash", "Sand Attack"]
+  },
   "Barboach": {
     "ems": ["Thrash", "Spark", "Flail", "Take Down"]
   },
-  "Barraskewda": {},
+  "Barraskewda": {
+    "ems": ["Thrash", "Acupressure", "Slash", "Night Slash"]
+  },
   "Basculin": {
     "ems": ["Bubble Beam", "Endeavor"]
   },
-  "Beartic": {},
-  "Beheeyem": {},
+  "Beartic": {
+    "ems": ["Yawn", "Night Slash", "Focus Punch"]
+  },
+  "Beheeyem": {
+    "ems": ["Disable", "Astonish", "Psych Up", "Destiny Bond"]
+  },
   "Beldum": {
     "item": true
   },
   "Bellossom": {
-    "item": true
+    "item": true,
+    "ems": ["Razor Leaf", "Flail", "Synthesis", "Ingrain", "Tickle", "Teeter Dance", "Nature Power", "After You", "Strength Sap", "Leech Seed"]
   },
   "Bergmite": {
     "ems": ["Mist", "Mirror Coat", "Aurora Veil"]
   },
-  "Bewear": {},
+  "Bewear": {
+    "ems": ["Force Palm", "Rollout", "Defense Curl", "Stomp"]
+  },
   "Binacle": {
     "ems": ["Switcheroo", "Night Slash", "Sand Attack"]
   },
-  "Bisharp": {},
+  "Bisharp": {
+    "ems": ["Sucker Punch", "Headbutt", "Mean Look", "Quick Guard"]
+  },
   "Blipbug": {
     "ems": ["Infestation", "Supersonic", "Sticky Web", "Recover"]
   },
   "Blissey": {
-    "item": true
+    "item": true,
+    "ems": ["Aromatherapy", "Gravity", "Present", "Seismic Toss"]
   },
   "Boldore": {
-    "item": true
+    "item": true,
+    "ems": ["Curse", "Autotomize", "Take Down", "Gravity", "Wide Guard"]
   },
-  "Boltund": {},
+  "Boltund": {
+    "ems": ["Double-Edge", "Sand Attack", "Flame Charge", "Discharge", "Howl"]
+  },
   "Bonsly": {
     "ems": ["Headbutt", "Harden", "Defense Curl", "Curse", "Rollout", "Rock Polish"]
   },
@@ -135,19 +175,28 @@ var details = {
     "item": true
   },
   "Carbink": {},
-  "Carkol": {},
-  "Carracosta": {},
+  "Carkol": {
+    "ems": ["Explosion", "Mud-Slap", "Block"]
+  },
+  "Carracosta": {
+    "ems": ["Knock Off", "Rollout", "Rock Throw", "Slam", "Water Pulse", "Block"]
+  },
   "Carvanha": {
     "ems": ["Ancient Power", "Destiny Bond", "Double-Edge", "Thrash", "Water Pulse"]
   },
   "Caterpie": {},
-  "Centiskorch": {},
-  "Chandelure": {},
+  "Centiskorch": {
+    "ems": ["Knock Off", "Struggle Bug", "Rollout", "Defense Curl"]
+  },
+  "Chandelure": {
+    "ems": ["Acid Armor", "Haze", "Clear Smog", "Power Split"]
+  },
   "Chansey": {
     "ems": ["Aromatherapy", "Gravity", "Present", "Seismic Toss"]
   },
   "Charjabug": {
-    "item": true
+    "item": true,
+    "ems": ["Harden", "Discharge"]
   },
   "Cherubi": {
     "item": true,
@@ -159,11 +208,15 @@ var details = {
   "Chinchou": {
     "ems": ["Psybeam", "Mist", "Water Pulse", "Soak"]
   },
-  "Cinccino": {},
+  "Cinccino": {
+    "ems": ["Tail Whip", "Aqua Tail", "Knock Off", "Flail"]
+  },
   "Clauncher": {
     "ems": ["Entrainment", "Aqua Tail", "Bubble Beam"]
   },
-  "Clawitzer": {},
+  "Clawitzer": {
+    "ems": ["Entrainment", "Aqua Tail", "Bubble Beam"]
+  },
   "Claydol": {
     "item": true
   },
@@ -177,9 +230,12 @@ var details = {
     "ems": ["Pain Split", "Soak", "Sucker Punch", "Circle Throw", "Seismic Toss", "Power-Up Punch"]
   },
   "Cloyster": {
-    "item": true
+    "item": true,
+    "ems": ["Bubble Beam", "Water Pulse", "Aqua Ring", "Life Dew"]
   },
-  "Coalossal": {},
+  "Coalossal": {
+    "ems": ["Explosion", "Mud-Slap", "Block"]
+  },
   "Cobalion": {},
   "Combee": {
     "item": true
@@ -188,9 +244,12 @@ var details = {
     "item": true,
     "ems": ["After You", "Worry Seed", "Leaf Tornado"]
   },
-  "Conkeldurr": {},
+  "Conkeldurr": {
+    "ems": ["Counter", "Detect", "Wide Guard", "Mach Punch", "Power-Up Punch", "Defog"]
+  },
   "Copperajah": {
-    "item": true
+    "item": true,
+    "ems": ["Double-Edge", "Belch", "Curse", "Slam", "Fissure", "Swagger", "Whirlwind", "Defense Curl"]
   },
   "Corphish": {
     "ems": ["Ancient Power", "Metal Claw", "Double-Edge", "Aqua Jet", "Switcheroo", "Slash"]
@@ -198,8 +257,12 @@ var details = {
   "Corsola-Galar": {
     "ems": ["Haze", "Confuse Ray", "Nature Power", "Destiny Bond", "Water Pulse", "Head Smash"]
   },
-  "Corviknight": {},
-  "Corvisquire": {},
+  "Corviknight": {
+    "ems": ["Sky Attack", "Sand Attack", "Tailwind", "Defog", "Rock Smash", "Spite", "Roost"]
+  },
+  "Corvisquire": {
+    "ems": ["Sky Attack", "Sand Attack", "Tailwind", "Defog", "Rock Smash", "Spite", "Roost"]
+  },
   "Cottonee": {
     "item": true,
     "ems": ["Tickle", "Memento", "Switcheroo", "Worry Seed", "Nature Power"]
@@ -207,13 +270,16 @@ var details = {
   "Cramorant": {
     "ems": ["Defog", "Aerial Ace", "Feather Dance", "Aqua Ring", "Roost"]
   },
-  "Crawdaunt": {},
+  "Crawdaunt": {
+    "ems": ["Ancient Power", "Metal Claw", "Double-Edge", "Aqua Jet", "Switcheroo", "Slash"]
+  },
   "Croagunk": {
     "item": true,
     "ems": ["Feint", "Dynamic Punch", "Headbutt", "Vacuum Wave", "Fake Out", "Cross Chop", "Bullet Punch", "Counter", "Quick Guard"]
   },
   "Crustle": {
-    "item": true
+    "item": true,
+    "ems": ["Night Slash", "Counter", "Curse", "Block", "Wide Guard", "Knock Off"]
   },
   "Cryogonal": {
     "item": true
@@ -233,7 +299,9 @@ var details = {
     "item": true,
     "ems": ["Moonblast", "Sticky Web", "Aromatic Mist"]
   },
-  "Darmanitan-Galar": {},
+  "Darmanitan-Galar": {
+    "ems": ["Focus Punch", "Hammer Arm", "Take Down", "Flame Wheel", "Yawn", "Freeze-Dry", "Incinerate", "Power-Up Punch"]
+  },
   "Darumaka-Galar": {
     "ems": ["Focus Punch", "Hammer Arm", "Take Down", "Flame Wheel", "Yawn", "Freeze-Dry", "Incinerate", "Power-Up Punch"]
   },
@@ -251,7 +319,9 @@ var details = {
     "ems": ["Power Split", "Stockpile", "Spit Up", "Sticky Web"]
   },
   "Dhelmise": {},
-  "Diggersby": {},
+  "Diggersby": {
+    "ems": ["Defense Curl", "Rollout"]
+  },
   "Diglett": {
     "item": true,
     "ems": ["Ancient Power", "Headbutt", "Final Gambit", "Memento", "Hone Claws"]
@@ -260,34 +330,50 @@ var details = {
     "item": true
   },
   "Dottler": {
-    "item": true
+    "item": true,
+    "ems": ["Infestation", "Supersonic", "Sticky Web", "Recover"]
   },
-  "Doublade": {},
-  "Dragalge": {},
-  "Dragapult": {},
+  "Doublade": {
+    "ems": ["Destiny Bond", "Wide Guard", "Block"]
+  },
+  "Dragalge": {
+    "ems": ["Acid Armor", "Haze", "Twister", "Dragon Tail"]
+  },
+  "Dragapult": {
+    "ems": ["Curse", "Grudge", "Confuse Ray", "Double Team", "Disable", "Dragon Tail", "Sucker Punch"]
+  },
   "Dragonair": {
-    "item": true
+    "item": true,
+    "ems": ["Aqua Jet", "Dragon Breath", "Extreme Speed", "Mist", "Supersonic", "Water Pulse"]
   },
   "Dragonite": {
-    "item": true
+    "item": true,
+    "ems": ["Aqua Jet", "Dragon Breath", "Extreme Speed", "Mist", "Supersonic", "Water Pulse"]
   },
-  "Drakloak": {},
+  "Drakloak": {
+    "ems": ["Curse", "Grudge", "Confuse Ray", "Double Team", "Disable", "Dragon Tail", "Sucker Punch"]
+  },
   "Drampa": {
     "item": true,
     "ems": ["Dragon Rush", "Mist", "Tickle"]
   },
   "Drapion": {
-    "item": true
+    "item": true,
+    "ems": ["Sand Attack", "Slash", "Confuse Ray", "Whirlwind"]
   },
   "Dratini": {
     "item": true,
     "ems": ["Aqua Jet", "Dragon Breath", "Extreme Speed", "Mist", "Supersonic", "Water Pulse"]
   },
-  "Drednaw": {},
+  "Drednaw": {
+    "ems": ["Skull Bash", "Gastro Acid", "Dragon Tail"]
+  },
   "Dreepy": {
     "ems": ["Curse", "Grudge", "Confuse Ray", "Double Team", "Disable", "Dragon Tail", "Sucker Punch"]
   },
-  "Drifblim": {},
+  "Drifblim": {
+    "ems": ["Memento", "Disable", "Haze", "Hypnosis", "Clear Smog", "Defog"]
+  },
   "Drifloon": {
     "ems": ["Memento", "Disable", "Haze", "Hypnosis", "Clear Smog", "Defog"]
   },
@@ -298,14 +384,19 @@ var details = {
     "item": true,
     "ems": ["Night Slash", "Glare", "Poison Tail", "Sucker Punch"]
   },
-  "Dubwool": {},
+  "Dubwool": {
+    "ems": ["Stomp", "Swagger", "Counter"]
+  },
   "Dugtrio": {
-    "item": true
+    "item": true,
+    "ems": ["Ancient Power", "Headbutt", "Final Gambit", "Memento", "Hone Claws"]
   },
   "Dunsparce": {
     "ems": ["Astonish", "Bite", "Curse", "Headbutt", "Magic Coat", "Aqua Tail", "Last Resort"]
   },
-  "Duosion": {},
+  "Duosion": {
+    "ems": ["Astonish", "Confuse Ray", "Acid Armor"]
+  },
   "Duraludon": {
     "ems": ["Slash", "Night Slash", "Mirror Coat"]
   },
@@ -313,10 +404,12 @@ var details = {
     "ems": ["Struggle Bug", "First Impression", "Metal Burst", "Infestation", "Flail"]
   },
   "Dusclops": {
-    "item": true
+    "item": true,
+    "ems": ["Pain Split", "Grudge", "Memento", "Haze"]
   },
   "Dusknoir": {
-    "item": true
+    "item": true,
+    "ems": ["Pain Split", "Grudge", "Memento", "Haze"]
   },
   "Duskull": {
     "item": true,
@@ -332,12 +425,16 @@ var details = {
   "Eiscue": {
     "ems": ["Soak", "Aqua Ring", "Belly Drum", "Double-Edge", "Icicle Crash", "Head Smash"]
   },
-  "Eldegoss": {},
+  "Eldegoss": {
+    "ems": ["Growth", "Leech Seed", "Worry Seed", "Poison Powder", "Stun Spore", "Sleep Powder"]
+  },
   "Electabuzz": {
-    "item": true
+    "item": true,
+    "ems": ["Cross Chop", "Dynamic Punch", "Focus Punch", "Hammer Arm", "Feint"]
   },
   "Electivire": {
-    "item": true
+    "item": true,
+    "ems": ["Cross Chop", "Dynamic Punch", "Focus Punch", "Hammer Arm", "Feint"]
   },
   "Electrike": {
     "ems": ["Headbutt", "Curse", "Switcheroo", "Spark"]
@@ -352,17 +449,25 @@ var details = {
   "Emolga": {
     "ems": ["Astonish", "Covet", "Roost", "Shock Wave", "Tickle", "Defog"]
   },
-  "Escavalier": {},
-  "Espeon": {},
+  "Escavalier": {
+    "ems": ["Counter", "Bug Bite", "Knock Off", "Slash", "Night Slash"]
+  },
+  "Espeon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
   "Espurr": {
     "ems": ["Yawn", "Tickle"]
   },
-  "Excadrill": {},
+  "Excadrill": {
+    "ems": ["Metal Sound", "Submission", "Slash"]
+  },
   "Exeggcute": {
     "item": true,
     "ems": ["Ancient Power", "Block", "Curse", "Ingrain", "Moonlight", "Sleep Powder", "Stun Spore", "Poison Powder"]
   },
-  "Exeggutor": {},
+  "Exeggutor": {
+    "ems": ["Ancient Power", "Block", "Curse", "Ingrain", "Moonlight", "Sleep Powder", "Stun Spore", "Poison Powder"]
+  },
   "Falinks": {},
   "Farfetch'd-Galar": {
     "item": true
@@ -375,15 +480,24 @@ var details = {
     "ems": ["Leech Seed", "Gravity", "Acid Spray", "Toxic", "Knock Off"]
   },
   "Ferrothorn": {
-    "item": true
+    "item": true,
+    "ems": ["Leech Seed", "Gravity", "Acid Spray", "Toxic", "Knock Off"]
   },
-  "Flapple": {},
-  "Flareon": {},
-  "Fletchinder": {},
+  "Flapple": {
+    "ems": ["Sucker Punch", "Rollout", "Defense Curl", "Recycle"]
+  },
+  "Flareon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
+  "Fletchinder": {
+    "ems": ["Flame Charge", "Quick Guard", "Defog"]
+  },
   "Fletchling": {
     "ems": ["Flame Charge", "Quick Guard", "Defog"]
   },
-  "Flygon": {},
+  "Flygon": {
+    "ems": ["Quick Attack", "Gust", "Flail", "Fury Cutter", "Bug Bite", "Feint", "First Impression"]
+  },
   "Fomantis": {
     "item": true,
     "ems": ["Aromatherapy", "Defog", "Worry Seed"]
@@ -395,41 +509,70 @@ var details = {
   "Frillish": {
     "ems": ["Acid Armor", "Confuse Ray", "Pain Split", "Mist", "Bubble Beam", "Strength Sap"]
   },
-  "Froslass": {},
-  "Frosmoth": {},
-  "Gallade": {},
-  "Galvantula": {},
-  "Garbodor": {
-    "item": true
+  "Froslass": {
+    "ems": ["Block", "Disable", "Switcheroo", "Rollout", "Icicle Crash"]
   },
-  "Garchomp": {},
-  "Gardevoir": {},
+  "Frosmoth": {
+    "ems": ["Fairy Wind", "Mirror Coat", "Bug Bite"]
+  },
+  "Gallade": {
+    "ems": ["Disable", "Mean Look", "Memento", "Destiny Bond", "Grudge", "Shadow Sneak", "Confuse Ray", "Knock Off"]
+  },
+  "Galvantula": {
+    "ems": ["Poison Sting", "Lunge", "Struggle Bug", "Double Team", "Infestation"]
+  },
+  "Garbodor": {
+    "item": true,
+    "ems": ["Haze", "Curse", "Sand Attack", "Autotomize", "Rollout"]
+  },
+  "Garchomp": {
+    "ems": ["Thrash", "Metal Claw", "Double-Edge", "Twister"]
+  },
+  "Gardevoir": {
+    "ems": ["Disable", "Mean Look", "Memento", "Destiny Bond", "Grudge", "Shadow Sneak", "Confuse Ray", "Knock Off"]
+  },
   "Gastly": {
     "ems": ["Perish Song", "Haze", "Astonish", "Grudge", "Disable", "Clear Smog", "Smog", "Reflect Type", "Toxic"]
   },
-  "Gastrodon": {},
-  "Gengar": {},
+  "Gastrodon": {
+    "ems": ["Counter", "Mirror Coat", "Stockpile", "Swallow", "Spit Up", "Yawn", "Curse", "Sludge", "Clear Smog", "Mist", "Acid Armor"]
+  },
+  "Gengar": {
+    "ems": ["Perish Song", "Haze", "Astonish", "Grudge", "Disable", "Clear Smog", "Smog", "Reflect Type", "Toxic"]
+  },
   "Gible": {
     "ems": ["Thrash", "Metal Claw", "Double-Edge", "Twister"]
   },
   "Gigalith": {
-    "item": true
+    "item": true,
+    "ems": ["Curse", "Autotomize", "Take Down", "Gravity", "Wide Guard"]
   },
-  "Glaceon": {},
-  "Glalie": {},
+  "Glaceon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
+  "Glalie": {
+    "ems": ["Block", "Disable", "Switcheroo", "Rollout", "Icicle Crash"]
+  },
   "Gloom": {
-    "item": true
+    "item": true,
+    "ems": ["Razor Leaf", "Flail", "Synthesis", "Ingrain", "Tickle", "Teeter Dance", "Nature Power", "After You", "Strength Sap", "Leech Seed"]
   },
-  "Golbat": {},
+  "Golbat": {
+    "ems": ["Curse", "Defog", "Gust", "Hypnosis", "Quick Attack", "Whirlwind", "Wing Attack"]
+  },
   "Goldeen": {
     "item": true,
     "ems": ["Psybeam", "Haze", "Aqua Tail", "Acupressure", "Mud-Slap"]
   },
-  "Golduck": {},
+  "Golduck": {
+    "ems": ["Clear Smog", "Confuse Ray", "Cross Chop", "Hypnosis", "Psybeam", "Simple Beam", "Yawn"]
+  },
   "Golett": {
     "item": true
   },
-  "Golisopod": {},
+  "Golisopod": {
+    "ems": ["Metal Claw", "Wide Guard", "Harden", "Aqua Jet", "Rollout"]
+  },
   "Golurk": {
     "item": true
   },
@@ -443,12 +586,21 @@ var details = {
   "Gothita": {
     "ems": ["Mirror Coat", "Mean Look", "Heal Pulse", "Torment", "Fake Out"]
   },
-  "Gothitelle": {},
-  "Gothorita": {},
-  "Gourgeist": {},
-  "Grapploct": {},
+  "Gothitelle": {
+    "ems": ["Mirror Coat", "Mean Look", "Heal Pulse", "Torment", "Fake Out"]
+  },
+  "Gothorita": {
+    "ems": ["Mirror Coat", "Mean Look", "Heal Pulse", "Torment", "Fake Out"]
+  },
+  "Gourgeist": {
+    "ems": ["Disable", "Destiny Bond", "Curse"]
+  },
+  "Grapploct": {
+    "ems": ["Pain Split", "Soak", "Sucker Punch", "Circle Throw", "Seismic Toss", "Power-Up Punch"]
+  },
   "Greedent": {
-    "item": true
+    "item": true,
+    "ems": ["Rollout", "Defense Curl", "Last Resort", "Belly Drum"]
   },
   "Grimmsnarl": {},
   "Growlithe": {
@@ -457,10 +609,13 @@ var details = {
   "Grubbin": {
     "ems": ["Harden", "Discharge"]
   },
-  "Gurdurr": {},
+  "Gurdurr": {
+    "ems": ["Counter", "Detect", "Wide Guard", "Mach Punch", "Power-Up Punch", "Defog"]
+  },
   "Gyarados": {},
   "Hakamo-o": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Dragon Breath", "Focus Punch"]
   },
   "Happiny": {
     "item": true,
@@ -469,14 +624,22 @@ var details = {
   "Hatenna": {
     "ems": ["Aromatic Mist", "Nuzzle", "After You", "Quash"]
   },
-  "Hatterene": {},
-  "Hattrem": {},
-  "Haunter": {},
+  "Hatterene": {
+    "ems": ["Aromatic Mist", "Nuzzle", "After You", "Quash"]
+  },
+  "Hattrem": {
+    "ems": ["Aromatic Mist", "Nuzzle", "After You", "Quash"]
+  },
+  "Haunter": {
+    "ems": ["Perish Song", "Haze", "Astonish", "Grudge", "Disable", "Clear Smog", "Smog", "Reflect Type", "Toxic"]
+  },
   "Hawlucha": {
     "item": true,
     "ems": ["Entrainment", "Quick Guard", "Feint", "Defog", "Mean Look", "Cross Chop"]
   },
-  "Haxorus": {},
+  "Haxorus": {
+    "ems": ["Counter", "Night Slash", "Endeavor", "Harden", "First Impression", "Counter"]
+  },
   "Heatmor": {
     "ems": ["Night Slash", "Curse", "Sucker Punch", "Tickle", "Belch"]
   },
@@ -486,14 +649,24 @@ var details = {
   "Heracross": {
     "ems": ["Flail", "Double-Edge", "Harden", "Seismic Toss", "Night Slash", "Feint", "Take Down"]
   },
-  "Herdier": {},
+  "Herdier": {
+    "ems": ["After You", "Howl", "Lick", "Mud-Slap", "Yawn", "Covet"]
+  },
   "Hippopotas": {
     "ems": ["Stockpile", "Swallow", "Spit Up", "Curse", "Whirlwind"]
   },
-  "Hippowdon": {},
-  "Hitmonchan": {},
-  "Hitmonlee": {},
-  "Hitmontop": {},
+  "Hippowdon": {
+    "ems": ["Stockpile", "Swallow", "Spit Up", "Curse", "Whirlwind"]
+  },
+  "Hitmonchan": {
+    "ems": ["Rapid Spin", "High Jump Kick", "Mach Punch", "Mind Reader", "Counter", "Vacuum Wave", "Bullet Punch", "Feint"]
+  },
+  "Hitmonlee": {
+    "ems": ["Rapid Spin", "High Jump Kick", "Mach Punch", "Mind Reader", "Counter", "Vacuum Wave", "Bullet Punch", "Feint"]
+  },
+  "Hitmontop": {
+    "ems": ["Rapid Spin", "High Jump Kick", "Mach Punch", "Mind Reader", "Counter", "Vacuum Wave", "Bullet Punch", "Feint"]
+  },
   "Honedge": {
     "ems": ["Destiny Bond", "Wide Guard", "Block"]
   },
@@ -504,7 +677,9 @@ var details = {
     "item": true,
     "ems": ["Aurora Beam", "Clear Smog", "Disable", "Flail", "Octazooka", "Splash", "Water Pulse"]
   },
-  "Hydreigon": {},
+  "Hydreigon": {
+    "ems": ["Double Hit", "Astonish", "Head Smash", "Belch"]
+  },
   "Impidimp": {},
   "Indeedee-F": {
     "ems": ["Psych Up", "Fake Out", "Psycho Shift", "Heal Pulse"]
@@ -519,21 +694,30 @@ var details = {
     "item": true,
     "ems": ["Counter", "Dragon Breath", "Focus Punch"]
   },
-  "Jellicent": {},
+  "Jellicent": {
+    "ems": ["Acid Armor", "Confuse Ray", "Pain Split", "Mist", "Bubble Beam", "Strength Sap"]
+  },
   "Jigglypuff": {
     "item": true
   },
-  "Jolteon": {},
+  "Jolteon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
   "Joltik": {
     "ems": ["Poison Sting", "Lunge", "Struggle Bug", "Double Team", "Infestation"]
   },
-  "Jynx": {},
+  "Jynx": {
+    "ems": ["Fake Out", "Wish", "Role Play"]
+  },
   "Kabuto": {
     "ems": ["Aurora Beam", "Bubble Beam", "Confuse Ray", "Flail", "Knock Off", "Rapid Spin", "Take Down", "Mega Drain"]
   },
-  "Kabutops": {},
+  "Kabutops": {
+    "ems": ["Aurora Beam", "Bubble Beam", "Confuse Ray", "Flail", "Knock Off", "Rapid Spin", "Take Down", "Mega Drain"]
+  },
   "Kadabra": {
-    "item": true
+    "item": true,
+    "ems": ["Confusion", "Guard Split", "Magic Coat"]
   },
   "Kangaskhan": {
     "ems": ["Circle Throw", "Counter", "Disable", "Double-Edge", "Endeavor", "Hammer Arm"]
@@ -543,10 +727,15 @@ var details = {
   },
   "Keldeo": {},
   "Kingdra": {
-    "item": true
+    "item": true,
+    "ems": ["Aurora Beam", "Clear Smog", "Disable", "Flail", "Octazooka", "Splash", "Water Pulse"]
   },
-  "Kingler": {},
-  "Kirlia": {},
+  "Kingler": {
+    "ems": ["Knock Off", "Ancient Power", "Hammer Arm", "Slash", "Night Slash"]
+  },
+  "Kirlia": {
+    "ems": ["Disable", "Mean Look", "Memento", "Destiny Bond", "Grudge", "Shadow Sneak", "Confuse Ray", "Knock Off"]
+  },
   "Klang": {},
   "Klefki": {
     "ems": ["Switcheroo", "Magnet Rise"]
@@ -558,22 +747,30 @@ var details = {
     "ems": ["Psybeam", "Pain Split", "Grudge", "Spite", "Curse", "Stockpile", "Swallow", "Spit Up"]
   },
   "Kommo-o": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Dragon Breath", "Focus Punch"]
   },
   "Krabby": {
     "ems": ["Knock Off", "Ancient Power", "Hammer Arm", "Slash", "Night Slash"]
   },
   "Krokorok": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Double-Edge", "Aqua Tail", "Spite"]
   },
   "Krookodile": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Double-Edge", "Aqua Tail", "Spite"]
   },
   "Lairon": {
-    "item": true
+    "item": true,
+    "ems": ["Curse", "Dragon Rush", "Endeavor", "Head Smash", "Stomp", "Mud-Slap"]
   },
-  "Lampent": {},
-  "Lanturn": {},
+  "Lampent": {
+    "ems": ["Acid Armor", "Haze", "Clear Smog", "Power Split"]
+  },
+  "Lanturn": {
+    "ems": ["Psybeam", "Mist", "Water Pulse", "Soak"]
+  },
   "Lapras": {
     "ems": ["Tickle", "Curse", "Horn Drill", "Ancient Power", "Fissure", "Freeze-Dry", "Sparkling Aria"]
   },
@@ -583,56 +780,81 @@ var details = {
   "Larvitar": {
     "ems": ["Stomp", "Ancient Power", "Curse"]
   },
-  "Leafeon": {},
+  "Leafeon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
   "Lickilicky": {
-    "item": true
+    "item": true,
+    "ems": ["Belch", "Curse", "Hammer Arm", "Thrash"]
   },
   "Lickitung": {
     "item": true,
     "ems": ["Belch", "Curse", "Hammer Arm", "Thrash"]
   },
-  "Liepard": {},
+  "Liepard": {
+    "ems": ["Yawn", "Covet", "Copycat", "Slash", "Double Team", "Quick Attack"]
+  },
   "Lileep": {
     "item": true,
     "ems": ["Recover", "Mirror Coat", "Tickle", "Bind", "Curse"]
   },
   "Lilligant": {
-    "item": true
+    "item": true,
+    "ems": ["Ingrain", "Healing Wish", "Sweet Scent", "Worry Seed"]
   },
   "Lillipup": {
     "ems": ["After You", "Howl", "Lick", "Mud-Slap", "Yawn", "Covet"]
   },
-  "Linoone-Galar": {},
+  "Linoone-Galar": {
+    "ems": ["Parting Shot", "Quick Guard", "Knock Off"]
+  },
   "Litwick": {
     "ems": ["Acid Armor", "Haze", "Clear Smog", "Power Split"]
   },
   "Lombre": {
-    "item": true
+    "item": true,
+    "ems": ["Synthesis", "Razor Leaf", "Sweet Scent", "Leech Seed", "Tickle", "Counter", "Teeter Dance"]
   },
-  "Lopunny": {},
+  "Lopunny": {
+    "ems": ["Circle Throw", "Copycat", "Double Hit", "Fake Out", "Flail", "Focus Punch", "Sweet Kiss", "Switcheroo", "Teeter Dance"]
+  },
   "Lotad": {
     "item": true,
     "ems": ["Synthesis", "Razor Leaf", "Sweet Scent", "Leech Seed", "Tickle", "Counter", "Teeter Dance"]
   },
-  "Loudred": {},
-  "Lucario": {},
+  "Loudred": {
+    "ems": ["Circle Throw", "Disarming Voice", "Endeavor", "Extrasensory", "Hammer Arm", "Smokescreen", "Take Down", "Whirlwind"]
+  },
+  "Lucario": {
+    "ems": ["Cross Chop", "Detect", "Bite", "Mind Reader", "High Jump Kick", "Vacuum Wave", "Bullet Punch", "Circle Throw", "Howl"]
+  },
   "Ludicolo": {
-    "item": true
+    "item": true,
+    "ems": ["Synthesis", "Razor Leaf", "Sweet Scent", "Leech Seed", "Tickle", "Counter", "Teeter Dance"]
   },
   "Lunatone": {
     "item": true
   },
   "Lurantis": {
-    "item": true
+    "item": true,
+    "ems": ["Aromatherapy", "Defog", "Worry Seed"]
   },
-  "Luxio": {},
-  "Luxray": {},
-  "Lycanroc": {},
+  "Luxio": {
+    "ems": ["Baby-Doll Eyes", "Take Down", "Double Kick", "Howl", "Night Slash", "Quick Attack", "Shock Wave"]
+  },
+  "Luxray": {
+    "ems": ["Baby-Doll Eyes", "Take Down", "Double Kick", "Howl", "Night Slash", "Quick Attack", "Shock Wave"]
+  },
+  "Lycanroc": {
+    "ems": ["Thrash", "Endeavor", "Last Resort"]
+  },
   "Machamp": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Bullet Punch", "Tickle", "Quick Guard", "Submission"]
   },
   "Machoke": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Bullet Punch", "Tickle", "Quick Guard", "Submission"]
   },
   "Machop": {
     "item": true,
@@ -644,10 +866,12 @@ var details = {
   },
   "Magikarp": {},
   "Magmar": {
-    "item": true
+    "item": true,
+    "ems": ["Belch", "Dynamic Punch", "Focus Punch", "Mach Punch", "Cross Chop"]
   },
   "Magmortar": {
-    "item": true
+    "item": true,
+    "ems": ["Belch", "Dynamic Punch", "Focus Punch", "Mach Punch", "Cross Chop"]
   },
   "Magnemite": {
     "item": true
@@ -658,10 +882,18 @@ var details = {
   "Magnezone": {
     "item": true
   },
-  "Malamar": {},
-  "Mamoswine": {},
-  "Mandibuzz": {},
-  "Manectric": {},
+  "Malamar": {
+    "ems": ["Destiny Bond", "Disable", "Acupressure"]
+  },
+  "Mamoswine": {
+    "ems": ["Bite", "Ancient Power", "Double-Edge", "Fissure", "Curse", "Icicle Crash", "Freeze-Dry"]
+  },
+  "Mandibuzz": {
+    "ems": ["Mean Look", "Roost", "Toxic"]
+  },
+  "Manectric": {
+    "ems": ["Headbutt", "Curse", "Switcheroo", "Spark"]
+  },
   "Mantine": {
     "ems": ["Twister", "Haze", "Slam", "Mirror Coat", "Splash", "Tailwind", "Confuse Ray"]
   },
@@ -680,13 +912,16 @@ var details = {
     "ems": ["Aqua Jet", "Belly Drum", "Copycat", "Perish Song", "Present", "Sing", "Soak", "Supersonic", "Tickle"]
   },
   "Marowak": {
-    "item": true
+    "item": true,
+    "ems": ["Ancient Power", "Belly Drum", "Detect", "Double Kick", "Perish Song", "Skull Bash", "Curse", "Leer"]
   },
   "Mawile": {
     "item": true,
     "ems": ["Ancient Power", "Tickle", "Slam", "Seismic Toss", "Power-Up Punch"]
   },
-  "Meowstic": {},
+  "Meowstic": {
+    "ems": ["Yawn", "Tickle"]
+  },
   "Meowth-Galar": {
     "ems": ["Spite", "Double-Edge", "Curse", "Flail", "Night Slash", "Covet"]
   },
@@ -700,11 +935,15 @@ var details = {
   "Mienfoo": {
     "ems": ["Feint", "Knock Off", "Vital Throw", "Focus Punch"]
   },
-  "Mienshao": {},
+  "Mienshao": {
+    "ems": ["Feint", "Knock Off", "Vital Throw", "Focus Punch"]
+  },
   "Milcery": {
     "ems": ["Baby-Doll Eyes", "Last Resort"]
   },
-  "Milotic": {},
+  "Milotic": {
+    "ems": ["Mirror Coat", "Dragon Breath", "Hypnosis", "Confuse Ray", "Mist", "Haze", "Tickle"]
+  },
   "Miltank": {
     "ems": ["Belch", "Curse", "Double-Edge", "Hammer Arm", "Present", "Seismic Toss", "Focus Punch"]
   },
@@ -732,7 +971,8 @@ var details = {
     "ems": ["Double-Edge", "Fissure", "Smack Down", "Roar"]
   },
   "Mudsdale": {
-    "item": true
+    "item": true,
+    "ems": ["Double-Edge", "Fissure", "Smack Down", "Roar"]
   },
   "Munchlax": {
     "ems": ["Double-Edge", "Curse", "Fissure", "Counter", "Belch"]
@@ -740,7 +980,9 @@ var details = {
   "Munna": {
     "ems": ["Curse", "Healing Wish"]
   },
-  "Musharna": {},
+  "Musharna": {
+    "ems": ["Curse", "Healing Wish"]
+  },
   "Natu": {
     "ems": ["Drill Peck", "Quick Attack", "Feather Dance", "Sucker Punch", "Roost", "Simple Beam"]
   },
@@ -758,19 +1000,31 @@ var details = {
     "ems": ["Gust", "Night Slash", "Bug Bite", "Final Gambit", "Flail"]
   },
   "Ninetales": {
-    "item": true
+    "item": true,
+    "ems": ["Hypnosis", "Flail", "Howl", "Memento", "Baby-Doll Eyes", "Roar", "Flame Charge"]
   },
-  "Ninjask": {},
-  "Noctowl": {},
+  "Ninjask": {
+    "ems": ["Gust", "Night Slash", "Bug Bite", "Final Gambit", "Flail"]
+  },
+  "Noctowl": {
+    "ems": ["Supersonic", "Wing Attack", "Whirlwind", "Feather Dance", "Night Shade", "Defog"]
+  },
   "Noibat": {
     "ems": ["Defog", "Dragon Rush"]
   },
-  "Noivern": {},
-  "Nuzleaf": {
-    "item": true
+  "Noivern": {
+    "ems": ["Defog", "Dragon Rush"]
   },
-  "Obstagoon": {},
-  "Octillery": {},
+  "Nuzleaf": {
+    "item": true,
+    "ems": ["Leech Seed", "Quick Attack", "Take Down", "Worry Seed", "Defog", "Night Slash"]
+  },
+  "Obstagoon": {
+    "ems": ["Parting Shot", "Quick Guard", "Knock Off"]
+  },
+  "Octillery": {
+    "ems": ["Octazooka", "Supersonic", "Haze", "Flail", "Water Spout", "Acid Spray"]
+  },
   "Oddish": {
     "item": true,
     "ems": ["Razor Leaf", "Flail", "Synthesis", "Ingrain", "Tickle", "Teeter Dance", "Nature Power", "After You", "Strength Sap", "Leech Seed"]
@@ -778,7 +1032,9 @@ var details = {
   "Omanyte": {
     "ems": ["Aurora Beam", "Bubble Beam", "Haze", "Knock Off", "Reflect Type", "Slam", "Supersonic", "Water Pulse", "Bite", "Tickle"]
   },
-  "Omastar": {},
+  "Omastar": {
+    "ems": ["Aurora Beam", "Bubble Beam", "Haze", "Knock Off", "Reflect Type", "Slam", "Supersonic", "Water Pulse", "Bite", "Tickle"]
+  },
   "Onix": {
     "ems": ["Flail", "Block", "Defense Curl", "Wide Guard", "Rollout", "Dragon Tail", "Head Smash"]
   },
@@ -786,18 +1042,23 @@ var details = {
     "ems": ["Extrasensory", "Yawn", "Last Resort", "Dream Eater"]
   },
   "Orbeetle": {
-    "item": true
+    "item": true,
+    "ems": ["Infestation", "Supersonic", "Sticky Web", "Recover"]
   },
   "Palossand": {
-    "item": true
+    "item": true,
+    "ems": ["Ancient Power", "Destiny Bond", "Spit Up", "Stockpile", "Swallow", "Curse"]
   },
-  "Palpitoad": {},
+  "Palpitoad": {
+    "ems": ["Water Pulse", "Mist", "Toxic", "Mud-Slap"]
+  },
   "Pancham": {
     "item": true,
     "ems": ["Quash", "Quick Guard", "Storm Throw", "Power Trip", "Seismic Toss"]
   },
   "Pangoro": {
-    "item": true
+    "item": true,
+    "ems": ["Quash", "Quick Guard", "Storm Throw", "Power Trip", "Seismic Toss"]
   },
   "Passimian": {
     "ems": ["Seismic Toss", "Vital Throw", "Quick Guard", "Quick Attack", "Feint", "Counter", "Knock Off"]
@@ -806,9 +1067,12 @@ var details = {
     "ems": ["Sucker Punch", "Headbutt", "Mean Look", "Quick Guard"]
   },
   "Pelipper": {
-    "item": true
+    "item": true,
+    "ems": ["Twister", "Gust", "Aqua Ring", "Knock Off", "Soak", "Wide Guard", "Air Cutter", "Aerial Ace"]
   },
-  "Perrserker": {},
+  "Perrserker": {
+    "ems": ["Spite", "Double-Edge", "Curse", "Flail", "Night Slash", "Covet"]
+  },
   "Petilil": {
     "item": true,
     "ems": ["Ingrain", "Healing Wish", "Sweet Scent", "Worry Seed"]
@@ -823,9 +1087,12 @@ var details = {
     "ems": ["Hypnosis", "Wish", "Morning Sun", "Night Slash", "Defog"]
   },
   "Pikachu": {
-    "item": true
+    "item": true,
+    "ems": ["Present", "Wish", "Charge", "Fake Out", "Tickle", "Flail", "Disarming Voice"]
   },
-  "Piloswine": {},
+  "Piloswine": {
+    "ems": ["Bite", "Ancient Power", "Double-Edge", "Fissure", "Curse", "Icicle Crash", "Freeze-Dry"]
+  },
   "Pincurchin": {
     "ems": ["Memento", "Sucker Punch"]
   },
@@ -833,16 +1100,19 @@ var details = {
     "ems": ["Feint", "Flail", "Thrash", "Fury Attack", "Quick Attack"]
   },
   "Politoed": {
-    "item": true
+    "item": true,
+    "ems": ["Endeavor", "Haze", "Mist", "Mind Reader", "Splash", "Water Pulse"]
   },
   "Poliwag": {
     "ems": ["Endeavor", "Haze", "Mist", "Mind Reader", "Splash", "Water Pulse"]
   },
   "Poliwhirl": {
-    "item": true
+    "item": true,
+    "ems": ["Endeavor", "Haze", "Mist", "Mind Reader", "Splash", "Water Pulse"]
   },
   "Poliwrath": {
-    "item": true
+    "item": true,
+    "ems": ["Endeavor", "Haze", "Mist", "Mind Reader", "Splash", "Water Pulse"]
   },
   "Polteageist": {},
   "Ponyta-Galar": {
@@ -854,37 +1124,52 @@ var details = {
   "Pumpkaboo": {
     "ems": ["Disable", "Destiny Bond", "Curse"]
   },
-  "Pupitar": {},
+  "Pupitar": {
+    "ems": ["Stomp", "Ancient Power", "Curse"]
+  },
   "Purrloin": {
     "ems": ["Yawn", "Covet", "Copycat", "Slash", "Double Team", "Quick Attack"]
   },
   "Pyukumuku": {
     "ems": ["Tickle", "Spite", "Mirror Coat", "Swagger"]
   },
-  "Quagsire": {},
+  "Quagsire": {
+    "ems": ["Ancient Power", "Curse", "Stockpile", "Swallow", "Spit Up", "Counter", "Double Kick", "Recover", "After You", "Acid Spray", "Power-Up Punch"]
+  },
   "Qwilfish": {
     "item": true,
     "ems": ["Flail", "Haze", "Bubble Beam", "Supersonic", "Astonish", "Aqua Jet", "Water Pulse", "Acid Spray"]
   },
-  "Raichu": {},
+  "Raichu": {
+    "ems": ["Present", "Wish", "Charge", "Fake Out", "Tickle", "Flail", "Disarming Voice"]
+  },
   "Ralts": {
     "ems": ["Disable", "Mean Look", "Memento", "Destiny Bond", "Grudge", "Shadow Sneak", "Confuse Ray", "Knock Off"]
   },
-  "Rapidash-Galar": {},
+  "Rapidash-Galar": {
+    "ems": ["Thrash", "Double Kick", "Hypnosis", "Double-Edge", "Horn Drill", "Morning Sun"]
+  },
   "Relicanth": {
     "ems": ["Mud-Slap", "Skull Bash"]
   },
   "Remoraid": {
     "ems": ["Octazooka", "Supersonic", "Haze", "Flail", "Water Spout", "Acid Spray"]
   },
-  "Reuniclus": {},
-  "Rhydon": {},
+  "Reuniclus": {
+    "ems": ["Astonish", "Confuse Ray", "Acid Armor"]
+  },
+  "Rhydon": {
+    "ems": ["Counter", "Curse", "Dragon Rush", "Skull Bash", "Metal Burst", "Guard Split", "Rock Polish"]
+  },
   "Rhyhorn": {
     "ems": ["Counter", "Curse", "Dragon Rush", "Skull Bash", "Metal Burst", "Guard Split", "Rock Polish"]
   },
-  "Rhyperior": {},
+  "Rhyperior": {
+    "ems": ["Counter", "Curse", "Dragon Rush", "Skull Bash", "Metal Burst", "Guard Split", "Rock Polish"]
+  },
   "Ribombee": {
-    "item": true
+    "item": true,
+    "ems": ["Moonblast", "Sticky Web", "Aromatic Mist"]
   },
   "Riolu": {
     "ems": ["Cross Chop", "Detect", "Bite", "Mind Reader", "High Jump Kick", "Vacuum Wave", "Bullet Punch", "Circle Throw", "Howl"]
@@ -907,7 +1192,8 @@ var details = {
     "ems": ["Cotton Spore", "Sleep Powder", "Razor Leaf", "Extrasensory", "Life Dew"]
   },
   "Roserade": {
-    "item": true
+    "item": true,
+    "ems": ["Synthesis", "Cotton Spore", "Sleep Powder", "Razor Leaf", "Extrasensory", "Life Dew"]
   },
   "Rotom": {},
   "Rufflet": {},
@@ -916,16 +1202,20 @@ var details = {
     "ems": ["Recover", "Flatter", "Feint", "Sucker Punch", "Metal Burst", "Torment"]
   },
   "Salamence": {
-    "item": true
+    "item": true,
+    "ems": ["Defense Curl", "Dragon Rush", "Thrash", "Twister"]
   },
   "Salandit": {
     "item": true,
     "ems": ["Belch", "Sand Attack", "Fake Out", "Mud-Slap"]
   },
   "Salazzle": {
-    "item": true
+    "item": true,
+    "ems": ["Belch", "Sand Attack", "Fake Out", "Mud-Slap"]
   },
-  "Sandaconda": {},
+  "Sandaconda": {
+    "ems": ["Dragon Rush", "Mud-Slap", "Last Resort", "Belch", "Poison Tail"]
+  },
   "Sandile": {
     "item": true,
     "ems": ["Counter", "Double-Edge", "Aqua Tail", "Spite"]
@@ -935,7 +1225,8 @@ var details = {
     "ems": ["Counter", "Flail", "Mud-Slap", "Night Slash", "Metal Claw", "Hone Claws"]
   },
   "Sandslash": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Flail", "Mud-Slap", "Night Slash", "Metal Claw", "Hone Claws"]
   },
   "Sandygast": {
     "item": true,
@@ -944,12 +1235,16 @@ var details = {
   "Sawk": {
     "item": true
   },
-  "Scizor": {},
+  "Scizor": {
+    "ems": ["Counter", "Defog", "Night Slash", "Feint", "Quick Guard"]
+  },
   "Scolipede": {
-    "item": true
+    "item": true,
+    "ems": ["Bite", "Fury Cutter"]
   },
   "Scrafty": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Detect", "Fake Out", "Quick Guard", "Power-Up Punch", "Acid Spray"]
   },
   "Scraggy": {
     "item": true,
@@ -959,18 +1254,26 @@ var details = {
     "ems": ["Counter", "Defog", "Night Slash", "Feint", "Quick Guard"]
   },
   "Seadra": {
-    "item": true
+    "item": true,
+    "ems": ["Aurora Beam", "Clear Smog", "Disable", "Flail", "Octazooka", "Splash", "Water Pulse"]
   },
   "Seaking": {
-    "item": true
+    "item": true,
+    "ems": ["Psybeam", "Haze", "Aqua Tail", "Acupressure", "Mud-Slap"]
   },
-  "Sealeo": {},
+  "Sealeo": {
+    "ems": ["Curse", "Fissure", "Stockpile", "Swallow", "Spit Up", "Water Pulse", "Yawn", "Aqua Ring", "Belly Drum"]
+  },
   "Seedot": {
     "item": true,
     "ems": ["Leech Seed", "Quick Attack", "Take Down", "Worry Seed", "Defog", "Night Slash"]
   },
-  "Seismitoad": {},
-  "Sharpedo": {},
+  "Seismitoad": {
+    "ems": ["Water Pulse", "Mist", "Toxic", "Mud-Slap"]
+  },
+  "Sharpedo": {
+    "ems": ["Ancient Power", "Destiny Bond", "Double-Edge", "Thrash", "Water Pulse"]
+  },
   "Shellder": {
     "item": true,
     "ems": ["Bubble Beam", "Water Pulse", "Aqua Ring", "Life Dew"]
@@ -982,10 +1285,12 @@ var details = {
     "ems": ["Double-Edge", "Guard Split", "Mind Reader", "Feint"]
   },
   "Shiftry": {
-    "item": true
+    "item": true,
+    "ems": ["Leech Seed", "Quick Attack", "Take Down", "Worry Seed", "Defog", "Night Slash"]
   },
   "Shiinotic": {
-    "item": true
+    "item": true,
+    "ems": ["Poison Powder", "Stun Spore", "Growth", "Leech Seed"]
   },
   "Shinx": {
     "ems": ["Baby-Doll Eyes", "Take Down", "Double Kick", "Howl", "Night Slash", "Quick Attack", "Shock Wave"]
@@ -1014,13 +1319,16 @@ var details = {
   "Skrelp": {
     "ems": ["Acid Armor", "Haze", "Twister", "Dragon Tail"]
   },
-  "Skuntank": {},
+  "Skuntank": {
+    "ems": ["Leer", "Smog", "Double-Edge", "Astonish", "Haze", "Slash"]
+  },
   "Skwovet": {
     "item": true,
     "ems": ["Rollout", "Defense Curl", "Last Resort", "Belly Drum"]
   },
   "Sliggoo": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Life Dew"]
   },
   "Slowpoke-Galar": {
     "ems": ["Belch", "Belly Drum", "Block", "Stomp"]
@@ -1069,15 +1377,19 @@ var details = {
     "item": true
   },
   "Steelix": {
-    "item": true
+    "item": true,
+    "ems": ["Flail", "Block", "Defense Curl", "Wide Guard", "Rollout", "Dragon Tail", "Head Smash"]
   },
   "Steenee": {
-    "item": true
+    "item": true,
+    "ems": ["Synthesis", "Acupressure", "Endeavor"]
   },
   "Stonjourner": {
     "ems": ["Curse", "Ancient Power"]
   },
-  "Stoutland": {},
+  "Stoutland": {
+    "ems": ["After You", "Howl", "Lick", "Mud-Slap", "Yawn", "Covet"]
+  },
   "Stufful": {
     "ems": ["Force Palm", "Rollout", "Defense Curl", "Stomp"]
   },
@@ -1099,23 +1411,34 @@ var details = {
   "Swirlix": {
     "ems": ["After You", "Yawn", "Copycat", "Sticky Web"]
   },
-  "Swoobat": {},
-  "Sylveon": {},
-  "Talonflame": {},
+  "Swoobat": {
+    "ems": ["Knock Off", "Supersonic", "Roost", "Flatter", "Psycho Shift"]
+  },
+  "Sylveon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
+  "Talonflame": {
+    "ems": ["Flame Charge", "Quick Guard", "Defog"]
+  },
   "Tangela": {
     "ems": ["Confusion", "Endeavor", "Flail", "Leech Seed", "Nature Power", "Rage Powder"]
   },
-  "Tangrowth": {},
+  "Tangrowth": {
+    "ems": ["Confusion", "Endeavor", "Flail", "Leech Seed", "Nature Power", "Rage Powder"]
+  },
   "Tauros": {},
   "Tentacool": {
     "item": true,
     "ems": ["Acupressure", "Aqua Ring", "Aurora Beam", "Confuse Ray", "Haze", "Knock Off", "Mirror Coat", "Rapid Spin", "Tickle"]
   },
   "Tentacruel": {
-    "item": true
+    "item": true,
+    "ems": ["Acupressure", "Aqua Ring", "Aurora Beam", "Confuse Ray", "Haze", "Knock Off", "Mirror Coat", "Rapid Spin", "Tickle"]
   },
   "Terrakion": {},
-  "Thievul": {},
+  "Thievul": {
+    "ems": ["Quick Guard", "Knock Off", "Howl", "Torment"]
+  },
   "Throh": {
     "item": true
   },
@@ -1129,36 +1452,47 @@ var details = {
     "item": true,
     "ems": ["Present", "Wish", "Fake Out", "Tickle", "Flail", "Disarming Voice"]
   },
-  "Togekiss": {},
+  "Togekiss": {
+    "ems": ["Present", "Peck", "Psycho Shift", "Extrasensory", "Morning Sun", "Aerial Ace"]
+  },
   "Togepi": {
     "ems": ["Present", "Peck", "Psycho Shift", "Extrasensory", "Morning Sun", "Aerial Ace"]
   },
-  "Togetic": {},
+  "Togetic": {
+    "ems": ["Present", "Peck", "Psycho Shift", "Extrasensory", "Morning Sun", "Aerial Ace"]
+  },
   "Torkoal": {
     "item": true,
     "ems": ["Yawn", "Fissure", "Skull Bash", "Flail", "Ancient Power"]
   },
   "Toxapex": {
-    "item": true
+    "item": true,
+    "ems": ["Stockpile", "Swallow", "Spit Up", "Haze", "Infestation"]
   },
   "Toxel": {
     "ems": ["Endeavor", "Metal Sound", "Power-Up Punch"]
   },
   "Toxicroak": {
-    "item": true
+    "item": true,
+    "ems": ["Feint", "Dynamic Punch", "Headbutt", "Vacuum Wave", "Fake Out", "Cross Chop", "Bullet Punch", "Counter", "Quick Guard"]
   },
-  "Tranquill": {},
+  "Tranquill": {
+    "ems": ["Hypnosis", "Wish", "Morning Sun", "Night Slash", "Defog"]
+  },
   "Trapinch": {
     "item": true,
     "ems": ["Quick Attack", "Gust", "Flail", "Fury Cutter", "Bug Bite", "Feint", "First Impression"]
   },
-  "Trevenant": {},
+  "Trevenant": {
+    "ems": ["Grudge", "Sucker Punch", "Disable"]
+  },
   "Trubbish": {
     "item": true,
     "ems": ["Haze", "Curse", "Sand Attack", "Autotomize", "Rollout"]
   },
   "Tsareena": {
-    "item": true
+    "item": true,
+    "ems": ["Synthesis", "Acupressure", "Endeavor"]
   },
   "Turtonator": {
     "item": true,
@@ -1167,27 +1501,39 @@ var details = {
   "Tympole": {
     "ems": ["Water Pulse", "Mist", "Toxic", "Mud-Slap"]
   },
-  "Tyranitar": {},
-  "Tyrantrum": {},
+  "Tyranitar": {
+    "ems": ["Stomp", "Ancient Power", "Curse"]
+  },
+  "Tyrantrum": {
+    "ems": ["Curse", "Rock Throw", "Poison Fang", "Rock Polish"]
+  },
   "Tyrogue": {
     "ems": ["Rapid Spin", "High Jump Kick", "Mach Punch", "Mind Reader", "Counter", "Vacuum Wave", "Bullet Punch", "Feint"]
   },
   "Tyrunt": {
     "ems": ["Curse", "Rock Throw", "Poison Fang", "Rock Polish"]
   },
-  "Umbreon": {},
-  "Unfezant": {},
+  "Umbreon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
+  "Unfezant": {
+    "ems": ["Hypnosis", "Wish", "Morning Sun", "Night Slash", "Defog"]
+  },
   "Vanillish": {
-    "item": true
+    "item": true,
+    "ems": ["Autotomize", "Magnet Rise", "Ice Shard", "Explosion", "Aurora Veil", "Icicle Crash"]
   },
   "Vanillite": {
     "item": true,
     "ems": ["Autotomize", "Magnet Rise", "Ice Shard", "Explosion", "Aurora Veil", "Icicle Crash"]
   },
   "Vanilluxe": {
-    "item": true
+    "item": true,
+    "ems": ["Autotomize", "Magnet Rise", "Ice Shard", "Explosion", "Aurora Veil", "Icicle Crash"]
   },
-  "Vaporeon": {},
+  "Vaporeon": {
+    "ems": ["Flail", "Curse", "Tickle", "Yawn", "Detect", "Double Kick", "Mud-Slap", "Wish"]
+  },
   "Venipede": {
     "item": true,
     "ems": ["Bite", "Fury Cutter"]
@@ -1195,12 +1541,17 @@ var details = {
   "Vespiquen": {
     "item": true
   },
-  "Vikavolt": {},
+  "Vikavolt": {
+    "ems": ["Harden", "Discharge"]
+  },
   "Vileplume": {
-    "item": true
+    "item": true,
+    "ems": ["Razor Leaf", "Flail", "Synthesis", "Ingrain", "Tickle", "Teeter Dance", "Nature Power", "After You", "Strength Sap", "Leech Seed"]
   },
   "Virizion": {},
-  "Volcarona": {},
+  "Volcarona": {
+    "ems": ["Harden", "Absorb", "Thrash"]
+  },
   "Vullaby": {
     "ems": ["Mean Look", "Roost", "Toxic"]
   },
@@ -1211,18 +1562,27 @@ var details = {
   "Wailmer": {
     "ems": ["Double-Edge", "Thrash", "Curse", "Fissure", "Tickle", "Defense Curl", "Rollout", "Aqua Ring", "Soak"]
   },
-  "Wailord": {},
-  "Walrein": {},
+  "Wailord": {
+    "ems": ["Double-Edge", "Thrash", "Curse", "Fissure", "Tickle", "Defense Curl", "Rollout", "Aqua Ring", "Soak"]
+  },
+  "Walrein": {
+    "ems": ["Curse", "Fissure", "Stockpile", "Swallow", "Spit Up", "Water Pulse", "Yawn", "Aqua Ring", "Belly Drum"]
+  },
   "Weavile": {
-    "item": true
+    "item": true,
+    "ems": ["Counter", "Spite", "Bite", "Fake Out", "Double Hit", "Ice Shard", "Feint", "Icicle Crash"]
   },
   "Weezing-Galar": {
-    "item": true
+    "item": true,
+    "ems": ["Psybeam", "Pain Split", "Grudge", "Spite", "Curse", "Stockpile", "Swallow", "Spit Up"]
   },
   "Whimsicott": {
-    "item": true
+    "item": true,
+    "ems": ["Tickle", "Memento", "Switcheroo", "Worry Seed", "Nature Power"]
   },
-  "Whiscash": {},
+  "Whiscash": {
+    "ems": ["Thrash", "Spark", "Flail", "Take Down"]
+  },
   "Whismur": {
     "ems": ["Circle Throw", "Disarming Voice", "Endeavor", "Extrasensory", "Hammer Arm", "Smokescreen", "Take Down", "Whirlwind"]
   },
@@ -1249,7 +1609,9 @@ var details = {
   "Wooper": {
     "ems": ["Ancient Power", "Curse", "Stockpile", "Swallow", "Spit Up", "Counter", "Double Kick", "Recover", "After You", "Acid Spray", "Power-Up Punch"]
   },
-  "Xatu": {},
+  "Xatu": {
+    "ems": ["Drill Peck", "Quick Attack", "Feather Dance", "Sucker Punch", "Roost", "Simple Beam"]
+  },
   "Yamask-Galar": {
     "ems": ["Memento"]
   },
@@ -1260,12 +1622,16 @@ var details = {
   "Zigzagoon-Galar": {
     "ems": ["Parting Shot", "Quick Guard", "Knock Off"]
   },
-  "Zoroark": {},
+  "Zoroark": {
+    "ems": ["Copycat", "Counter", "Detect", "Extrasensory", "Memento", "Sucker Punch"]
+  },
   "Zorua": {
     "ems": ["Copycat", "Counter", "Detect", "Extrasensory", "Memento", "Sucker Punch"]
   },
   "Zubat": {
     "ems": ["Curse", "Defog", "Gust", "Hypnosis", "Quick Attack", "Whirlwind", "Wing Attack"]
   },
-  "Zweilous": {}
+  "Zweilous": {
+    "ems": ["Double Hit", "Astonish", "Head Smash", "Belch"]
+  }
 }
