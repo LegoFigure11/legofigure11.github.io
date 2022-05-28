@@ -94,7 +94,7 @@ permalink: /fr/glimmer-and-gloom/
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
-          <td><label for="input8"><input id="input8" class="form-check-input calc-trigger" type="checkbox" value="" checked></label></td>
+          <td><label for="input8"><input id="input8" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
         </tr>
         <tr>
           <td></td>
@@ -108,7 +108,7 @@ permalink: /fr/glimmer-and-gloom/
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
-          <td><label for="input7"><input id="input7" class="form-check-input calc-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input7"><input id="input7" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
           <td></td>
         </tr>
         <tr>
@@ -122,7 +122,7 @@ permalink: /fr/glimmer-and-gloom/
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
-          <td><label for="input6"><input id="input6" class="form-check-input calc-trigger" type="checkbox" value="" checked></label></td>
+          <td><label for="input6"><input id="input6" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
           <td></td>
           <td></td>
         </tr>
@@ -136,7 +136,7 @@ permalink: /fr/glimmer-and-gloom/
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
           <td>&#x2B22;</td>
-          <td><label for="input5"><input id="input5" class="form-check-input calc-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input5"><input id="input5" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
           <td></td>
           <td></td>
           <td></td>
@@ -146,11 +146,11 @@ permalink: /fr/glimmer-and-gloom/
           <td></td>
           <td></td>
           <td></td>
-          <td><label for="input0"><input id="input0" class="form-check-input calc-trigger" type="checkbox" value=""></label></td>
-          <td><label for="input1"><input id="input1" class="form-check-input calc-trigger" type="checkbox" value="" checked></label></td>
-          <td><label for="input2"><input id="input2" class="form-check-input calc-trigger" type="checkbox" value=""></label></td>
-          <td><label for="input3"><input id="input3" class="form-check-input calc-trigger" type="checkbox" value=""></label></td>
-          <td><label for="input4"><input id="input4" class="form-check-input calc-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input0"><input id="input0" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input1"><input id="input1" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
+          <td><label for="input2"><input id="input2" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input3"><input id="input3" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input4"><input id="input4" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
           <td></td>
           <td></td>
           <td></td>
@@ -165,6 +165,8 @@ permalink: /fr/glimmer-and-gloom/
 <div class="w-100 d-flex row justify-content-center">
   <div class="col-md">
     <button type="button" class="btn btn-outline-success" onclick="reset()">Reset board</button>
+    <label style="padding: .375rem 0.75rem" for="auto-reset-check">Auto?</label>
+    <input id="auto-reset-check" type="checkbox" style="border-radius: 0.25em" />
   </div>
   <div class="col-md">
     <span><label style="padding: .375rem 0.75rem" label for="color-check">Color:</label></span>
@@ -235,7 +237,11 @@ permalink: /fr/glimmer-and-gloom/
   window = {
     symbol: "&#x2B22;", // Hex by default
     color: "#ff0000", // Red by default
+    autoReset: false,
   };
+
+  let timer;
+  const time = 22_000; // 22 sec, fairly arbitrary
 
   function calculate() {
     // From https://docs.google.com/spreadsheets/d/16pqDJcZfQE9UAkSdVWlcmR5zDUQdWFoFFkLTJGg3-p0/edit#gid=0
@@ -292,9 +298,11 @@ permalink: /fr/glimmer-and-gloom/
     if (window.localStorage.getItem("color") === "#0dcaf0") {
       $("#color-check").prop("checked", true);
     }
-    if (window.localStorage.getItem("symbol")) {
-      $("#symbol-check").html(window.localStorage.getItem("symbol"));
-      if (window.localStorage.getItem("symbol") === "&#9733;") {
+
+    const symbol = window.localStorage.getItem("symbol");
+    if (symbol) {
+      $("#symbol-check").html(symbol);
+      if (symbol === "&#9733;") {
         $("td").css("min-width", "33px");
         $("td").css("min-height", "39px");
       } else {
@@ -302,8 +310,12 @@ permalink: /fr/glimmer-and-gloom/
         $("td").css("min-height", "1px");
       }
     }
+
+    $("#auto-reset-check").prop("checked", !!window.localStorage.getItem("autoReset"));
+
     window.color = $("#color-check").prop("checked") ? "#0dcaf0" : "#ff0000";
     window.symbol = $("#symbol-check").html();
+    window.autoReset = $("#auto-reset-check").prop("checked");
     setColor();
     calculate();
   });
@@ -318,6 +330,7 @@ permalink: /fr/glimmer-and-gloom/
   });
 
   $("input:checkbox").change(function() {
+    window.autoReset = $("#auto-reset-check").prop("checked");
     calculate();
     setColor();
   });
@@ -393,7 +406,18 @@ permalink: /fr/glimmer-and-gloom/
 
   $("#text-input-button").click(function() {
     $("#text-input").focus();
-  })
+  });
+
+  $("#auto-reset-check").change(function() {
+    window.localStorage.setItem("autoReset", $("#auto-reset-check").prop("checked"));
+  });
+
+  $(".timer-trigger").change(function() {
+    if (window.autoReset) {
+      clearTimeout(timer);
+      timer = setTimeout(reset, time);
+    }
+  });
 </script>
 
 <link rel="stylesheet" href="./index.css" />
