@@ -311,13 +311,15 @@ permalink: /fr/glimmer-and-gloom/
       }
     }
 
-    $("#auto-reset-check").prop("checked", !!window.localStorage.getItem("autoReset"));
+    $("#auto-reset-check").prop("checked", window.localStorage.getItem("autoReset") === "true");
 
     window.color = $("#color-check").prop("checked") ? "#0dcaf0" : "#ff0000";
     window.symbol = $("#symbol-check").html();
     window.autoReset = $("#auto-reset-check").prop("checked");
     setColor();
     calculate();
+
+    if (window.autoReset === true) reset();
   });
 
   $("#color-check").change(function() {
@@ -410,6 +412,7 @@ permalink: /fr/glimmer-and-gloom/
 
   $("#auto-reset-check").change(function() {
     window.localStorage.setItem("autoReset", $("#auto-reset-check").prop("checked"));
+    if ($("#auto-reset-check").prop("checked")) reset();
   });
 
   $(".timer-trigger").change(function() {
