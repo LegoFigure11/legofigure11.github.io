@@ -1,0 +1,127 @@
+---
+layout: scroll-indicator
+title: SwSh OWRNG Generator GUI
+permalink: /misc/swsh-owrng-tool/
+---
+<h1>SwSh OWRNG Generator GUI</h1>
+<hr />
+<div>
+  <img class="mw-100" src="https://camo.githubusercontent.com/0ed0cc367366cd2b2a79ad12f6e18e5302de91ce5a128ce7a72558d9220411ba/68747470733a2f2f692e696d6775722e636f6d2f776b5a4239594a2e706e67" />
+</div>
+<br />
+<div>
+  <h2 class="anchored">Introduction</h2>
+  <p>
+    The <a class="text-info text-decoration-none" href="https://github.com/LegoFigure11/swsh-overworld-rng-gui" target="_blank">SwSh OWRNG Generator GUI</a>
+    is a windows program written in C# designed to help with RNG manipulation in Pok&eacute;mon Sword and Pok&eacute;mon
+    Shield for the Nintendo Switch. Both unmodified / &quot;retail&quot; / &quot;stock firmware&quot; and custom firmware methods are supported.
+  </p>
+  <p class="mb-1">
+    Currently supported RNGs:
+  <ul>
+    <li>
+      Overworld Encounter RNG (including Marks, Shiniess, Brilliant Aura, and IVs)
+    </li>
+    <li>
+      Cram-o-matic Ball RNG
+    </li>
+    <li>
+      Loto-ID Prize RNG
+    </li>
+  </ul>
+  </p>
+</div>
+<br />
+<div>
+  <h2 class="anchored">Initial Setup</h2>
+  <span class="fw-bold">You will need:</span>
+  <ul class="list-group list-unstyled">
+    <li class="list-group-item bg-dark text-light w-100">
+      <input id="tool" class="form-check-input me-1" type="checkbox">
+      <label for="tool">SwSh OWRNG Generator GUI</label> - either the
+      <a href="https://github.com/LegoFigure11/swsh-overworld-rng-gui/releases/latest" class="text-info text-decoration-none" target="_blank">latest stable release</a> or the
+      <a href="https://nightly.link/LegoFigure11/swsh-overworld-rng-gui/workflows/dotnet-desktop/main/SWSH-Overworld-RNG-GUI.zip" class="text-info text-decoration-none" target="_blank">commit build</a>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="runtime" class="form-check-input me-1" type="checkbox">
+      <label for="runtime">The x64 <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime" class="text-info text-decoration-none" target="_blank">.NET 6.0 Runtime</a> for Desktop Apps</label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="botbase" class="form-check-input me-1" type="checkbox">
+      <label for="botbase">Hybrid <a href="https://github.com/Koi-3088/sys-usb-botbase/releases/latest" class="text-info text-decoration-none" target="_blank">sys-usb-botbase</a> by Koi-3088 (custom firmware users only)</label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="botbase" class="form-check-input me-1" type="checkbox">
+      <label for="botbase"><a href="https://github.com/spacemeowx2/ldn_mitm/releases/latest" class="text-info text-decoration-none" target="_blank">ldn-mitm</a> by spacemeowx2 (custom firmware users only)</label>
+    </li>
+  </ul>
+  <small class="lh-2 fst-italic text-secondary">
+    Need help choosing between stable or commit build? Commit builds typically have more features but are largely untested and may contain
+    bugs or run slower than stable releases. Unless you specifically need one of these features or otherwise know what you&apos;re doing,
+    it&apos;s generally recommended to use the latest stable release.
+  </small>
+  <br />
+  <br />
+  <div>
+    To get started, run the installer for the .NET 6.0 Runtime (this only has to be done once) and restart your computer. Once installed,
+    unzip the generator <code>.zip</code> archive to a folder of your choosing and simply double-click the <code>.exe</code> file to run it. <br />
+    <br />
+    Custom firmware users will also want to copy the <code>atmosphere</code> folder from <code>sys-usb-botbase.7z</code> and both the <code>switch</code>
+    and <code>atmosphere</code> folders from <code>ldn_mitm_v*.*.*.zip</code> onto the root of their SD card in order to be to connect their Switch to
+    the program and utilize all of the CFW features.
+  </div>
+</div>
+<br />
+<div>
+  <h2 class="anchored">Usage</h2>
+  <p>
+    Highly detailed usage guides for both stock and custom firmware can be found at
+    <a href="https://billo-guides.github.io/" class="text-info text-decoration-none" target="_blank">https://billo-guides.github.io/</a>, thanks to
+    <a class="text-decoration-none text-info" href="https://github.com/Billo-PS" target="_blank">Billo-PS</a> / Lo#4758.
+  </p>
+</div>
+<br />
+<div>
+  <h2 class="anchored">Credits and Thanks</h2>
+  <p class="mb-1">
+    This program would not have been possible without a lot of hard work from the following people:
+  <ul>
+    <li>
+      <a href="https://github.com/Lusamine/" class="text-reset text-decoration-none" target="_blank">Anubis</a>
+    </li>
+    <li>
+      <a href="https://github.com/Billo-PS/" class="text-reset text-decoration-none" target="_blank">Billo</a>
+    </li>
+    <li>
+      <a href="https://github.com/kwsch/" class="text-reset text-decoration-none" target="_blank">Kaphotics</a>
+    </li>
+    <li>
+      <a href="https://github.com/Koi-3088/" class="text-reset text-decoration-none" target="_blank">Koi-3088</a>
+    </li>
+    <li>
+      <a href="https://github.com/Lincoln-LM/" class="text-reset text-decoration-none" target="_blank">Lincoln-LM</a>
+    </li>
+    <li>
+      <a href="https://github.com/niart120/" class="text-reset text-decoration-none" target="_blank">niart120</a>
+    </li>
+    <li>
+      <a href="https://github.com/SciresM/" class="text-reset text-decoration-none" target="_blank">SciresM</a>
+    </li>
+    <li>
+      <a href="https://github.com/shinyfinder/" class="text-reset text-decoration-none" target="_blank">shinyfinder</a>
+    </li>
+    <li>
+      <a href="https://github.com/zaksabeast/" class="text-reset text-decoration-none" target="_blank">zaksabeast</a>
+    </li>
+    <li>
+      <a href="https://github.com/zyro670/" class="text-reset text-decoration-none" target="_blank">zyro670</a>
+    </li>
+    <li>
+      <a href="https://github.com/LegoFigure11/swsh-overworld-rng-gui/graphs/contributors" class="text-reset text-decoration-none" target="_blank">...and of course all my lovely GitHub contributors</a>!
+    </li>
+  </ul>
+  If you think your name should be on this list and isn&apos;t, shoot me a message on discord!
+  </p>
+</div>
+<hr />
+<br />
