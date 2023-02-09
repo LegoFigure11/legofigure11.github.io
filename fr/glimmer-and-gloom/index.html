@@ -413,6 +413,7 @@ permalink: /fr/glimmer-and-gloom/
   $("#auto-reset-check").change(function() {
     window.localStorage.setItem("autoReset", $("#auto-reset-check").prop("checked"));
     if ($("#auto-reset-check").prop("checked")) reset();
+    else clearTimeout(timer);
   });
 
   $(".timer-trigger").change(function() {
