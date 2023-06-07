@@ -1,0 +1,250 @@
+---
+title: Puppy Predictor
+permalink: /lw/puppy-predictor/
+layout: default
+---
+
+<div class="row row-cols-1 row-cols-md-2">
+  <div class="col mb-4">
+    <div class="card bg-dark">
+      <div id="w1" class="card-header">Parent 1</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Breed: {% include_relative breed_select.html id="w1-breed" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Eyes: {% include_relative color_select.html id="w1-eyes-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Accent: {% include_relative gene_select.html id="w1-accent" %}
+          </div>
+          <div class="col mb4">
+            Accent: {% include_relative color_select.html id="w1-accent-color"
+            %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Under: {% include_relative gene_select.html id="w1-under" %}
+          </div>
+          <div class="col mb4">
+            Under: {% include_relative color_select.html id="w1-under-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Top: {% include_relative gene_select.html id="w1-top" %}
+          </div>
+          <div class="col mb4">
+            Top: {% include_relative color_select.html id="w1-top-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Base: {% include_relative color_select.html id="w1-base-color" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card bg-dark">
+      <div id="w2" class="card-header">Parent 2</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Breed: {% include_relative breed_select.html id="w2-breed" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Eyes: {% include_relative color_select.html id="w2-eyes-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Accent: {% include_relative gene_select.html id="w2-accent" %}
+          </div>
+          <div class="col mb4">
+            Accent: {% include_relative color_select.html id="w2-accent-color"
+            %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Under: {% include_relative gene_select.html id="w2-under" %}
+          </div>
+          <div class="col mb4">
+            Under: {% include_relative color_select.html id="w2-under-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Top: {% include_relative gene_select.html id="w2-top" %}
+          </div>
+          <div class="col mb4">
+            Top: {% include_relative color_select.html id="w2-top-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Base: {% include_relative color_select.html id="w2-base-color" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-grid">{% include_relative range.html id="range-eyes" %}</div>
+<div class="d-grid">{% include_relative range.html id="range-accent" %}</div>
+<div class="d-grid">{% include_relative range.html id="range-under" %}</div>
+<div class="d-grid">{% include_relative range.html id="range-top" %}</div>
+<div class="d-grid">{% include_relative range.html id="range-base" %}</div>
+<div class="d-grid mt-4">
+  <button type="button" class="btn btn-outline-warning" onclick="generate()">
+    Foresee Progeny
+  </button>
+</div>
+<div class="row row-cols-1 row-cols-md-2">
+  <div class="col">
+    <div
+      id="pup-container"
+      class="d-grid image-container"
+      style="position: relative !important; min-width: 330px; min-height: 330px"
+    >
+      <img class="overlay-image" id="layer1" src="" width="330" />
+      <img class="overlay-image" id="layer2" src="" width="330" />
+      <img class="overlay-image" id="layer3" src="" width="330" />
+      <img class="overlay-image" id="layer5" src="" width="330" />
+      <img class="overlay-image" id="layer4" src="" width="330" />
+      <img class="overlay-image" id="layer6" src="" width="330" />
+    </div>
+  </div>
+  <div class="col">
+    <div
+      class="d-grid image-container"
+      style="position: relative !important; min-width: 330px; min-height: 330px"
+    >
+      <img class="overlay-image" id="layer7" src="" width="330" />
+      <img class="overlay-image" id="layer8" src="" width="330" />
+      <img class="overlay-image" id="layer9" src="" width="330" />
+      <img class="overlay-image" id="layer10" src="" width="330" />
+      <img class="overlay-image" id="layer11" src="" width="330" />
+      <img class="overlay-image" id="layer12" src="" width="330" />
+    </div>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-2">
+  <div class="col">
+    <div
+      id="pup-container"
+      class="d-grid image-container"
+      style="position: relative !important; min-width: 330px; min-height: 330px"
+    >
+      <img class="overlay-image" id="layer13" src="" width="330" />
+      <img class="overlay-image" id="layer14" src="" width="330" />
+      <img class="overlay-image" id="layer15" src="" width="330" />
+      <img class="overlay-image" id="layer16" src="" width="330" />
+      <img class="overlay-image" id="layer17" src="" width="330" />
+      <img class="overlay-image" id="layer18" src="" width="330" />
+    </div>
+  </div>
+  <div class="col">
+    <div
+      class="d-grid image-container"
+      style="position: relative !important; min-width: 330px; min-height: 330px"
+    >
+      <img class="overlay-image" id="layer19" src="" width="330" />
+      <img class="overlay-image" id="layer20" src="" width="330" />
+      <img class="overlay-image" id="layer21" src="" width="330" />
+      <img class="overlay-image" id="layer22" src="" width="330" />
+      <img class="overlay-image" id="layer23" src="" width="330" />
+      <img class="overlay-image" id="layer24" src="" width="330" />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <a
+    class="btn btn-outline-info"
+    data-bs-toggle="collapse"
+    href="#credits"
+    role="button"
+    aria-expanded="false"
+    aria-controls="creditsCollapse"
+  >
+    Credits and thanks
+  </a>
+  <div class="collapse" id="credits">
+    <div class="card bg-dark card-body">
+      <span
+        >Heavily inspired by this
+        <a
+          href="https://docs.google.com/spreadsheets/d/1q0WFA_rsn-FSYAc8iFk40pJDNd9guRB2-KvZU_5Fg0Q/edit#gid=219913947"
+          class="text-info text-decoration-none"
+          >spreadsheet</a
+        >
+        by Cerberus#9 / <i class="bi bi-discord"></i> MonkeyBoy#2179! Thank you
+        for all your help.</span
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  $(".colorDropdown").change(function () {
+    if ($(this).attr("class")) {
+      $(this).removeClass(
+        $(this)
+          .attr("class")
+          .split(" ")
+          .filter((e) => e.startsWith("color-"))
+      );
+    }
+    $(this).addClass("color-" + $(this).find(":selected").text());
+
+    setRanges();
+  });
+
+  $(document).ready(function () {
+    $("select").each(function (i, obj) {
+      $(this).prop(
+        "selectedIndex",
+        Math.floor(Math.random() * $(this).find("option").length)
+      );
+    });
+
+    $(".colorDropdown").change();
+  });
+
+  function setRanges() {
+    setRange("eyes");
+    setRange("accent");
+    setRange("under");
+    setRange("top");
+    setRange("base");
+  }
+
+  function setRange(id) {
+    var range = getColorRange(
+      $("#w1-" + id + "-color").val(),
+      $("#w2-" + id + "-color").val()
+    );
+    var els = document.getElementById("range-" + id).children;
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      var val = parseInt(el.dataset.value);
+      if (el.classList.contains("d-none")) el.classList.remove("d-none");
+      if (val < range[0]) el.classList.add("d-none");
+      if (val > range[1]) el.classList.add("d-none");
+    }
+  }
+</script>
+<script src="./data.js"></script>
+<script src="./script.js"></script>
+<link rel="stylesheet" href="./style.css" />

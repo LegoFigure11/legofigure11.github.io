@@ -1,0 +1,1011 @@
+.overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.color-Black {
+  color: #ffffff;
+  background-color: #131414;
+}
+.color-Midnight {
+  color: #ffffff;
+  background-color: #252421;
+}
+.color-Slate {
+  color: #ffffff;
+  background-color: #373c3a;
+}
+.color-Abyss {
+  color: #ffffff;
+  background-color: #574d4d;
+}
+.color-Chalk {
+  color: #ffffff;
+  background-color: #4c4c4c;
+}
+.color-Granite {
+  color: #ffffff;
+  background-color: #696462;
+}
+.color-Shadow {
+  color: #ffffff;
+  background-color: #7d7979;
+}
+.color-Ash {
+  color: #ffffff;
+  background-color: #868988;
+}
+.color-Fossil {
+  color: #ffffff;
+  background-color: #97969c;
+}
+.color-Stone {
+  color: #000000;
+  background-color: #acacac;
+}
+.color-Dust {
+  color: #000000;
+  background-color: #c5c2bb;
+}
+.color-Silver {
+  color: #000000;
+  background-color: #d0d0d0;
+}
+.color-Grey {
+  color: #000000;
+  background-color: #eaeaea;
+}
+.color-White {
+  color: #000000;
+  background-color: #ffffff;
+}
+.color-Cloud {
+  color: #000000;
+  background-color: #e9efff;
+}
+.color-Ice {
+  color: #000000;
+  background-color: #c4d8ff;
+}
+.color-Frost {
+  color: #000000;
+  background-color: #c8c7ff;
+}
+.color-Rain {
+  color: #000000;
+  background-color: #aab0df;
+}
+.color-Mist {
+  color: #000000;
+  background-color: #9099e0;
+}
+.color-Winter {
+  color: #ffffff;
+  background-color: #7f84af;
+}
+.color-Storm {
+  color: #ffffff;
+  background-color: #6a79e9;
+}
+.color-Imperial {
+  color: #ffffff;
+  background-color: #5260c9;
+}
+.color-Wind {
+  color: #ffffff;
+  background-color: #58619c;
+}
+.color-Blueberry {
+  color: #ffffff;
+  background-color: #574e8c;
+}
+.color-Lead {
+  color: #ffffff;
+  background-color: #484e75;
+}
+.color-Navy {
+  color: #ffffff;
+  background-color: #373867;
+}
+.color-Indigo {
+  color: #ffffff;
+  background-color: #252453;
+}
+.color-Twilight {
+  color: #ffffff;
+  background-color: #151b54;
+}
+.color-Cobalt {
+  color: #ffffff;
+  background-color: #132b78;
+}
+.color-Ultramarine {
+  color: #ffffff;
+  background-color: #0a33b9;
+}
+.color-Lake {
+  color: #ffffff;
+  background-color: #1f4d99;
+}
+.color-Azure {
+  color: #ffffff;
+  background-color: #104d7f;
+}
+.color-Royal {
+  color: #ffffff;
+  background-color: #115e6b;
+}
+.color-Cornflower {
+  color: #ffffff;
+  background-color: #1169a1;
+}
+.color-Shroud {
+  color: #ffffff;
+  background-color: #346c8f;
+}
+.color-Electric {
+  color: #ffffff;
+  background-color: #0d6ae0;
+}
+.color-Blue {
+  color: #ffffff;
+  background-color: #2d7fcd;
+}
+.color-Cerulean {
+  color: #000000;
+  background-color: #199fa6;
+}
+.color-Rune {
+  color: #ffffff;
+  background-color: #199fc4;
+}
+.color-River {
+  color: #ffffff;
+  background-color: #6fa4c5;
+}
+.color-Sky {
+  color: #000000;
+  background-color: #56c6eb;
+}
+.color-Cyan {
+  color: #000000;
+  background-color: #28d8ff;
+}
+.color-Glacier {
+  color: #000000;
+  background-color: #74dce2;
+}
+.color-Celeste {
+  color: #000000;
+  background-color: #9adbf7;
+}
+.color-Egg {
+  color: #000000;
+  background-color: #8be7fc;
+}
+.color-Horizon {
+  color: #000000;
+  background-color: #b7edff;
+}
+.color-Water {
+  color: #000000;
+  background-color: #d6fffe;
+}
+.color-Blizzard {
+  color: #000000;
+  background-color: #edfffd;
+}
+.color-Powder {
+  color: #000000;
+  background-color: #e1f2ef;
+}
+.color-Coast {
+  color: #000000;
+  background-color: #d1f8e9;
+}
+.color-Mint {
+  color: #000000;
+  background-color: #b4faee;
+}
+.color-Ocean {
+  color: #000000;
+  background-color: #6bf8e3;
+}
+.color-Jade {
+  color: #000000;
+  background-color: #0aeda5;
+}
+.color-Parsley {
+  color: #000000;
+  background-color: #6ad1ac;
+}
+.color-Turtle {
+  color: #000000;
+  background-color: #09df8b;
+}
+.color-Phthalo {
+  color: #000000;
+  background-color: #0da87c;
+}
+.color-Artichoke {
+  color: #ffffff;
+  background-color: #3a9786;
+}
+.color-Grass {
+  color: #ffffff;
+  background-color: #169c32;
+}
+.color-Emerald {
+  color: #ffffff;
+  background-color: #009158;
+}
+.color-Seaweed {
+  color: #ffffff;
+  background-color: #178442;
+}
+.color-Sage {
+  color: #ffffff;
+  background-color: #3f745d;
+}
+.color-Clover {
+  color: #ffffff;
+  background-color: #057012;
+}
+.color-Universe {
+  color: #ffffff;
+  background-color: #025c33;
+}
+.color-Avocado {
+  color: #ffffff;
+  background-color: #244737;
+}
+.color-Spruce {
+  color: #ffffff;
+  background-color: #103a26;
+}
+.color-Vine {
+  color: #ffffff;
+  background-color: #182c25;
+}
+.color-Forest {
+  color: #ffffff;
+  background-color: #11210d;
+}
+.color-Reed {
+  color: #ffffff;
+  background-color: #202906;
+}
+.color-Basil {
+  color: #ffffff;
+  background-color: #0d3303;
+}
+.color-Swamp {
+  color: #ffffff;
+  background-color: #243a03;
+}
+.color-Frog {
+  color: #ffffff;
+  background-color: #314421;
+}
+.color-Juniper {
+  color: #ffffff;
+  background-color: #23531b;
+}
+.color-Pine {
+  color: #ffffff;
+  background-color: #296220;
+}
+.color-Moss {
+  color: #ffffff;
+  background-color: #516818;
+}
+.color-Jungle {
+  color: #ffffff;
+  background-color: #486c2d;
+}
+.color-Rosemary {
+  color: #ffffff;
+  background-color: #64814f;
+}
+.color-Summer {
+  color: #ffffff;
+  background-color: #638c2d;
+}
+.color-Fern {
+  color: #ffffff;
+  background-color: #529930;
+}
+.color-Venom {
+  color: #ffffff;
+  background-color: #81a520;
+}
+.color-Green {
+  color: #ffffff;
+  background-color: #86b745;
+}
+.color-Thyme {
+  color: #000000;
+  background-color: #9dca71;
+}
+.color-Lime {
+  color: #000000;
+  background-color: #add035;
+}
+.color-Neon {
+  color: #000000;
+  background-color: #b4e927;
+}
+.color-Sprout {
+  color: #000000;
+  background-color: #cbda84;
+}
+.color-Pear {
+  color: #000000;
+  background-color: #cbe35a;
+}
+.color-Toxin {
+  color: #000000;
+  background-color: #e4f36e;
+}
+.color-Blond {
+  color: #000000;
+  background-color: #fcffbb;
+}
+.color-Cream {
+  color: #000000;
+  background-color: #fffeee;
+}
+.color-Banana {
+  color: #000000;
+  background-color: #fff6bd;
+}
+.color-Butter {
+  color: #000000;
+  background-color: #fff87a;
+}
+.color-Yellow {
+  color: #000000;
+  background-color: #ffed40;
+}
+.color-Sunrise {
+  color: #000000;
+  background-color: #ffd31f;
+}
+.color-Mustard {
+  color: #000000;
+  background-color: #eebb40;
+}
+.color-Apricot {
+  color: #000000;
+  background-color: #ffa85a;
+}
+.color-Orange {
+  color: #000000;
+  background-color: #ffa226;
+}
+.color-Ochre {
+  color: #000000;
+  background-color: #ee9e24;
+}
+.color-Honeydew {
+  color: #ffffff;
+  background-color: #ff8900;
+}
+.color-Potato {
+  color: #ffffff;
+  background-color: #e68646;
+}
+.color-Pumpkin {
+  color: #ffffff;
+  background-color: #ff6700;
+}
+.color-Carrot {
+  color: #ffffff;
+  background-color: #dd711e;
+}
+.color-Autumn {
+  color: #ffffff;
+  background-color: #c36a28;
+}
+.color-Russet {
+  color: #ffffff;
+  background-color: #cc5927;
+}
+.color-Cinnamon {
+  color: #ffffff;
+  background-color: #a36436;
+}
+.color-Bronze {
+  color: #ffffff;
+  background-color: #ac4906;
+}
+.color-Caramel {
+  color: #ffffff;
+  background-color: #914715;
+}
+.color-Acorn {
+  color: #ffffff;
+  background-color: #863f00;
+}
+.color-Chestnut {
+  color: #ffffff;
+  background-color: #803215;
+}
+.color-Pecan {
+  color: #ffffff;
+  background-color: #563020;
+}
+.color-Umber {
+  color: #ffffff;
+  background-color: #4d2104;
+}
+.color-Ebony {
+  color: #ffffff;
+  background-color: #3b1d06;
+}
+.color-Chocolate {
+  color: #ffffff;
+  background-color: #2e1b04;
+}
+.color-Seal {
+  color: #ffffff;
+  background-color: #2a2014;
+}
+.color-Carob {
+  color: #ffffff;
+  background-color: #362600;
+}
+.color-Taupe {
+  color: #ffffff;
+  background-color: #443210;
+}
+.color-Mocha {
+  color: #ffffff;
+  background-color: #493c23;
+}
+.color-Silt {
+  color: #ffffff;
+  background-color: #504b34;
+}
+.color-Cedar {
+  color: #ffffff;
+  background-color: #5e4e29;
+}
+.color-Mahogany {
+  color: #ffffff;
+  background-color: #7a5b19;
+}
+.color-Bark {
+  color: #ffffff;
+  background-color: #8f6203;
+}
+.color-Clay {
+  color: #ffffff;
+  background-color: #8c7a41;
+}
+.color-Brown {
+  color: #ffffff;
+  background-color: #a87814;
+}
+.color-Tawny {
+  color: #ffffff;
+  background-color: #b3882f;
+}
+.color-Sepia {
+  color: #ffffff;
+  background-color: #b29330;
+}
+.color-Hazelnut {
+  color: #ffffff;
+  background-color: #d19518;
+}
+.color-Elm {
+  color: #000000;
+  background-color: #c99a39;
+}
+.color-Seed {
+  color: #000000;
+  background-color: #eba843;
+}
+.color-Fawn {
+  color: #000000;
+  background-color: #e1ad44;
+}
+.color-Ginger {
+  color: #000000;
+  background-color: #e0b780;
+}
+.color-Tan {
+  color: #000000;
+  background-color: #ffcc62;
+}
+.color-Beige {
+  color: #000000;
+  background-color: #ebcb6e;
+}
+.color-Oak {
+  color: #000000;
+  background-color: #f7e5b5;
+}
+.color-Sand {
+  color: #000000;
+  background-color: #fff1dc;
+}
+.color-Oyster {
+  color: #000000;
+  background-color: #ffe3d2;
+}
+.color-Blossom {
+  color: #000000;
+  background-color: #ffd4bc;
+}
+.color-Peony {
+  color: #000000;
+  background-color: #f5c5ba;
+}
+.color-Coral {
+  color: #000000;
+  background-color: #ffb0ea;
+}
+.color-Salmon {
+  color: #000000;
+  background-color: #ff9e88;
+}
+.color-Hibiscus {
+  color: #000000;
+  background-color: #e6ac9a;
+}
+.color-Tomato {
+  color: #000000;
+  background-color: #ef807b;
+}
+.color-Azalea {
+  color: #000000;
+  background-color: #ff6d56;
+}
+.color-Watermelon {
+  color: #ffffff;
+  background-color: #fa6a78;
+}
+.color-Rust {
+  color: #ffffff;
+  background-color: #f0613d;
+}
+.color-Scarlet {
+  color: #ffffff;
+  background-color: #f12121;
+}
+.color-Lava {
+  color: #ffffff;
+  background-color: #e54311;
+}
+.color-Red {
+  color: #ffffff;
+  background-color: #dd0e0e;
+}
+.color-Saffron {
+  color: #ffffff;
+  background-color: #c13311;
+}
+.color-Strawberry {
+  color: #ffffff;
+  background-color: #bf1717;
+}
+.color-Crimson {
+  color: #ffffff;
+  background-color: #b20000;
+}
+.color-Radish {
+  color: #ffffff;
+  background-color: #973111;
+}
+.color-Maroon {
+  color: #ffffff;
+  background-color: #852d26;
+}
+.color-Auburn {
+  color: #ffffff;
+  background-color: #751f00;
+}
+.color-Cherry {
+  color: #ffffff;
+  background-color: #640209;
+}
+.color-Carmine {
+  color: #ffffff;
+  background-color: #4a0909;
+}
+.color-Blood {
+  color: #ffffff;
+  background-color: #3b0404;
+}
+.color-Garnet {
+  color: #ffffff;
+  background-color: #44161b;
+}
+.color-Cranberry {
+  color: #ffffff;
+  background-color: #571a34;
+}
+.color-Rosewood {
+  color: #ffffff;
+  background-color: #690630;
+}
+.color-Currant {
+  color: #ffffff;
+  background-color: #760d2b;
+}
+.color-Burgundy {
+  color: #ffffff;
+  background-color: #850043;
+}
+.color-Beetroot {
+  color: #ffffff;
+  background-color: #901d57;
+}
+.color-Amaranth {
+  color: #ffffff;
+  background-color: #a32f5a;
+}
+.color-Sunset {
+  color: #ffffff;
+  background-color: #cc296b;
+}
+.color-Ruby {
+  color: #000000;
+  background-color: #e0265e;
+}
+.color-Fuchsia {
+  color: #ffffff;
+  background-color: #dc456d;
+}
+.color-Rose {
+  color: #ffffff;
+  background-color: #cf589c;
+}
+.color-Pink {
+  color: #ffffff;
+  background-color: #fa078c;
+}
+.color-Cerise {
+  color: #000000;
+  background-color: #ff3989;
+}
+.color-Tulip {
+  color: #ffffff;
+  background-color: #ff5bac;
+}
+.color-Spring {
+  color: #000000;
+  background-color: #dd8bb1;
+}
+.color-Peach {
+  color: #ffffff;
+  background-color: #fc8cb1;
+}
+.color-Carnation {
+  color: #000000;
+  background-color: #fa92d1;
+}
+.color-Begonia {
+  color: #000000;
+  background-color: #faa3ce;
+}
+.color-Flamingo {
+  color: #000000;
+  background-color: #edb7d9;
+}
+.color-Blush {
+  color: #000000;
+  background-color: #ffcce7;
+}
+.color-Quartz {
+  color: #000000;
+  background-color: #ffe0ed;
+}
+.color-Pastel {
+  color: #000000;
+  background-color: #fff0fc;
+}
+.color-Pearl {
+  color: #000000;
+  background-color: #fce7ff;
+}
+.color-Thistle {
+  color: #000000;
+  background-color: #e4d4e8;
+}
+.color-Pansy {
+  color: #000000;
+  background-color: #e5c0f4;
+}
+.color-Lavender {
+  color: #000000;
+  background-color: #dcc2ff;
+}
+.color-Lilac {
+  color: #000000;
+  background-color: #ebadfc;
+}
+.color-Foxglove {
+  color: #000000;
+  background-color: #cfa0e5;
+}
+.color-Orchid {
+  color: #000000;
+  background-color: #dc8cff;
+}
+.color-Heather {
+  color: #000000;
+  background-color: #b58abe;
+}
+.color-Iris {
+  color: #ffffff;
+  background-color: #ae78c5;
+}
+.color-Jacaranda {
+  color: #000000;
+  background-color: #b986ff;
+}
+.color-Violet {
+  color: #ffffff;
+  background-color: #c354e5;
+}
+.color-Iolite {
+  color: #ffffff;
+  background-color: #a061d8;
+}
+.color-Purple {
+  color: #ffffff;
+  background-color: #944dd5;
+}
+.color-Eminence {
+  color: #ffffff;
+  background-color: #805eb6;
+}
+.color-Grape {
+  color: #ffffff;
+  background-color: #6e42ca;
+}
+.color-Amethyst {
+  color: #ffffff;
+  background-color: #85269e;
+}
+.color-Mauve {
+  color: #ffffff;
+  background-color: #6d4970;
+}
+.color-Wolfsbane {
+  color: #ffffff;
+  background-color: #6a358a;
+}
+.color-Fig {
+  color: #ffffff;
+  background-color: #54356c;
+}
+.color-Acai {
+  color: #ffffff;
+  background-color: #740b8a;
+}
+.color-Haze {
+  color: #ffffff;
+  background-color: #532c60;
+}
+.color-Elderberry {
+  color: #ffffff;
+  background-color: #411264;
+}
+.color-Eggplant {
+  color: #ffffff;
+  background-color: #4b185b;
+}
+.color-Onion {
+  color: #ffffff;
+  background-color: #3f0053;
+}
+.color-Plum {
+  color: #ffffff;
+  background-color: #2d1341;
+}
+.range-Black { color: #131414;}
+.range-Midnight { color: #252421;}
+.range-Slate { color: #373c3a;}
+.range-Abyss { color: #574d4d;}
+.range-Chalk { color: #4c4c4c;}
+.range-Granite { color: #696462;}
+.range-Shadow { color: #7d7979;}
+.range-Ash { color: #868988;}
+.range-Fossil { color: #97969c;}
+.range-Stone { color: #acacac;}
+.range-Dust { color: #c5c2bb;}
+.range-Silver { color: #d0d0d0;}
+.range-Grey { color: #eaeaea;}
+.range-White { color: #ffffff;}
+.range-Cloud { color: #e9efff;}
+.range-Ice { color: #c4d8ff;}
+.range-Frost { color: #c8c7ff;}
+.range-Rain { color: #aab0df;}
+.range-Mist { color: #9099e0;}
+.range-Winter { color: #7f84af;}
+.range-Storm { color: #6a79e9;}
+.range-Imperial { color: #5260c9;}
+.range-Wind { color: #58619c;}
+.range-Blueberry { color: #574e8c;}
+.range-Lead { color: #484e75;}
+.range-Navy { color: #373867;}
+.range-Indigo { color: #252453;}
+.range-Twilight { color: #151b54;}
+.range-Cobalt { color: #132b78;}
+.range-Ultramarine { color: #0a33b9;}
+.range-Lake { color: #1f4d99;}
+.range-Azure { color: #104d7f;}
+.range-Royal { color: #115e6b;}
+.range-Cornflower { color: #1169a1;}
+.range-Shroud { color: #346c8f;}
+.range-Electric { color: #0d6ae0;}
+.range-Blue { color: #2d7fcd;}
+.range-Cerulean { color: #199fa6;}
+.range-Rune { color: #199fc4;}
+.range-River { color: #6fa4c5;}
+.range-Sky { color: #56c6eb;}
+.range-Cyan { color: #28d8ff;}
+.range-Glacier { color: #74dce2;}
+.range-Celeste { color: #9adbf7;}
+.range-Egg { color: #8be7fc;}
+.range-Horizon { color: #b7edff;}
+.range-Water { color: #d6fffe;}
+.range-Blizzard { color: #edfffd;}
+.range-Powder { color: #e1f2ef;}
+.range-Coast { color: #d1f8e9;}
+.range-Mint { color: #b4faee;}
+.range-Ocean { color: #6bf8e3;}
+.range-Jade { color: #0aeda5;}
+.range-Parsley { color: #6ad1ac;}
+.range-Turtle { color: #09df8b;}
+.range-Phthalo { color: #0da87c;}
+.range-Artichoke { color: #3a9786;}
+.range-Grass { color: #169c32;}
+.range-Emerald { color: #009158;}
+.range-Seaweed { color: #178442;}
+.range-Sage { color: #3f745d;}
+.range-Clover { color: #057012;}
+.range-Universe { color: #025c33;}
+.range-Avocado { color: #244737;}
+.range-Spruce { color: #103a26;}
+.range-Vine { color: #182c25;}
+.range-Forest { color: #11210d;}
+.range-Reed { color: #202906;}
+.range-Basil { color: #0d3303;}
+.range-Swamp { color: #243a03;}
+.range-Frog { color: #314421;}
+.range-Juniper { color: #23531b;}
+.range-Pine { color: #296220;}
+.range-Moss { color: #516818;}
+.range-Jungle { color: #486c2d;}
+.range-Rosemary { color: #64814f;}
+.range-Summer { color: #638c2d;}
+.range-Fern { color: #529930;}
+.range-Venom { color: #81a520;}
+.range-Green { color: #86b745;}
+.range-Thyme { color: #9dca71;}
+.range-Lime { color: #add035;}
+.range-Neon { color: #b4e927;}
+.range-Sprout { color: #cbda84;}
+.range-Pear { color: #cbe35a;}
+.range-Toxin { color: #e4f36e;}
+.range-Blond { color: #fcffbb;}
+.range-Cream { color: #fffeee;}
+.range-Banana { color: #fff6bd;}
+.range-Butter { color: #fff87a;}
+.range-Yellow { color: #ffed40;}
+.range-Sunrise { color: #ffd31f;}
+.range-Mustard { color: #eebb40;}
+.range-Apricot { color: #ffa85a;}
+.range-Orange { color: #ffa226;}
+.range-Ochre { color: #ee9e24;}
+.range-Honeydew { color: #ff8900;}
+.range-Potato { color: #e68646;}
+.range-Pumpkin { color: #ff6700;}
+.range-Carrot { color: #dd711e;}
+.range-Autumn { color: #c36a28;}
+.range-Russet { color: #cc5927;}
+.range-Cinnamon { color: #a36436;}
+.range-Bronze { color: #ac4906;}
+.range-Caramel { color: #914715;}
+.range-Acorn { color: #863f00;}
+.range-Chestnut { color: #803215;}
+.range-Pecan { color: #563020;}
+.range-Umber { color: #4d2104;}
+.range-Ebony { color: #3b1d06;}
+.range-Chocolate { color: #2e1b04;}
+.range-Seal { color: #2a2014;}
+.range-Carob { color: #362600;}
+.range-Taupe { color: #443210;}
+.range-Mocha { color: #493c23;}
+.range-Silt { color: #504b34;}
+.range-Cedar { color: #5e4e29;}
+.range-Mahogany { color: #7a5b19;}
+.range-Bark { color: #8f6203;}
+.range-Clay { color: #8c7a41;}
+.range-Brown { color: #a87814;}
+.range-Tawny { color: #b3882f;}
+.range-Sepia { color: #b29330;}
+.range-Hazelnut { color: #d19518;}
+.range-Elm { color: #c99a39;}
+.range-Seed { color: #eba843;}
+.range-Fawn { color: #e1ad44;}
+.range-Ginger { color: #e0b780;}
+.range-Tan { color: #ffcc62;}
+.range-Beige { color: #ebcb6e;}
+.range-Oak { color: #f7e5b5;}
+.range-Sand { color: #fff1dc;}
+.range-Oyster { color: #ffe3d2;}
+.range-Blossom { color: #ffd4bc;}
+.range-Peony { color: #f5c5ba;}
+.range-Coral { color: #ffb0ea;}
+.range-Salmon { color: #ff9e88;}
+.range-Hibiscus { color: #e6ac9a;}
+.range-Tomato { color: #ef807b;}
+.range-Azalea { color: #ff6d56;}
+.range-Watermelon { color: #fa6a78;}
+.range-Rust { color: #f0613d;}
+.range-Scarlet { color: #f12121;}
+.range-Lava { color: #e54311;}
+.range-Red { color: #dd0e0e;}
+.range-Saffron { color: #c13311;}
+.range-Strawberry { color: #bf1717;}
+.range-Crimson { color: #b20000;}
+.range-Radish { color: #973111;}
+.range-Maroon { color: #852d26;}
+.range-Auburn { color: #751f00;}
+.range-Cherry { color: #640209;}
+.range-Carmine { color: #4a0909;}
+.range-Blood { color: #3b0404;}
+.range-Garnet { color: #44161b;}
+.range-Cranberry { color: #571a34;}
+.range-Rosewood { color: #690630;}
+.range-Currant { color: #760d2b;}
+.range-Burgundy { color: #850043;}
+.range-Beetroot { color: #901d57;}
+.range-Amaranth { color: #a32f5a;}
+.range-Sunset { color: #cc296b;}
+.range-Ruby { color: #e0265e;}
+.range-Fuchsia { color: #dc456d;}
+.range-Rose { color: #cf589c;}
+.range-Pink { color: #fa078c;}
+.range-Cerise { color: #ff3989;}
+.range-Tulip { color: #ff5bac;}
+.range-Spring { color: #dd8bb1;}
+.range-Peach { color: #fc8cb1;}
+.range-Carnation { color: #fa92d1;}
+.range-Begonia { color: #faa3ce;}
+.range-Flamingo { color: #edb7d9;}
+.range-Blush { color: #ffcce7;}
+.range-Quartz { color: #ffe0ed;}
+.range-Pastel { color: #fff0fc;}
+.range-Pearl { color: #fce7ff;}
+.range-Thistle { color: #e4d4e8;}
+.range-Pansy { color: #e5c0f4;}
+.range-Lavender { color: #dcc2ff;}
+.range-Lilac { color: #ebadfc;}
+.range-Foxglove { color: #cfa0e5;}
+.range-Orchid { color: #dc8cff;}
+.range-Heather { color: #b58abe;}
+.range-Iris { color: #ae78c5;}
+.range-Jacaranda { color: #b986ff;}
+.range-Violet { color: #c354e5;}
+.range-Iolite { color: #a061d8;}
+.range-Purple { color: #944dd5;}
+.range-Eminence { color: #805eb6;}
+.range-Grape { color: #6e42ca;}
+.range-Amethyst { color: #85269e;}
+.range-Mauve { color: #6d4970;}
+.range-Wolfsbane { color: #6a358a;}
+.range-Fig { color: #54356c;}
+.range-Acai { color: #740b8a;}
+.range-Haze { color: #532c60;}
+.range-Elderberry { color: #411264;}
+.range-Eggplant { color: #4b185b;}
+.range-Onion { color: #3f0053;}
+.range-Plum { color: #2d1341;}
