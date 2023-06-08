@@ -246,6 +246,8 @@ function getHTMLforRange(p1, p2) {
           (i + 1) +
           "' class='range-" +
           COLORS[i] +
+          "' title='" +
+          COLORS[i] +
           "'>&#x25A0;</span>"
       );
     }
@@ -254,6 +256,8 @@ function getHTMLforRange(p1, p2) {
         "<span data-value='" +
           (i + 1) +
           "' class='range-" +
+          COLORS[i] +
+          "' title='" +
           COLORS[i] +
           "'>&#x25A0;</span>"
       );
@@ -264,6 +268,8 @@ function getHTMLforRange(p1, p2) {
         "<span data-value='" +
           (i + 1) +
           "' class='range-" +
+          COLORS[i] +
+          "' title='" +
           COLORS[i] +
           "'>&#x25A0;</span>"
       );
