@@ -231,19 +231,15 @@ layout: default
   }
 
   function setRange(id) {
-    var range = getColorRange(
+    var range = getHTMLforRange(
       $("#w1-" + id + "-color").val(),
       $("#w2-" + id + "-color").val()
     );
-    var els = document.getElementById("range-" + id).children;
-    for (var i = 0; i < els.length; i++) {
-      var el = els[i];
-      var val = parseInt(el.dataset.value);
-      if (el.classList.contains("d-none")) el.classList.remove("d-none");
-      if (val < range[0]) el.classList.add("d-none");
-      if (val > range[1]) el.classList.add("d-none");
+    $("#range-" + id).html("");
+    for (var el of range[3]) {
+        range[2] ? $("#range-" + id).prepend(el) : $("#range-" + id).append(el);
     }
-  }
+}
 </script>
 <script src="./data.js"></script>
 <script src="./script.js"></script>
