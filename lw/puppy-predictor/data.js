@@ -1,5 +1,7 @@
-const COMMON = 0;
-const UNCOMMON = 1;
+const CAP = 1000;
+const COMMON = 500;
+const UNCOMMON = 250;
+const RARE = 125;
 
 var COLORS = [
   "Black",
@@ -211,7 +213,7 @@ const breeds = [
   COMMON, // Kit
   UNCOMMON, // Bracchus
   UNCOMMON, // Zerda
-  UNCOMMON, // Volmyr
+  RARE, // Volmyr
 ];
 
 const genes = [
@@ -282,26 +284,22 @@ function getGenes(p1, p2) {
   p1 = parseInt(p1);
   p2 = parseInt(p2);
   if (p1 === p2) return p1;
-  var rarity1 = genes[p1 - 1];
-  var rarity2 = genes[p2 - 1];
-  var rand = Math.floor(Math.random() * 100);
-  if (rarity1 === rarity2) return rand < 50 ? p1 : p2;
-  var common = rarity1 === COMMON ? p1 : p2;
-  var uncommon = rarity1 === COMMON ? p2 : p1;
-  return rand < 75 ? common : uncommon;
+  var r1 = genes[p1 - 1];
+  var r2 = genes[p2 - 1];
+  var [bigger, smaller] = [r1 > r2 ? p1 : p2, r1 <= r2 ? p1 : p2];
+  var rand = Math.floor(Math.random() * CAP);
+  return (rand < CAP - smaller) ? bigger : smaller;
 }
 
 function getBreed(p1, p2) {
   p1 = parseInt(p1);
   p2 = parseInt(p2);
   if (p1 === p2) return p1;
-  var rarity1 = breeds[p1 - 7];
-  var rarity2 = breeds[p2 - 7];
-  var rand = Math.floor(Math.random() * 100);
-  if (rarity1 === rarity2) return rand < 50 ? p1 : p2;
-  var common = rarity1 === COMMON ? p1 : p2;
-  var uncommon = rarity1 === COMMON ? p2 : p1;
-  return rand < 75 ? common : uncommon;
+  var r1 = breeds[p1 - 7];
+  var r2 = breeds[p2 - 7];
+  var [bigger, smaller] = [r1 > r2 ? p1 : p2, r1 <= r2 ? p1 : p2];
+  var rand = Math.floor(Math.random() * CAP);
+  return rand < CAP - smaller ? bigger : smaller;
 }
 
 function getColor(p1, p2) {
