@@ -1,7 +1,6 @@
-const CAP = 1000;
-const COMMON = 500;
-const UNCOMMON = 250;
-const RARE = 125;
+const COMMON = 1;
+const UNCOMMON = 2;
+const RARE = 3;
 
 var COLORS = [
   "Black",
@@ -283,23 +282,37 @@ function getHTMLforRange(p1, p2) {
 function getGenes(p1, p2) {
   p1 = parseInt(p1);
   p2 = parseInt(p2);
-  if (p1 === p2) return p1;
   var r1 = genes[p1 - 1];
   var r2 = genes[p2 - 1];
-  var [bigger, smaller] = [r1 > r2 ? p1 : p2, r1 <= r2 ? p1 : p2];
-  var rand = Math.floor(Math.random() * CAP);
-  return (rand < CAP - smaller) ? bigger : smaller;
+  var difference = Math.abs(r1 - r2);
+  var flip = r1 - r2 != difference;
+  var rand = Math.floor(Math.random() * 1000);
+  switch (difference) {
+    case 2:
+      return rand < 125 ? (flip ? p2 : p1) : flip ? p1 : p2;
+    case 1:
+      return rand < 250 ? (flip ? p2 : p1) : flip ? p1 : p2;
+    default:
+      return rand < 500 ? p1 : p2;
+  } 
 }
 
 function getBreed(p1, p2) {
   p1 = parseInt(p1);
   p2 = parseInt(p2);
-  if (p1 === p2) return p1;
   var r1 = breeds[p1 - 7];
   var r2 = breeds[p2 - 7];
-  var [bigger, smaller] = [r1 > r2 ? p1 : p2, r1 <= r2 ? p1 : p2];
-  var rand = Math.floor(Math.random() * CAP);
-  return rand < CAP - smaller ? bigger : smaller;
+  var difference = Math.abs(r1 - r2);
+  var flip = r1 - r2 != difference;
+  var rand = Math.floor(Math.random() * 1000);
+  switch (difference) {
+    case 2:
+      return rand < 125 ? (flip ? p2 : p1) : flip ? p1 : p2;
+    case 1:
+      return rand < 250 ? (flip ? p2 : p1) : flip ? p1 : p2;
+    default:
+      return rand < 500 ? p1 : p2;
+  } 
 }
 
 function getColor(p1, p2) {
