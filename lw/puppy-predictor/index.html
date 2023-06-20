@@ -11,42 +11,41 @@ layout: default
       <div class="card-body">
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
-            Breed: {% include_relative breed_select.html id="w1-breed" %}
+            Breed: {% include lw/breed_select.html id="w1-breed" %}
           </div>
         </div>
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
-            Eyes: {% include_relative color_select.html id="w1-eyes-color" %}
+            Eyes: {% include lw/color_select.html id="w1-eyes-color" %}
           </div>
         </div>
         <div class="row row-cols-2 mb-2">
           <div class="col mb4">
-            Accent: {% include_relative gene_select.html id="w1-accent" %}
+            Accent: {% include lw/gene_select.html id="w1-accent" %}
           </div>
           <div class="col mb4">
-            Accent: {% include_relative color_select.html id="w1-accent-color"
-            %}
-          </div>
-        </div>
-        <div class="row row-cols-2 mb-2">
-          <div class="col mb4">
-            Under: {% include_relative gene_select.html id="w1-under" %}
-          </div>
-          <div class="col mb4">
-            Under: {% include_relative color_select.html id="w1-under-color" %}
+            Accent: {% include lw/color_select.html id="w1-accent-color" %}
           </div>
         </div>
         <div class="row row-cols-2 mb-2">
           <div class="col mb4">
-            Top: {% include_relative gene_select.html id="w1-top" %}
+            Under: {% include lw/gene_select.html id="w1-under" %}
           </div>
           <div class="col mb4">
-            Top: {% include_relative color_select.html id="w1-top-color" %}
+            Under: {% include lw/color_select.html id="w1-under-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Top: {% include lw/gene_select.html id="w1-top" %}
+          </div>
+          <div class="col mb4">
+            Top: {% include lw/color_select.html id="w1-top-color" %}
           </div>
         </div>
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
-            Base: {% include_relative color_select.html id="w1-base-color" %}
+            Base: {% include lw/color_select.html id="w1-base-color" %}
           </div>
         </div>
       </div>
@@ -58,53 +57,52 @@ layout: default
       <div class="card-body">
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
-            Breed: {% include_relative breed_select.html id="w2-breed" %}
+            Breed: {% include lw/breed_select.html id="w2-breed" %}
           </div>
         </div>
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
-            Eyes: {% include_relative color_select.html id="w2-eyes-color" %}
+            Eyes: {% include lw/color_select.html id="w2-eyes-color" %}
           </div>
         </div>
         <div class="row row-cols-2 mb-2">
           <div class="col mb4">
-            Accent: {% include_relative gene_select.html id="w2-accent" %}
+            Accent: {% include lw/gene_select.html id="w2-accent" %}
           </div>
           <div class="col mb4">
-            Accent: {% include_relative color_select.html id="w2-accent-color"
-            %}
-          </div>
-        </div>
-        <div class="row row-cols-2 mb-2">
-          <div class="col mb4">
-            Under: {% include_relative gene_select.html id="w2-under" %}
-          </div>
-          <div class="col mb4">
-            Under: {% include_relative color_select.html id="w2-under-color" %}
+            Accent: {% include lw/color_select.html id="w2-accent-color" %}
           </div>
         </div>
         <div class="row row-cols-2 mb-2">
           <div class="col mb4">
-            Top: {% include_relative gene_select.html id="w2-top" %}
+            Under: {% include lw/gene_select.html id="w2-under" %}
           </div>
           <div class="col mb4">
-            Top: {% include_relative color_select.html id="w2-top-color" %}
+            Under: {% include lw/color_select.html id="w2-under-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Top: {% include lw/gene_select.html id="w2-top" %}
+          </div>
+          <div class="col mb4">
+            Top: {% include lw/color_select.html id="w2-top-color" %}
           </div>
         </div>
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
-            Base: {% include_relative color_select.html id="w2-base-color" %}
+            Base: {% include lw/color_select.html id="w2-base-color" %}
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="d-grid">{% include_relative range.html id="range-eyes" %}</div>
-<div class="d-grid">{% include_relative range.html id="range-accent" %}</div>
-<div class="d-grid">{% include_relative range.html id="range-under" %}</div>
-<div class="d-grid">{% include_relative range.html id="range-top" %}</div>
-<div class="d-grid">{% include_relative range.html id="range-base" %}</div>
+<div class="d-grid">{% include lw/range.html id="range-eyes" %}</div>
+<div class="d-grid">{% include lw/range.html id="range-accent" %}</div>
+<div class="d-grid">{% include lw/range.html id="range-under" %}</div>
+<div class="d-grid">{% include lw/range.html id="range-top" %}</div>
+<div class="d-grid">{% include lw/range.html id="range-base" %}</div>
 <div class="d-grid mt-4">
   <button type="button" class="btn btn-outline-warning" onclick="generate()">
     Foresee Progeny
@@ -189,8 +187,9 @@ layout: default
           class="text-info text-decoration-none"
           >spreadsheet</a
         >
-        by Cerberus#9 / <i class="bi bi-discord"></i> MonkeyBoy#2179, Rouge#622, Qhersek#31, and LissaJo#612! Thank you
-        for all your help. Website-ified by LegoFigure11#4673.</span
+        by Cerberus#9 / <i class="bi bi-discord"></i> MonkeyBoy#2179, Rouge#622,
+        Qhersek#31, and LissaJo#612! Thank you for all your help. Website-ified
+        by LegoFigure11#4673.</span
       >
     </div>
   </div>
@@ -237,9 +236,9 @@ layout: default
     );
     $("#range-" + id).html("");
     for (var el of range[3]) {
-        range[2] ? $("#range-" + id).prepend(el) : $("#range-" + id).append(el);
+      range[2] ? $("#range-" + id).prepend(el) : $("#range-" + id).append(el);
     }
-}
+  }
 </script>
 <script src="../common/data.js"></script>
 <script src="./script.js"></script>
