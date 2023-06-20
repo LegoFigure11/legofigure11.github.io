@@ -2,24 +2,27 @@ const SIZE = 800;
 //const URL = `https://lorwolf.azureedge.net/rawwolflayers/LayerImage_${pup_breed}_${pattern}_${color}_${pose}_${layer}_${SIZE}.png`;
 
 function generate() {
-  var BREED = getBreed($("#w1-breed").val(), $("#w2-breed").val());
-  var BASE_COLOR = getColor(
+  var BREED = getRandomBreed($("#w1-breed").val(), $("#w2-breed").val());
+  var BASE_COLOR = getRandomColorWithinRange(
     $("#w1-base-color").val(),
     $("#w2-base-color").val()
   );
-  var TOP_GENE = getGenes($("#w1-top").val(), $("#w2-top").val());
-  var TOP_COLOR = getColor($("#w1-top-color").val(), $("#w2-top-color").val());
-  var UNDER_GENE = getGenes($("#w1-under").val(), $("#w2-under").val());
-  var UNDER_COLOR = getColor(
+  var TOP_GENE = getRandomGenes($("#w1-top").val(), $("#w2-top").val());
+  var TOP_COLOR = getRandomColorWithinRange(
+    $("#w1-top-color").val(),
+    $("#w2-top-color").val()
+  );
+  var UNDER_GENE = getRandomGenes($("#w1-under").val(), $("#w2-under").val());
+  var UNDER_COLOR = getRandomColorWithinRange(
     $("#w1-under-color").val(),
     $("#w2-under-color").val()
   );
-  var ACCENT_GENE = getGenes($("#w1-accent").val(), $("#w2-accent").val());
-  var ACCENT_COLOR = getColor(
+  var ACCENT_GENE = getRandomGenes($("#w1-accent").val(), $("#w2-accent").val());
+  var ACCENT_COLOR = getRandomColorWithinRange(
     $("#w1-accent-color").val(),
     $("#w2-accent-color").val()
   );
-  var EYES_COLOR = getColor(
+  var EYES_COLOR = getRandomColorWithinRange(
     $("#w1-eyes-color").val(),
     $("#w2-eyes-color").val()
   );
@@ -43,24 +46,27 @@ function generate() {
     "layer6"
   ).src = `https://lorwolf.azureedge.net/rawwolflayers/LayerImage_${BREED}_${1}_${1}_Baby_${0}_${SIZE}.png`;
 
-  var BREED = getBreed($("#w1-breed").val(), $("#w2-breed").val());
-  var BASE_COLOR = getColor(
+  var BREED = getRandomBreed($("#w1-breed").val(), $("#w2-breed").val());
+  var BASE_COLOR = getRandomColorWithinRange(
     $("#w1-base-color").val(),
     $("#w2-base-color").val()
   );
-  var TOP_GENE = getGenes($("#w1-top").val(), $("#w2-top").val());
-  var TOP_COLOR = getColor($("#w1-top-color").val(), $("#w2-top-color").val());
-  var UNDER_GENE = getGenes($("#w1-under").val(), $("#w2-under").val());
-  var UNDER_COLOR = getColor(
+  var TOP_GENE = getRandomGenes($("#w1-top").val(), $("#w2-top").val());
+  var TOP_COLOR = getRandomColorWithinRange(
+    $("#w1-top-color").val(),
+    $("#w2-top-color").val()
+  );
+  var UNDER_GENE = getRandomGenes($("#w1-under").val(), $("#w2-under").val());
+  var UNDER_COLOR = getRandomColorWithinRange(
     $("#w1-under-color").val(),
     $("#w2-under-color").val()
   );
-  var ACCENT_GENE = getGenes($("#w1-accent").val(), $("#w2-accent").val());
-  var ACCENT_COLOR = getColor(
+  var ACCENT_GENE = getRandomGenes($("#w1-accent").val(), $("#w2-accent").val());
+  var ACCENT_COLOR = getRandomColorWithinRange(
     $("#w1-accent-color").val(),
     $("#w2-accent-color").val()
   );
-  var EYES_COLOR = getColor(
+  var EYES_COLOR = getRandomColorWithinRange(
     $("#w1-eyes-color").val(),
     $("#w2-eyes-color").val()
   );
@@ -84,24 +90,27 @@ function generate() {
     "layer12"
   ).src = `https://lorwolf.azureedge.net/rawwolflayers/LayerImage_${BREED}_${1}_${1}_Baby_${0}_${SIZE}.png`;
 
-  var BREED = getBreed($("#w1-breed").val(), $("#w2-breed").val());
-  var BASE_COLOR = getColor(
+  var BREED = getRandomBreed($("#w1-breed").val(), $("#w2-breed").val());
+  var BASE_COLOR = getRandomColorWithinRange(
     $("#w1-base-color").val(),
     $("#w2-base-color").val()
   );
-  var TOP_GENE = getGenes($("#w1-top").val(), $("#w2-top").val());
-  var TOP_COLOR = getColor($("#w1-top-color").val(), $("#w2-top-color").val());
-  var UNDER_GENE = getGenes($("#w1-under").val(), $("#w2-under").val());
-  var UNDER_COLOR = getColor(
+  var TOP_GENE = getRandomGenes($("#w1-top").val(), $("#w2-top").val());
+  var TOP_COLOR = getRandomColorWithinRange(
+    $("#w1-top-color").val(),
+    $("#w2-top-color").val()
+  );
+  var UNDER_GENE = getRandomGenes($("#w1-under").val(), $("#w2-under").val());
+  var UNDER_COLOR = getRandomColorWithinRange(
     $("#w1-under-color").val(),
     $("#w2-under-color").val()
   );
-  var ACCENT_GENE = getGenes($("#w1-accent").val(), $("#w2-accent").val());
-  var ACCENT_COLOR = getColor(
+  var ACCENT_GENE = getRandomGenes($("#w1-accent").val(), $("#w2-accent").val());
+  var ACCENT_COLOR = getRandomColorWithinRange(
     $("#w1-accent-color").val(),
     $("#w2-accent-color").val()
   );
-  var EYES_COLOR = getColor(
+  var EYES_COLOR = getRandomColorWithinRange(
     $("#w1-eyes-color").val(),
     $("#w2-eyes-color").val()
   );
@@ -125,24 +134,27 @@ function generate() {
     "layer18"
   ).src = `https://lorwolf.azureedge.net/rawwolflayers/LayerImage_${BREED}_${1}_${1}_Baby_${0}_${SIZE}.png`;
 
-  var BREED = getBreed($("#w1-breed").val(), $("#w2-breed").val());
-  var BASE_COLOR = getColor(
+  var BREED = getRandomBreed($("#w1-breed").val(), $("#w2-breed").val());
+  var BASE_COLOR = getRandomColorWithinRange(
     $("#w1-base-color").val(),
     $("#w2-base-color").val()
   );
-  var TOP_GENE = getGenes($("#w1-top").val(), $("#w2-top").val());
-  var TOP_COLOR = getColor($("#w1-top-color").val(), $("#w2-top-color").val());
-  var UNDER_GENE = getGenes($("#w1-under").val(), $("#w2-under").val());
-  var UNDER_COLOR = getColor(
+  var TOP_GENE = getRandomGenes($("#w1-top").val(), $("#w2-top").val());
+  var TOP_COLOR = getRandomColorWithinRange(
+    $("#w1-top-color").val(),
+    $("#w2-top-color").val()
+  );
+  var UNDER_GENE = getRandomGenes($("#w1-under").val(), $("#w2-under").val());
+  var UNDER_COLOR = getRandomColorWithinRange(
     $("#w1-under-color").val(),
     $("#w2-under-color").val()
   );
-  var ACCENT_GENE = getGenes($("#w1-accent").val(), $("#w2-accent").val());
-  var ACCENT_COLOR = getColor(
+  var ACCENT_GENE = getRandomGenes($("#w1-accent").val(), $("#w2-accent").val());
+  var ACCENT_COLOR = getRandomColorWithinRange(
     $("#w1-accent-color").val(),
     $("#w2-accent-color").val()
   );
-  var EYES_COLOR = getColor(
+  var EYES_COLOR = getRandomColorWithinRange(
     $("#w1-eyes-color").val(),
     $("#w2-eyes-color").val()
   );

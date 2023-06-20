@@ -279,7 +279,7 @@ function getHTMLforRange(p1, p2) {
   return [cols[0], cols[1], backwards, html];
 }
 
-function getGenes(p1, p2) {
+function getRandomGenes(p1, p2) {
   p1 = parseInt(p1);
   p2 = parseInt(p2);
   var r1 = genes[p1 - 1];
@@ -297,7 +297,7 @@ function getGenes(p1, p2) {
   } 
 }
 
-function getBreed(p1, p2) {
+function getRandomBreed(p1, p2) {
   p1 = parseInt(p1);
   p2 = parseInt(p2);
   var r1 = breeds[p1 - 7];
@@ -315,7 +315,7 @@ function getBreed(p1, p2) {
   } 
 }
 
-function getColor(p1, p2) {
+function getRandomColorWithinRange(p1, p2) {
     var r = getHTMLforRange(p1, p2);
     return r[3][Math.floor(Math.random() * r[3].length)].split("'")[1];
 }

@@ -1,9 +1,18 @@
-<div class="container mt-auto pb-3" style="max-width: 700px;">
-
+<div class="container mt-auto pb-3" style="max-width: 700px">
   <span class="d-none" id="back-container">
     <a href="" id="back-link" class="text-info text-decoration-none">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-arrow-left"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+        />
       </svg>
       Back to <span id="back-link-address"></span>
     </a>
@@ -12,10 +21,14 @@
   <script>
     var url = window.location.pathname;
     var pathname = url.slice(1, url.indexOf("/", 1)).toLowerCase();
-    var pages = ["tools", "misc", "fr"];
+    var pages = ["tools", "misc", "fr", "lw"];
 
-    if (pages.includes(pathname) && url !== ("/" + pathname + "/")) {
-      $("#back-link-address").html(pathname.replace("fr", "index").charAt(0).toUpperCase() + pathname.replace("fr", "index").slice(1) + "...");
+    if (pages.includes(pathname) && url !== "/" + pathname + "/") {
+      $("#back-link-address").html(
+        pathname.replace(/fr|lw/, "index").charAt(0).toUpperCase() +
+          pathname.replace(/fr|lw/, "index").slice(1) +
+          "..."
+      );
       $("#back-link").prop("href", window.location.origin + "/" + pathname);
       $("#back-container").removeClass("d-none");
     }
