@@ -7,14 +7,46 @@ function generate() {
   var canvas = ctx.canvas;
   var x = canvas.width / 2;
 
-  // Draw background
+  // Reset canvas
   ctx.globalCompositeOperation = "source-over";
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if (!$("#bg-transparent").prop("checked")) {
+
+  // Draw background
+  if ($("#radiocolor").prop("checked")) {
     ctx.fillStyle = $("#bg-color").val();
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    placeWolfLayers(ctx, x);
+  } else {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var bg = new Image();
+      bg.onload = function () {
+        if (bg.height !== canvas.height)
+          window.alert(
+            "It is recommended to use a background " +
+              canvas.height +
+              "px tall (Received: " +
+              bg.height +
+              "px)."
+          );
+        if (bg.width !== canvas.width)
+          window.alert(
+            "It is recommended to use a background " +
+              canvas.width +
+              "px wide (Received: " +
+              bg.width +
+              "px)."
+          );
+        ctx.drawImage(bg, 0, 0);
+        placeWolfLayers(ctx, x);
+      };
+      bg.src = e.target.result;
+    };
+    reader.readAsDataURL(document.getElementById("formFile").files[0]);
   }
+}
 
+function placeWolfLayers(ctx, x) {
   // Place wolf images
   var w1_base = new Image();
   w1_base.onload = function () {
