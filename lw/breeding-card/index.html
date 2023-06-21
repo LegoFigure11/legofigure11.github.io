@@ -120,9 +120,9 @@ layout: no-ads
     />
   </div>
   <div class="d-grid">
-    <label for="bg-color">Background Color:</label>
     <div class="row row-cols-2 mb-2">
-      <div class="col col-9 mb-3">
+      <label for="bg-color">Background Color:</label>
+      <div class="col col-6 mb-3">
         <input
           type="color"
           class="form-control"
@@ -132,16 +132,15 @@ layout: no-ads
           value="#222222"
         />
       </div>
-      <div class="col col-3 mb-3 text-end">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="bg-transparent"
-          name="bg-transparent"
-        />
-        <label class="form-check-label" for="bg-transparent"
-          >Transparent?</label
+      <div class="col mb-3">
+        <label for="formFile" class="form-label"
+          >Default file input example</label
         >
+        <input
+          class="form-control form-dark bg-dark text-light"
+          type="file"
+          id="formFile"
+        />
       </div>
     </div>
   </div>
