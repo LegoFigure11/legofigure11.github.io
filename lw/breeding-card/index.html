@@ -1,0 +1,244 @@
+---
+title: Breeding Card Generator
+permalink: /lw/breeding-card/
+layout: default
+---
+
+<div class="row row-cols-1 row-cols-md-2">
+  <div class="col mb-3">
+    <div class="card bg-dark">
+      <div id="w1" class="card-header">Parent 1</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Breed: {% include lw/breed_select.html id="w1-breed" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Sex: {% include lw/sex_select.html id="w1-sex" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Eyes: {% include lw/color_select.html id="w1-eyes-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Accent: {% include lw/gene_select.html id="w1-accent" %}
+          </div>
+          <div class="col mb4">
+            Accent: {% include lw/color_select.html id="w1-accent-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Under: {% include lw/gene_select.html id="w1-under" %}
+          </div>
+          <div class="col mb4">
+            Under: {% include lw/color_select.html id="w1-under-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Top: {% include lw/gene_select.html id="w1-top" %}
+          </div>
+          <div class="col mb4">
+            Top: {% include lw/color_select.html id="w1-top-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Base: {% include lw/color_select.html id="w1-base-color" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-3">
+    <div class="card bg-dark">
+      <div id="w2" class="card-header">Parent 2</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Breed: {% include lw/breed_select.html id="w2-breed" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Sex: {% include lw/sex_select.html id="w2-sex" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Eyes: {% include lw/color_select.html id="w2-eyes-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Accent: {% include lw/gene_select.html id="w2-accent" %}
+          </div>
+          <div class="col mb4">
+            Accent: {% include lw/color_select.html id="w2-accent-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Under: {% include lw/gene_select.html id="w2-under" %}
+          </div>
+          <div class="col mb4">
+            Under: {% include lw/color_select.html id="w2-under-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Top: {% include lw/gene_select.html id="w2-top" %}
+          </div>
+          <div class="col mb4">
+            Top: {% include lw/color_select.html id="w2-top-color" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Base: {% include lw/color_select.html id="w2-base-color" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-grid">
+  <label for="name">Pair Name:</label>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control bg-dark text-light"
+      id="name"
+      placeholder="Pair Name..."
+      value="My Breeding Pair"
+    />
+  </div>
+  <div class="d-grid">
+    <label for="bg-color">Background Color:</label>
+    <div class="row row-cols-2 mb-2">
+      <div class="col col-9 mb-3">
+        <input
+          type="color"
+          class="form-control"
+          id="bg-color"
+          name="bg-color"
+          style="padding: 0 !important"
+          value="#222222"
+        />
+      </div>
+      <div class="col col-3 mb-3 text-end">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="bg-transparent"
+          name="bg-transparent"
+        />
+        <label class="form-check-label" for="bg-transparent"
+          >Transparent?</label
+        >
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="font-color">Font Color:</label>
+    <div class="row row-cols-1 mb-2">
+      <div class="col mb-3">
+        <input
+          type="color"
+          class="form-control"
+          id="font-color"
+          name="font-color"
+          style="padding: 0 !important"
+          value="#eeeeee"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="d-grid">{% include lw/range.html id="range-eyes" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-accent" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-under" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-top" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-base" %}</div>
+  <div class="d-grid mt-4">
+    <button type="button" class="btn btn-outline-warning" onclick="generate()">
+      Generate Card
+    </button>
+  </div>
+  <div id="breeding-card-container" class="d-none">
+    <div
+      class="mt-4 row row-cols-1 row-cols-md-2 d-flex justify-content-center"
+    >
+      <canvas
+        id="canvas"
+        width="648"
+        height="400"
+        class="d-flex justify-content-center"
+        style="
+          border: 1px solid #d3d3d3;
+          width: 648px !important;
+          height: 400px !important;
+        "
+      ></canvas>
+    </div>
+  </div>
+
+  <script>
+    $(".colorDropdown").change(function () {
+      if ($(this).attr("class")) {
+        $(this).removeClass(
+          $(this)
+            .attr("class")
+            .split(" ")
+            .filter((e) => e.startsWith("color-"))
+        );
+      }
+      $(this).addClass("color-" + $(this).find(":selected").text());
+
+      setRanges();
+    });
+
+    $(document).ready(function () {
+      $("select").each(function (i, obj) {
+        $(this).prop(
+          "selectedIndex",
+          Math.floor(Math.random() * $(this).find("option").length)
+        );
+      });
+      $("#w1-sex").prop("selectedIndex", 0);
+      $("#w2-sex").prop("selectedIndex", 1);
+      $(".colorDropdown").change();
+    });
+
+    function setRanges() {
+      setRange("eyes");
+      setRange("accent");
+      setRange("under");
+      setRange("top");
+      setRange("base");
+    }
+
+    function setRange(id) {
+      var range = getHTMLforRange(
+        $("#w1-" + id + "-color").val(),
+        $("#w2-" + id + "-color").val()
+      );
+      $("#range-" + id).html("");
+      for (var el of range[3]) {
+        range[2] ? $("#range-" + id).prepend(el) : $("#range-" + id).append(el);
+      }
+    }
+  </script>
+  <script src="../common/data.js"></script>
+  <script src="./script.js"></script>
+  <link rel="stylesheet" href="../common/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Paytone One"
+  />
+</div>
