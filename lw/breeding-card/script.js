@@ -12,9 +12,14 @@ function generate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Draw background
-  if ($("#radiocolor").prop("checked")) {
-    ctx.fillStyle = $("#bg-color").val();
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  if (
+    $("#radiocolor").prop("checked") ||
+    $("#radiotransparent").prop("checked")
+  ) {
+    if ($("#radiocolor").prop("checked")) {
+      ctx.fillStyle = $("#bg-color").val();
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
     placeWolfLayers(ctx, x);
   } else {
     var reader = new FileReader();
