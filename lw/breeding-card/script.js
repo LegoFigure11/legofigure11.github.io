@@ -47,7 +47,9 @@ function generate() {
       };
       bg.src = e.target.result;
     };
-    reader.readAsDataURL(document.getElementById("formFile").files[0]);
+    var file = document.getElementById("formFile")?.files?.[0];
+    if (!file) window.alert("No file found.");
+    else reader.readAsDataURL(document.getElementById("formFile").files[0]);
   }
 }
 
