@@ -8,6 +8,7 @@ $(".colorDropdown").change(function () {
     );
   }
   $(this).addClass("color-" + $(this).find(":selected").text());
+  setRanges();
 });
 
 $(document).ready(function () {
@@ -20,7 +21,6 @@ $(document).ready(function () {
   $("#w1-sex")?.prop("selectedIndex", 0);
   $("#w2-sex")?.prop("selectedIndex", 1);
   parseQueryString();
-  setRanges();
   $(".colorDropdown").change();
 });
 
@@ -60,13 +60,11 @@ function parseQueryString() {
   var qs = window.location.href.split("?");
   if (qs.length > 1) {
     var kv = qs.slice(1).join("").split("&");
-    console.log(kv);
     for (const key of kv) {
       if (key.startsWith("w")) {
         var section = key.split("=");
         var id = section[0];
         var data = section[1].split(",");
-        console.log(id, data);
         for (let i = 0; i < data.length && i < ORDER.length; i++) {
           if (data[i]) {
             var el = document.getElementById(id + ORDER[i]);
@@ -88,7 +86,12 @@ function parseQueryString() {
 $("select").change(function () {
   var el = document.getElementById("othertool");
   var url = "../" + el.dataset.link + "/";
-  url += "?w1=";
+  var qs = generateQueryString();
+  el.href = url + qs;
+});
+
+function generateQueryString() {
+  var qs = "?w1=";
   var w1 = [];
   var w2 = [];
   for (const id of ORDER) {
@@ -98,10 +101,19 @@ $("select").change(function () {
     w2.push(_w2.value || "");
   }
 
-  url += w1.join(",");
+  qs += w1.join(",");
 
-  url += "&w2=";
-  url += w2.join(",");
+  qs += "&w2=";
+  qs += w2.join(",");
+  return qs;
+}
 
-  el.href = url;
+$("#sharelink").click(function () {
+    var link = window.location.origin + window.location.pathname + generateQueryString();
+    navigator.clipboard.writeText(link);
+    var tt = document.getElementById("sharelink")
+    var tooltip = bootstrap.Tooltip.getInstance(tt);
+    setTimeout(function () {
+        tooltip.hide();
+    }, 2_500);
 });
