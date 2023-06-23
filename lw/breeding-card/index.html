@@ -109,6 +109,11 @@ layout: no-ads
   </div>
 </div>
 <div class="d-grid">
+    <div class="d-grid">{% include lw/range.html id="range-eyes" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-accent" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-under" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-top" %}</div>
+  <div class="d-grid">{% include lw/range.html id="range-base" %}</div>
   <label for="name">Pair Name:</label>
   <div class="input-group mb-3">
     <input
@@ -198,7 +203,7 @@ layout: no-ads
             name="glowradio"
             id="glownone"
             checked
-          />&nbsp;&nbsp;No Glow</label
+          />&nbsp;&nbsp;No Outline</label
         >
       </div>
       <div class="col">
@@ -223,11 +228,6 @@ layout: no-ads
       </div>
     </div>
   </div>
-  <div class="d-grid">{% include lw/range.html id="range-eyes" %}</div>
-  <div class="d-grid">{% include lw/range.html id="range-accent" %}</div>
-  <div class="d-grid">{% include lw/range.html id="range-under" %}</div>
-  <div class="d-grid">{% include lw/range.html id="range-top" %}</div>
-  <div class="d-grid">{% include lw/range.html id="range-base" %}</div>
   <div class="d-grid mt-4">
     <button type="button" class="btn btn-outline-warning" onclick="generate()">
       Generate Card
