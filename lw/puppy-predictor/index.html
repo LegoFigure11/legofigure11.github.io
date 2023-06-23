@@ -5,13 +5,18 @@ layout: default
 ---
 
 <div class="row row-cols-1 row-cols-md-2">
-  <div class="col mb-4">
+  <div class="col mb-1">
     <div class="card bg-dark">
       <div id="w1" class="card-header">Parent 1</div>
       <div class="card-body">
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
             Breed: {% include lw/breed_select.html id="w1-breed" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Sex: {% include lw/sex_select.html id="w1-sex" %}
           </div>
         </div>
         <div class="row row-cols-1 mb-2">
@@ -51,13 +56,18 @@ layout: default
       </div>
     </div>
   </div>
-  <div class="col mb-4">
+  <div class="col mb-1">
     <div class="card bg-dark">
       <div id="w2" class="card-header">Parent 2</div>
       <div class="card-body">
         <div class="row row-cols-1 mb-2">
           <div class="col mb4">
             Breed: {% include lw/breed_select.html id="w2-breed" %}
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Sex: {% include lw/sex_select.html id="w2-sex" %}
           </div>
         </div>
         <div class="row row-cols-1 mb-2">
@@ -97,6 +107,18 @@ layout: default
       </div>
     </div>
   </div>
+</div>
+<div class="d-grid text-center mb-1">
+  <small>
+    <a
+      id="othertool"
+      class="text-decoration-none text-info"
+      target="_blank"
+      data-link="breeding-card"
+      >View Breeding Card for this pair
+      <i style="font-size: 0.7rem" class="bi bi-box-arrow-up-right"></i
+    ></a>
+  </small>
 </div>
 <div class="d-grid">{% include lw/range.html id="range-eyes" %}</div>
 <div class="d-grid">{% include lw/range.html id="range-accent" %}</div>
