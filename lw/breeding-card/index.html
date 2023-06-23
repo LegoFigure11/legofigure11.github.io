@@ -148,6 +148,8 @@ layout: no-ads
   <div class="d-grid">{% include lw/range.html id="range-under" %}</div>
   <div class="d-grid">{% include lw/range.html id="range-top" %}</div>
   <div class="d-grid">{% include lw/range.html id="range-base" %}</div>
+</div>
+<div class="d-grid">
   <label for="name">Pair Name:</label>
   <div class="input-group mb-3">
     <input
@@ -158,160 +160,274 @@ layout: no-ads
       value="My Breeding Pair"
     />
   </div>
-  <div class="d-grid">
-    <div class="row row-cols-2 mb-2">
-      <label for="radiocolor"
-        ><input
-          class="form-check-input"
-          type="radio"
-          name="bgradio"
-          id="radiocolor"
-          checked
-        />&nbsp;&nbsp;Background Color:</label
-      >
-      <div class="col col-6">
-        <input
-          type="color"
-          class="form-control"
-          id="bg-color"
-          name="bg-color"
-          style="padding: 0 !important"
-          value="#222222"
-        />
-      </div>
-    </div>
-    <div class="text-center mb-2 h6">OR</div>
-    <div class="row row-cols-2 mb-2">
-      <label for="radioimage" class="form-label pt-2"
-        ><input
-          class="form-check-input"
-          type="radio"
-          name="bgradio"
-          id="radioimage"
-        />&nbsp;&nbsp;Background Image:</label
-      >
-      <div class="col col-6">
-        <input
-          type="file"
-          class="form-control bg-dark text-light"
-          id="formFile"
-          name="formFile"
-        />
-      </div>
-    </div>
-    <div class="text-center mb-2 h6">OR</div>
-    <div class="row row-cols-2 mb-2">
-      <label for="radiotransparent" class="form-label pt-2"
-        ><input
-          class="form-check-input"
-          type="radio"
-          name="bgradio"
-          id="radiotransparent"
-        />&nbsp;&nbsp;Transparent Background</label
-      >
-    </div>
-  </div>
-  <div>
-    <label for="font-color">Font Color:</label>
-    <div class="row row-cols-1 mb-2">
-      <div class="col mb-3">
-        <input
-          type="color"
-          class="form-control"
-          id="font-color"
-          name="font-color"
-          style="padding: 0 !important"
-          value="#eeeeee"
-        />
-      </div>
-    </div>
-  </div>
-  <div>
-    <label for="glowstyle">Outline Style:</label>
-    <div class="row row-cols-1 row-cols-sm-3 mb-2">
-      <div class="col">
-        <label for="glownone" class="form-label pt-2"
-          ><input
-            class="form-check-input"
-            type="radio"
-            name="glowradio"
-            id="glownone"
-            checked
-          />&nbsp;&nbsp;No Outline</label
-        >
-      </div>
-      <div class="col">
-        <label for="glowsoft" class="form-label pt-2"
-          ><input
-            class="form-check-input"
-            type="radio"
-            name="glowradio"
-            id="glowsoft"
-          />&nbsp;&nbsp;Soft Glow</label
-        >
-      </div>
-      <div class="col">
-        <label for="glowhard" class="form-label pt-2"
-          ><input
-            class="form-check-input"
-            type="radio"
-            name="glowradio"
-            id="glowhard"
-          />&nbsp;&nbsp;Solid outline</label
-        >
-      </div>
-    </div>
-  </div>
-  <div class="d-grid mt-4">
-    <button type="button" class="btn btn-outline-warning" onclick="generate()">
-      Generate Card
-    </button>
-  </div>
-  <div id="breeding-card-container" class="d-none">
-    <div class="mt-4 row-cols-1 row-cols-md-2 d-flex justify-content-center">
-      <canvas
-        id="canvas"
-        width="648"
-        height="400"
-        class="d-flex justify-content-center"
-        style="
-          border: 1px solid #d3d3d3;
-          width: 648px !important;
-          height: 400px !important;
-        "
-      ></canvas>
-    </div>
-    <small class="mt-2 mb-2">
-      Right-click and then <code>Save image as...</code> or
-      <code>Copy image</code> on the image above to save or copy it to the
-      clipboard.
-    </small>
-  </div>
-
-  <div>
-    <br />
-  </div>
-
-  <div class="mt-4 d-grid">
-    <a
-      class="btn btn-outline-info"
-      data-bs-toggle="collapse"
-      href="#credits"
-      role="button"
-      aria-expanded="false"
-      aria-controls="creditsCollapse"
+</div>
+<div class="d-grid">
+  <div class="row row-cols-2 mb-2">
+    <label for="radiocolor"
+      ><input
+        class="form-check-input"
+        type="radio"
+        name="bgradio"
+        id="radiocolor"
+        checked
+      />&nbsp;&nbsp;Background Color:</label
     >
-      Credits and thanks
-    </a>
-    <div class="collapse" id="credits">
-      <div class="card bg-dark card-body">
-        <span
-          >Wolf glow and outline layers by Fleetway#5634 /
-          <i class="bi bi-discord"></i> fleetgay, idea and inspiration from
-          Skye#305 / <i class="bi bi-discord"></i> gaylaxvee. Thank you both for
-          your help!</span
-        >
-      </div>
+    <div class="col col-6">
+      <input
+        type="color"
+        class="form-control"
+        id="bg-color"
+        name="bg-color"
+        style="padding: 0 !important"
+        value="#222222"
+      />
+    </div>
+  </div>
+  <div class="text-center mb-2 h6">OR</div>
+  <div class="row row-cols-2 mb-2">
+    <label for="radioimage" class="form-label pt-2"
+      ><input
+        class="form-check-input"
+        type="radio"
+        name="bgradio"
+        id="radioimage"
+      />&nbsp;&nbsp;Background Image:</label
+    >
+    <div class="col col-6">
+      <input
+        type="file"
+        class="form-control bg-dark text-light"
+        id="formFile"
+        name="formFile"
+      />
+    </div>
+  </div>
+  <div class="text-center mb-2 h6">OR</div>
+  <div class="row row-cols-2 mb-2">
+    <label for="radiotransparent" class="form-label pt-2"
+      ><input
+        class="form-check-input"
+        type="radio"
+        name="bgradio"
+        id="radiotransparent"
+      />&nbsp;&nbsp;Transparent Background</label
+    >
+  </div>
+</div>
+<div>
+  <label for="font-color">Font Color:</label>
+  <div class="row row-cols-1 mb-1">
+    <div class="col mb-3">
+      <input
+        type="color"
+        class="form-control"
+        id="font-color"
+        name="font-color"
+        style="padding: 0 !important"
+        value="#eeeeee"
+      />
+    </div>
+  </div>
+</div>
+<div>
+  <label for="glowstyle">Text Outline Style:</label>
+  <div class="row row-cols-1 row-cols-sm-3 mb-1">
+    <div class="col">
+      <label for="textglownone" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="textradio"
+          id="textglownone"
+          checked
+        />&nbsp;&nbsp;No Outline</label
+      >
+    </div>
+    <div class="col">
+      <label for="textglowsoft" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="textradio"
+          id="textglowsoft"
+        />&nbsp;&nbsp;Soft Glow</label
+      >
+    </div>
+    <div class="col">
+      <label for="textglowhard" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="textradio"
+          id="textglowhard"
+        />&nbsp;&nbsp;Solid outline</label
+      >
+    </div>
+  </div>
+</div>
+<div>
+  <label for="font-outline-color">Text Outline Color:</label>
+  <div class="row row-cols-1 mb-1">
+    <div class="col mb-3">
+      <input
+        type="color"
+        class="form-control"
+        id="font-outline-color"
+        name="font-outline-color"
+        style="padding: 0 !important"
+        value="#404040"
+      />
+    </div>
+  </div>
+</div>
+<div>
+  <label for="glowstyle">Range Outline Style:</label>
+  <div class="row row-cols-1 row-cols-sm-3 mb-1">
+    <div class="col">
+      <label for="rangeglownone" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="textoutlineradio"
+          id="rangeglownone"
+          checked
+        />&nbsp;&nbsp;No Outline</label
+      >
+    </div>
+    <div class="col">
+      <label for="rangeglowsoft" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="textoutlineradio"
+          id="rangeglowsoft"
+        />&nbsp;&nbsp;Soft Glow</label
+      >
+    </div>
+    <div class="col">
+      <label for="norange" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="textoutlineradio"
+          id="norange"
+        />&nbsp;&nbsp;No Range</label
+      >
+    </div>
+  </div>
+</div>
+<div>
+  <label for="range-outline-color">Range Outline Color:</label>
+  <div class="row row-cols-1 mb-1">
+    <div class="col mb-3">
+      <input
+        type="color"
+        class="form-control"
+        id="range-outline-color"
+        name="range-outline-color"
+        style="padding: 0 !important"
+        value="#eeeeee"
+      />
+    </div>
+  </div>
+</div>
+<div>
+  <label for="glowstyle">Wolf Outline Style:</label>
+  <div class="row row-cols-1 row-cols-sm-3 mb-2">
+    <div class="col">
+      <label for="glownone" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="glowradio"
+          id="glownone"
+          checked
+        />&nbsp;&nbsp;No Outline</label
+      >
+    </div>
+    <div class="col">
+      <label for="glowsoft" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="glowradio"
+          id="glowsoft"
+        />&nbsp;&nbsp;Soft Glow</label
+      >
+    </div>
+    <div class="col">
+      <label for="glowhard" class="form-label pt-2"
+        ><input
+          class="form-check-input"
+          type="radio"
+          name="glowradio"
+          id="glowhard"
+        />&nbsp;&nbsp;Solid outline</label
+      >
+    </div>
+  </div>
+</div>
+<div class="d-grid">
+  <label for="yoffs">Wolf Image Y-Offset</label>
+  <div class="input-group mb-3">
+    <input
+      type="number"
+      class="form-control bg-dark text-light"
+      id="yoffs"
+      placeholder="0"
+      value="0"
+    />
+  </div>
+</div>
+<div class="d-grid mt-4">
+  <button type="button" class="btn btn-outline-warning" onclick="generate()">
+    Generate Card
+  </button>
+</div>
+<div id="breeding-card-container" class="d-none">
+  <div class="mt-4 row-cols-1 row-cols-md-2 d-flex justify-content-center">
+    <canvas
+      id="canvas"
+      width="648"
+      height="400"
+      class="d-flex justify-content-center"
+      style="
+        border: 1px solid #d3d3d3;
+        width: 648px !important;
+        height: 400px !important;
+      "
+    ></canvas>
+  </div>
+  <small class="mt-2 mb-2">
+    Right-click and then <code>Save image as...</code> or
+    <code>Copy image</code> on the image above to save or copy it to the
+    clipboard.
+  </small>
+</div>
+
+<div>
+  <br />
+</div>
+
+<div class="mt-4 d-grid">
+  <a
+    class="btn btn-outline-info"
+    data-bs-toggle="collapse"
+    href="#credits"
+    role="button"
+    aria-expanded="false"
+    aria-controls="creditsCollapse"
+  >
+    Credits and thanks
+  </a>
+  <div class="collapse" id="credits">
+    <div class="card bg-dark card-body">
+      <span
+        >Wolf glow and outline layers by Fleetway#5634 /
+        <i class="bi bi-discord"></i> fleetgay, idea and inspiration from
+        Skye#305 / <i class="bi bi-discord"></i> gaylaxvee. Thank you both for
+        your help!</span
+      >
     </div>
   </div>
 

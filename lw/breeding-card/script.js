@@ -10,6 +10,7 @@ function generate() {
   // Reset canvas
   ctx.globalCompositeOperation = "source-over";
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.shadowBlur = 0;
 
   // Draw background
   if (
@@ -54,39 +55,47 @@ function generate() {
 }
 
 function placeWolfLayers(ctx, x) {
+  var y = $("#yoffs").val() || 0;
   // Place wolf images
   var w1_glow = new Image();
   w1_glow.onload = function () {
-    ctx.drawImage(w1_glow, 0, 0, 800, 800, 0, 0, x, x);
+    ctx.drawImage(w1_glow, 0, 0, 800, 800, 0, y, x, x);
 
     var w1_base = new Image();
     w1_base.onload = function () {
-      ctx.drawImage(w1_base, 0, 0, 800, 800, 0, 0, x, x);
+      ctx.drawImage(w1_base, 0, 0, 800, 800, 0, y, x, x);
 
       var w1_top = new Image();
       w1_top.onload = function () {
-        ctx.drawImage(w1_top, 0, 0, 800, 800, 0, 0, x, x);
+        ctx.drawImage(w1_top, 0, 0, 800, 800, 0, y, x, x);
 
         var w1_under = new Image();
         w1_under.onload = function () {
-          ctx.drawImage(w1_under, 0, 0, 800, 800, 0, 0, x, x);
+          ctx.drawImage(w1_under, 0, 0, 800, 800, 0, y, x, x);
 
           var w1_accent = new Image();
           w1_accent.onload = function () {
-            ctx.drawImage(w1_accent, 0, 0, 800, 800, 0, 0, x, x);
+            ctx.drawImage(w1_accent, 0, 0, 800, 800, 0, y, x, x);
 
             var w1_eyes = new Image();
             w1_eyes.onload = function () {
-              ctx.drawImage(w1_eyes, 0, 0, 800, 800, 0, 0, x, x);
+              ctx.drawImage(w1_eyes, 0, 0, 800, 800, 0, y, x, x);
 
               var w1_over = new Image();
               w1_over.onload = function () {
-                ctx.drawImage(w1_over, 0, 0, 800, 800, 0, 0, x, x);
-                placeElementAsSVG("range-eyes", canvas, BASE_OFFSET + 200);
-                placeElementAsSVG("range-accent", canvas, BASE_OFFSET + 230);
-                placeElementAsSVG("range-under", canvas, BASE_OFFSET + 260);
-                placeElementAsSVG("range-top", canvas, BASE_OFFSET + 290);
-                placeElementAsSVG("range-base", canvas, BASE_OFFSET + 320);
+                ctx.drawImage(w1_over, 0, 0, 800, 800, 0, y, x, x);
+                if (!$("#norange").prop("checked")) {
+                  if ($("#rangeglowsoft").prop("checked")) {
+                    ctx.shadowColor = $("#range-outline-color").val();
+                    ctx.shadowBlur = 8;
+                  }
+                  placeElementAsSVG("range-eyes", canvas, BASE_OFFSET + 200);
+                  placeElementAsSVG("range-accent", canvas, BASE_OFFSET + 230);
+                  placeElementAsSVG("range-under", canvas, BASE_OFFSET + 260);
+                  placeElementAsSVG("range-top", canvas, BASE_OFFSET + 290);
+                  placeElementAsSVG("range-base", canvas, BASE_OFFSET + 320);
+                  ctx.shadowBlur = 0;
+                }
                 // Write Text
                 new FontFace(
                   "FontFamily Paytone One",
@@ -101,7 +110,16 @@ function placeWolfLayers(ctx, x) {
                     ctx.fillStyle = $("#font-color").val();
                     ctx.font = '36px "FontFamily Paytone One"';
                     ctx.textAlign = "center";
+                    if ($("#textglowsoft").prop("checked")) {
+                      ctx.shadowColor = $("#font-outline-color").val();
+                      ctx.shadowBlur = 8;
+                    }
                     ctx.fillText($("#name").val() || "", x, BASE_OFFSET);
+                    ctx.shadowBlur = 0;
+                    if ($("#textglowhard").prop("checked")) {
+                      ctx.strokeStyle = $("#font-outline-color").val();
+                      ctx.strokeText($("#name").val() || "", x, BASE_OFFSET);
+                    }
                   });
               };
               w1_over.src = `https://lorwolf.azureedge.net/rawwolflayers/LayerImage_${$(
@@ -152,36 +170,39 @@ function placeWolfLayers(ctx, x) {
   // Place wolf images
   var w2_glow = new Image();
   w2_glow.onload = function () {
-    ctx.drawImage(w2_glow, 0, 0, 800, 800, x, 0, x, x);
+    ctx.drawImage(w2_glow, 0, 0, 800, 800, x, y, x, x);
 
     var w2_base = new Image();
     w2_base.onload = function () {
-      ctx.drawImage(w2_base, 0, 0, 800, 800, x, 0, x, x);
+      ctx.drawImage(w2_base, 0, 0, 800, 800, x, y, x, x);
 
       var w2_top = new Image();
       w2_top.onload = function () {
-        ctx.drawImage(w2_top, 0, 0, 800, 800, x, 0, x, x);
+        ctx.drawImage(w2_top, 0, 0, 800, 800, x, y, x, x);
 
         var w2_under = new Image();
         w2_under.onload = function () {
-          ctx.drawImage(w2_under, 0, 0, 800, 800, x, 0, x, x);
+          ctx.drawImage(w2_under, 0, 0, 800, 800, x, y, x, x);
 
           var w2_accent = new Image();
           w2_accent.onload = function () {
-            ctx.drawImage(w2_accent, 0, 0, 800, 800, x, 0, x, x);
+            ctx.drawImage(w2_accent, 0, 0, 800, 800, x, y, x, x);
 
             var w2_eyes = new Image();
             w2_eyes.onload = function () {
-              ctx.drawImage(w2_eyes, 0, 0, 800, 800, x, 0, x, x);
+              ctx.drawImage(w2_eyes, 0, 0, 800, 800, x, y, x, x);
 
               var w2_over = new Image();
               w2_over.onload = function () {
-                ctx.drawImage(w2_over, 0, 0, 800, 800, x, 0, x, x);
-                placeElementAsSVG("range-eyes", canvas, BASE_OFFSET + 200);
-                placeElementAsSVG("range-accent", canvas, BASE_OFFSET + 230);
-                placeElementAsSVG("range-under", canvas, BASE_OFFSET + 260);
-                placeElementAsSVG("range-top", canvas, BASE_OFFSET + 290);
-                placeElementAsSVG("range-base", canvas, BASE_OFFSET + 320);
+                ctx.drawImage(w2_over, 0, 0, 800, 800, x, y, x, x);
+                if (!$("#norange").prop("checked")) {
+                  placeElementAsSVG("range-eyes", canvas, BASE_OFFSET + 200);
+                  placeElementAsSVG("range-accent", canvas, BASE_OFFSET + 230);
+                  placeElementAsSVG("range-under", canvas, BASE_OFFSET + 260);
+                  placeElementAsSVG("range-top", canvas, BASE_OFFSET + 290);
+                  placeElementAsSVG("range-base", canvas, BASE_OFFSET + 320);
+                  ctx.shadowBlur = 0;
+                }
                 // Write Text
                 new FontFace(
                   "FontFamily Paytone One",
@@ -196,7 +217,16 @@ function placeWolfLayers(ctx, x) {
                     ctx.fillStyle = $("#font-color").val();
                     ctx.font = '36px "FontFamily Paytone One"';
                     ctx.textAlign = "center";
+                    if ($("#textglowsoft").prop("checked")) {
+                      ctx.shadowColor = $("#font-outline-color").val();
+                      ctx.shadowBlur = 8;
+                    }
                     ctx.fillText($("#name").val() || "", x, BASE_OFFSET);
+                    ctx.shadowBlur = 0;
+                    if ($("#textglowhard").prop("checked")) {
+                      ctx.strokeStyle = $("#font-outline-color").val();
+                      ctx.strokeText($("#name").val() || "", x, BASE_OFFSET);
+                    }
                   });
               };
               w2_over.src = `https://lorwolf.azureedge.net/rawwolflayers/LayerImage_${$(
@@ -271,8 +301,13 @@ function placeElementAsSVG(id, canvas, y) {
 
   const img = new Image();
   img.addEventListener("load", function () {
+    if ($("#rangeglowsoft").prop("checked")) {
+      ctx.shadowColor = $("#range-outline-color").val();
+      ctx.shadowBlur = 8;
+    }
     ctx.drawImage(img, 0, y);
     URL.revokeObjectURL(svgObjectUrl);
+    ctx.shadowBlur = 0;
   });
 
   img.src = svgObjectUrl;
