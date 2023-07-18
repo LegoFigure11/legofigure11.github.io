@@ -142,6 +142,140 @@ layout: default
     </div>
   </div>
 </div>
+<div class="d-grid mb-2">
+  <a
+    class="btn btn-outline-info"
+    data-bs-toggle="collapse"
+    href="#target-container"
+    role="button"
+    aria-expanded="false"
+    aria-controls="creditsCollapse"
+  >
+    Test Target
+  </a>
+</div>
+<div
+  class="collapse row row-cols-1 justify-content-center"
+  id="target-container"
+>
+  <div class="col col-md-8 mb-1">
+    <div class="card bg-dark">
+      <div id="target" class="card-header">Target</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Breed:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-breed"
+                >&#x26a0;
+              </span>
+              {% include lw/breed_select.html id="target-breed" %}
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Eyes:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-eyes-color"
+                >&#x26a0;
+              </span>
+              {% include lw/color_select.html id="target-eyes-color" %}
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Accent:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-accent"
+                >&#x26a0;
+              </span>
+              {% include lw/gene_select.html id="target-accent" %}
+            </div>
+          </div>
+          <div class="col mb4">
+            Accent:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-accent-color"
+                >&#x26a0;
+              </span>
+              {% include lw/color_select.html id="target-accent-color" %}
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Under:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-under"
+                >&#x26a0;
+              </span>
+              {% include lw/gene_select.html id="target-under" %}
+            </div>
+          </div>
+          <div class="col mb4">
+            Under:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-under-color"
+                >&#x26a0;
+              </span>
+              {% include lw/color_select.html id="target-under-color" %}
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col mb4">
+            Top:
+            <div class="input-group">
+              <span class="input-group-text bg-dark emoji-outline" id="test-top"
+                >&#x26a0;
+              </span>
+              {% include lw/gene_select.html id="target-top" %}
+            </div>
+          </div>
+          <div class="col mb4">
+            Top:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-top-color"
+                >&#x26a0;
+              </span>
+              {% include lw/color_select.html id="target-top-color" %}
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Base:
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark emoji-outline"
+                id="test-base-color"
+                >&#x26a0;
+              </span>
+              {% include lw/color_select.html id="target-base-color" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="d-grid">{% include lw/range.html id="range-eyes" %}</div>
 <div class="d-grid">{% include lw/range.html id="range-accent" %}</div>
 <div class="d-grid">{% include lw/range.html id="range-under" %}</div>
