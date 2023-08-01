@@ -47,7 +47,8 @@ function setRange(id) {
   }
   if (document.getElementById("target")) {
     var t = $("#target-" + id + "-color").val();
-    var exists = range[3].filter((e) => e.includes("value='" + t + "'")).length > 0;
+    var exists =
+      range[3].filter((e) => e.includes("value='" + t + "'")).length > 0;
     $("#test-" + id + "-color").html(exists ? TICK : CROSS);
   }
 }
@@ -97,15 +98,16 @@ $(".breed-or-gene-select").change(function () {
     var id = $(this).attr("id").split("-")[1];
     var test = $("#target-" + id).val();
     $("#test-" + id).html(
-      (test == $("#w1-" + id).val() || test == $("#w2-" + id).val()) ?
-        TICK : CROSS
+      test == $("#w1-" + id).val() || test == $("#w2-" + id).val()
+        ? TICK
+        : CROSS
     );
   }
 });
 
 $("select").change(function () {
   var el = document.getElementById("othertool");
-  var url = "../" + el.dataset.link + "/";
+  var url = "../" + xssEscape(el.dataset.link) + "/";
   var qs = generateQueryString();
   el.href = url + qs;
 });
