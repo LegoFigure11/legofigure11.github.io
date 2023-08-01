@@ -26,4 +26,9 @@
     default:
       $("#nav-home").addClass("text-secondary").removeClass("text-white");
   }
+  if (url.toLowerCase().endsWith(".git")) {
+    window.location.replace(
+      "https://github.com/LegoFigure11/legofigure11.github.io"
+    );
+  }
 </script>
