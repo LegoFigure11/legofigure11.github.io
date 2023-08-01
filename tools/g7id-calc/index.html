@@ -62,22 +62,22 @@ permalink: /tools/g7id-calc/
 
     if (isNaN(decTid)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid TID: Unable to coerce \"" + tid + "\" as a decimal!");
+      $("#warning-content").text("Invalid TID: Unable to coerce \"" + tid + "\" as a decimal!");
       return;
     }
     if (isNaN(decSid)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid SID: Unable to coerce \"" + sid + "\" as a decimal!");
+      $("#warning-content").text("Invalid SID: Unable to coerce \"" + sid + "\" as a decimal!");
       return;
     }
     if (decTid < 0 || decTid > 0xffff) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid TID: \"" + tid + "\" is not between 0 and 65535!");
+      $("#warning-content").text("Invalid TID: \"" + tid + "\" is not between 0 and 65535!");
       return;
     }
     if (decSid < 0 || decSid > 0xffff) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid SID: \"" + sid + "\" is not between 0 and 65535!");
+      $("#warning-content").text("Invalid SID: \"" + sid + "\" is not between 0 and 65535!");
       return;
     }
 
@@ -85,7 +85,7 @@ permalink: /tools/g7id-calc/
 
     var fullId = decSid * 65536 + decTid;
 
-    $("#resultsModalLabel").html(
+    $("#resultsModalLabel").text(
       "TID: " + (decTid + "").padStart(5, "0") + " | SID: " + (decSid + "").padStart(5, "0")
     );
 

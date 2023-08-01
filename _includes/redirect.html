@@ -36,7 +36,7 @@
       var ignore = s.split(";");
       if (!ignore.includes(n)) {
         var from = params.get("from");
-        $("#redirect-pathname").html(from);
+        $("#redirect-pathname").text(from);
         $("#redirect-notice").removeClass("d-none");
       }
       window.history.replaceState({}, document.title, n);

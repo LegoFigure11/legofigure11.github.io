@@ -62,22 +62,22 @@ permalink: /tools/g7-trv-calc/
 
     if (isNaN(decId)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid ID: Unable to coerce \"" + id + "\" as a decimal!");
+      $("#warning-content").text("Invalid ID: Unable to coerce \"" + id + "\" as a decimal!");
       return;
     }
     if (isNaN(decTsv)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid TSV: Unable to coerce \"" + tsv + "\" as a decimal!");
+      $("#warning-content").text("Invalid TSV: Unable to coerce \"" + tsv + "\" as a decimal!");
       return;
     }
     if (decId < 0 || decId > 1000000) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid ID: \"" + id + "\" is not between 0 and 999999!");
+      $("#warning-content").text("Invalid ID: \"" + id + "\" is not between 0 and 999999!");
       return;
     }
     if (decTsv < 0 || decTsv > 4095) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid TSV: \"" + tsv + "\" is not between 0 and 4095!");
+      $("#warning-content").text("Invalid TSV: \"" + tsv + "\" is not between 0 and 4095!");
       return;
     }
 
@@ -96,7 +96,7 @@ permalink: /tools/g7-trv-calc/
       }
     }
 
-    $("#resultsModalLabel").html(
+    $("#resultsModalLabel").text(
       "G7ID: " + (id + "").padStart(6, "0") + " | TSV: " + (tsv + "").padStart(4, "0")
     );
 

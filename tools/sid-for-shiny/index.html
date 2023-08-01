@@ -69,22 +69,22 @@ permalink: /tools/sid-for-shiny/
 
     if (isNaN(decPid)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid PID: Unable to coerce \"" + pid + "\" as a Hex string!");
+      $("#warning-content").text("Invalid PID: Unable to coerce \"" + pid + "\" as a Hex string!");
       return;
     }
     if (isNaN(decTid)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid TID: Unable to coerce \"" + tid + "\" as a decimal!");
+      $("#warning-content").text("Invalid TID: Unable to coerce \"" + tid + "\" as a decimal!");
       return;
     }
     if (decPid < 0 || decPid > 0xFFFFFFFF) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid PID: \"" + pid + "\" is not between 0 and 0xFFFFFFFF!");
+      $("#warning-content").text("Invalid PID: \"" + pid + "\" is not between 0 and 0xFFFFFFFF!");
       return;
     }
     if (decTid < 0 || decTid > 65535) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid TID: \"" + tid + "\" is not between 0 and 65535!");
+      $("#warning-content").text("Invalid TID: \"" + tid + "\" is not between 0 and 65535!");
       return;
     }
 
@@ -96,7 +96,7 @@ permalink: /tools/sid-for-shiny/
     var square = pid16High ^ pid16Low ^ decTid;
     var rangeLow = 8 * Math.floor(square / 8);
 
-    $("#resultsModalLabel").html(
+    $("#resultsModalLabel").text(
       "PID: 0x" + (pid + "").toUpperCase().padStart(8, "0") + " | TID: " + (tid + "").padStart(5, "0")
     );
     $("#results").html(

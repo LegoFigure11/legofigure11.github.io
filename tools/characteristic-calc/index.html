@@ -145,7 +145,7 @@ permalink: /tools/characteristic-calc/
     var pid = parseInt($("#pid").val(), 16);
     if (isNaN(pid)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html(
+      $("#warning-content").text(
         "Invalid " + (window.gen < 6 ? "PID" : "EC") + ": Unable to coerce \"" +
         $("#pid").val() + "\" as a Hex string!"
       );
@@ -153,7 +153,7 @@ permalink: /tools/characteristic-calc/
     }
     if (pid < 0 || pid > 0xFFFFFFFF) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html(
+      $("#warning-content").text(
         "Invalid " + (window.gen < 6 ? "PID" : "EC") + ": \"" + $("#pid").val() +
         "\" is not between 0 and 0xFFFFFFFF!"
       );
@@ -202,10 +202,10 @@ permalink: /tools/characteristic-calc/
     if (window.gen < 6 && [1, 2].includes(index)) index += 29;
     console.log(index);
 
-    $("#resultsModalLabel").html(
+    $("#resultsModalLabel").text(
       (window.gen < 6 ? "PID" : "EC") + ": 0x" + (~~(pid)).toString(16).toUpperCase().padStart(8, "0") + " | IVS: " + orderedIvs.join("/"));
     $("#results").html(
-      "<div>In Generation " + window.gen + ", this Pok&eacute;mon &quot;" + characteristics[index] + "&quot;.</div>"
+      "<div>In Generation " + parseInt(window.gen) + ", this Pok&eacute;mon &quot;" + characteristics[index] + "&quot;.</div>"
     );
 
     $('#resultsModal').modal("show");
@@ -229,9 +229,9 @@ permalink: /tools/characteristic-calc/
   $("#gen-select").change(function() {
     window.gen = $(this).val();
     if (window.gen < 6) {
-      $("#ec").html("PID:");
+      $("#ec").text("PID:");
     } else {
-      $("#ec").html("Encryption Constant:");
+      $("#ec").text("Encryption Constant:");
     }
   });
 </script>

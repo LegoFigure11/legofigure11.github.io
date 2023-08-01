@@ -292,7 +292,7 @@ permalink: /fr/afd-scroll/
     var user = parseInt($("#user").val());
     if (isNaN(user)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html(
+      $("#warning-content").text(
         "Invalid Input: Unable to coerce \"" +
         $("#user").val() + "\" as a User ID!"
       );
@@ -301,7 +301,7 @@ permalink: /fr/afd-scroll/
     var dragon = parseInt($("#dragon").val());
     if (isNaN(dragon)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html(
+      $("#warning-content").text(
         "Invalid Input: Unable to coerce \"" +
         $("#dragon").val() + "\" as a Dragon ID!"
       );
@@ -312,7 +312,7 @@ permalink: /fr/afd-scroll/
 
     var scroll = (user + dragon) % 236;
 
-    $("#resultsModalLabel").html("Your magic scroll says...");
+    $("#resultsModalLabel").text("Your magic scroll says...");
     $("#results").html(scrolls[scroll]);
 
     $('#resultsModal').modal("show");

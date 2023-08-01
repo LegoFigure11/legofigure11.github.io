@@ -60,12 +60,12 @@ permalink: /tools/dunsparce-tandemaus/
 
     if (isNaN(decPid)) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid PID: Unable to coerce \"" + pid + "\" as a Hex string!");
+      $("#warning-content").text("Invalid PID: Unable to coerce \"" + pid + "\" as a Hex string!");
       return;
     }
     if (decPid < 0 || decPid > 0xFFFFFFFF) {
       $("#invalid-entry").removeClass("d-none");
-      $("#warning-content").html("Invalid PID: \"" + pid + "\" is not between 0 and 0xFFFFFFFF!");
+      $("#warning-content").text("Invalid PID: \"" + pid + "\" is not between 0 and 0xFFFFFFFF!");
       return;
     }
 
@@ -73,7 +73,7 @@ permalink: /tools/dunsparce-tandemaus/
 
     var modulo = decPid % 100;
 
-    $("#resultsModalLabel").html(
+    $("#resultsModalLabel").text(
       "EC: 0x" + (pid + "").toUpperCase().padStart(8, "0")
     );
     $("#results").html(
