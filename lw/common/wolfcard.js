@@ -127,7 +127,7 @@ function generateQueryString() {
 
   qs += "&w2=";
   qs += w2.join(",");
-  return qs;
+  return xssEscape(qs);
 }
 
 $("#sharelink").click(function () {
