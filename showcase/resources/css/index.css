@@ -1,0 +1,53 @@
+/* General */
+.ball-container {
+  height: 32px;
+}
+
+.img-container {
+  height: 72px;
+}
+
+.img-container-80 {
+  height: 80px;
+}
+
+.img-container-96 {
+  height: 96px;
+}
+
+.male {
+  color: #0d6efd;
+}
+
+.female {
+  color: #dc3545;
+}
+
+/* Origin Game */
+.colo {
+  color: #cfdced;
+}
+
+.emerald {
+  color: #66cc66;
+}
+
+.go {
+  color: #35c6ff;
+}
+
+.sapphire {
+  color: #0066cc;
+}
+
+.shield {
+  color: #bf004f;
+}
+
+.sword {
+  color: #00a1e9;
+}
+
+.xd {
+  color: #745fa1;
+}
