@@ -21,7 +21,7 @@ permalink: /dvc/training-calc/
   </div>
 </div>
 
-<div id="preview-container" class="text-center w-100 pt-3">
+<div id="preview-container" class="text-center w-100 pt-3 pb-3">
   <img id="capable-preview" height="162" width="180" src="./res/capable.webp" />
   <img
     id="dull-preview"
@@ -30,6 +30,18 @@ permalink: /dvc/training-calc/
     width="180"
     src="./res/dull.webp"
   />
+</div>
+
+<div class="col-md mb-3">{% include dvc/breed_select.html id="species" %}</div>
+<div class="col-md">
+  <div class="form-floating">
+    <select
+      class="form-select bg-dark text-light"
+      id="expected"
+      aria-label="Expected Personality"
+    ></select>
+    <label for="expected">Select expected personality...</label>
+  </div>
 </div>
 
 <br />
@@ -304,12 +316,40 @@ permalink: /dvc/training-calc/
   var BASE = { agi: 0, str: 0, foc: 0, int: 0 };
 
   $("document").ready(function () {
+    getExpected();
+    fillStatsFromExpected();
     calcStats();
   });
 
   function calcStats() {
     for (var stat of Object.keys(BASE)) {
       $("#" + stat).val(~~$("#base" + stat).val() + ~~$("#mod" + stat).val());
+    }
+  }
+
+  function getExpected() {
+    var species = $("#species").val();
+    $("#expected").html("");
+    var k = Object.keys(BASE_STATS[species]);
+    console.log(k);
+    for (var i = 0; i < k.length; i++) {
+      var str =
+        '<option value="' +
+        k[i] +
+        '"' +
+        (i === 0 ? "selected>" : ">") +
+        k[i] +
+        "</option>";
+      $("#expected").append(str);
+    }
+  }
+
+  function fillStatsFromExpected() {
+    var species = $("#species").val();
+    var key = $("#expected").val();
+    var stats = BASE_STATS[species][key];
+    for (const stat of Object.keys(stats)) {
+      $("#base" + stat).val(stats[stat]);
     }
   }
 
@@ -322,7 +362,7 @@ permalink: /dvc/training-calc/
     let rmb;
     let combo;
     let min = $("#target-personality").val() === "capable" ? 26 : 0;
-    let max = $("#target-personality").val() === "capable" ? 60 : 25;
+    let max = $("#target-personality").val() === "capable" ? 98 : 25;
     for (const c of combos) {
       for (i = min; i < max; i++) {
         let t = 0;
@@ -401,6 +441,17 @@ permalink: /dvc/training-calc/
 
   $(".stat-input").keyup(function () {
     $(this).val(Math.max(0, Math.min(999, ~~$(this).val())));
+    calcStats();
+  });
+
+  $("#species").change(function () {
+    getExpected();
+    fillStatsFromExpected();
+    calcStats();
+  });
+
+  $("#expected").change(function () {
+    fillStatsFromExpected();
     calcStats();
   });
 </script>
