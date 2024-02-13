@@ -387,18 +387,6 @@ permalink: /dvc/training-calc/
     return null;
   }
 
-  $("#pid").bind("keyup keydown", function () {
-    var testArr = $("#pid").val().split("");
-    var resultArr = [];
-    var isHex = new RegExp("[a-fA-F0-9]+");
-    for (var i in testArr) {
-      if (isHex.test(testArr[i]) && i < 8) {
-        resultArr.push(testArr[i]);
-      }
-    }
-    $("#pid").val(resultArr.join(""));
-  });
-
   $("#target-personality").change(function () {
     var target = $(this).val();
     var container = document.getElementById("preview-container");
