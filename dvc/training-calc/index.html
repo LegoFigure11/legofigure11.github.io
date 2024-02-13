@@ -1,0 +1,418 @@
+---
+layout: default
+title: Training Calculator
+permalink: /dvc/training-calc/
+---
+
+<h1>Training-Calc</h1>
+<hr />
+
+<div class="col-md">
+  <div class="form-floating">
+    <select
+      class="form-select bg-dark text-light"
+      id="target-personality"
+      aria-label="Personality Select"
+    >
+      <option value="capable" selected>Capable</option>
+      <option value="dull">Dull</option>
+    </select>
+    <label for="target-personality">Select target personality...</label>
+  </div>
+</div>
+
+<div id="preview-container" class="text-center w-100 pt-3">
+  <img id="capable-preview" height="162" width="180" src="./res/capable.webp" />
+  <img
+    id="dull-preview"
+    class="d-none"
+    height="162"
+    width="180"
+    src="./res/dull.webp"
+  />
+</div>
+
+<br />
+
+<div class="row row-cols-2 row-cols-md-4">
+  <div class="col mb-3">
+    <div class="card bg-dark">
+      <div id="w1" class="card-header">Agility</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="baseagi">Base</label>
+            <input
+              id="baseagi"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="20"
+              aria-label="Base Agility"
+              value="20"
+            />
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="modagi">Training</label>
+            <input
+              id="modagi"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="0"
+              aria-label="Agility Training"
+              value="0"
+            />
+          </div>
+        </div>
+        <hr />
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="agi">Total</label>
+            <input
+              id="agi"
+              type="text"
+              class="bg-dark text-secondary form-control"
+              placeholder="0"
+              aria-label="Agility"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-3">
+    <div class="card bg-dark">
+      <div id="w1" class="card-header">Strength</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="basestr">Base</label>
+            <input
+              id="basestr"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="0"
+              aria-label="Base Strength"
+              value="0"
+            />
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="modstr">Training</label>
+            <input
+              id="modstr"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="0"
+              aria-label="Strenth Training"
+              value="0"
+            />
+          </div>
+        </div>
+        <hr />
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="str">Total</label>
+            <input
+              id="str"
+              type="text"
+              class="bg-dark text-secondary form-control"
+              placeholder="0"
+              aria-label="Strength"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-3">
+    <div class="card bg-dark">
+      <div id="w1" class="card-header">Focus</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="basefoc">Base</label>
+            <input
+              id="basefoc"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="20"
+              aria-label="Base Focus"
+              value="0"
+            />
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="modfoc">Training</label>
+            <input
+              id="modfoc"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="0"
+              aria-label="Focus Training"
+              value="0"
+            />
+          </div>
+        </div>
+        <hr />
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="foc">Total</label>
+            <input
+              id="foc"
+              type="text"
+              class="bg-dark text-secondary form-control"
+              placeholder="0"
+              aria-label="Focus"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-3">
+    <div class="card bg-dark">
+      <div id="w1" class="card-header">Intellect</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="baseint">Base</label>
+            <input
+              id="baseint"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="5"
+              aria-label="Base Intellect"
+              value="5"
+            />
+          </div>
+        </div>
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="modint">Training</label>
+            <input
+              id="modint"
+              type="text"
+              class="bg-dark text-light form-control stat-input"
+              placeholder="0"
+              aria-label="Intellect Training"
+              value="0"
+            />
+          </div>
+        </div>
+        <hr />
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            <label for="int">Total</label>
+            <input
+              id="int"
+              type="text"
+              class="bg-dark text-secondary form-control"
+              placeholder="0"
+              aria-label="Intellect"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-grid gap-2">
+  <button type="button" class="btn btn-outline-warning" onclick="calculate()">
+    Calculate!
+  </button>
+</div>
+
+<hr />
+
+<div id="results" class="row row-cols-1 d-none">
+  <div class="col mb-3">
+    <div class="card bg-dark">
+      <div id="w1" class="card-header">Results</div>
+      <div class="card-body">
+        <div class="row row-cols-1 mb-2">
+          <div class="col mb4">
+            Target stat value:
+            <span id="targetval" class="fw-bold">0</span>
+          </div>
+          <div class="row row-cols-1 mb-2">
+            <div class="col mb4">
+              Minimum required training sessions:
+              <span id="targetsessions" class="fw-bold">0</span>
+            </div>
+          </div>
+          <hr />
+          <div class="row row-cols-2 mb-2">
+            <div class="col col-3 mb4">
+              <span class="fw-bold">Agility: </span>
+            </div>
+            <div class="col col-9">
+              <span id="resagi">0</span>
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-2">
+            <div class="col col-3 mb4">
+              <span class="fw-bold">Strength: </span>
+            </div>
+            <div class="col col-9">
+              <span id="resstr">0</span>
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-2">
+            <div class="col col-3 mb4">
+              <span class="fw-bold">Focus: </span>
+            </div>
+            <div class="col col-9">
+              <span id="resfoc">0</span>
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-2">
+            <div class="col col-3">
+              <span class="fw-bold">Intellect: </span>
+            </div>
+            <div class="col col-9">
+              <span id="resint">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var combos = [
+    [3, 5, 9],
+    [3, 9, 5],
+    [5, 3, 9],
+    [5, 9, 3],
+    [9, 3, 5],
+    [9, 5, 3],
+  ];
+
+  var BASE = { agi: 0, str: 0, foc: 0, int: 0 };
+
+  $("document").ready(function () {
+    calcStats();
+  });
+
+  function calcStats() {
+    for (var stat of Object.keys(BASE)) {
+      $("#" + stat).val(~~$("#base" + stat).val() + ~~$("#mod" + stat).val());
+    }
+  }
+
+  function calculate() {
+    BASE.agi = ~~$("#agi").val();
+    BASE.str = ~~$("#str").val();
+    BASE.foc = ~~$("#foc").val();
+    BASE.int = ~~$("#int").val();
+    let lowest = 99;
+    let rmb;
+    let combo;
+    let min = $("#target-personality").val() === "capable" ? 26 : 0;
+    let max = $("#target-personality").val() === "capable" ? 60 : 25;
+    for (const c of combos) {
+      for (i = min; i < max; i++) {
+        let t = 0;
+        let check = 0;
+        for (const stat of Object.keys(BASE)) {
+          let target = i - BASE[stat];
+          if (target < 0) break;
+          let moves = calcMoves(target, c);
+          if (!moves) break;
+          t += moves.sum;
+          check++;
+        }
+        if (check === 4) {
+          if (t < lowest) {
+            lowest = t;
+            rmb = i;
+            combo = c;
+          }
+        }
+      }
+    }
+    if (lowest === 99 || !rmb || !combo) {
+      $("#results").addClass("d-none");
+      window.alert(
+        "No possible training combinations found. Try reducing stats with Inject Poison?"
+      );
+    } else {
+      $("#targetval").text(rmb);
+      $("#targetsessions").text(lowest);
+      for (const stat of Object.keys(BASE)) {
+        let o = calcMoves(rmb - BASE[stat], combo);
+        var ret = [];
+        for (let i = 0; i < o["+9"]; i++) ret.push("+9");
+        for (let i = 0; i < o["+5"]; i++) ret.push("+5");
+        for (let i = 0; i < o["+3"]; i++) ret.push("+3");
+        if (o.sum === 0) ret = ["No training needed."];
+
+        $("#res" + stat).text(ret.join(", "));
+
+        $("#results").removeClass("d-none");
+      }
+    }
+  }
+
+  function calcMoves(target, combo) {
+    for (let i = 0; i < 16; i++) {
+      for (let j = 0; j < 16; j++) {
+        for (let k = 0; k < 16; k++) {
+          let sum = i * combo[0] + j * combo[1] + k * combo[2];
+          const currentMoves = {
+            [`+${combo[2]}`]: k,
+            [`+${combo[1]}`]: j,
+            [`+${combo[0]}`]: i,
+            sum: k + j + i,
+          };
+          if (sum === target) {
+            return currentMoves;
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  $("#pid").bind("keyup keydown", function () {
+    var testArr = $("#pid").val().split("");
+    var resultArr = [];
+    var isHex = new RegExp("[a-fA-F0-9]+");
+    for (var i in testArr) {
+      if (isHex.test(testArr[i]) && i < 8) {
+        resultArr.push(testArr[i]);
+      }
+    }
+    $("#pid").val(resultArr.join(""));
+  });
+
+  $("#target-personality").change(function () {
+    var target = $(this).val();
+    var container = document.getElementById("preview-container");
+    for (var child of container.children) {
+      if (child.id === target + "-preview") {
+        $(child).removeClass("d-none");
+      } else {
+        $(child).addClass("d-none");
+      }
+    }
+  });
+
+  $(".stat-input").keyup(function () {
+    $(this).val(Math.max(0, Math.min(999, ~~$(this).val())));
+    calcStats();
+  });
+</script>
