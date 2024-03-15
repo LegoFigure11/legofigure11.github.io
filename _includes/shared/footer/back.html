@@ -21,7 +21,7 @@
   <script>
     var url = window.location.pathname;
     var pathname = url.slice(1, url.indexOf("/", 1)).toLowerCase();
-    var pages = ["tools", "misc", "fr", "lw"];
+    var pages = ["tools", "misc", "fr", "lw", "dvc"];
 
     if (pages.includes(pathname) && url !== "/" + pathname + "/") {
       $("#back-link-address").html(
