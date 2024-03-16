@@ -3,16 +3,19 @@
   var pathname = url.slice(1, url.indexOf("/", 1)).toLowerCase();
   switch (pathname) {
     case "tools":
-      $("#nav-tools").addClass("text-secondary").removeClass("text-white");
+      $("#nav-tools").addClass("active").removeClass("text-white");
+      $("#nav-pokemon").addClass("text-secondary").removeClass("text-white");
       break;
 
     case "misc":
-      $("#nav-misc").addClass("text-secondary").removeClass("text-white");
+      $("#nav-misc").addClass("active").removeClass("text-white");
+      $("#nav-pokemon").addClass("text-secondary").removeClass("text-white");
       break;
 
     case "hidden-grotto":
     case "showcase":
-      $("#nav-showcase").addClass("text-secondary").removeClass("text-white");
+      $("#nav-showcase").addClass("active").removeClass("text-white");
+      $("#nav-pokemon").addClass("text-secondary").removeClass("text-white");
       break;
 
     case "fr":

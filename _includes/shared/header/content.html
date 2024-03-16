@@ -11,14 +11,15 @@
         <li class="nav-item">
           <a href="/" class="nav-link px-2 text-white" id="nav-home">Home</a>
         </li>
-        <li class="nav-item">
-          <a href="/tools/" class="nav-link px-2 text-white" id="nav-tools">Tools</a>
-        </li>
-        <li class="nav-item">
-          <a href="/misc/" class="nav-link px-2 text-white" id="nav-misc">Misc</a>
-        </li>
-        <li class="showcase">
-          <a href="/showcase/" class="nav-link px-2 text-white" id="nav-showcase">Showcase</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link px-2 text-white dropdown-toggle" href="#" id="nav-pokemon" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pok&eacute;mon
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="nav-pokemon">
+            <li><a class="dropdown-item" id="nav-tools" href="/tools/">Tools</a></li>
+            <li><a class="dropdown-item" id="nav-misc" href="/misc/">Misc</a></li>
+            <li><a class="dropdown-item" id="nav-showcase" href="/showcase/">Showcase</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a href="/fr/" class="nav-link px-2 text-white" id="nav-fr">Flight Rising</a>
