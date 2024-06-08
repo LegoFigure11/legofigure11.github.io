@@ -13,6 +13,10 @@ permalink: /tools/painting-seed/
   </div>
   <input type="text" class="form-control bg-dark text-light" id="seed" aria-describedby="hexadecimal">
 </div>
+<label for="num">Results:</label>
+<div class="input-group mb-3">
+  <input type="number" class="form-control bg-dark text-light" id="num" value="10">
+</div>
 
 <br />
 
@@ -39,11 +43,11 @@ permalink: /tools/painting-seed/
 
 <script src="../js/lcrng.js"></script>
 <script>
-    var pids = [
+    var seeds = [
     "BEEFCAFE", "1337", "B00B1E5", "69696969", "DEADC0DE", "DEC0DE", "FEA51B1E", "1501A7ED",
     "0B5E55ED", "5EED1E55", "50C1AB1E", "AAAAAAAA", "BADD1E", "BA11AD", "BA5EBA11", "BEE",
   ];
-  $("#seed").attr("placeholder", pids[~~(pids.length * Math.random())].padStart(8, "0"));
+  $("#seed").attr("placeholder", seeds[~~(seeds.length * Math.random())].padStart(8, "0"));
 
   $("#seed").bind("keyup keydown", function() {
     var testArr = $("#seed").val().split("");
@@ -59,6 +63,7 @@ permalink: /tools/painting-seed/
 
   function calculate() {
     var seed = parseInt($("#seed").val(), 16);
+    var max = parseInt($("#num").val(), 10);
     
     if (isNaN(seed)) {
       $("#invalid-entry").removeClass("d-none");
@@ -79,7 +84,7 @@ permalink: /tools/painting-seed/
 
     var rng = new LCRNG(seed, 0xa3561a1, 0xeeb9eb65);
     var ct = 0;
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < max; i++) {
       do {
         ct++;
         rng.next();
