@@ -1,3 +1,31 @@
+/*
+ * Custom bootstrap-derived grid css
+ */
+
+.gg-col-1 {
+  flex: 0 0 auto;
+  width: 5.55555556%;
+}
+
+.gg-col-2 {
+  flex: 0 0 auto;
+  width: 11.11111111%;
+}
+
+.gg-col-3 {
+  flex: 0 0 auto;  
+  width: 16.66666667%;
+}
+
+.gg-col-4 {
+  flex: 0 0 auto;
+  width: 22.22222222%;
+}
+
+/*
+ * General
+ */
+
 .yellow {
   color: #f1c232;
 }
