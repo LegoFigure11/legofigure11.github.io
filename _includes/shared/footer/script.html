@@ -36,3 +36,7 @@
       .replace(/\//g, "&#x2F;");
   }
 </script>
+
+{% if page.nojirachi != "true" %}
+<script data-cat="{{ site.url }}/assets/jirachi-oneko.gif" src="{{ site.url }}/assets/oneko.js"></script>
+{% endif %}
