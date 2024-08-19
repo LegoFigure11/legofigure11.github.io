@@ -3,9 +3,8 @@
 (function oneko() {
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-        window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
     
-    console.log(isReducedMotion);
 
   if (isReducedMotion) return;
 
@@ -22,7 +21,7 @@
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = 10;
+  const nekoSpeed = 12;
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
