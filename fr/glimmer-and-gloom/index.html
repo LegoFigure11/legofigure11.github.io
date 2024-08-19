@@ -6,8 +6,8 @@ permalink: /fr/glimmer-and-gloom/
 <h1>Glimmer &amp; Gloom</h1>
 <hr />
 
-<div class="row row-cols-2">
-<div class="col">
+<div class="row row-cols-md-2">
+<div class="col-md mb-2">
     <div class="form-floating">
     <select class="form-select bg-dark text-light" id="displaymode-select" aria-label="Display Mode Select">
       <option id="opt-classic" value="classic">Classic</option>
@@ -16,7 +16,7 @@ permalink: /fr/glimmer-and-gloom/
     <label for="displaymode-select">Select board display mode...</label>
   </div>
 </div>
-<div class="col">
+<div class="col-md">
   <div class="form-floating">
     <select class="form-select bg-dark text-light" id="faction-select" aria-label="Faction Select">
       <option value="purple">Shadow</option>
@@ -415,7 +415,6 @@ permalink: /fr/glimmer-and-gloom/
     }
 
     const mode = window.localStorage.getItem("displaymode");
-    console.log(mode);
     if (mode) {
     if (mode === "modern") {
       $("#modern").removeClass("d-none");
@@ -520,6 +519,9 @@ permalink: /fr/glimmer-and-gloom/
   function reset() {
     for (let i = 0; i < 9; i++) {
       $("#input" + i).prop("checked", false);
+    }
+    for (let i = 0; i < 9; i++) {
+      $("#input" + i + "-m").prop("checked", false);
     }
     calculate();
     setColor();
