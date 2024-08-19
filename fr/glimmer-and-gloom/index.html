@@ -6,7 +6,17 @@ permalink: /fr/glimmer-and-gloom/
 <h1>Glimmer &amp; Gloom</h1>
 <hr />
 
-<div class="col-md">
+<div class="row row-cols-2">
+<div class="col">
+    <div class="form-floating">
+    <select class="form-select bg-dark text-light" id="displaymode-select" aria-label="Display Mode Select">
+      <option id="opt-classic" value="classic">Classic</option>
+      <option value="modern" selected>Modern</option>
+    </select>
+    <label for="displaymode-select">Select board display mode...</label>
+  </div>
+</div>
+<div class="col">
   <div class="form-floating">
     <select class="form-select bg-dark text-light" id="faction-select" aria-label="Faction Select">
       <option value="purple">Shadow</option>
@@ -15,22 +25,166 @@ permalink: /fr/glimmer-and-gloom/
     <label for="faction-select">Select who you want to win...</label>
   </div>
 </div>
+</div>
 
 <br />
-<div class="w-100 d-flex row justify-content-center">
+<div id="classic" class="w-100 d-flex row justify-content-center">
+  <div class="col table-responsive" style="max-width: 520px">
+    <table class="table table-borderless table-sm">
+      <tbody class="text-center h3">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="result4">&#x2B22;</td>
+          <td id="result5">&#x2B22;</td>
+          <td id="result6">&#x2B22;</td>
+          <td id="result7">&#x2B22;</td>
+          <td id="result8">&#x2B22;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="result3">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td id="result2">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="result1">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td id="result0">&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><label for="input8"><input id="input8" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><label for="input7"><input id="input7" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><label for="input6"><input id="input6" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td><label for="input5"><input id="input5" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><label for="input0"><input id="input0" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input1"><input id="input1" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
+          <td><label for="input2"><input id="input2" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input3"><input id="input3" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="input4"><input id="input4" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="modern" class="w-100 d-flex row justify-content-center">
     <div class="col table-responsive h3" style="max-width: 13em; min-width: 13em;">
         <div class="row">
             <div class="col gg-col gg-col-4"></div>
-            <div id="result4" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result5" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result6" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result7" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result8" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result4-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result5-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result6-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result7-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result8-m" class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-4"></div>
         </div>
         <div class="row">
             <div class="col gg-col gg-col-3"></div>
-            <div id="result3" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result3-m" class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
@@ -40,7 +194,7 @@ permalink: /fr/glimmer-and-gloom/
         </div>
         <div class="row">
             <div class="col gg-col gg-col-2"></div>
-            <div id="result2" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result2-m" class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
@@ -51,7 +205,7 @@ permalink: /fr/glimmer-and-gloom/
         </div>
         <div class="row">
             <div class="col gg-col gg-col-1"></div>
-            <div id="result1" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result1-m" class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
@@ -62,7 +216,7 @@ permalink: /fr/glimmer-and-gloom/
             <div class="col gg-col gg-col-1"></div>
         </div>
         <div class="row">
-            <div id="result0" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="result0-m" class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
@@ -70,7 +224,7 @@ permalink: /fr/glimmer-and-gloom/
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input8"><input id="input8" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></div>
+            <div class="col gg-col gg-col-2"><label for="input8-m"><input id="input8-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></div>
         </div>
         <div class="row">
             <div class="col gg-col gg-col-1"></div>
@@ -81,7 +235,7 @@ permalink: /fr/glimmer-and-gloom/
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input7"><input id="input7" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+            <div class="col gg-col gg-col-2"><label for="input7-m"><input id="input7-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
             <div class="col gg-col gg-col-1"></div>
         </div>
         <div class="row">
@@ -92,7 +246,7 @@ permalink: /fr/glimmer-and-gloom/
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input6"><input id="input6" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+            <div class="col gg-col gg-col-2"><label for="input6-m"><input id="input6-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
             <div class="col gg-col gg-col-2"></div>
         </div>
         <div class="row">
@@ -102,16 +256,16 @@ permalink: /fr/glimmer-and-gloom/
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
             <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input5"><input id="input5" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+            <div class="col gg-col gg-col-2"><label for="input5-m"><input id="input5-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
             <div class="col gg-col gg-col-3"></div>
         </div>
         <div class="row">
             <div class="col gg-col gg-col-4"></div>
-            <div id="result4" class="col gg-col gg-col-2"><label for="input0"><input id="input0" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div id="result5" class="col gg-col gg-col-2"><label for="input1"><input id="input1" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
-            <div id="result6" class="col gg-col gg-col-2"><label for="input2"><input id="input2" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div id="result7" class="col gg-col gg-col-2"><label for="input3"><input id="input3" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div id="result8" class="col gg-col gg-col-2"><label for="input4"><input id="input4" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div id="result4" class="col gg-col gg-col-2"><label for="input0-m"><input id="input0-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div id="result5" class="col gg-col gg-col-2"><label for="input1-m"><input id="input1-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+            <div id="result6" class="col gg-col gg-col-2"><label for="input2-m"><input id="input2-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div id="result7" class="col gg-col gg-col-2"><label for="input3-m"><input id="input3-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div id="result8" class="col gg-col gg-col-2"><label for="input4-m"><input id="input4-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
             <div class="col gg-col gg-col-4"></div>
         </div>
     </div>
@@ -217,9 +371,11 @@ permalink: /fr/glimmer-and-gloom/
       [1, 0, 0, 1, 0, 1, 0, 0, 0],
     ];
 
+    var modern = $("#displaymode-select").val() === "modern";
+
     const inputs = [];
     for (let i = 0; i < 9; i++) {
-      inputs.push($("#input" + i).prop("checked") ? 1 : 0);
+      inputs.push($("#input" + i + (modern ? "-m" : "")).prop("checked") ? 1 : 0);
     }
 
     const solutions = [];
@@ -240,15 +396,15 @@ permalink: /fr/glimmer-and-gloom/
     let color = $("#faction-select").val();
     let d = color === "yellow" ? "#f1c232" : "#674ea7";
     for (let r = 0; r < 9; r++) {
-      $("#result" + r).css("color", d);
-      $("#result" + r).html("&#x2B22;");
+      $("#result" + r + (modern ? "-m" : "")).css("color", d);
+      $("#result" + r + (modern ? "-m" : "")).html("&#x2B22;");
       for (let c = 0; c < 9; c++) {
         final[r] += solutions[c][r];
       }
       final[r] &= 1;
       if (final[r] === 1) {
-        $("#result" + r).css("color", window.color);
-        $("#result" + r).html(window.symbol);
+        $("#result" + r + (modern ? "-m" : "")).css("color", window.color);
+        $("#result" + r + (modern ? "-m" : "")).html(window.symbol);
       }
     }
   }
@@ -258,9 +414,30 @@ permalink: /fr/glimmer-and-gloom/
       $("#color-check").prop("checked", true);
     }
 
+    const mode = window.localStorage.getItem("displaymode");
+    console.log(mode);
+    if (mode) {
+    if (mode === "modern") {
+      $("#modern").removeClass("d-none");
+      $("#classic").addClass("d-none");
+    } else {
+      $("#classic").removeClass("d-none");
+      $("#modern").addClass("d-none");
+      $("#opt-classic").prop("selected", true);
+
+    }
+    } else $("#displaymode-select").change();
+
     const symbol = window.localStorage.getItem("symbol");
     if (symbol) {
       $("#symbol-check").html(symbol);
+      if (symbol === "&#9733;") {
+        $("td").css("min-width", "33px");
+        $("td").css("min-height", "39px");
+      } else {
+        $("td").css("min-width", "1px");
+        $("td").css("min-height", "1px");
+      }
     }
 
     $("#auto-reset-check").prop("checked", window.localStorage.getItem("autoReset") === "true");
@@ -283,6 +460,19 @@ permalink: /fr/glimmer-and-gloom/
     reset();
   });
 
+  $("#displaymode-select").change(function() {
+    var displaymode = $("#displaymode-select").val();
+    window.localStorage.setItem("displaymode", displaymode);
+    if (displaymode === "modern") {
+      $("#modern").removeClass("d-none");
+      $("#classic").addClass("d-none");
+    } else {
+      $("#classic").removeClass("d-none");
+      $("#modern").addClass("d-none");
+    }
+    reset();
+  });
+
   $("input:checkbox").change(function() {
     window.autoReset = $("#auto-reset-check").prop("checked");
     calculate();
@@ -297,14 +487,24 @@ permalink: /fr/glimmer-and-gloom/
     }
     $("#symbol-check").html(window.symbol);
     window.localStorage.setItem("symbol", window.symbol);
+    if (window.symbol === "&#9733;") {
+      $("td").css("min-width", "33px");
+      $("td").css("min-height", "39px");
+    } else {
+      $("td").css("min-width", "0px");
+      $("td").css("min-height", "0px");
+    }
     calculate();
     setColor();
   });
 
   function setColor() {
+    $("tr").removeClass("yellow");
+    $("tr").removeClass("purple");
     $(".gg-col").removeClass("yellow");
     $(".gg-col").removeClass("purple");
     let color = $("#faction-select").val();
+    $("tr").addClass(color);
     $(".gg-col").addClass(color);
     let c = color === "purple" ? "#f1c232" : "#674ea7";
     let d = color === "yellow" ? "#f1c232" : "#674ea7";
