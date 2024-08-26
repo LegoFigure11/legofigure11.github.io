@@ -12,7 +12,9 @@ nojirachi: "true"
     <div class="form-floating">
     <select class="form-select bg-dark text-light" id="displaymode-select" aria-label="Display Mode Select">
       <option id="opt-classic" value="classic">Classic</option>
-      <option value="modern" selected>Modern</option>
+      <option id="opt-modern" value="modern" selected>Modern</option>
+      <option id="opt-classic-mirrored" value="classic-mirrored">Classic (Mirrored)</option>
+      <option id="opt-modern-mirrored" value="modern-mirrored">Modern (Mirrored)</option>
     </select>
     <label for="displaymode-select">Select board display mode...</label>
   </div>
@@ -271,6 +273,248 @@ nojirachi: "true"
         </div>
     </div>
 </div>
+<div id="classic-mirrored" class="w-100 d-flex row justify-content-center">
+  <div class="col table-responsive" style="max-width: 520px">
+    <table class="table table-borderless table-sm">
+      <tbody class="text-center h3">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="mirror-result8">&#x2B22;</td>
+          <td id="mirror-result7">&#x2B22;</td>
+          <td id="mirror-result6">&#x2B22;</td>
+          <td id="mirror-result5">&#x2B22;</td>
+          <td id="mirror-result4">&#x2B22;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td id="mirror-result3">&#x2B22;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td id="mirror-result2">&#x2B22;</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td id="mirror-result1">&#x2B22;</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><label for="mirror-input8"><input id="mirror-input8" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td id="mirror-result0">&#x2B22;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><label for="mirror-input7"><input id="mirror-input7" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><label for="mirror-input6"><input id="mirror-input6" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><label for="mirror-input5"><input id="mirror-input5" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td>&#x2B22;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><label for="mirror-input4"><input id="mirror-input4" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="mirror-input3"><input id="mirror-input3" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
+          <td><label for="mirror-input2"><input id="mirror-input2" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="mirror-input1"><input id="mirror-input1" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td><label for="mirror-input0"><input id="mirror-input0" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="modern-mirrored" class="w-100 d-flex row justify-content-center">
+    <div class="col table-responsive h3" style="max-width: 13em; min-width: 13em;">
+        <div class="row">
+            <div class="col gg-col gg-col-4"></div>
+            <div id="mirror-result8-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result7-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result6-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result5-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result4-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-3"></div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result3-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-2"></div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result2-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-1"></div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result1-m" class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-2"><label for="mirror-input8-m"><input id="mirror-input8-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div id="mirror-result0-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-1"></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input7-m"><input id="mirror-input7-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-2"></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input6-m"><input id="mirror-input6-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-3"></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input5-m"><input id="mirror-input5-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-2">&#x2B22;</div>
+            <div class="col gg-col gg-col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col gg-col gg-col-4"></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input4-m"><input id="mirror-input4-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input3-m"><input id="mirror-input3-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input2-m"><input id="mirror-input2-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input1-m"><input id="mirror-input1-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div class="col gg-col gg-col-2"><label for="mirror-input0-m"><input id="mirror-input0-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+            <div class="col gg-col gg-col-4"></div>
+        </div>
+    </div>
+</div>
 <br />
 <div class="w-100 d-flex row justify-content-center">
   <div class="col-md">
@@ -372,11 +616,12 @@ nojirachi: "true"
       [1, 0, 0, 1, 0, 1, 0, 0, 0],
     ];
 
-    var modern = $("#displaymode-select").val() === "modern";
+    var modern = $("#displaymode-select").val().includes("modern");
+    var mirror = $("#displaymode-select").val().includes("mirror");
 
     const inputs = [];
     for (let i = 0; i < 9; i++) {
-      inputs.push($("#input" + i + (modern ? "-m" : "")).prop("checked") ? 1 : 0);
+      inputs.push($("#" + (mirror ? "mirror-" : "") + "input" + i + (modern ? "-m" : "")).prop("checked") ? 1 : 0);
     }
 
     const solutions = [];
@@ -397,15 +642,15 @@ nojirachi: "true"
     let color = $("#faction-select").val();
     let d = color === "yellow" ? "#f1c232" : "#674ea7";
     for (let r = 0; r < 9; r++) {
-      $("#result" + r + (modern ? "-m" : "")).css("color", d);
-      $("#result" + r + (modern ? "-m" : "")).html("&#x2B22;");
+      $("#" + (mirror ? "mirror-" : "") + "result" + r + (modern ? "-m" : "")).css("color", d);
+      $("#" + (mirror ? "mirror-" : "") + "result" + r + (modern ? "-m" : "")).html("&#x2B22;");
       for (let c = 0; c < 9; c++) {
         final[r] += solutions[c][r];
       }
       final[r] &= 1;
       if (final[r] === 1) {
-        $("#result" + r + (modern ? "-m" : "")).css("color", window.color);
-        $("#result" + r + (modern ? "-m" : "")).html(window.symbol);
+        $("#" + (mirror ? "mirror-" : "") + "result" + r + (modern ? "-m" : "")).css("color", window.color);
+        $("#" + (mirror ? "mirror-" : "") + "result" + r + (modern ? "-m" : "")).html(window.symbol);
       }
     }
   }
@@ -416,16 +661,14 @@ nojirachi: "true"
     }
 
     const mode = window.localStorage.getItem("displaymode");
-    if (mode) {
-    if (mode === "modern") {
-      $("#modern").removeClass("d-none");
-      $("#classic").addClass("d-none");
-    } else {
-      $("#classic").removeClass("d-none");
-      $("#modern").addClass("d-none");
-      $("#opt-classic").prop("selected", true);
+    $("#classic").addClass("d-none");
+    $("#modern").addClass("d-none");
+    $("#classic-mirrored").addClass("d-none");
+    $("#modern-mirrored").addClass("d-none");
 
-    }
+    if (mode) {
+      $("#" + mode).removeClass("d-none");
+      $("#opt-" + mode).prop("selected", true);
     } else $("#displaymode-select").change();
 
     const symbol = window.localStorage.getItem("symbol");
@@ -463,13 +706,12 @@ nojirachi: "true"
   $("#displaymode-select").change(function() {
     var displaymode = $("#displaymode-select").val();
     window.localStorage.setItem("displaymode", displaymode);
-    if (displaymode === "modern") {
-      $("#modern").removeClass("d-none");
-      $("#classic").addClass("d-none");
-    } else {
-      $("#classic").removeClass("d-none");
-      $("#modern").addClass("d-none");
-    }
+    $("#classic").addClass("d-none");
+    $("#modern").addClass("d-none");
+    $("#classic-mirrored").addClass("d-none");
+    $("#modern-mirrored").addClass("d-none");
+    $("#" + displaymode).removeClass("d-none");
+
     reset();
   });
 
@@ -520,10 +762,11 @@ nojirachi: "true"
   function reset() {
     for (let i = 0; i < 9; i++) {
       $("#input" + i).prop("checked", false);
-    }
-    for (let i = 0; i < 9; i++) {
       $("#input" + i + "-m").prop("checked", false);
+      $("#mirror-input" + i).prop("checked", false);
+      $("#mirror-input" + i + "-m").prop("checked", false);
     }
+
     calculate();
     setColor();
   }
