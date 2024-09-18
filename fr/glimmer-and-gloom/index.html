@@ -787,8 +787,14 @@ nojirachi: "true"
       for (var i = 0; i < 9; i++) {
         if (["0", ","].includes(resultArr[i])) {
           $("#input" + i).prop("checked", false);
+          $("#input" + i + "-m").prop("checked", false);
+          $("#mirror-input" + i).prop("checked", false);
+          $("#mirror-input" + i + "-m").prop("checked", false);
         } else {
           $("#input" + i).prop("checked", true);
+          $("#input" + i + "-m").prop("checked", true);
+          $("#mirror-input" + i).prop("checked", true);
+          $("#mirror-input" + i + "-m").prop("checked", true);
         }
       }
       calculate();
