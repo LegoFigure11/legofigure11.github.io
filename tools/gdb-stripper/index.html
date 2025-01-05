@@ -39,7 +39,7 @@ permalink: /tools/gdb-stripper/
       let line = o[i];
       line = line.split(" = ")[1];
       let s = ((i + 1) + "").padStart(os, ' ');
-      o[i] = s + " | " + line;
+      o[i] = s + " | " + line.replace(/\"/g, "");
     }
 
     $("#results").val(o.join("\n"));
