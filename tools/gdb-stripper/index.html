@@ -1,0 +1,47 @@
+---
+layout: default
+title: GDB Output Stripper
+permalink: /tools/gdb-stripper/
+---
+
+<div class="form-group">
+  <textarea
+    class="text-light bg-dark font-monospace w-100"
+    id="input"
+    rows="11"
+    placeholder="Paste input..."
+  ></textarea>
+</div>
+<br />
+<hr />
+<br />
+<div class="form-group">
+  <textarea
+    class="text-light bg-dark font-monospace w-100"
+    id="results"
+    rows="11"
+    contenteditable="false"
+  ></textarea>
+</div>
+
+<script>
+  $("#input").keyup(() => {
+    let input = $("#input").val();
+    const o = [];
+    for (let line of input.split("\n")) {
+      line = line.trim();
+      if (line.startsWith("$")) o.push(line);
+    }
+
+    var os = 1 + ~~(Math.log10(o.length));
+
+    for (let i = 0; i < o.length; i++) {
+      let line = o[i];
+      line = line.split(" = ")[1];
+      let s = ((i + 1) + "").padStart(os, ' ');
+      o[i] = s + " | " + line;
+    }
+
+    $("#results").val(o.join("\n"));
+  });
+</script>
