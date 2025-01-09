@@ -22,8 +22,8 @@ nojirachi: "true"
 <div class="col-md">
   <div class="form-floating">
     <select class="form-select bg-dark text-light" id="faction-select" aria-label="Faction Select">
-      <option value="purple">Shadow</option>
-      <option value="yellow" selected>Light</option>
+      <option id="shadowWin" value="purple">Shadow</option>
+      <option id="lightWin" value="yellow" selected>Light</option>
     </select>
     <label for="faction-select">Select who you want to win...</label>
   </div>
@@ -596,6 +596,7 @@ nojirachi: "true"
     symbol: "&#x2B22;", // Hex by default
     color: "#ff0000", // Red by default
     autoReset: false,
+    lightWin: true,
   };
 
   let timer;
@@ -683,11 +684,19 @@ nojirachi: "true"
       }
     }
 
+    const lightWin = window.localStorage.getItem("lightWin");
+    if (lightWin === "true") {
+      $("#lightWin").prop("selected", true);
+    } else {
+      $("#shadowWin").prop("selected", true);
+    }
+
     $("#auto-reset-check").prop("checked", window.localStorage.getItem("autoReset") === "true");
 
     window.color = $("#color-check").prop("checked") ? "#0dcaf0" : "#ff0000";
     window.symbol = $("#symbol-check").html();
     window.autoReset = $("#auto-reset-check").prop("checked");
+    window.lightWin = $("#lightWin").prop("selected");
     setColor();
     calculate();
 
@@ -700,6 +709,7 @@ nojirachi: "true"
   })
 
   $("#faction-select").change(function() {
+    window.localStorage.setItem("lightWin", $("#lightWin").prop("selected"));
     reset();
   });
 
