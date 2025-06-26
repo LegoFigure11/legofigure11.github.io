@@ -1,3 +1,31 @@
+:root .miku {
+  cursor: url(/assets/frame_0.png), auto;
+  -webkit-animation: cursor 800ms infinite;
+  animation: cursor 800ms infinite;
+}
+
+@-webkit-keyframes cursor {
+  0% {cursor: url(/assets/frame_0.png), auto;}
+  14% {cursor: url(/assets/frame_1.png), auto;}
+  28% {cursor: url(/assets/frame_2.png), auto;}
+  42% {cursor: url(/assets/frame_3.png), auto;}
+  57% {cursor: url(/assets/frame_4.png), auto;}
+  71% {cursor: url(/assets/frame_5.png), auto;}
+  85% {cursor: url(/assets/frame_6.png), auto;}
+  100% {cursor: url(/assets/frame_7.png), auto;}
+} 
+
+@keyframes cursor {
+  0% {cursor: url(/assets/frame_0.png), auto;}
+  14% {cursor: url(/assets/frame_1.png), auto;}
+  28% {cursor: url(/assets/frame_2.png), auto;}
+  42% {cursor: url(/assets/frame_3.png), auto;}
+  57% {cursor: url(/assets/frame_4.png), auto;}
+  71% {cursor: url(/assets/frame_5.png), auto;}
+  85% {cursor: url(/assets/frame_6.png), auto;}
+  100% {cursor: url(/assets/frame_7.png), auto;}
+}
+
 .edited-border {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;

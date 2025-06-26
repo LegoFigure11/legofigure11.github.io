@@ -43,4 +43,14 @@
       "https://github.com/LegoFigure11/legofigure11.github.io"
     );
   }
+
+  let ss = sessionStorage.getItem("miku");
+  let rand = !!ss ? Math.floor(Math.random() * 1000) : 0;
+  if (rand === 69 || !!ss || window.location.href.includes("miku=true")) {
+    $("body").addClass("miku");
+    if (!ss) {
+      alert("Miku mode adctivated!");
+      sessionStorage.setItem("miku", "true");
+    }
+  }
 </script>
