@@ -40,6 +40,8 @@ permalink: /tools/painting-seed/
 
 <label for="results">Closest 16-bit seeds:</label>
 <textarea class="text-light bg-dark font-monospace w-100" id="results" rows="11" contenteditable="false"></textarea>
+<label for="resultsc">Copyable:</label>
+<textarea class="text-light bg-dark font-monospace w-100" id="resultsc" rows="3" contenteditable="false"></textarea>
 
 <script src="../js/lcrng.js"></script>
 <script>
@@ -81,7 +83,8 @@ permalink: /tools/painting-seed/
 
     var r = $("#results");
     r.text("Target Seed: 0x" + seed.toString(16).padStart(8, "0").toUpperCase() + "\n");
-
+    var rc = $("#resultsc");
+    rc.text("");
     var rng = new LCRNG(seed, 0xa3561a1, 0xeeb9eb65);
     var ct = 0;
     for (var i = 0; i < max; i++) {
@@ -90,6 +93,7 @@ permalink: /tools/painting-seed/
         rng.next();
       } while (rng.high !== 0);
       r.text(r.text() + "Seed: 0x" + rng.seed.toString(16).padStart(4, "0").toUpperCase() + " | Distance to target: " + ct + " | Distance from seed 0: " + rng.seed + "\n");
+      rc.text(rc.text() + (rc.text().length > 0 ? ", 0x" : "0x") + rng.seed.toString(16).padStart(4, "0").toUpperCase());
     }
     r.text(r.text().trim());
   }
