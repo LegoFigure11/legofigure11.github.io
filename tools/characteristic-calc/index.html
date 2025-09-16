@@ -14,7 +14,8 @@ permalink: /tools/characteristic-calc/
       <option value="5">5</option>
       <option value="6">6</option>
       <option value="7">7</option>
-      <option value="8" selected>8</option>
+      <option value="8">8</option>
+      <option value="9" selected>9</option>
     </select>
     <label for="gen-select">Select Generation...</label>
   </div>
@@ -200,7 +201,6 @@ permalink: /tools/characteristic-calc/
     }
     var index = (ec6stat * 5) + (maxIV % 5);
     if (window.gen < 6 && [1, 2].includes(index)) index += 29;
-    console.log(index);
 
     $("#resultsModalLabel").text(
       (window.gen < 6 ? "PID" : "EC") + ": 0x" + (~~(pid)).toString(16).toUpperCase().padStart(8, "0") + " | IVS: " + orderedIvs.join("/"));
