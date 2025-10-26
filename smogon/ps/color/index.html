@@ -1,0 +1,283 @@
+---
+layout: default
+title: PS! Color Picker
+permalink: /smogon/ps/color
+---
+
+<div class="h1 text-center load">Loading...</div>
+<div class="h3 text-center load">This might take a minute, go grab a drink of water while you wait!</div>
+<div class="d-none" id="content">
+    <h1>PS Name Color Tools</h1>
+    <hr />
+    <h2>Color Possibility Checker:</h2>
+    <div class="row row-cols-sm-2 row-cols-1">
+        <div class="col">
+            <label for="target">Target color:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text edited-border text-light" id="hexadecimal">
+                        <input type="color" class="form-control" id="color-select" name="color-select" style="padding: 0 !important; width: 27px! important;" value="#eeeeee">
+                    </span>
+                </div>
+                <input id="target" type="text" class="form-control bg-dark text-light" aria-describedby="hexadecimal" placeholder="DEBA5E"/>
+            </div>
+        </div>
+        <div class="col">
+            <label for="search">&nbsp;</label>
+            <button class="btn btn-outline-warning btn-block w-100" id="search">Search!</button>
+        </div>
+    </div>
+    <div class="w-100 mt-3">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio-default" value="default" checked>
+            <label class="form-check-label" for="radio-default">Default</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio-closest" value="closest">
+            <label class="form-check-label" for="radio-closest">Closest</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio-red" value="red">
+          <label class="form-check-label" for="radio-red">Preserve Red</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio-green" value="green">
+          <label class="form-check-label" for="radio-green">Preserve Green</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio-blue" value="blue">
+          <label class="form-check-label" for="radio-blue">Preserve Blue</label>
+        </div>
+    </div>
+    <div class="h3 mt-3 d-none" id="res-text">Closest possible matches:</div>
+    <div class="row row-cols-sm-3 row-cols-1 mt-3" id="results">
+
+    </div>
+
+    <hr />
+    <h2>Name Color Checker:</h2>
+    <div class="row row-cols-sm-2 row-cols-1">
+        <div class="col">
+            <label for="username">Username:</label>
+            <input id="username" type="text" class="form-control bg-dark text-light" placeholder="Lego"/>
+        </div>
+        <div class="col">
+            <label for="outcolor">Color:</label>
+            <input id="outcolor" type="text" class="form-control bg-dark text-light"/>
+        </div>
+    </div>
+
+    <hr />
+    <h2>Name Color Generator:</h2>
+    <div class="row row-cols-sm-2 row-cols-1">
+        <div class="col">
+            <label for="target2">Target color:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text edited-border text-light" id="hexadecimal2">
+                        <input type="color" class="form-control" id="color-select2" name="color-select2" style="padding: 0 !important; width: 27px! important;" value="#eeeeee">
+                    </span>
+                </div>
+                <input id="target2" type="text" class="form-control bg-dark text-light" aria-describedby="hexadecimal2" placeholder="DEBA5E"/>
+            </div>
+        </div>
+        <div class="col">
+            <label for="search">Username Length:</label>
+            <input type="number" max="7" min="3" value="4" class="form-control bg-dark text-light" id="search2-len" />
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-outline-warning btn-block w-100" id="search2">Search! (slow)</button>
+        </div>
+    </div>
+    <div class="h3 mt-3 d-none" id="res-text2">Username for color: <span id="outuser"></span></div>
+</div>
+
+<script>
+$("#color-select").change(() => {
+        $("#target").val($("#color-select").val().replace("#","").toUpperCase());
+});
+$("#target").keyup(() => {
+    let val = $("#target").val();
+    val = val.toLowerCase();
+    let ret = "";
+    for (let i = 0; i < val.length; i++) {
+        if (ret.length == 6) break;
+        if (!"0123456789abcdef".includes(val[i])) continue;
+        ret += val[i];
+    } 
+    $("#target").val(ret.toUpperCase());
+    if (ret.length === 6) {
+        $("#color-select").val("#" + ret.toLowerCase());
+    }
+});
+
+$("#color-select2").change(() => {
+        $("#target2").val($("#color-select2").val().replace("#","").toUpperCase());
+});
+$("#target2").keyup(() => {
+    let val = $("#target2").val();
+    val = val.toLowerCase();
+    let ret = "";
+    for (let i = 0; i < val.length; i++) {
+        if (ret.length == 6) break;
+        if (!"0123456789abcdef".includes(val[i])) continue;
+        ret += val[i];
+    } 
+    $("#target2").val(ret.toUpperCase());
+    if (ret.length === 6) {
+        $("#color-select2").val("#" + ret.toLowerCase());
+    }
+});
+
+$("#username").keyup(() => {
+    let val = $("#username").val();
+    let ret = "";
+    for (let i = 0; i < val.length; i++) {
+        if (!"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(val[i])) continue;
+        ret += val[i];
+    } 
+    $("#username").val(ret);
+    var color = usernameColor(ret.toLowerCase());
+    $("#outcolor").val(color);
+    $("#outcolor").removeClass("bg-dark");
+    $("#outcolor").css("background-color", color);
+});
+
+</script>
+<script src="./colors.js"></script>
+<script src="./ps-client.js"></script>
+<script src="./search.js"></script>
+<script>
+$("#color-select").val("#" + (Math.floor(Math.random() * 0xFFFFFF)).toString(16).toLocaleLowerCase());
+$("#color-select2").val("#" + (Math.floor(Math.random() * 0xFFFFFF)).toString(16).toLocaleLowerCase());
+$("#color-select").change();
+$("#color-select2").change();
+$("#content").removeClass("d-none");
+$(".load").addClass("d-none");
+
+$("#search2").click(() => {
+    let target = parseInt($("#target2").val(), 16);
+    let found = colors[target + ""];
+    if (!found) return alert("Target color not possible! Please use the Color Possibilty Checker above to choose a different one.");
+
+    target = ("#" + $("#target2").val()).toLowerCase();
+    const len = $("#search2-len").val();
+    const pow = Math.pow(36, length);
+    const start = Math.floor(Math.random() * pow);
+
+    const result = search2(start, len, target);
+    if (!result) {
+        $("#outuser").text("None found! Please try searching a different length.");
+        $("#outuser").addClass("text-white");
+    }
+    else {
+        $("#outuser").text(result);
+        $("#outuser").removeClass("text-white");
+        $("#outuser").css("color", target);
+    }
+    $("#res-text2").removeClass("d-none");
+});
+
+$("#search").click(() => {
+    let target = parseInt($("#target").val(), 16);
+    $("#res-text").addClass("d-none");
+    let found = colors[target + ""];
+    if (found) {
+        const res = document.getElementById("results");
+        while (res.lastChild) res.removeChild(res.lastChild);
+        alert("This color is possible on PS!");
+    } else {
+        console.log("Impossible color...");
+        console.log("Finding nearest matches...");
+        let r = target >>> 16 & 0xFF;
+        let g = target >>> 8 & 0xFF; 
+        let b = target & 0xFF;
+        console.log(r, g, b);
+
+        let closest = [];
+        let closeness = 0;
+        const k = Object.keys(colors);
+        const v = Object.values(colors);
+
+        let preserve_red = $("#radio-red").is(":checked");
+        let preserve_green = $("#radio-green").is(":checked");
+        let preserve_blue = $("#radio-blue").is(":checked");
+        let mathematically_closest = $("#radio-closest").is(":checked");
+
+        console.log(preserve_red, preserve_green, preserve_blue, mathematically_closest);
+
+        
+        let closest_r = 999;
+        let closest_g = 999;
+        let closest_b = 999;
+        let r_diff = 999;
+        let g_diff = 999;
+        let b_diff = 999;
+
+        for (let i = 0; i < k.length; i++) {
+            const c = v[i];
+            let _r = Math.abs(r - c.r);
+            let _g = Math.abs(g - c.g);
+            let _b = Math.abs(b - c.b);
+            if (_r < r_diff) {
+                closest_r = c.r;
+                r_diff = _r;
+            }
+            if (_g < g_diff) {
+                closest_g = c.g;
+                g_diff = _g;
+            }
+             if (_b < b_diff) {
+                closest_b = c.b;
+                b_diff = _b;
+            }
+        }
+
+        console.log(closest_r, closest_g, closest_b);
+
+        while (!closest.length && closeness < 255) {
+            closeness++;
+            closest = k.filter((c, i) => {
+                let dist = 999;
+                if (preserve_red) {
+                    if (v[i].r !== closest_r) return false;
+                    dist = Math.abs(v[i].g - g) + Math.abs(v[i].b - b);
+                } else if (preserve_green) {
+                    if (v[i].g !== closest_g) return false;
+                    dist = Math.abs(v[i].b - b) + Math.abs(v[i].r - r);
+                } else if (preserve_blue) {
+                    if (v[i].b !== closest_b) return false;
+                    dist = Math.abs(v[i].g - g) + Math.abs(v[i].r - r);
+                } else if (mathematically_closest) {
+                    dist = Math.abs(v[i].r - r) + Math.abs(v[i].g - g) + Math.abs(v[i].b - b);
+                } else {
+                    let close = (
+                        v[i].r <= r + closeness && v[i].r >= r - closeness &&
+                        v[i].g <= g + closeness && v[i].g >= g - closeness &&
+                        v[i].b <= b + closeness && v[i].b >= b - closeness
+                    );
+                    if (close) return c;
+                }
+                if (dist <= closeness) return c;
+            });
+        }
+        if (closest.length > 0) {
+            const res = document.getElementById("results");
+            $("#res-text").removeClass("d-none");
+            while (res.lastChild) res.removeChild(res.lastChild);
+
+            for (let i = 0; i < closest.length; i++) {
+                const c = parseInt(closest[i]).toString(16).padStart(6, "0");
+                const d = document.createElement("div");
+                d.classList.add("col");
+                d.classList.add("h5");
+                d.style = "color: #" + c;
+                d.textContent = ("#" + c).toUpperCase();
+                res.appendChild(d);
+            };
+        }
+    }
+})
+</script>
