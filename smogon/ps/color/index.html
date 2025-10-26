@@ -164,7 +164,7 @@ $("#search2").click(() => {
 
     target = ("#" + $("#target2").val()).toLowerCase();
     const len = $("#search2-len").val();
-    const pow = Math.pow(36, length);
+    const pow = Math.pow(36, len);
     const start = Math.floor(Math.random() * pow);
 
     const result = search2(start, len, target);
