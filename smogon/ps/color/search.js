@@ -24,7 +24,7 @@ function indexToString(index, charset, length) {
 }
 
 function search2(start, length, target) {
-    const pow = Math.pow(36, length);
+    const pow = Math.pow(CHARSET.length, length);
     let found = false;
     const chars = shuffleArray(CHARSET);
     for (let i = start + 1; i != start && !found; i = (i + 1) % pow) {
