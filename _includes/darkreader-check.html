@@ -1,0 +1,14 @@
+<script>
+  $("document").ready(function() {
+    setTimeout(() => {
+      const rootStyle = getComputedStyle(document.documentElement);
+      for (let i = 0; i < rootStyle.length; i++) {
+        const k = rootStyle[i];
+        if (k.startsWith("--darkreader")) {
+          alert("It looks like you're using the \"Dark Reader\" browser extension.\n\nAs this extension is known to interfere with the functionality of this page, disabling Dark Reader for this site is recommended.");
+          break;
+        }
+      }
+    }, 3000); // give darkreader time to apply
+  });
+  </script>
