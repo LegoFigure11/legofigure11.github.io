@@ -14,6 +14,6 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
 end
 
 gem "webrick"
-gem 'wdm', '~> 0.1.1', :install_if => Gem.win_platform?
+gem 'csv' # Newer Ruby versions don't install this by default, apparently
 
 gem "jekyll", "~> 3.9.0"
