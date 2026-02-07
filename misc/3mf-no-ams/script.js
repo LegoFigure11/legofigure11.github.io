@@ -63,6 +63,7 @@ function processGcode(lines) {
     let foundStart = false;
     let skipThis = false;
     let foundConfig = false;
+    let pauses = 0;
 
     for (const line of lines) {
         i++;
@@ -83,7 +84,8 @@ function processGcode(lines) {
             }
             if (read && !skipThis) {
                 out.push(line);
-                if (addPause) {
+                if (addPause && pauses < window.pauses) {
+                    pauses++;
                     addPause = false;
                     out.push(PAUSE);
                     foundStart = true;
