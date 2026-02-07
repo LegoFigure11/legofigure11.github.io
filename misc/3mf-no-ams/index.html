@@ -1,0 +1,65 @@
+---
+layout: default
+title: 3mf No AMS
+permalink: /misc/3mf-no-ams/
+---
+
+<script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
+<script src="https://unpkg.com/filesaver.js/FileSaver.min.js"></script>
+
+<p>
+  This tool parses a Bambu Labs <code>.3mf</code> file, adding in a
+  <code>M400 U1</code> (pause) command after every filament swap to allow manual
+  filament changes for multicolor printing without an AMS unit.
+</p>
+
+<div class="row mb-4">
+  <div class="col">
+    <input
+      type="file"
+      class="form-control bg-dark text-light"
+      id="formFile"
+      name="formFile"
+      accept=".gcode.3mf,.gcode.3mf.zip"
+    />
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    <label for="plateSelect">Choose Target Plate:</label>
+    <select
+      id="plateSelect"
+      class="form-control bg-dark select-dark text-light"
+    ></select>
+  </div>
+</div>
+<div class="row mb-4">
+  <div class="col">
+    <label>Filaments:</label>
+    <div id="filament"></div>
+  </div>
+</div>
+<div class="row mb-4">
+  <div class="col">
+    <label for="printOrder">Print Order:</label>
+    <input
+      type="text"
+      class="form-control bg-dark text-light"
+      id="printOrder"
+      name="printOrder"
+      readonly
+    />
+    <small id="changes" class="form-text text-muted"></small>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <button
+      class="form-control btn btn-outline-info"
+      id="go"
+    >Modify GCode</button>
+  </div>
+</div>
+
+<script src="./script.js"></script>
