@@ -37,6 +37,17 @@
   }
 </script>
 
+<script>
+  var t = {{ site.time | date: "%s" }};
+  var d = new Date(t * 1000);
+  var offs = d.getTimezoneOffset();
+  var h = Math.abs(offs / 60);
+  var m = Math.abs(offs % 60);
+  var sign = offs < 0 ? "+" : '-';
+
+  document.getElementById("buildTime").textContent = d.toLocaleString() + " " + sign + (h + "").padStart(2, "0") + ":" + (m + "").padStart(2, "0");
+</script>
+
 {% if page.nojirachi != "true" %}
 <script data-cat="{{ site.url }}/assets/jirachi-oneko.gif" src="{{ site.url }}/assets/oneko.js"></script>
 {% endif %}
