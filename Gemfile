@@ -8,12 +8,11 @@ group :jekyll_plugins do
   gem "jekyll-avatar"
 end
 
-platforms :mingw, :x64_mingw, :mswin, :jruby do
+platforms :windows, :jruby do
   gem "tzinfo"
   gem "tzinfo-data"
 end
 
 gem "webrick"
-gem 'csv' # Newer Ruby versions don't install this by default, apparently
-
-gem "jekyll", "~> 3.9.0"
+gem "bigdecimal" # Newer Ruby versions don't install this by default, apparently
+gem "csv" # Same with this
