@@ -1,5 +1,6 @@
 let PRINT_SEQUENCE_FILE_NAME = "Metadata/filament_sequence.json";
 let PLATE_FILE_NAME_PREFIX = "Metadata/plate_";
+let PRINT_CONFIG_FILE_NAME = "Metadata/project_settings.config"; 
 function GCODE_FILE_NAME(num = 0) { return PLATE_FILE_NAME_PREFIX + (num + 1) + ".gcode" };
 
 window.loadedGcode = false;
@@ -72,19 +73,19 @@ function processGcode(lines) {
             if (line.includes("filament end gcode")) {
                 addPause = true;
             }
-            if (foundStart) {
-                if (line.includes("; FLUSH_START")) {
-                    read = false;
-                }
-                if (line.includes("; FLUSH_END")) {
-                    read = true;
-                    foundStart = false;
-                    skipThis = true;
-                }
-            }
+            //if (foundStart) {
+            //    if (line.includes("; FLUSH_START")) {
+            //        read = false;
+            //    }
+            //    if (line.includes("; FLUSH_END")) {
+            //        read = true;
+            //        foundStart = false;
+            //        skipThis = true;
+            //    }
+            //}
             if (read && !skipThis) {
                 out.push(line);
-                if (addPause && pauses < window.pauses) {
+                if (addPause /*&& pauses < window.pauses*/) {
                     pauses++;
                     addPause = false;
                     out.push(PAUSE);
@@ -206,15 +207,24 @@ $("#go").click(() => {
 
     JSZip.loadAsync(f).then((zip) => {
         let fname = GCODE_FILE_NAME(sel - 1);
-        console.log(fname);
+       
         zip.files[fname].async("string").then(data => {
             let out = processGcode(data);
             zip.file(fname, out);
+            zip.file(fname + ".md5", md5(out));
 
-            zip.generateAsync({type:"blob"})
-                .then(function(content) {
-                saveAs(content, f.name);
-}           );
+            zip.files[PRINT_CONFIG_FILE_NAME].async("string").then(conf => {
+                let cfg = JSON.parse(conf);
+                let ends = cfg["filament_end_gcode"];
+                for (let i = 0; i < ends.length; i++) {
+                    cfg["filament_end_gcode"][i] = "; filament end gcode \nM400 U1\n\n";
+                }
+                let str = JSON.stringify(cfg);
+
+                zip.file(PRINT_CONFIG_FILE_NAME, str);
+
+                zip.generateAsync({type:"blob"}).then(content => saveAs(content, f.name));
+            });
         });
     }).catch(e => {
         alert("Something went wrong!\n\n" + e.message);
