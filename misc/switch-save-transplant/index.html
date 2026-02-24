@@ -1,0 +1,103 @@
+---
+layout: scroll-indicator
+title: Moving Save Files between SysMMC and EmuMMC without launching HOS
+permalink: /misc/switch-save-transplant/
+---
+
+<h1>Moving Save Files between SysMMC and EmuMMC without launching HOS</h1>
+<hr />
+<h2 class="anchored">Preface</h2>
+<div>
+  <span class="fw-bold">Use at your own risk!!</span> It is currently unknown if any of this is bannable in any way, and I also don't know if it will work on future versions of HOS/once your SysMMC and EmuMMC versions no longer match. This process involves working with files on the eMMC directly, and as such backups are strongly recommended. This guide is not for the faint of heart, and you follow it entirely at your own risk. By continuing to follow this guide, you acknowledge that you and you alone are responsible for any ill fate that may befall your system, game saves, or Nintendo Account.
+  <br />
+  <br />
+  Parts of this guide are sourced from <a class="text-info" href="https://wiki.hacks.guide/wiki/User:HunterMario/SwitchSaveExtraction">HunterMario's Switch Save Extraction Guide</a>, licensed under <a class="text-info" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, and as such this guide is under the same license.
+</div>
+<br />
+<div>
+  <h2 class="anchored">The Guide</h2>
+  <span class="fw-bold">
+    Here&apos;s what you&apos;ll need:
+  </span>
+  <br />
+  <ul class="list-group list-unstyled">
+    <li class="list-group-item bg-dark text-light">
+      <input id="tegraexplorer" class="form-check-input me-1" type="checkbox">
+      <label for="tegraexplorer">The latest release of <a class="text-info" href="https://github.com/suchmememanyskill/TegraExplorer/releases">TegraExplorer</a></label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="keys" class="form-check-input me-1" type="checkbox">
+      <label for="keys">Your <code>prod.keys</code> file</label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="python3" class="form-check-input me-1" type="checkbox">
+      <label for="python3"><a class="text-info" href="https://www.python.org/downloads/">Python 3.6 or higher</a>, installed and added to your PATH</label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="saveextract" class="form-check-input me-1" type="checkbox">
+      <label for="saveextract">The latest release of <a class="text-info" href="https://github.com/HunterMario/SaveExtract/releases/tag/1.1.0">SaveExtract</a></label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="hactool" class="form-check-input me-1" type="checkbox">
+      <label for="hactool">The latest release of <a class="text-info" href="https://github.com/SciresM/hactool" target="_blank">hactool</a>, if you use an operating system other than Windows</label>
+    </li>
+    <li class="list-group-item bg-dark text-light">
+      <input id="patience" class="form-check-input me-1" type="checkbox">
+      <label for="patience">A good amount of patience</label>
+    </li>
+  </ul>
+  <br />
+  <div>
+    <h3>Step 1: Exporting your Saves</h3>
+    <ul>
+      <li>Put the <code>TegraExplorer.bin</code> file in the <code>bootloader/payloads/</code> folder.</li>
+      <li>Launch TegraExplorer by injecting hekate, selecting <code>Payloads</code>, and then selecting <code>TegraExplorer.bin</code>.</li>
+      <li>If you wish to export your saves from <span class="fw-bold">SysMMC</span>, select <code>Browse EMMC</code>. If you wish to export your saves from <span class="fw-bold">EmuMMC</span>, select <code>Browse EMUMMC</code>.</li>
+      <li>Select <code>USER</code> and enter it.</li>
+      <li>Select <code>save</code> and enter it.</li>
+      <li>Select <code>Current folder options</code> (orange option near the top of the list), then <code>Copy to clipboard</code>. Ensure you click Copy and not Move.</li>
+      <li>Back out to the main menu.</li>
+      <li>Select <code>Browse SD</code>.</li>
+      <li>Select <code>Clipboard -> Current folder</code> (orange option near the top of the list) and wait for the operation to finish. This may take some time depending on your system and SD card.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <h3>Step 2: Extracting your Saves</h3>
+    <ul>
+      <li>Unzip <code>SaveExtract.zip</code> to a known location on your computer.</li>
+      <li>Put your <code>prod.keys</code> file in the <code>SaveExtract</code> folder.</li>
+      <li>Move the <code>save</code> folder you got in Step 1 into the <code>SaveExtract</code> folder on your computer. This can either be done by selecting <code>Unmount SD</code> in the TegraExplorer menu and moving the SD card from your switch to your computer, or by selecting <code>Reboot to bootloader/update.bin</code> and moving the folder with hekate's USB Tools.</li>
+      <li>If you are not on Windows, add <code>hactool</code> to your PATH. Windows users do not need to worry about this step.</li>
+      <li>Open a terminal window in the <code>SaveExtract</code> folder and run <code>py extract.py</code> on windows or <code>python3 extract.py</code> on other operating systems.</li>
+      <li>While the script is running, you will likely see a lot of lines starting with <code>[WARN]: Failed to match key "&lt;key_name&gt;", (value "&lt;key_value&gt;")</code>. This is normal and these lines can be safely ignored.</li>
+      <li>Your extracted and decrypted saves will now be in the <code>out</code> folder in the <code>SaveExtract</code> folder. We don't actually need these for this guide, but if you want </li>
+      <li>Ignoring the lines starting with <code>[WARN]</code>, sift through the program output and look for lines that have <code>internal_save_number =&gt; game_title_id</code>, such as <code>0000000000000059 => 01008DB008C2C000</code>. It may be beneficial to copy/paste the output into a text editor and use the search or find functions to locate your target Title ID.</li>
+      <li>Make note of the value on the left side of the arrow where the right side matches your desired Title ID. In some cases, there will be multiple. Note down all of them if so. For the purposes of this guide, I will be targeting Pok&eacute;mon Shield (Title ID: <code>01008DB008C2C000</code>), and have the following matches in my output: <code>0000000000000059 => 01008DB008C2C000</code>, <code>0000000000000166 => 01008DB008C2C000</code>, <code>00000000000001db => 01008DB008C2C000</code>, and <code>00000000000001f0 => 01008DB008C2C000</code>.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <h3>Step 3: Transplating your Saves</h3>
+    <ul>
+      <li>(Re-)launch TegraExplorer on your Switch.</li>
+      <li>If you want to move save files from <span class="fw-bold">SysMMC to EmuMMC</span>, select <code>Browse EMMC</code>. If you want to move save files from <span class="fw-bold">EmuMMC to SysMMC</span>, select <code>Browse EMUMMC</code>.</li>
+      <li>Select <code>USER</code> and enter it.</li>
+      <li>Select <code>save</code> and enter it.</li>
+      <li>One at a time, find the files of interest from Step 2 in this folder, select them, and choose <code>Copy to clipboard</code>. It is very important that you choose Copy and not Move.</li>
+      <li>With this file on your clipboard, go back to the main menu in TegraExplorer and choose <code>Browse SD</code>.</li>
+      <li>Paste the file to your SD card by choosing <code>Clipboard -> Current folder</code>. Repeat the above points for all of the relevant files.</li>
+      <li>One at a time, select the newly-pasted files on the SD card and choose <code>Copy to clipboard</code>.</li>
+      <li>Back out to the main menu.</li>
+      <li>If you are moving save files from <span class="fw-bold">Sys to EmuMMC</span>, select <code>Browse EMUMMC</code>. If you are moving save files from <span class="fw-bold">EmuMMC to SysMMC</span>, select <code>Browse EMMC</code>.</li>
+      <li>Select <code>USER</code>, then <code>Clipboard -> Current Folder</code>. The file should be pasted below the <code>saveMeta</code> folder.</li>
+      <li>Enter the <code>save</code> folder, then find the file with the same name as the one you just pasted.</li>
+      <li>Select this file and choose <code>Delete file</code>, and confirm by choosing <code>yes</code>.</li>
+      <li>Back out to the previous folder, select the file you pasted there, and choose <code>Move to clipboard</code>. Do not Copy to clipboard this time, use Move instead.</li>
+      <li>Select <code>save</code> again, then <code>Clipboard -> Current folder</code>. The file you just deleted from here will be replaced with he new one.</li>
+      <li>Repeat the above for every file you moved on to the SD card earlier.</li>
+      <li>Once done, you can remove the files from your SD card if you desire.</li>
+    </ul>
+  </div>
+</div>
+<br />
