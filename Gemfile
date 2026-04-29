@@ -13,6 +13,8 @@ platforms :windows, :jruby do
   gem "tzinfo-data"
 end
 
+gem "wdm", ">= 0.1.0"
 gem "webrick"
 gem "bigdecimal" # Newer Ruby versions don't install this by default, apparently
 gem "csv" # Same with this
+gem "fiddle" #...and this
