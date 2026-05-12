@@ -59,6 +59,15 @@ var data = [
         workflowfile: "dotnet-desktop.yml"
     },
     {
+        title: "TouchNS",
+        user: "legofigure11",
+        repo: "touchns",
+        branch: "main",
+        image: "/TouchNS/README.png",
+        workflowfile: "dotnet-desktop.yml"
+        desc: "App to help with figuring out touch coordinates for sending sys-botbase commands. Also features touchscreen keyboard utilities, available in the TouchNS.Core subproject."
+    },
+    {
         title: "ZATradePartnerViewer",
         user: "legofigure11",
         repo: "zatradepartnerviewer",
