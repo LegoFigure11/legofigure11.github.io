@@ -1,0 +1,19 @@
+---
+layout: default
+title: Desktop Tools Index
+permalink: /tools/desktop/
+---
+<h1>Desktop Tools Index</h1>
+
+<hr />
+<div id="index-container" class="d-grid gap3">
+    
+</div>
+<script src="./page.js"></script>
+<script>
+    for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        var html = generateListItem(item);
+        document.getElementById("index-container").appendChild(html);
+    }
+</script>
