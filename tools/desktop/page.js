@@ -64,7 +64,7 @@ var data = [
         repo: "touchns",
         branch: "main",
         image: "/TouchNS/README.png",
-        workflowfile: "dotnet-desktop.yml"
+        workflowfile: "dotnet-desktop.yml",
         desc: "App to help with figuring out touch coordinates for sending sys-botbase commands. Also features touchscreen keyboard utilities, available in the TouchNS.Core subproject."
     },
     {
