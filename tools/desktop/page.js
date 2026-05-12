@@ -55,7 +55,8 @@ var data = [
         repo: "outbreaker",
         branch: "main",
         desc: "Quick-n-dirty sys-botbase-powered Outbreak Resetter for Pokémon Scarlet & Violet for the Nintendo Switch.",
-        image: "/Outbreaker/README.png"
+        image: "/Outbreaker/README.png",
+        workflowfile: "dotnet-desktop.yml"
     },
     {
         title: "ZATradePartnerViewer",
@@ -63,7 +64,8 @@ var data = [
         repo: "zatradepartnerviewer",
         branch: "main",
         desc: "sys-botbase Trade Partner info viewer for PS! Wi-Fi's Official Giveaways.",
-        image: "/ZATradePartnerViewer/README.png"
+        image: "/ZATradePartnerViewer/README.png",
+        workflowfile: "dotnet-desktop.yml"
     }
 ];
 
