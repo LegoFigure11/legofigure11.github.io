@@ -5,10 +5,14 @@
 </div>
 
 <script>
+  var pagepath = window.location.pathname;
+  if (pagepath.includes("/tools/") && !pagepath.endsWith("/tools/") && !pagepath.includes("desktop")) {
+    pagepath = pagepath.replace("/tools/", "/tools/web/");
+  }
   $("#source").prop(
     "href",
     "https://github.com/LegoFigure11/legofigure11.github.io/tree/master" +
-      window.location.pathname +
+      pagepath +
       "index.html",
   );
   $("#version").prop(
