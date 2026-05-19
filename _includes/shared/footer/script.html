@@ -49,7 +49,7 @@
         event.preventDefault(); // Prevent default link behavior
 
         const imageSrc = link.getAttribute("data-image"); // Get image URL from data attribute
-        popupImage.src = imageSrc; // Set the popup image source
+        popupImage.src = xssEscape(imageSrc); // Set the popup image source
         popup.style.display = "flex"; // Show the popup modal
       });
     });
