@@ -1,0 +1,640 @@
+---
+layout: no-ads
+title: Simplified Pokemon Game
+permalink: /misc/simplified-pokemon-game/
+container_width: 1200
+no_jirachi: true
+---
+
+<div id="setup">
+  <h1>Players:</h1>
+  <div class="container-fluid">
+    <div id="players">
+      <div class="row" id="chickens">
+        <div class="col h4">Nobody here but us chickens!</div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col col-4">
+        <button
+          id="remove-player"
+          class="form-control btn btn-outline-danger w-100"
+        >
+          - Remove Player
+        </button>
+      </div>
+      <div class="col col-8">
+        <button id="add-player" class="form-control btn btn-success w-100">
+          + Add Player
+        </button>
+      </div>
+    </div>
+    <div class="row d-none" id="start-row">
+      <div class="col mt-2">
+        <button id="start" class="form-control btn btn-info">
+          Start Game!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="player-container" class="d-none row"></div>
+
+<div id="questions-container" class="container mt-5 d-none" style="max-width: 700px">
+  <div class="row row-cols-4 text-center">
+    <div class="col">
+      <a id="qpoke0" class="question"
+        ><img
+          id="poke0"
+          class="image-responsive"
+          src="./game/icon/poke.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qpoke1" class="question"
+        ><img
+          id="poke1"
+          class="image-responsive"
+          src="./game/icon/poke.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qpoke2" class="question"
+        ><img
+          id="poke2"
+          class="image-responsive"
+          src="./game/icon/poke.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qpoke3" class="question"
+        ><img
+          id="poke3"
+          class="image-responsive"
+          src="./game/icon/poke.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+  </div>
+  <div class="row row-cols-5 text-center">
+    <div class="col col1"></div>
+    <div class="col">
+      <a id="qpoke4" class="question"
+        ><img
+          id="poke4"
+          class="image-responsive"
+          src="./game/icon/poke.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qpoke5" class="question"
+        ><img
+          id="poke5"
+          class="image-responsive"
+          src="./game/icon/poke.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qpoke6" class="question"
+        ><img
+          id="poke6"
+          class="image-responsive"
+          src="./game/icon/poke.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col col1"></div>
+  </div>
+  <hr />
+  <div class="row row-cols-4 text-center mt-4">
+    <div class="col">
+      <a id="qgreat0" class="question"
+        ><img
+          id="great0"
+          class="image-responsive"
+          src="./game/icon/great.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qgreat1" class="question"
+        ><img
+          id="great1"
+          class="image-responsive"
+          src="./game/icon/great.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qgreat2" class="question"
+        ><img
+          id="great2"
+          class="image-responsive"
+          src="./game/icon/great.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qgreat3" class="question"
+        ><img
+          id="great3"
+          class="image-responsive"
+          src="./game/icon/great.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+  </div>
+  <div class="row row-cols-5 text-center">
+    <div class="col col1"></div>
+    <div class="col">
+      <a id="qgreat4" class="question"
+        ><img
+          id="great4"
+          class="image-responsive"
+          src="./game/icon/great.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qgreat5" class="question"
+        ><img
+          id="great5"
+          class="image-responsive"
+          src="./game/icon/great.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qgreat6" class="question"
+        ><img
+          id="great6"
+          class="image-responsive"
+          src="./game/icon/great.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col col1"></div>
+  </div>
+  <hr />
+  <div class="row row-cols-4 text-center mt-4">
+    <div class="col">
+      <a id="qultra0" class="question"
+        ><img
+          id="ultra0"
+          class="image-responsive"
+          src="./game/icon/ultra.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qultra1" class="question"
+        ><img
+          id="ultra1"
+          class="image-responsive"
+          src="./game/icon/ultra.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qultra2" class="question"
+        ><img
+          id="ultra2"
+          class="image-responsive"
+          src="./game/icon/ultra.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qultra3" class="question"
+        ><img
+          id="ultra3"
+          class="image-responsive"
+          src="./game/icon/ultra.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+  </div>
+  <div class="row row-cols-5 text-center">
+    <div class="col col1"></div>
+    <div class="col">
+      <a id="qultra4" class="question"
+        ><img
+          id="ultra4"
+          class="image-responsive"
+          src="./game/icon/ultra.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qultra5" class="question"
+        ><img
+          id="ultra5"
+          class="image-responsive"
+          src="./game/icon/ultra.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col">
+      <a id="qultra6" class="question"
+        ><img
+          id="ultra6"
+          class="image-responsive"
+          src="./game/icon/ultra.png"
+          height="100"
+          width="100"
+      /></a>
+    </div>
+    <div class="col col1"></div>
+  </div>
+</div>
+
+<script>
+  var players = [];
+  $("#start").click(() => {
+    localStorage.removeItem("spg-playercount");
+    localStorage.removeItem("spg-turn");
+    for (var i = 0; i < 7; i++) localStorage.removeItem("player" + i);
+
+    var files = [];
+    for (var i = 0; i < players.length; i++) {
+      var elidx = i + 1;
+      players[i].name = $("#player" + elidx + "-name").val();
+      if (!players[i].name || players[i].name.trim() === "")
+        return alert("Player " + elidx + " is missing a name!");
+      var file = document.getElementById("player" + elidx + "-img").files?.[0];
+      if (file) files.push(file);
+      else return alert("Player " + elidx + " is missing a pfp!");
+    }
+
+    tobase64Handler(files).then((f) => {
+      for (var i = 0; i < f.length; i++) {
+        players[i].pfp = f[i].selectedFile;
+      }
+      localStorage.setItem("spg-playercount", players.length);
+      $("#setup").addClass("d-none");
+      $("#player-container").removeClass("d-none");
+      setup();
+    });
+  });
+
+  function setup() {
+    var container = document.getElementById("player-container");
+    var ct = +localStorage.getItem("spg-playercount");
+    container.classList.add("row-cols-" + ct);
+
+    for (var i = 0; i < ct; i++) {
+      var playerdata = players[i];
+
+      var div = document.createElement("div");
+      div.classList.add("col");
+      container.appendChild(div);
+
+      var card = document.createElement("div");
+      card.classList.add("card", "text-light", "bg-dark", "text-center");
+      div.appendChild(card);
+
+      var img = document.createElement("img");
+      img.src = playerdata.pfp;
+      img.width = 200;
+      img.height = 200;
+      img.classList.add("card-img-top");
+      card.appendChild(img);
+
+      var cardbody = document.createElement("div");
+      card.classList.add("card-body");
+      card.appendChild(cardbody);
+
+      var h5 = document.createElement("h5");
+      h5.classList.add("card-title");
+      h5.innerText = playerdata.name;
+      cardbody.appendChild(h5);
+
+      var pts = document.createElement("p");
+      pts.id = "player" + (i + 1) + "-points";
+      pts.classList.add("card-text");
+      pts.innerText = playerdata.points;
+      cardbody.appendChild(pts);
+    }
+
+    redrawBalls();
+  }
+
+  function checkWinner() {
+    var total = 21;
+    var ct = 0;
+    var keys = ["poke", "great", "ultra"];
+    for (var i = 0; i < 7; i++) {
+      for (var k = 0; k < keys.length; k++) {
+        var key = keys[k];
+        if (questions[key][i] === 1) ct++;
+      }
+    }
+
+    if (ct === total) {
+      var max = 0;
+      for (var i = 0; i < players.length; i++) {
+        var player = players[i];
+        if (player.points > max) max = player.points;
+      }
+
+      var winners = [];
+      for (var i = 0; i < players.length; i++) {
+        var player = players[i];
+        if (player.points === max) winners.push(player.name);
+      }
+
+      alert(
+        "Congratulations to " +
+          winners.join(" & ") +
+          " for winning with " +
+          max +
+          " points!",
+      );
+    }
+  }
+
+  var qPoints = 0;
+  var qType;
+  var qNum;
+
+  var gTurn = 0;
+  var cTurn = 0;
+
+  $(".question").click(function () {
+    var id = this.id;
+
+    var num = +id.at(-1);
+    var type = "";
+    if (id.includes("poke")) {
+      type = "poke";
+      qPoints = 1;
+    }
+    if (id.includes("great")) {
+      type = "great";
+      qPoints = 2;
+    }
+    if (id.includes("ultra")) {
+      type = "ultra";
+      qPoints = 3;
+    }
+
+    if (questions[type][num] === 0) {
+      showQuestion(type, num);
+      qType = type;
+      qNum = num;
+      questions[type][num] = 1;
+      redrawBalls();
+    }
+  });
+
+  var questions = {
+    poke: [0, 0, 0, 0, 0, 0, 0],
+    great: [0, 0, 0, 0, 0, 0, 0],
+    ultra: [0, 0, 0, 0, 0, 0, 0],
+  };
+
+  function showQuestion(type, num) {
+    cTurn = gTurn;
+    gTurn = (gTurn + 1) % players.length;
+    setTurn(cTurn);
+    var imgpath = "./game/" + type + "/" + num + ".png";
+    popupImageg.src = imgpath;
+    popupg.style.display = "flex";
+  }
+
+  var cPlayer = 0;
+  function setTurn(counter) {
+    var el = document.getElementById("guesser");
+    cPlayer = counter;
+    guesser.textContent = players[counter]?.name + "'s Turn!";
+    counter = (counter + 1) % players.length;
+    cTurn = counter;
+  }
+
+  function addPoints(pl, points) {
+    players[pl].points += points;
+    document.getElementById("player" + (pl + 1) + "-points").textContent =
+      players[pl].points;
+  }
+
+  function redrawBalls() {
+    $("#questions-container").removeClass("d-none");
+
+    for (var i = 0; i < 7; i++) {
+      var keys = ["poke", "great", "ultra"];
+      for (var k = 0; k < keys.length; k++) {
+        var key = keys[k];
+
+        var el = document.getElementById(key + i);
+        if (questions[key][i] === 1) {
+          el.src = "./game/icon/" + key + "_bw.png";
+        } else {
+          el.src = "./game/icon/" + key + ".png";
+        }
+      }
+    }
+  }
+
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  }
+
+  async function tobase64Handler(files) {
+    const filePathsPromises = [];
+    files.forEach((file) => {
+      filePathsPromises.push(this.toBase64(file));
+    });
+    const filePaths = await Promise.all(filePathsPromises);
+    const mappedFiles = filePaths.map((base64File) => ({
+      selectedFile: base64File,
+    }));
+    return mappedFiles;
+  }
+
+  $("#remove-player").click(() => {
+    if (players.length == 0) {
+      return;
+    }
+
+    var container = document.getElementById("players");
+    container.removeChild(container.lastChild);
+    players.pop();
+    if (players.length == 0) $("#chickens").removeClass("d-none");
+    if (players.length == 1) $("#start-row").addClass("d-none");
+  });
+
+  $("#add-player").click(() => {
+    $("#chickens").addClass("d-none");
+    if (players.length == 8) return;
+
+    players.push({ name: "", points: 0, pfp: "" });
+    var container = document.getElementById("players");
+    if (players.length == 2) $("#start-row").removeClass("d-none");
+
+    var div = document.createElement("div");
+    div.classList.add("row", "mb-2");
+    container.appendChild(div);
+
+    var col0 = document.createElement("div");
+    col0.classList.add("col", "col-1", "h2");
+    col0.textContent = "P" + players.length;
+    div.appendChild(col0);
+
+    var col1 = document.createElement("div");
+    col1.classList.add("col", "col-6");
+    div.appendChild(col1);
+
+    var txt = document.createElement("input");
+    txt.type = "text";
+    txt.classList.add("form-control", "bg-dark", "text-light", "w-100");
+    txt.placeholder = "Player " + players.length + " Name";
+    txt.id = "player" + players.length + "-name";
+    col1.appendChild(txt);
+
+    var col2 = document.createElement("div");
+    col2.classList.add("col", "col-5");
+    div.appendChild(col2);
+
+    var img = document.createElement("input");
+    col2.appendChild(img);
+    img.type = "file";
+    img.classList.add("form-control", "bg-dark", "text-light", "w-100");
+    img.placeholder = "Player " + players.length + " PFP";
+    img.id = "player" + players.length + "-img";
+    img.dataset.idx = players.length - 1;
+    img.accept = "image/*";
+  });
+</script>
+
+<div id="image-popup-g" class="popup">
+  <span class="popup-close popup-close-g">&times;</span>
+  <div id="winner-button-container container">
+    <div class="row">
+      <img
+        id="popup-image-g"
+        class="popup-image image-responsive"
+        src=""
+        alt="Image not available"
+      />
+      <br />
+    </div>
+    <div class="row mt-2 h2 text-center">
+      <div id="guesser" class="col">player's Turn!</div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <button id="guess-correct" class="btn btn-success w-100">
+          Correct!
+        </button>
+      </div>
+      <div class="col">
+        <button id="guess-wrong" class="btn btn-outline-danger w-100">
+          Wrong!
+        </button>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <button id="guess-skip" class="btn btn-outline-warning w-100">
+          Give Up!
+        </button>
+      </div>
+      <div class="col">
+        <button id="guess-reveal" class="btn btn-info w-100">
+          Reveal Answer!
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const popupg = document.getElementById("image-popup-g");
+    const popupImageg = document.getElementById("popup-image-g");
+    const closePopupElementg = document.querySelector(".popup-close-g");
+
+    function closePopupg(reset = false) {
+      if (popupg) {
+        popupg.style.display = "none";
+        popupImageg.src = "";
+        if (reset) {
+          questions[qType][qNum] = 0;
+          redrawBalls();
+        }
+      }
+    }
+
+    // Add event listener to close button
+    if (closePopupElementg) {
+      closePopupElementg.addEventListener("click", () => {
+        closePopupg(true);
+      });
+    }
+
+    /*
+  // Close the popup when clicking outside the image
+  if (popupg) {
+    popupg.addEventListener("click", (event) => {
+      if (event.target === popupg) {
+        closePopupg();
+      }
+    });
+  }
+  */
+
+    $(document).keydown((e) => {
+      if (e.keyCode === 27) {
+        // esc
+        closePopupg(true);
+      }
+    });
+
+    $("#guess-wrong").click(() => {
+      setTurn(cTurn);
+    });
+
+    $("#guess-correct").click(() => {
+      addPoints(cPlayer, qPoints);
+      closePopupg(false);
+      checkWinner();
+    });
+
+    $("#guess-skip").click(() => {
+      closePopupg(false);
+      checkWinner();
+    });
+
+    $("#guess-reveal").click(() => {
+        popupImageg.src = popupImageg.src.replace(".png", "a.png");
+    });
+  </script>
+</div>
