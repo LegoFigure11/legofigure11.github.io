@@ -1,0 +1,228 @@
+---
+layout: default
+title: SwSh Weather
+permalink: /misc/swsh-weather/
+---
+
+<script src="./date.js"></script>
+<script src="./weathers.js"></script>
+<script src="./weathertables.js"></script>
+
+<div>
+  <h1>Search:</h1>
+  <div class="container-fluid">
+    <div id="searchrows">
+      <div class="row">
+        <div class="col">
+          <label for="locationInput0" class="form-label">Select Location</label>
+          <select
+            class="form-control bg-dark text-light locationinput"
+            onchange="addWeathers(this)"
+            id="locationInput0"
+          ></select>
+        </div>
+        <div class="col">
+          <label for="weatherInput0" class="form-label">Select Weather</label>
+          <select
+            class="form-control bg-dark text-light weatherinput"
+            id="weatherInput0"
+          ></select>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col col-4">
+        <button
+          id="remove-row"
+          class="form-control btn btn-outline-danger w-100 disabled"
+        >
+          - Remove Row
+        </button>
+      </div>
+      <div class="col col-8">
+        <button id="add-row" class="form-control btn btn-success w-100">
+          + Add Row
+        </button>
+      </div>
+    </div>
+    <div class="row" id="search-row">
+      <div class="col mt-2">
+        <button id="search" class="form-control btn btn-info">
+          Search Dates!
+        </button>
+      </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <textarea id="results" class="form-control text-light bg-dark font-monospace w-100" rows="7" contenteditable="false"></textarea>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="check" class="mt-4">
+  <h1>Check:</h1>
+  <div class="container-fluid">
+    <div class="mb-3">
+      <div class="row">
+        <div class="col">
+          <label for="dateInput" class="form-label">Select Date</label>
+          <input
+            type="date"
+            class="form-control bg-dark text-light search-trigger"
+            id="dateInput"
+          />
+        </div>
+        <div class="col">
+          <label for="locationInputSearch" class="form-label">Select Location</label>
+          <select
+            class="form-control bg-dark text-light search-trigger"
+            id="locationInputSearch"
+          ></select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>Forecast: <span id="forecast"></span></h4>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let rows = 1;
+
+  $("#remove-row").click(function() {
+    if (rows === 2) this.classList.add("disabled");
+    if (rows === 1) return;
+
+    rows--;
+    const container = document.getElementById("searchrows");
+    container.removeChild(container.lastChild);
+  });
+
+  $("#add-row").click(function() {
+    const container = document.getElementById("searchrows");
+
+    const row = document.createElement("div");
+    row.classList.add("row", "mt-2");
+    container.appendChild(row);
+
+    const col1 = document.createElement("div");
+    col1.classList.add("col");
+    row.appendChild(col1);
+
+    const col2 = document.createElement("div");
+    col2.classList.add("col");
+    row.appendChild(col2);
+
+    const areaSelect = document.createElement("select");
+    const weatherSelect = document.createElement("select");
+
+    areaSelect.id = "locationInput" + rows;
+    weatherSelect.id = "weatherInput" + rows;
+
+    areaSelect.classList.add("form-control", "bg-dark", "text-light", "locationinput");
+    weatherSelect.classList.add("form-control", "bg-dark", "text-light", "weatherinput");
+
+    col1.appendChild(areaSelect);
+    col2.appendChild(weatherSelect);
+
+    addLocations(areaSelect);
+    addWeathers(areaSelect);
+
+    $(areaSelect).change(function() {
+        addWeathers(this);
+    });
+
+    rows++;
+    if (rows >= 2) {
+        $("#remove-row").removeClass("disabled");
+    }
+  });
+
+  $("#search").click(function() {
+    const searchterms = [];
+    for (var i = 0; i < rows; i++) {
+        const area = document.getElementById("locationInput" + i);
+        const weather = document.getElementById("weatherInput" + i);
+
+        searchterms.push([area.value, weather.value]);
+    }
+
+    const results = [];
+    for (var i = 0; i < 366; i++) {
+        var pass = true;
+        for (var j = 0; j < searchterms.length; j++) {
+            if (tables[searchterms[j][0]][i] !== +searchterms[j][1]) {
+                pass = false;
+                break;
+            }
+        }
+        if (pass) {
+            results.push(getMonthDayFromIndex(i).join(" "));
+        }
+    }
+
+    $("#results").text("Found " + results.length + " result" + (results.length === 1 ? "" : "s") + "!\n" + results.join(", "));
+  });
+
+  function addLocations(select) {
+    let locations = Object.keys(tables).sort();
+
+    for (var i = 0; i < locations.length; i++) {
+      let opt = document.createElement("option");
+      opt.value = locations[i];
+      opt.textContent = locations[i];
+      if (i === 0) opt.selected = true;
+      select.appendChild(opt);
+    }
+  }
+
+  function addWeathers(select) {
+    let vals = tables[select.value];
+    let weathers = new Set();
+    for (var i = 0; i < vals.length; i++) {
+      let val = vals[i];
+      weathers.add(val);
+    }
+    weathers = Array.from(weathers).sort();
+    let sel = document.getElementById(select.id.replace("location", "weather"));
+    if (sel.options) sel.options.length = 0;
+    weathers.forEach((w) => {
+      let opt = document.createElement("option");
+      opt.value = w;
+      opt.text = getWeatherName(w);
+      sel.appendChild(opt);
+    });
+    sel.options[0].selected = true;
+  }
+
+  $("document").ready(() => {
+    const locin = document.getElementById("locationInput0");
+    addLocations(locin);
+    addWeathers(locin);
+
+    const search = document.getElementById("locationInputSearch");
+    addLocations(search);
+
+    const datin = document.getElementById("dateInput");
+    datin.value = toDateInputValue(new Date());
+
+    $(search).change();
+  });
+
+  $(".search-trigger").change(() => {
+    const date = document.getElementById("dateInput").value;
+    const area = document.getElementById("locationInputSearch").value;
+
+    const index = getDaysFromInput(date);
+
+    const table = tables[area];
+    const val = table[index];
+    const weather = getWeatherName(val);
+    const forecast = document.getElementById("forecast");
+    forecast.textContent = weather;
+  });
+</script>
