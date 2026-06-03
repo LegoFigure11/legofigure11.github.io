@@ -1,0 +1,99 @@
+---
+layout: default
+title: Log Cleaner
+permalink: /misc/log-cleaner/
+---
+
+<div class="form-group">
+  <input
+    type="file"
+    class="form-control bg-dark text-light"
+    id="formFile"
+    name="formFile"
+    accept=".txt"
+    multiple
+  />
+</div>
+<br />
+<hr />
+<br />
+<div class="form-group">
+  <textarea
+    class="text-light bg-dark font-monospace w-100 d-none"
+    id="results"
+    rows="30"
+    readonly="true"
+  ></textarea>
+</div>
+
+<script>
+  const fileInput = document.getElementById("formFile");
+  const output = document.getElementById("results");
+
+  fileInput.addEventListener("change", async (event) => {
+    output.textContent = "";
+    const files = event.target.files;
+    let obj = {};
+    let ct = 0;
+    let f = 0;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      try {
+        const text = await file.text(); // Read file content as text
+        const lines = text.split("\n");
+
+        for (const line of lines) {
+          let valid = line.includes("|");
+          if (!valid) continue;
+          let parts = line.split("|");
+          if (!parts[3]) continue;
+
+          let cols = parts[3].split(" ");
+          if (!cols[1]) continue;
+          if (!checkIsNum(cols[1])) continue;
+
+          let index = cols[1].replace(/\D/g, "");
+
+          let status = cols[2].replace(/[^a-z0-9]/gi, "");
+          let x = cols[3].replace(/[^0-9.\-f()]/g, "");
+          let y = cols[4].replace(/[^0-9.\-f()]/g, "");
+          let z = cols[5].replace(/[^0-9.\-f()]/g, "");
+
+          if (obj[index]) {
+            if (obj[index][0] === "FAILED" && status !== "FAILED")
+              obj[index] = [status, x, y, z];
+          } else {
+            obj[index] = [status, x, y, z];
+          }
+        }
+      } catch (error) {
+        console.error("Error reading file:", error);
+      }
+    }
+
+    obj = Object.keys(obj)
+      .sort()
+      .reduce((accumulator, key) => {
+        accumulator[key] = obj[key];
+        return accumulator;
+      }, {});
+
+    const keys = Object.keys(obj);
+    for (; ct < keys.length; ct++) {
+      if (ct !== 0) output.textContent += "\n";
+      let key = keys[ct];
+      let e = obj[key];
+      if (e[0] === "FAILED") f++;
+      output.textContent += `${key}\t${e[0]}\t${e[1]}\t${e[2]}\t${e[3]}`;
+    }
+
+    output.classList.remove("d-none");
+    alert(`Processed files: ${files.length}\nProcessed lines: ${ct}\nFailures: ${f} (${((f / ct) * 100).toFixed(2)}%)`);
+  });
+
+  function checkIsNum(str) {
+    if (str.includes(".")) return false;
+    str = str.replace(/\D/g, "");
+    return str.length > 0;
+  }
+</script>
