@@ -78,15 +78,16 @@ permalink: /misc/log-cleaner/
         return accumulator;
       }, {});
 
+    let str = [];
     const keys = Object.keys(obj);
     for (; ct < keys.length; ct++) {
-      if (ct !== 0) output.textContent += "\n";
       let key = keys[ct];
       let e = obj[key];
       if (e[0] === "FAILED") f++;
-      output.textContent += `${key}\t${e[0]}\t${e[1]}\t${e[2]}\t${e[3]}`;
+      str.push(`${key}\t${e[0]}\t${e[1]}\t${e[2]}\t${e[3]}`);
     }
 
+    output.textContent = str.join("\n");
     output.classList.remove("d-none");
     alert(`Processed files: ${files.length}\nProcessed lines: ${ct}\nFailures: ${f} (${((f / ct) * 100).toFixed(2)}%)`);
   });
