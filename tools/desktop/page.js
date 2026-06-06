@@ -36,7 +36,7 @@ var data = [
         workflowfile: "dotnet-desktop.yml",
         branch: "main",
         guide: "https://billo-guides.github.io/",
-        desc: "RNG Tool and sys-botbase client for Static and Over-World Legendaries (OWLs) in Pokémon Legends: Arceus for the Nintendo Switch",
+        desc: "RNG Tool and sys-botbase client for Static and Over-World Legendaries (OWLs) in Pokémon Legends: Arceus for the Nintendo Switch.",
         image: "/ParLiAment/README.png"
     },
     {
