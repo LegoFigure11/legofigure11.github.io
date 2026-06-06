@@ -56,7 +56,8 @@ var data = [
         workflowfile: "dotnet-desktop.yml",
         branch: "main",
         image: "/PickyUppy/README.png",
-        desc: "RNG Tool and sys-botbase client for Floor Items in Pokémon Let's GO! Pikachu & Eevee for the Nintendo Switch."
+        desc: "RNG Tool and sys-botbase client for Floor Items in Pokémon Let's GO! Pikachu & Eevee for the Nintendo Switch.",
+        guide: "https://billo-guides.github.io/",
     },
     {
         title: "Outbreaker",
