@@ -50,6 +50,15 @@ var data = [
         image: "/GRASS/readme.png"
     },
     {
+        title: "PickyUppy",
+        user: "LegoFigure11",
+        repo: "pickyuppy",
+        workflowfile: "dotnet-desktop.yml",
+        branch: "main",
+        image: "/PickyUppy/README.png",
+        desc: "RNG Tool and sys-botbase client for Floor Items in Pokémon Let's GO! Pikachu & Eevee for the Nintendo Switch."
+    },
+    {
         title: "Outbreaker",
         user: "legofigure11",
         repo: "outbreaker",
