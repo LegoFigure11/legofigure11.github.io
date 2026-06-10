@@ -90,6 +90,37 @@ permalink: /misc/swsh-weather/
   </div>
 </div>
 
+<div id="check" class="mt-4">
+  <h1>Calculate:</h1>
+  <div class="container-fluid">
+    <div class="mb-3">
+      <div class="row">
+        <div class="col">
+          <label for="today" class="form-label">Today's Date</label>
+          <input
+            type="date"
+            class="form-control bg-dark text-light diff-trigger"
+            id="today"
+          />
+        </div>
+        <div class="col">
+          <label for="target" class="form-label">Target Date</label>
+          <input
+            type="date"
+            class="form-control bg-dark text-light diff-trigger"
+            id="target"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>Difference: <span id="passed"></span></h4>
+        </div>
+    </div>
+  </div>
+</div>
+
 <script>
   let rows = 1;
 
@@ -207,10 +238,18 @@ permalink: /misc/swsh-weather/
     const search = document.getElementById("locationInputSearch");
     addLocations(search);
 
+    const date = toDateInputValue(new Date());
     const datin = document.getElementById("dateInput");
-    datin.value = toDateInputValue(new Date());
+    datin.value = date;
+
+    const today = document.getElementById("today");
+    today.value = date;
+
+    const tgt = document.getElementById("target");
+    tgt.value = date;
 
     $(search).change();
+    $(today).change();
   });
 
   $(".search-trigger").change(() => {
@@ -224,5 +263,26 @@ permalink: /misc/swsh-weather/
     const weather = getWeatherName(val);
     const forecast = document.getElementById("forecast");
     forecast.textContent = weather;
+  });
+
+  $(".diff-trigger").change(() => {
+    const todayVal = document.getElementById("today").value;
+    const tgtVal = document.getElementById("target").value;
+
+    if (!todayVal || !tgtVal) return;
+
+    const today = new Date(todayVal);
+    const tgt = new Date(tgtVal);
+
+    const day = 24 * 60 * 60 * 1000;
+    const diff = tgt - today;
+    const days = Math.round(Math.abs(diff) / day);
+
+    let sign = "";
+    if (diff > 0) sign = "+";
+    else if (diff < 0) sign = "-";
+
+    const out = document.getElementById("passed");
+    out.textContent = sign + days + " Day" + (days == 1 ? "" : "s");
   });
 </script>
