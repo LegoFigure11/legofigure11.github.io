@@ -7,513 +7,714 @@ nojirachi: "true"
 <h1>Glimmer &amp; Gloom</h1>
 <hr />
 
-<div class="row row-cols-md-2">
-<div class="col-md mb-2">
+<div class="row">
+  <div class="col-md mb-2">
     <div class="form-floating">
-    <select class="form-select bg-dark text-light" id="displaymode-select" aria-label="Display Mode Select">
-      <option id="opt-classic" value="classic">Classic</option>
-      <option id="opt-modern" value="modern" selected>Modern</option>
-      <option id="opt-classic-mirrored" value="classic-mirrored">Classic (Mirrored)</option>
-      <option id="opt-modern-mirrored" value="modern-mirrored">Modern (Mirrored)</option>
-    </select>
-    <label for="displaymode-select">Select board display mode...</label>
+      <select class="form-select bg-dark text-light" id="difficulty-select" aria-label="Difficulty Select">
+        <option id="opt-very-hard" value="very-hard" selected>Very Hard</option>
+        <option id="opt-hard" value="hard">Hard</option>
+      </select>
+      <label for="displaymode-select">Select game difficulty...</label>
+    </div>
   </div>
 </div>
-<div class="col-md">
-  <div class="form-floating">
-    <select class="form-select bg-dark text-light" id="faction-select" aria-label="Faction Select">
-      <option id="shadowWin" value="purple">Shadow</option>
-      <option id="lightWin" value="yellow" selected>Light</option>
-    </select>
-    <label for="faction-select">Select who you want to win...</label>
+<div class="row row-cols-md-2">
+  <div class="col-md mb-2">
+    <div class="form-floating">
+      <select class="form-select bg-dark text-light" id="displaymode-select" aria-label="Display Mode Select">
+        <option id="opt-classic" value="classic">Classic</option>
+        <option id="opt-modern" value="modern" selected>Modern</option>
+        <option id="opt-classic-mirrored" value="classic-mirrored">Classic (Mirrored)</option>
+        <option id="opt-modern-mirrored" value="modern-mirrored">Modern (Mirrored)</option>
+      </select>
+      <label for="displaymode-select">Select board display mode...</label>
+    </div>
   </div>
-</div>
+  <div class="col-md">
+    <div class="form-floating">
+      <select class="form-select bg-dark text-light" id="faction-select" aria-label="Faction Select">
+        <option id="shadowWin" value="purple">Shadow</option>
+        <option id="lightWin" value="yellow" selected>Light</option>
+      </select>
+      <label for="faction-select">Select who you want to win...</label>
+    </div>
+  </div>
 </div>
 
 <br />
-<div id="classic" class="w-100 d-flex row justify-content-center">
-  <div class="col table-responsive" style="max-width: 520px">
-    <table class="table table-borderless table-sm">
-      <tbody class="text-center h3">
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td id="result4">&#x2B22;</td>
-          <td id="result5">&#x2B22;</td>
-          <td id="result6">&#x2B22;</td>
-          <td id="result7">&#x2B22;</td>
-          <td id="result8">&#x2B22;</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td id="result3">&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td id="result2">&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td id="result1">&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td id="result0">&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td><label for="input8"><input id="input8" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td><label for="input7"><input id="input7" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td><label for="input6"><input id="input6" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td><label for="input5"><input id="input5" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><label for="input0"><input id="input0" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td><label for="input1"><input id="input1" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
-          <td><label for="input2"><input id="input2" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td><label for="input3"><input id="input3" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td><label for="input4"><input id="input4" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+<div id="very-hard">
+  <div id="classic" class="w-100 d-flex row justify-content-center">
+    <div class="col table-responsive" style="max-width: 520px">
+      <table class="table table-borderless table-sm">
+        <tbody class="text-center h3">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="result4">&#x2B22;</td>
+            <td id="result5">&#x2B22;</td>
+            <td id="result6">&#x2B22;</td>
+            <td id="result7">&#x2B22;</td>
+            <td id="result8">&#x2B22;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="result3">&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td id="result2">&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td id="result1">&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td id="result0">&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td><label for="input8"><input id="input8" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value="" checked></label></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td><label for="input7"><input id="input7" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td><label for="input6"><input id="input6" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value="" checked></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td><label for="input5"><input id="input5" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><label for="input0"><input id="input0" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td><label for="input1"><input id="input1" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value="" checked></label></td>
+            <td><label for="input2"><input id="input2" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td><label for="input3"><input id="input3" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td><label for="input4"><input id="input4" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="modern" class="w-100 d-flex row justify-content-center">
+    <div class="col table-responsive h3" style="max-width: 13em; min-width: 13em;">
+      <div class="row">
+        <div class="col gg-col gg-col-4"></div>
+        <div id="result4-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="result5-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="result6-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="result7-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="result8-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-4"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-3"></div>
+        <div id="result3-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-3"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2"></div>
+        <div id="result2-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1"></div>
+        <div id="result1-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-1"></div>
+      </div>
+      <div class="row">
+        <div id="result0-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2"><label for="input8-m"><input id="input8-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1"></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2"><label for="input7-m"><input id="input7-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+        <div class="col gg-col gg-col-1"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2"></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2"><label for="input6-m"><input id="input6-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+        <div class="col gg-col gg-col-2"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-3"></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2"><label for="input5-m"><input id="input5-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+        <div class="col gg-col gg-col-3"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-4"></div>
+        <div id="result4" class="col gg-col gg-col-2"><label for="input0-m"><input id="input0-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div id="result5" class="col gg-col gg-col-2"><label for="input1-m"><input id="input1-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+        <div id="result6" class="col gg-col gg-col-2"><label for="input2-m"><input id="input2-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div id="result7" class="col gg-col gg-col-2"><label for="input3-m"><input id="input3-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div id="result8" class="col gg-col gg-col-2"><label for="input4-m"><input id="input4-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div class="col gg-col gg-col-4"></div>
+      </div>
+    </div>
+  </div>
+  <div id="classic-mirrored" class="w-100 d-flex row justify-content-center">
+    <div class="col table-responsive" style="max-width: 520px">
+      <table class="table table-borderless table-sm">
+        <tbody class="text-center h3">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="mirror-result8">&#x2B22;</td>
+            <td id="mirror-result7">&#x2B22;</td>
+            <td id="mirror-result6">&#x2B22;</td>
+            <td id="mirror-result5">&#x2B22;</td>
+            <td id="mirror-result4">&#x2B22;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td id="mirror-result3">&#x2B22;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td id="mirror-result2">&#x2B22;</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td id="mirror-result1">&#x2B22;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><label for="mirror-input8"><input id="mirror-input8" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value="" checked></label></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td id="mirror-result0">&#x2B22;</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><label for="mirror-input7"><input id="mirror-input7" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><label for="mirror-input6"><input id="mirror-input6" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value="" checked></label></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><label for="mirror-input5"><input id="mirror-input5" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td>&#x2B22;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><label for="mirror-input4"><input id="mirror-input4" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td><label for="mirror-input3"><input id="mirror-input3" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value="" checked></label></td>
+            <td><label for="mirror-input2"><input id="mirror-input2" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td><label for="mirror-input1"><input id="mirror-input1" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td><label for="mirror-input0"><input id="mirror-input0" class="form-check-input calc-trigger timer-trigger"
+                  type="checkbox" value=""></label></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="modern-mirrored" class="w-100 d-flex row justify-content-center">
+    <div class="col table-responsive h3" style="max-width: 13em; min-width: 13em;">
+      <div class="row">
+        <div class="col gg-col gg-col-4"></div>
+        <div id="mirror-result8-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result7-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result6-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result5-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result4-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-4"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-3"></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result3-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-3"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2"></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result2-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1"></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result1-m" class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-1"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2"><label for="mirror-input8-m"><input id="mirror-input8-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div id="mirror-result0-m" class="col gg-col gg-col-2">&#x2B22;</div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1"></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input7-m"><input id="mirror-input7-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-1"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2"></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input6-m"><input id="mirror-input6-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-3"></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input5-m"><input id="mirror-input5-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-2">&#x2B22;</div>
+        <div class="col gg-col gg-col-3"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-4"></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input4-m"><input id="mirror-input4-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input3-m"><input id="mirror-input3-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input2-m"><input id="mirror-input2-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input1-m"><input id="mirror-input1-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div class="col gg-col gg-col-2"><label for="mirror-input0-m"><input id="mirror-input0-m"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div class="col gg-col gg-col-4"></div>
+      </div>
+    </div>
   </div>
 </div>
-<div id="modern" class="w-100 d-flex row justify-content-center">
-    <div class="col table-responsive h3" style="max-width: 13em; min-width: 13em;">
-        <div class="row">
-            <div class="col gg-col gg-col-4"></div>
-            <div id="result4-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result5-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result6-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result7-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="result8-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-4"></div>
+<div id="hard">
+  <div id="modern-hard" class="w-100 d-flex row justify-content-center">
+    <div class="col table-responsive h3" style="max-width: 11em; min-width: 11em;">
+      <div class="row">
+        <div class="col gg-col gg-col-3-hard"></div>
+        <div id="result3-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="result4-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="result5-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="result6-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-3-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2-hard"></div>
+        <div id="result2-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1-hard"></div>
+        <div id="result1-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-1-hard"></div>
+      </div>
+      <div class="row">
+        <div id="result0-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard"><label for="input6-m-h"><input id="input6-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value="" checked></label>
         </div>
-        <div class="row">
-            <div class="col gg-col gg-col-3"></div>
-            <div id="result3-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-3"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-2"></div>
-            <div id="result2-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-1"></div>
-            <div id="result1-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-1"></div>
-        </div>
-        <div class="row">
-            <div id="result0-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input8-m"><input id="input8-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-1"></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input7-m"><input id="input7-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
-            <div class="col gg-col gg-col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-2"></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input6-m"><input id="input6-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
-            <div class="col gg-col gg-col-2"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-3"></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"><label for="input5-m"><input id="input5-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
-            <div class="col gg-col gg-col-3"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-4"></div>
-            <div id="result4" class="col gg-col gg-col-2"><label for="input0-m"><input id="input0-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div id="result5" class="col gg-col gg-col-2"><label for="input1-m"><input id="input1-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
-            <div id="result6" class="col gg-col gg-col-2"><label for="input2-m"><input id="input2-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div id="result7" class="col gg-col gg-col-2"><label for="input3-m"><input id="input3-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div id="result8" class="col gg-col gg-col-2"><label for="input4-m"><input id="input4-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div class="col gg-col gg-col-4"></div>
-        </div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1-hard"></div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard"><label for="input5-m-h"><input id="input5-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value=""></label></div>
+        <div class="col gg-col gg-col-1-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2-hard"></div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard"><label for="input4-m-h"><input id="input4-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value="" checked></div>
+        <div class="col gg-col gg-col-2-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-3-hard"></div>
+        <div id="result4" class="col gg-col gg-col-2-hard"><label for="input0-m-h"><input id="input0-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value=""></div>
+        <div id="result5" class="col gg-col gg-col-2-hard"><label for="input1-m-h"><input id="input1-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value="" checked></div>
+        <div id="result6" class="col gg-col gg-col-2-hard"><label for="input2-m-h"><input id="input2-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value=""></div>
+        <div id="result7" class="col gg-col gg-col-2-hard"><label for="input3-m-h"><input id="input3-m-h"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div class="col gg-col gg-col-3-hard-hard"></div>
+      </div>
     </div>
-</div>
-<div id="classic-mirrored" class="w-100 d-flex row justify-content-center">
-  <div class="col table-responsive" style="max-width: 520px">
-    <table class="table table-borderless table-sm">
-      <tbody class="text-center h3">
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td id="mirror-result8">&#x2B22;</td>
-          <td id="mirror-result7">&#x2B22;</td>
-          <td id="mirror-result6">&#x2B22;</td>
-          <td id="mirror-result5">&#x2B22;</td>
-          <td id="mirror-result4">&#x2B22;</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td id="mirror-result3">&#x2B22;</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td id="mirror-result2">&#x2B22;</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td id="mirror-result1">&#x2B22;</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><label for="mirror-input8"><input id="mirror-input8" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td id="mirror-result0">&#x2B22;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><label for="mirror-input7"><input id="mirror-input7" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td><label for="mirror-input6"><input id="mirror-input6" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><label for="mirror-input5"><input id="mirror-input5" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td>&#x2B22;</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><label for="mirror-input4"><input id="mirror-input4" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td><label for="mirror-input3"><input id="mirror-input3" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></td>
-          <td><label for="mirror-input2"><input id="mirror-input2" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td><label for="mirror-input1"><input id="mirror-input1" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td><label for="mirror-input0"><input id="mirror-input0" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-</div>
-<div id="modern-mirrored" class="w-100 d-flex row justify-content-center">
-    <div class="col table-responsive h3" style="max-width: 13em; min-width: 13em;">
-        <div class="row">
-            <div class="col gg-col gg-col-4"></div>
-            <div id="mirror-result8-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result7-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result6-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result5-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result4-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-4"></div>
+  <div id="modern-mirrored-hard" class="w-100 d-flex row justify-content-center">
+    <div class="col table-responsive h3" style="max-width: 11em; min-width: 11em;">
+      <div class="row">
+        <div class="col gg-col gg-col-3-hard"></div>
+        <div id="mirror-result6-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="mirror-result5-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="mirror-result4-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="mirror-result3-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-3-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2-hard"></div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="mirror-result2-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1-hard"></div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="mirror-result1-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-1-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2-hard"><label for="mirror-input6-m-h"><input id="mirror-input6-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value="" checked></label>
         </div>
-        <div class="row">
-            <div class="col gg-col gg-col-3"></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result3-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-3"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-2"></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result2-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-1"></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result1-m" class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-2"><label for="mirror-input8-m"><input id="mirror-input8-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></label></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div id="mirror-result0-m" class="col gg-col gg-col-2">&#x2B22;</div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-1"></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input7-m"><input id="mirror-input7-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-2"></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input6-m"><input id="mirror-input6-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-3"></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input5-m"><input id="mirror-input5-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></label></div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-2">&#x2B22;</div>
-            <div class="col gg-col gg-col-3"></div>
-        </div>
-        <div class="row">
-            <div class="col gg-col gg-col-4"></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input4-m"><input id="mirror-input4-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input3-m"><input id="mirror-input3-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value="" checked></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input2-m"><input id="mirror-input2-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input1-m"><input id="mirror-input1-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div class="col gg-col gg-col-2"><label for="mirror-input0-m"><input id="mirror-input0-m" class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
-            <div class="col gg-col gg-col-4"></div>
-        </div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div id="mirror-result0-m-h" class="col gg-col gg-col-2-hard">&#x2B22;</div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-1-hard"></div>
+        <div class="col gg-col gg-col-2-hard"><label for="mirror-input5-m-h"><input id="mirror-input5-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value=""></label></div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-1-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-2-hard"></div>
+        <div class="col gg-col gg-col-2-hard"><label for="mirror-input4-m-h"><input id="mirror-input4-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value="" checked></div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard">&#x2B22;</div>
+        <div class="col gg-col gg-col-2-hard"></div>
+      </div>
+      <div class="row">
+        <div class="col gg-col gg-col-3-hard"></div>
+        <div id="result4" class="col gg-col gg-col-2-hard"><label for="mirror-input3-m-h"><input id="mirror-input3-m-h"
+              class="form-check-input calc-trigger timer-trigger" type="checkbox" value=""></div>
+        <div id="result5" class="col gg-col gg-col-2-hard"><label for="mirror-input2-m-h"><input id="mirror-input2-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value="" checked></div>
+        <div id="result6" class="col gg-col gg-col-2-hard"><label for="mirror-input1-m-h"><input id="mirror-input1-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value=""></div>
+        <div id="result7" class="col gg-col gg-col-2-hard"><label for="mirror-input0-m-h"><input id="mirror-input0-m-h"
+              class="form-check-input calc-trigger timer-trigger reflect" type="checkbox" value=""></div>
+        <div class="col gg-col gg-col-3-hard-hard"></div>
+      </div>
     </div>
+  </div>
 </div>
 <br />
 <div class="w-100 d-flex row justify-content-center">
@@ -536,7 +737,8 @@ nojirachi: "true"
     <span tabindex="0" style="cursor: pointer;" id="symbol-check" class="h4">&#x2B22;</span>
   </div>
   <div class="col-md">
-    <button id="text-input-button" class="btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#text-input-collapse" aria-expanded="false" aria-controls="collapseExample">
+    <button id="text-input-button" class="btn btn-outline-light" type="button" data-bs-toggle="collapse"
+      data-bs-target="#text-input-collapse" aria-expanded="false" aria-controls="collapseExample">
       Text Input
     </button>
     <div class="row justify-content-right collapse mt-2" id="text-input-collapse">
@@ -552,37 +754,56 @@ nojirachi: "true"
 <div>
   <h2>How to use:</h2>
   <div>
-    For full instructions, please refer to <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/186567">@sQld</a>'s <a class="text-info text-decoration-none"
+    For full instructions, please refer to <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/186567">@sQld</a>'s <a class="text-info text-decoration-none"
       href="https://www1.flightrising.com/forums/gde/2765443">thread on Flight Rising forums</a>.
   </div>
   <br />
   <div>
-    Select the color that you want to win in the drop-down menu at the top of the page, then clear the board on FR by clicking the tile below and to the right of the tiles of the wrong color.
+    Select the color that you want to win in the drop-down menu at the top of the page, then clear the board on FR by
+    clicking the tile below and to the right of the tiles of the wrong color.
   </div>
   <div>
-    Once the whole board has been cleared except for the bottom- and bottom-right sides, use the check-boxes on this page to check the tiles that need changing. Once you
-    have selected them all, click <span class="fw-bold">one time</span> on each of the tiles that turn <span id="color-text">red</span> on this site in any order.
+    Once the whole board has been cleared except for the bottom- and bottom-right sides, use the check-boxes on this
+    page to check the tiles that need changing. Once you
+    have selected them all, click <span class="fw-bold">one time</span> on each of the tiles that turn <span
+      id="color-text">red</span> on this site in any order.
   </div>
   <div>
-    Now, simply clear the board on FR again by clicking the tile below and to the right of the tiles of the wrong color again. And that's it!
-  </div>
-  <br />
-  <div>
-    Full credit goes to <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/186567">@sQld</a> and their amazing <a class="text-decoration-none text-info"
-      href="https://docs.google.com/spreadsheets/d/1TxMNyN2CakS8eHZxZnzfDKqBmCA7faY8ReCn4XJpuP4/edit#gid=1842068781">spreadsheet</a> as this is simply an adaptation of their work. Thanks also to <a class="text-decoration-none text-info"
-      href="http://www1.flightrising.com/clan-profile/11257">@Sevi</a>, <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/575482">@KnightOfChance</a>, and <a class="text-decoration-none text-info"
-      href="http://www1.flightrising.com/clan-profile/462423">@sikora</a> for their contributions to that sheet, and to <a class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/362345">@Catradora</a> and <a
-      class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/354302">@JumboDS64</a> for the <a class="text-decoration-none text-info" href="http://www1.flightrising.com/forums/gde/2486926">original G&G Very Hard
-      guide</a> and the <a class="text-decoration-none text-info" href="http://www1.flightrising.com/forums/gde/2753640">G&G Very Hard: Even simpler</a> guide. Website-ified by <a class="text-decoration-none text-info"
-      href="http://www1.flightrising.com/clan-profile/549799">@LegoFigure11</a> (that's me!).
+    Now, simply clear the board on FR again by clicking the tile below and to the right of the tiles of the wrong color
+    again. And that's it!
   </div>
   <br />
   <div>
-    Curoius about how this works? Check out <a class="text-info text-decoration-none" href="https://www1.flightrising.com/forums/gde/2765443/36#post_54904651">this post</a> on Flight Rising Forums.
+    Full credit goes to <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/186567">@sQld</a> and their amazing <a
+      class="text-decoration-none text-info"
+      href="https://docs.google.com/spreadsheets/d/1TxMNyN2CakS8eHZxZnzfDKqBmCA7faY8ReCn4XJpuP4/edit#gid=1842068781">spreadsheet</a>
+    as this is simply an adaptation of their work. Thanks also to <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/11257">@Sevi</a>, <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/575482">@KnightOfChance</a>, and <a
+      class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/462423">@sikora</a> for
+    their contributions to that sheet, and to <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/clan-profile/362345">@Catradora</a> and <a
+      class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/354302">@JumboDS64</a> for
+    the <a class="text-decoration-none text-info" href="http://www1.flightrising.com/forums/gde/2486926">original G&G
+      Very Hard
+      guide</a> and the <a class="text-decoration-none text-info"
+      href="http://www1.flightrising.com/forums/gde/2753640">G&G Very Hard: Even simpler</a> guide. Website-ified by <a
+      class="text-decoration-none text-info" href="http://www1.flightrising.com/clan-profile/549799">@LegoFigure11</a>
+    (that's me!).
   </div>
   <br />
   <div>
-    Problems? Suggestions? Feedback? Let me know on <a class="text-info text-decoration-none" href="https://www1.flightrising.com/msgs/new?to=LegoFigure11&subject=Glimmer%20%26%20Gloom%20Site"></a>Flight Rising</a> or <a class="text-info text-decoration-none" href="https://github.com/LegoFigure11/legofigure11.github.io/issues/new?title=Glimmer%20%26%20Gloom%20Solver%20Question">GitHub</a>.
+    Curoius about how this works? Check out <a class="text-info text-decoration-none"
+      href="https://www1.flightrising.com/forums/gde/2765443/36#post_54904651">this post</a> on Flight Rising Forums.
+  </div>
+  <br />
+  <div>
+    Problems? Suggestions? Feedback? Let me know on <a class="text-info text-decoration-none"
+      href="https://www1.flightrising.com/msgs/new?to=LegoFigure11&subject=Glimmer%20%26%20Gloom%20Site"></a>Flight
+    Rising</a> or <a class="text-info text-decoration-none"
+      href="https://github.com/LegoFigure11/legofigure11.github.io/issues/new?title=Glimmer%20%26%20Gloom%20Solver%20Question">GitHub</a>.
   </div>
 </div>
 
@@ -603,6 +824,8 @@ nojirachi: "true"
   const time = 16_000; // 16 sec, fairly arbitrary
 
   function calculate() {
+    /* VERY HARD */
+
     // From https://docs.google.com/spreadsheets/d/16pqDJcZfQE9UAkSdVWlcmR5zDUQdWFoFFkLTJGg3-p0/edit#gid=0
     // By Catradora, JumboDS64, and sQld
     const patterns = [
@@ -654,12 +877,50 @@ nojirachi: "true"
         $("#" + (mirror ? "mirror-" : "") + "result" + r + (modern ? "-m" : "")).html(window.symbol);
       }
     }
+
+    /* HARD */
+    const hardMap = {
+      93: 8,
+      62: 16,
+      99: 24,
+      20: 32,
+      42: 48,
+      73: 64,
+      119: 80,
+    }
+
+    let val = 0;
+    for (var i = 0; i < 7; i++) {
+      let t = $("#" + (mirror ? "mirror-" : "") + "input" + i + (modern ? "-m" : "") + "-h").prop("checked") ? 1 : 0;
+      val += t << i;
+    }
+    const p = hardMap[val];
+
+    for (let i = 0; i < 7; i++) {
+      $("#" + (mirror ? "mirror-" : "") + "result" + i + (modern ? "-m" : "") + "-h").css("color", d);
+      $("#" + (mirror ? "mirror-" : "") + "result" + i + (modern ? "-m" : "") + "-h").html("&#x2B22;");
+
+      if (p && (p >>> i) & 1 == 1) {
+        $("#" + (mirror ? "mirror-" : "") + "result" + i + (modern ? "-m" : "") + "-h").css("color", window.color);
+        $("#" + (mirror ? "mirror-" : "") + "result" + i + (modern ? "-m" : "") + "-h").html(window.symbol);
+      }
+    }
   }
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     if (window.localStorage.getItem("color") === "#0dcaf0") {
       $("#color-check").prop("checked", true);
     }
+
+
+    const diff = window.localStorage.getItem("difficulty");
+    $("#very-hard").addClass("d-none");
+    $("#hard").addClass("d-none");
+
+    if (diff) {
+      $("#" + diff).removeClass("d-none");
+      $("#opt-" + diff).prop("selected", true);
+    } $("#difficulty-select").change();
 
     const mode = window.localStorage.getItem("displaymode");
     $("#classic").addClass("d-none");
@@ -670,7 +931,9 @@ nojirachi: "true"
     if (mode) {
       $("#" + mode).removeClass("d-none");
       $("#opt-" + mode).prop("selected", true);
-    } else $("#displaymode-select").change();
+    }
+
+    $("#displaymode-select").change();
 
     const symbol = window.localStorage.getItem("symbol");
     if (symbol) {
@@ -703,35 +966,50 @@ nojirachi: "true"
     if (window.autoReset === true) reset();
   });
 
-  $("#color-check").change(function() {
+  $("#color-check").change(function () {
     window.color = $("#color-check").prop("checked") ? "#0dcaf0" : "#ff0000";
     window.localStorage.setItem("color", window.color);
   })
 
-  $("#faction-select").change(function() {
+  $("#faction-select").change(function () {
     window.localStorage.setItem("lightWin", $("#lightWin").prop("selected"));
     reset();
   });
 
-  $("#displaymode-select").change(function() {
+  $("#displaymode-select").change(function () {
     var displaymode = $("#displaymode-select").val();
     window.localStorage.setItem("displaymode", displaymode);
     $("#classic").addClass("d-none");
     $("#modern").addClass("d-none");
     $("#classic-mirrored").addClass("d-none");
     $("#modern-mirrored").addClass("d-none");
+    $("#modern-hard").addClass("d-none");
+    $("#modern-mirrored-hard").addClass("d-none");
     $("#" + displaymode).removeClass("d-none");
+    if (displaymode.includes("modern")) $("#" + displaymode + "-hard").removeClass("d-none");
+    reset();
+
+    if (displaymode.includes("classic") && !($("#difficulty-select").val().includes("very-"))) alert("Sorry! Classic mode is only supported on Very Hard difficulty."); 
+  });
+
+  $("#difficulty-select").change(function () {
+    var diff = $(this).val();
+    window.localStorage.setItem("difficulty", diff);
+
+    $("#very-hard").addClass("d-none");
+    $("#hard").addClass("d-none");
+    $("#" + diff).removeClass("d-none");
 
     reset();
   });
 
-  $("input:checkbox").change(function() {
+  $("input:checkbox").change(function () {
     window.autoReset = $("#auto-reset-check").prop("checked");
     calculate();
     setColor();
   });
 
-  $("#symbol-check").click(function() {
+  $("#symbol-check").click(function () {
     if ($("#symbol-check").html() === "\u{2605}") {
       window.symbol = "&#x2B22;";
     } else {
@@ -775,36 +1053,66 @@ nojirachi: "true"
       $("#input" + i + "-m").prop("checked", false);
       $("#mirror-input" + i).prop("checked", false);
       $("#mirror-input" + i + "-m").prop("checked", false);
+      if (i < 7) {
+        $("#input" + i + "-m-h").prop("checked", false);
+        $("#mirror-input" + i + "-m-h").prop("checked", false);
+      }
     }
 
     calculate();
     setColor();
   }
 
-  $("#text-input").bind("keyup keydown", function() {
+  $(".reflect").click(function () {
+    const id = $(this).prop("id");
+    const num = id.match(/\d+/g);
+    const pair = id.replace(num, Math.abs(6 - num));
+    $("#" + pair).prop("checked", $(this).prop("checked"));
+  });
+
+  $("#text-input").bind("keyup keydown", function () {
+    var diff = $("#difficulty-select").val();
+    var cap = diff.includes("very") ? 9 : 4;
     var testArr = $("#text-input").val().split("");
     var resultArr = [];
     var isValid = new RegExp("[01,.]+")
     for (var i in testArr) {
-      if (isValid.test(testArr[i]) && i < 9) {
+      if (isValid.test(testArr[i]) && i < cap) {
         resultArr.push(testArr[i]);
       }
     }
 
     $("#text-input").val(resultArr.join(""));
 
-    if (resultArr.length === 9) {
-      for (var i = 0; i < 9; i++) {
-        if (["0", ","].includes(resultArr[i])) {
-          $("#input" + i).prop("checked", false);
-          $("#input" + i + "-m").prop("checked", false);
-          $("#mirror-input" + i).prop("checked", false);
-          $("#mirror-input" + i + "-m").prop("checked", false);
-        } else {
-          $("#input" + i).prop("checked", true);
-          $("#input" + i + "-m").prop("checked", true);
-          $("#mirror-input" + i).prop("checked", true);
-          $("#mirror-input" + i + "-m").prop("checked", true);
+    if (resultArr.length === cap) {
+      if (cap === 9) {
+        for (var i = 0; i < 9; i++) {
+          if (["0", ","].includes(resultArr[i])) {
+            $("#input" + i).prop("checked", false);
+            $("#input" + i + "-m").prop("checked", false);
+            $("#mirror-input" + i).prop("checked", false);
+            $("#mirror-input" + i + "-m").prop("checked", false);
+          } else {
+            $("#input" + i).prop("checked", true);
+            $("#input" + i + "-m").prop("checked", true);
+            $("#mirror-input" + i).prop("checked", true);
+            $("#mirror-input" + i + "-m").prop("checked", true);
+          }
+        }
+      }
+      else {
+        for (var i = 0; i < 4; i++) {
+          if (["0", ","].includes(resultArr[i])) {
+            $("#input" + i + "-m-h").prop("checked", false);
+            $("#mirror-input" + i + "-m-h").prop("checked", false);
+            $("#input" + Math.abs(6 - i) + "-m-h").prop("checked", false);
+            $("#mirror-input" + Math.abs(6 - i) + "-m-h").prop("checked", false);
+          } else {
+            $("#input" + i + "-m-h").prop("checked", true);
+            $("#mirror-input" + i + "-m-h").prop("checked", true);
+            $("#input" + Math.abs(6 - i) + "-m-h").prop("checked", true);
+            $("#mirror-input" + Math.abs(6 - i) + "-m-h").prop("checked", true);
+          }
         }
       }
       calculate();
@@ -813,17 +1121,17 @@ nojirachi: "true"
     }
   });
 
-  $("#text-input-button").click(function() {
+  $("#text-input-button").click(function () {
     $("#text-input").focus();
   });
 
-  $("#auto-reset-check").change(function() {
+  $("#auto-reset-check").change(function () {
     window.localStorage.setItem("autoReset", $("#auto-reset-check").prop("checked"));
     if ($("#auto-reset-check").prop("checked")) reset();
     else clearTimeout(timer);
   });
 
-  $(".timer-trigger").change(function() {
+  $(".timer-trigger").change(function () {
     if (window.autoReset) {
       clearTimeout(timer);
       timer = setTimeout(reset, time);

@@ -1,6 +1,9 @@
 /*
  * Custom bootstrap-derived grid css
  */
+.gg-col {
+  text-align: center;
+}
 
 .gg-col-1 {
   flex: 0 0 auto;
@@ -20,6 +23,21 @@
 .gg-col-4 {
   flex: 0 0 auto;
   width: 22.22222222%;
+}
+
+.gg-col-1-hard {
+  flex: 0 0 auto;
+  width: 7.14285714%;
+}
+
+.gg-col-2-hard {
+  flex: 0 0 auto;
+  width: 14.2857143%;
+}
+
+.gg-col-3-hard {
+  flex: 0 0 auto;
+  width: 21.4285714%;
 }
 
 /*
