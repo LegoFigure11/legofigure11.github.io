@@ -84,7 +84,7 @@ permalink: /misc/swsh-weather/
     </div>
     <div class="row">
         <div class="col">
-            <h4>Forecast: <span id="forecast"></span></h4>
+            <h4 id="fc">Forecast: <img id="forecast-icon" alt="" height="0" width="0"><span id="forecast"></span></h4>
         </div>
     </div>
   </div>
@@ -248,6 +248,14 @@ permalink: /misc/swsh-weather/
     const tgt = document.getElementById("target");
     tgt.value = date;
 
+    const h4 = document.getElementById("fc");
+    const icon = document.getElementById("forecast-icon");
+    const px = window.getComputedStyle(h4).fontSize.replace("px", "");
+    console.log(icon);
+    console.log(px);
+    icon.height = px * 1.5;
+    icon.width = px * 1.5;
+
     $(search).change();
     $(today).change();
   });
@@ -263,6 +271,10 @@ permalink: /misc/swsh-weather/
     const weather = getWeatherName(val);
     const forecast = document.getElementById("forecast");
     forecast.textContent = weather;
+
+    const icon = document.getElementById("forecast-icon");
+    icon.src = "./res/" + weather.toLowerCase().replace(" ", "-") + ".png";
+    icon.alt = weather;
   });
 
   $(".diff-trigger").change(() => {
