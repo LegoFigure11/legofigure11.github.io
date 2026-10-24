@@ -13,3 +13,5 @@ plugins:
   - jekyll-avatar
   - jekyll-github-metadata
   - jekyll-seo-tag
+  - jekyll-timeago
+  - jekyll-titles-from-headings
