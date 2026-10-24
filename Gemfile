@@ -1,20 +1,18 @@
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
-
-group :jekyll_plugins do
-  gem "jekyll-seo-tag"
-  gem "jekyll-github-metadata"
-  gem "jekyll-avatar"
-end
-
 platforms :windows, :jruby do
   gem "tzinfo"
   gem "tzinfo-data"
 end
 
-gem "wdm", ">= 0.1.0"
-gem "webrick"
-gem "bigdecimal" # Newer Ruby versions don't install this by default, apparently
-gem "csv" # Same with this
-gem "fiddle" #...and this
+gem "jekyll", "~> 4.4.1"
+gem 'faraday-retry'
+gem 'wdm', '>= 0.1.0'
+
+group :jekyll_plugins do
+  gem "jekyll-timeago", "~> 0.13.1"
+  gem "jekyll-seo-tag"
+  gem "jekyll-github-metadata"
+  gem "jekyll-avatar"
+  gem "jekyll-titles-from-headings"
+end
