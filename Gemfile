@@ -10,7 +10,6 @@ gem 'faraday-retry'
 gem 'wdm', '>= 0.1.0'
 
 group :jekyll_plugins do
-  gem "jekyll-timeago", "~> 0.13.1"
   gem "jekyll-seo-tag"
   gem "jekyll-github-metadata"
   gem "jekyll-avatar"
