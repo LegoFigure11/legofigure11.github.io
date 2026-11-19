@@ -1,0 +1,91 @@
+---
+layout: default
+title: Bank Shutdown Countdown
+permalink: /misc/bank-shutdown-countdown/
+container_width: 750
+---
+
+<div class="text-center w-100 mt-4">
+  <div class="h3">Pok&eacute;mon Bank Shutdown</div>
+  <time class="h2 text-lg-nowrap" id="deadline" datetime="2027-02-26T12:00:00+09:00">February 26, 2027 (Friday) 12:00PM (Japan Time)</time>
+  <div class="h5 mt-2 text-secondary"><span id=local>February 26, 2027 (Friday) 12:00PM</span> (Local Time)</div>
+</div>
+
+<div id="countdown" class="row row-cols-4 text-center mt-4 d-none">
+  <div class="col">
+    <div class="h1" id="days">00</div>
+    Days
+  </div>
+  <div class="col">
+    <div class="h1" id="hours">00</div>
+    Hours
+  </div>
+  <div class="col">
+    <div class="h1" id="minutes">00</div>
+    Minutes
+  </div>
+  <div class="col">
+    <div class="h1" id="seconds">00</div>
+    Seconds
+  </div>
+</div>
+
+<div class="text-center w-100 mt-4">
+  <div>
+    <a class="text-info text-decoration-none" href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/61543/" target="_blank">Nintendo Support (EN) <i class="bi bi-box-arrow-up-right text-secondary" style="font-size: 0.7rem; padding-left: 0.3rem;"></i></a>
+  </div>
+  <div>
+    <a class="text-info text-decoration-none" href="https://www.pokemon.co.jp/info/2022/02/220216_gm01.html" target="_blank">Official Announcment (JP) <i class="bi bi-box-arrow-up-right text-secondary" style="font-size: 0.7rem; padding-left: 0.3rem;"></i></a>
+  </div>
+  <div class="mt-2 h4">Please make sure to transfer any Pok&eacute;mon you want to keep to Pok&eacute;mon HOME before the countdown ends!</div>
+</div>
+
+<script>
+  function dateRemainingTime(date) {
+    var now = new Date();
+    console.log(now);
+    var diff = date - now;
+    console.log(diff)
+    
+    if (diff <= 0) return [0, 0, 0, 0];
+
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var minutes = Math.floor((diff / (1000 * 60)) % 60);
+    var seconds = Math.floor((diff / 1000) % 60);
+
+    return [days, hours, minutes, seconds];
+  }
+
+  var dt = document.getElementById("deadline");
+  var d = new Date(dt.dateTime);
+
+  var local = document.getElementById("local");
+
+  var ds = new Intl.DateTimeFormat(Intl.DateTimeFormat().resolvedOptions().locale, {
+    dateStyle: "full",
+    timeStyle: "long",
+  }).format(d);
+  local.textContent = ds;
+
+  var edays = document.getElementById("days");
+  var ehours = document.getElementById("hours");
+  var emins = document.getElementById("minutes");
+  var esecs = document.getElementById("seconds");
+
+  var remaining = dateRemainingTime(new Date(dt.dateTime));
+  edays.textContent = (remaining[0] + "").padStart(2, "0");
+  ehours.textContent = (remaining[1] + "").padStart(2, "0");
+  emins.textContent = (remaining[2] + "").padStart(2, "0");
+  esecs.textContent = (remaining[3] + "").padStart(2, "0");
+  document.getElementById("countdown").classList.remove("d-none");
+
+  setInterval(() => {
+    remaining = dateRemainingTime(new Date(dt.dateTime));
+    edays.textContent = (remaining[0] + "").padStart(2, "0");
+    ehours.textContent = (remaining[1] + "").padStart(2, "0");
+    emins.textContent = (remaining[2] + "").padStart(2, "0");
+    esecs.textContent = (remaining[3] + "").padStart(2, "0");
+    }, 1000
+  );
+</script>
