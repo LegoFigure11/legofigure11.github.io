@@ -43,9 +43,7 @@ container_width: 750
 <script>
   function dateRemainingTime(date) {
     var now = new Date();
-    console.log(now);
     var diff = date - now;
-    console.log(diff)
     
     if (diff <= 0) return [0, 0, 0, 0];
 
